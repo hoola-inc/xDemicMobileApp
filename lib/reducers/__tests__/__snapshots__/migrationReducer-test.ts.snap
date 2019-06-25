@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addMigrationTarget adds a target 1`] = `
+Object {
+  "steps": Object {},
+  "targets": Array [
+    "Legacy",
+  ],
+}
+`;
+
+exports[`completedMigrationStep completes a step 1`] = `
+Object {
+  "steps": Object {
+    "MigrateLegacy": 2,
+  },
+  "targets": Array [],
+}
+`;
+
+exports[`completedMigrationStep should complete an additional step 1`] = `
+Object {
+  "steps": Object {
+    "MigrateLegacy": 2,
+  },
+  "targets": Array [
+    "Legacy",
+  ],
+}
+`;
+
+exports[`failedMigrationStep fails a step 1`] = `
+Object {
+  "steps": Object {
+    "MigrateLegacy": 3,
+  },
+  "targets": Array [],
+}
+`;
+
+exports[`failedMigrationStep should fail an additional step 1`] = `
+Object {
+  "steps": Object {
+    "MigrateLegacy": 3,
+  },
+  "targets": Array [
+    "Legacy",
+  ],
+}
+`;
+
+exports[`startedMigrationStep should start an additional step 1`] = `
+Object {
+  "steps": Object {
+    "MigrateLegacy": 1,
+  },
+  "targets": Array [
+    "Legacy",
+  ],
+}
+`;
+
+exports[`startedMigrationStep starts a step 1`] = `
+Object {
+  "steps": Object {
+    "MigrateLegacy": 1,
+  },
+  "targets": Array [],
+}
+`;

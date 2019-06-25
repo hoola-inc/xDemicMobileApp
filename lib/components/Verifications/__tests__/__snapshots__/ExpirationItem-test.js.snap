@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpirationItem renders ExpirationItem in milliseconds 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "rgba(74,74,74,1)",
+        "fontFamily": undefined,
+        "fontSize": 12,
+        "lineHeight": 16,
+      }
+    }
+  >
+    Exp: 
+    Feb 29th 2020
+  </Text>
+</View>
+`;
+
+exports[`ExpirationItem renders ExpirationItem in seconds 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "rgba(74,74,74,1)",
+        "fontFamily": undefined,
+        "fontSize": 12,
+        "lineHeight": 16,
+      }
+    }
+  >
+    Exp: 
+    Feb 29th 2020
+  </Text>
+</View>
+`;

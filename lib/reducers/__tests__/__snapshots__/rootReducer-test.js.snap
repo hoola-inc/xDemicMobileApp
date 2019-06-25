@@ -1,0 +1,482 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initializes all reducers 1`] = `
+Object {
+  "authorization": Object {
+    "cameraAuthorized": "undetermined",
+    "notificationsAuthorized": "undetermined",
+    "photoAuthorized": "undetermined",
+  },
+  "contacts": Object {
+    "index": 0,
+    "key": "contacts",
+    "selectedContact": false,
+  },
+  "events": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "flags": Object {
+    "antiSybilVerification": "phoneAndFunCaptcha",
+    "darkTheme": false,
+    "debug": false,
+    "designSystem": false,
+    "metaTx": true,
+    "sandbox": false,
+  },
+  "hdwallet": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "history": Fr {
+    "F": 8192,
+    "s": 65937614,
+    "u": null,
+  },
+  "hub": Object {
+    "events": Array [],
+  },
+  "migrations": Object {
+    "steps": Object {},
+    "targets": Array [],
+  },
+  "myInfo": Object {
+    "changed": Object {},
+  },
+  "networking": Object {},
+  "onboarding": Object {
+    "newbie": false,
+    "userData": Object {},
+  },
+  "recovery": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "request": null,
+  "scanner": Object {
+    "cameraEnabled": false,
+  },
+  "settings": Object {
+    "analyticsOptOut": false,
+    "dataBackup": false,
+  },
+  "sns": Object {},
+  "status": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "uport": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "vc": Object {
+    "jwt": Array [],
+  },
+}
+`;
+
+exports[`initializes all reducers 2`] = `
+Object {
+  "authorization": Object {
+    "cameraAuthorized": "undetermined",
+    "notificationsAuthorized": "undetermined",
+    "photoAuthorized": "undetermined",
+  },
+  "contacts": Object {
+    "index": 0,
+    "key": "contacts",
+    "selectedContact": false,
+  },
+  "events": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "flags": Object {
+    "antiSybilVerification": "phoneAndFunCaptcha",
+    "darkTheme": false,
+    "debug": false,
+    "designSystem": false,
+    "metaTx": true,
+    "sandbox": false,
+  },
+  "hdwallet": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "history": Fr {
+    "F": 8192,
+    "s": 65937614,
+    "u": null,
+  },
+  "hub": Object {
+    "events": Array [],
+  },
+  "migrations": Object {
+    "steps": Object {},
+    "targets": Array [],
+  },
+  "myInfo": Object {
+    "changed": Object {},
+  },
+  "networking": Object {},
+  "onboarding": Object {
+    "newbie": false,
+    "userData": Object {},
+  },
+  "recovery": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "request": null,
+  "scanner": Object {
+    "cameraEnabled": false,
+  },
+  "settings": Object {
+    "analyticsOptOut": false,
+    "dataBackup": false,
+  },
+  "sns": Object {},
+  "status": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "uport": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "vc": Object {
+    "jwt": Array [],
+  },
+}
+`;
+
+exports[`resetDevice() 1`] = `
+Object {
+  "authorization": Object {
+    "cameraAuthorized": "undetermined",
+    "notificationsAuthorized": "undetermined",
+    "photoAuthorized": "undetermined",
+  },
+  "contacts": Object {
+    "index": 0,
+    "key": "contacts",
+    "selectedContact": false,
+  },
+  "events": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "flags": Object {
+    "antiSybilVerification": "phoneAndFunCaptcha",
+    "darkTheme": false,
+    "debug": false,
+    "designSystem": false,
+    "metaTx": true,
+    "sandbox": false,
+  },
+  "hdwallet": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "history": Fr {
+    "F": 8192,
+    "s": 65937614,
+    "u": null,
+  },
+  "hub": Object {
+    "events": Array [],
+    "head": null,
+  },
+  "migrations": Object {
+    "steps": Object {},
+    "targets": Array [],
+  },
+  "myInfo": Object {
+    "changed": Object {},
+  },
+  "networking": Object {},
+  "onboarding": Object {
+    "newbie": false,
+    "userData": Object {},
+  },
+  "recovery": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "request": null,
+  "scanner": Object {
+    "cameraEnabled": false,
+  },
+  "settings": Object {
+    "analyticsOptOut": false,
+    "channel": undefined,
+    "dataBackup": false,
+  },
+  "sns": Object {},
+  "status": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "uport": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "vc": Object {
+    "jwt": Array [],
+  },
+}
+`;
+
+exports[`resetDevice() 2`] = `
+Object {
+  "authorization": Object {
+    "cameraAuthorized": "undetermined",
+    "notificationsAuthorized": "undetermined",
+    "photoAuthorized": "undetermined",
+  },
+  "contacts": Object {
+    "index": 0,
+    "key": "contacts",
+    "selectedContact": false,
+  },
+  "events": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "flags": Object {
+    "antiSybilVerification": "phoneAndFunCaptcha",
+    "darkTheme": false,
+    "debug": false,
+    "designSystem": false,
+    "metaTx": true,
+    "sandbox": false,
+  },
+  "hdwallet": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "history": Fr {
+    "F": 8192,
+    "s": 65937614,
+    "u": null,
+  },
+  "hub": Object {
+    "events": Array [],
+    "head": null,
+  },
+  "migrations": Object {
+    "steps": Object {},
+    "targets": Array [],
+  },
+  "myInfo": Object {
+    "changed": Object {},
+  },
+  "networking": Object {},
+  "onboarding": Object {
+    "newbie": false,
+    "userData": Object {},
+  },
+  "recovery": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "request": null,
+  "scanner": Object {
+    "cameraEnabled": false,
+  },
+  "settings": Object {
+    "analyticsOptOut": false,
+    "channel": undefined,
+    "dataBackup": false,
+  },
+  "sns": Object {},
+  "status": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "uport": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "vc": Object {
+    "jwt": Array [],
+  },
+}
+`;
+
+exports[`resetDevice() 3`] = `
+Object {
+  "authorization": Object {
+    "cameraAuthorized": "undetermined",
+    "notificationsAuthorized": "undetermined",
+    "photoAuthorized": "undetermined",
+  },
+  "contacts": Object {
+    "index": 0,
+    "key": "contacts",
+    "selectedContact": false,
+  },
+  "events": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "flags": Object {
+    "antiSybilVerification": "phoneAndFunCaptcha",
+    "darkTheme": false,
+    "debug": false,
+    "designSystem": false,
+    "metaTx": true,
+    "sandbox": false,
+  },
+  "hdwallet": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "history": Fr {
+    "F": 8192,
+    "s": 65937614,
+    "u": null,
+  },
+  "hub": Object {
+    "events": Array [],
+    "head": null,
+  },
+  "migrations": Object {
+    "steps": Object {},
+    "targets": Array [],
+  },
+  "myInfo": Object {
+    "changed": Object {},
+  },
+  "networking": Object {},
+  "onboarding": Object {
+    "newbie": false,
+    "userData": Object {},
+  },
+  "recovery": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "request": null,
+  "scanner": Object {
+    "cameraEnabled": false,
+  },
+  "settings": Object {
+    "analyticsOptOut": false,
+    "channel": undefined,
+    "dataBackup": false,
+  },
+  "sns": Object {},
+  "status": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "uport": jl {
+    "B": null,
+    "F": 139268,
+    "f": Array [],
+    "h": 0,
+    "s": 16647951,
+    "u": null,
+  },
+  "vc": Object {
+    "jwt": Array [],
+  },
+}
+`;

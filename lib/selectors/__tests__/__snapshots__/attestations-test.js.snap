@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns all onlyLatestAttestationsWithIssuer 1`] = `
+Array [
+  Object {
+    "claim": Object {
+      "nationalId": "xxx0xxxx0xxx",
+    },
+    "iat": 1555183569,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "issuer": Object {
+      "name": "Issuer 1",
+    },
+    "token": "0014.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "phone": "555-555-5555",
+    },
+    "iat": 1555183568,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "issuer": Object {
+      "name": "Issuer 1",
+    },
+    "token": "0013.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "iat": 1555183567,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc02",
+    "issuer": Object {
+      "name": "Issuer 2",
+    },
+    "token": "0012.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "exp": 1555183567,
+    "iat": 1555183566,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "issuer": Object {
+      "name": "Issuer 1",
+    },
+    "token": "0015.TOKEN",
+  },
+]
+`;
+
+exports[`returns all onlyLatestAttestationsWithIssuer 2`] = `
+Array [
+  Object {
+    "claim": Object {
+      "nationalId": "xxx0xxxx0xxx",
+    },
+    "iat": 1555183569,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "issuer": Object {
+      "name": "Issuer 1",
+    },
+    "token": "0014.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "phone": "555-555-5555",
+    },
+    "iat": 1555183568,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "issuer": Object {
+      "name": "Issuer 1",
+    },
+    "token": "0013.TOKEN",
+  },
+]
+`;
+
+exports[`returns allClaims 1`] = `
+Object {
+  "description": "UX Designer",
+  "name": "Alice",
+  "nationalId": "xxx0xxxx0xxx",
+  "phone": "555-555-5555",
+}
+`;
+
+exports[`returns allClaims 2`] = `
+Object {
+  "name": "Alice Kovan",
+  "nationalId": "xxx0xxxx0xxx",
+  "phone": "555-555-5555",
+}
+`;
+
+exports[`returns full attestations summary 1`] = `
+Object {
+  "description": Object {
+    "UX Designer": 0,
+  },
+  "name": Object {
+    "Alice": 2,
+  },
+  "nationalId": Object {
+    "xxx0xxxx0xxx": 1,
+  },
+  "phone": Object {
+    "555-555-5555": 1,
+  },
+}
+`;
+
+exports[`returns full attestations summary 2`] = `
+Object {
+  "name": Object {
+    "Alice Kovan": 0,
+  },
+  "nationalId": Object {
+    "xxx0xxxx0xxx": 1,
+  },
+  "phone": Object {
+    "555-555-5555": 1,
+  },
+}
+`;
+
+exports[`returns full ledger 1`] = `Array []`;
+
+exports[`returns full ledger 2`] = `
+Array [
+  Object {
+    "claim": Object {
+      "nationalId": "xxx0xxxx0xxx",
+    },
+    "iat": 1555183569,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0014.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "phone": "555-555-5555",
+    },
+    "iat": 1555183568,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0013.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "iat": 1555183567,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc02",
+    "token": "0012.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "exp": 1555183567,
+    "iat": 1555183566,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0015.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "exp": 1555183566000,
+    "iat": 1555183565000,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0011.TOKEN",
+  },
+]
+`;
+
+exports[`returns full ledger 3`] = `
+Array [
+  Object {
+    "claim": Object {
+      "nationalId": "xxx0xxxx0xxx",
+    },
+    "iat": 1555183569,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0014.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "phone": "555-555-5555",
+    },
+    "iat": 1555183568,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0013.TOKEN",
+  },
+]
+`;
+
+exports[`returns ledger with only the latest attestations 1`] = `
+Array [
+  Object {
+    "claim": Object {
+      "nationalId": "xxx0xxxx0xxx",
+    },
+    "iat": 1555183569,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0014.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "phone": "555-555-5555",
+    },
+    "iat": 1555183568,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0013.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "iat": 1555183567,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc02",
+    "token": "0012.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "name": "Alice",
+    },
+    "exp": 1555183567,
+    "iat": 1555183566,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0015.TOKEN",
+  },
+]
+`;
+
+exports[`returns ledger with only the latest attestations 2`] = `
+Array [
+  Object {
+    "claim": Object {
+      "nationalId": "xxx0xxxx0xxx",
+    },
+    "iat": 1555183569,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0014.TOKEN",
+  },
+  Object {
+    "claim": Object {
+      "phone": "555-555-5555",
+    },
+    "iat": 1555183568,
+    "iss": "did:ethr:0x1bc5cbf71b068642fc5e89c5e3d0bdb3e366bc01",
+    "token": "0013.TOKEN",
+  },
+]
+`;
+
+exports[`returns third party attestations summary 1`] = `
+Object {
+  "name": Object {
+    "Alice": 2,
+  },
+  "nationalId": Object {
+    "xxx0xxxx0xxx": 1,
+  },
+  "phone": Object {
+    "555-555-5555": 1,
+  },
+}
+`;
+
+exports[`returns third party attestations summary 2`] = `
+Object {
+  "nationalId": Object {
+    "xxx0xxxx0xxx": 1,
+  },
+  "phone": Object {
+    "555-555-5555": 1,
+  },
+}
+`;

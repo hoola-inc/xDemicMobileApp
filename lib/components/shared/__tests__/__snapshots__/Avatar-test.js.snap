@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders address initials if only address is passed in 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 30,
+          "height": 60,
+          "width": 60,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/ethereum-white-icon.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 30,
+            "height": 60,
+            "width": 60,
+          },
+          Object {
+            "position": "absolute",
+          },
+          Array [
+            Object {
+              "borderRadius": 30,
+              "height": 60,
+              "width": 60,
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders address initials if only address passed in and custom size 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 50,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "testUri": "../../../assets/images/ethereum-white-icon.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 50,
+            "height": 100,
+            "width": 100,
+          },
+          Object {
+            "position": "absolute",
+          },
+          Array [
+            Object {
+              "borderRadius": 50,
+              "height": 100,
+              "width": 100,
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders image if avatar is passed in 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 30,
+          "height": 60,
+          "width": 60,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http:/image.hello.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 30,
+            "height": 60,
+            "width": 60,
+          },
+          Object {
+            "position": "absolute",
+          },
+          Array [
+            Object {
+              "borderRadius": 30,
+              "height": 60,
+              "width": 60,
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders image if avatar is passed in and custom size 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 50,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http:/image.hello.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 50,
+            "height": 100,
+            "width": 100,
+          },
+          Object {
+            "position": "absolute",
+          },
+          Array [
+            Object {
+              "borderRadius": 50,
+              "height": 100,
+              "width": 100,
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders image if uri is passed in 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 30,
+          "height": 60,
+          "width": 60,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "name": "Bill Jeffries Smith",
+          "uri": "http:/image.hello.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 30,
+            "height": 60,
+            "width": 60,
+          },
+          Object {
+            "position": "absolute",
+          },
+          Array [
+            Object {
+              "borderRadius": 30,
+              "height": 60,
+              "width": 60,
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders image if uri is passed in and custom size 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 50,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "name": "Bill Jeffries Smith",
+          "uri": "http:/image.hello.jpg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 50,
+            "height": 100,
+            "width": 100,
+          },
+          Object {
+            "position": "absolute",
+          },
+          Array [
+            Object {
+              "borderRadius": 50,
+              "height": 100,
+              "width": 100,
+            },
+            undefined,
+          ],
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders initials if only name is passed in 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 30,
+          "height": 60,
+          "width": 60,
+        },
+        Object {
+          "backgroundColor": "rgba(216,216,216,1)",
+        },
+        Object {
+          "padding": 15,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontFamily": undefined,
+            "fontSize": 15,
+            "textAlign": "center",
+          },
+          undefined,
+          Object {
+            "fontSize": 20,
+          },
+        ]
+      }
+    >
+      BS
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders initials if only name passed in and custom size 1`] = `
+<View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 0,
+          "justifyContent": "center",
+        },
+        Object {
+          "borderRadius": 50,
+          "height": 100,
+          "width": 100,
+        },
+        Object {
+          "backgroundColor": "rgba(216,216,216,1)",
+        },
+        Object {
+          "padding": 25,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontFamily": undefined,
+            "fontSize": 15,
+            "textAlign": "center",
+          },
+          undefined,
+          Object {
+            "fontSize": 33.333333333333336,
+          },
+        ]
+      }
+    >
+      BS
+    </Text>
+  </View>
+</View>
+`;

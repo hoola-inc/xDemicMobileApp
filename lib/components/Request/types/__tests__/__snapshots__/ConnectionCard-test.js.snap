@@ -1,0 +1,1310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectionCard renders a connected Connection Card index as expected 1`] = `ShallowWrapper {}`;
+
+exports[`ConnectionCard renders correctly with a authorizedAt Request 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+        "height": 120.00000000000001,
+        "justifyContent": "flex-start",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 80,
+          "marginBottom": 15,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <Icon
+        name="ios-close"
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 40,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#FFFFFF",
+        "borderRadius": 5,
+        "height": 200,
+        "justifyContent": "center",
+        "marginTop": -100,
+        "shadowColor": "rgb(16,18,32)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "width": 200,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "justifyContent": "center",
+            },
+            Object {
+              "borderRadius": 92,
+              "height": 184,
+              "width": 184,
+            },
+            Object {
+              "backgroundColor": "rgba(216,216,216,1)",
+            },
+            Object {
+              "padding": 46,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+                "fontSize": 15,
+                "textAlign": "center",
+              },
+              undefined,
+              Object {
+                "fontSize": 61.333333333333336,
+              },
+            ]
+          }
+        >
+          JH
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": undefined,
+        "borderRadius": 60,
+        "height": 58,
+        "justifyContent": "center",
+        "marginTop": 30.000000000000004,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": undefined,
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "lineHeight": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      PERSON
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "lineHeight": 24,
+          "marginBottom": 20,
+          "marginTop": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      Joanna Hayek
+    </Text>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      TRANSACTION CANCELED
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ConnectionCard renders correctly with a cancelled Request 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+        "height": 120.00000000000001,
+        "justifyContent": "flex-start",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 80,
+          "marginBottom": 15,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <Icon
+        name="ios-close"
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 40,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#FFFFFF",
+        "borderRadius": 5,
+        "height": 200,
+        "justifyContent": "center",
+        "marginTop": -100,
+        "shadowColor": "rgb(16,18,32)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "width": 200,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "justifyContent": "center",
+            },
+            Object {
+              "borderRadius": 92,
+              "height": 184,
+              "width": 184,
+            },
+            Object {
+              "backgroundColor": "rgba(216,216,216,1)",
+            },
+            Object {
+              "padding": 46,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+                "fontSize": 15,
+                "textAlign": "center",
+              },
+              undefined,
+              Object {
+                "fontSize": 61.333333333333336,
+              },
+            ]
+          }
+        >
+          JH
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": undefined,
+        "borderRadius": 60,
+        "height": 58,
+        "justifyContent": "center",
+        "marginTop": 30.000000000000004,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": undefined,
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "lineHeight": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      PERSON
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "lineHeight": 24,
+          "marginBottom": 20,
+          "marginTop": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      Joanna Hayek
+    </Text>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      TRANSACTION CANCELED
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ConnectionCard renders correctly with a complete profile 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+        "height": 120.00000000000001,
+        "justifyContent": "flex-start",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 80,
+          "marginBottom": 15,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <Icon
+        name="ios-close"
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 40,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#FFFFFF",
+        "borderRadius": 5,
+        "height": 200,
+        "justifyContent": "center",
+        "marginTop": -100,
+        "shadowColor": "rgb(16,18,32)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "width": 200,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "justifyContent": "center",
+            },
+            Object {
+              "borderRadius": 92,
+              "height": 184,
+              "width": 184,
+            },
+            Object {
+              "backgroundColor": "rgba(216,216,216,1)",
+            },
+            Object {
+              "padding": 46,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+                "fontSize": 15,
+                "textAlign": "center",
+              },
+              undefined,
+              Object {
+                "fontSize": 61.333333333333336,
+              },
+            ]
+          }
+        >
+          JH
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": undefined,
+        "borderRadius": 60,
+        "height": 58,
+        "justifyContent": "center",
+        "marginTop": 30.000000000000004,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": undefined,
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "lineHeight": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      PERSON
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "lineHeight": 24,
+          "marginBottom": 20,
+          "marginTop": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      Joanna Hayek
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 8,
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "margin": 15,
+            "padding": 10,
+          },
+          Array [
+            Object {
+              "borderColor": "rgba(74,74,74,1)",
+              "borderWidth": 1,
+              "padding": 15,
+            },
+            Object {
+              "marginRight": 10,
+            },
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontFamily": "Montserrat",
+              "fontSize": 18,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "rgba(74,74,74,1)",
+            },
+            Object {},
+          ]
+        }
+      >
+        Reject
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 8,
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "margin": 15,
+            "padding": 10,
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(91,84,199,1)",
+              "padding": 15,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontFamily": "Montserrat",
+              "fontSize": 18,
+              "textAlign": "center",
+            },
+            Array [
+              Object {
+                "fontFamily": "Montserrat",
+                "fontSize": 18,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#FFFFFF",
+              },
+            ],
+            Object {},
+          ]
+        }
+      >
+        Add Contact
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`ConnectionCard renders correctly with a contact that is me 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+        "height": 120.00000000000001,
+        "justifyContent": "flex-start",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 80,
+          "marginBottom": 15,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <Icon
+        name="ios-close"
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 40,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#FFFFFF",
+        "borderRadius": 5,
+        "height": 200,
+        "justifyContent": "center",
+        "marginTop": -100,
+        "shadowColor": "rgb(16,18,32)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "width": 200,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "justifyContent": "center",
+            },
+            Object {
+              "borderRadius": 92,
+              "height": 184,
+              "width": 184,
+            },
+            Object {
+              "backgroundColor": "rgba(216,216,216,1)",
+            },
+            Object {
+              "padding": 46,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+                "fontSize": 15,
+                "textAlign": "center",
+              },
+              undefined,
+              Object {
+                "fontSize": 61.333333333333336,
+              },
+            ]
+          }
+        >
+          JH
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": undefined,
+        "borderRadius": 60,
+        "height": 58,
+        "justifyContent": "center",
+        "marginTop": 30.000000000000004,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": undefined,
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "lineHeight": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      PERSON
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "lineHeight": 24,
+          "marginBottom": 20,
+          "marginTop": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      Joanna Hayek
+    </Text>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      TRANSACTION CANCELED
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ConnectionCard renders correctly with a existing Request 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+        "height": 120.00000000000001,
+        "justifyContent": "flex-start",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 80,
+          "marginBottom": 15,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <Icon
+        name="ios-close"
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 40,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#FFFFFF",
+        "borderRadius": 5,
+        "height": 200,
+        "justifyContent": "center",
+        "marginTop": -100,
+        "shadowColor": "rgb(16,18,32)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "width": 200,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "justifyContent": "center",
+            },
+            Object {
+              "borderRadius": 92,
+              "height": 184,
+              "width": 184,
+            },
+            Object {
+              "backgroundColor": "rgba(216,216,216,1)",
+            },
+            Object {
+              "padding": 46,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontFamily": undefined,
+                "fontSize": 15,
+                "textAlign": "center",
+              },
+              undefined,
+              Object {
+                "fontSize": 61.333333333333336,
+              },
+            ]
+          }
+        >
+          JH
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": undefined,
+        "borderRadius": 60,
+        "height": 58,
+        "justifyContent": "center",
+        "marginTop": 30.000000000000004,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": undefined,
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "lineHeight": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      PERSON
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "lineHeight": 24,
+          "marginBottom": 20,
+          "marginTop": 16,
+          "textAlign": "center",
+        }
+      }
+    >
+      Joanna Hayek
+    </Text>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "textAlign": "center",
+        }
+      }
+    >
+      TRANSACTION CANCELED
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ConnectionCard renders correctly with an unkown contact 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "flexDirection": "row",
+        "height": 120.00000000000001,
+        "justifyContent": "flex-start",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "height": 80,
+          "marginBottom": 15,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <Icon
+        name="ios-close"
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 40,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#FFFFFF",
+        "borderRadius": 5,
+        "height": 200,
+        "justifyContent": "center",
+        "marginTop": -100,
+        "shadowColor": "rgb(16,18,32)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.2,
+        "width": 200,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 0,
+              "justifyContent": "center",
+            },
+            Object {
+              "borderRadius": 92,
+              "height": 184,
+              "width": 184,
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="cover"
+          source={
+            Object {
+              "testUri": "../../../assets/images/ethereum-white-icon.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "borderRadius": 92,
+                "height": 184,
+                "width": 184,
+              },
+              Object {
+                "position": "absolute",
+              },
+              Array [
+                Object {
+                  "borderRadius": 92,
+                  "height": 184,
+                  "width": 184,
+                },
+                undefined,
+              ],
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": undefined,
+        "borderRadius": 60,
+        "height": 58,
+        "justifyContent": "center",
+        "marginTop": 30.000000000000004,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": undefined,
+          "fontSize": 13,
+          "letterSpacing": 1,
+          "lineHeight": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      CONTRACT
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "lineHeight": 24,
+          "marginBottom": 20,
+          "marginTop": 16,
+          "textAlign": "center",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 0,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 8,
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "margin": 15,
+            "padding": 10,
+          },
+          Array [
+            Object {
+              "borderColor": "rgba(74,74,74,1)",
+              "borderWidth": 1,
+              "padding": 15,
+            },
+            Object {
+              "marginRight": 10,
+            },
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontFamily": "Montserrat",
+              "fontSize": 18,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "rgba(74,74,74,1)",
+            },
+            Object {},
+          ]
+        }
+      >
+        Reject
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 8,
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "margin": 15,
+            "padding": 10,
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(91,84,199,1)",
+              "padding": 15,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontFamily": "Montserrat",
+              "fontSize": 18,
+              "textAlign": "center",
+            },
+            Array [
+              Object {
+                "fontFamily": "Montserrat",
+                "fontSize": 18,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#FFFFFF",
+              },
+            ],
+            Object {},
+          ]
+        }
+      >
+        Add Contact
+      </Text>
+    </View>
+  </View>
+</View>
+`;

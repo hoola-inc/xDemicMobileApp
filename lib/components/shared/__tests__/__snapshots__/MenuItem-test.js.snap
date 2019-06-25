@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MenuItem with title 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderBottomWidth": 0.5,
+        "borderColor": "rgba(216,216,216,1)",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "padding": 15,
+      },
+      Object {},
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        },
+      ]
+    }
+  >
+    hello
+  </Text>
+</View>
+`;
+
+exports[`renders MenuItem with title and internal link 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderBottomWidth": 0.5,
+          "borderColor": "rgba(216,216,216,1)",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        }
+      }
+    >
+      hello
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(74,74,74,1)",
+              "fontSize": 14,
+              "lineHeight": 22,
+            },
+            Object {},
+          ]
+        }
+      />
+      <Icon
+        color="rgba(216,216,216,1)"
+        name="ios-arrow-forward"
+        size={20}
+        style={
+          Object {
+            "marginLeft": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders MenuItem with title and link 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderBottomWidth": 0.5,
+          "borderColor": "rgba(216,216,216,1)",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        }
+      }
+    >
+      hello
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(74,74,74,1)",
+              "fontSize": 14,
+              "lineHeight": 22,
+            },
+            Object {},
+          ]
+        }
+      />
+      <Icon
+        color="rgba(216,216,216,1)"
+        name="ios-link"
+        size={20}
+        style={
+          Object {
+            "marginLeft": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders MenuItem with title and onPress 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderBottomWidth": 0.5,
+          "borderColor": "rgba(216,216,216,1)",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        }
+      }
+    >
+      hello
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(74,74,74,1)",
+              "fontSize": 14,
+              "lineHeight": 22,
+            },
+            Object {},
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders MenuItem with title and value 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderBottomWidth": 0.5,
+        "borderColor": "rgba(216,216,216,1)",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "padding": 15,
+      },
+      Object {},
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        },
+      ]
+    }
+  >
+    hello
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 14,
+          "lineHeight": 22,
+        },
+        Object {},
+      ]
+    }
+  >
+    stuff
+  </Text>
+</View>
+`;
+
+exports[`renders MenuItem with title, value and internal link 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderBottomWidth": 0.5,
+          "borderColor": "rgba(216,216,216,1)",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        }
+      }
+    >
+      hello
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(74,74,74,1)",
+              "fontSize": 14,
+              "lineHeight": 22,
+            },
+            Object {},
+          ]
+        }
+      >
+        stuff
+      </Text>
+      <Icon
+        color="rgba(216,216,216,1)"
+        name="ios-arrow-forward"
+        size={20}
+        style={
+          Object {
+            "marginLeft": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders MenuItem with title, value and link 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderBottomWidth": 0.5,
+          "borderColor": "rgba(216,216,216,1)",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        }
+      }
+    >
+      hello
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(74,74,74,1)",
+              "fontSize": 14,
+              "lineHeight": 22,
+            },
+            Object {},
+          ]
+        }
+      >
+        stuff
+      </Text>
+      <Icon
+        color="rgba(216,216,216,1)"
+        name="ios-link"
+        size={20}
+        style={
+          Object {
+            "marginLeft": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders MenuItem with title, value and onPress 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={null}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderBottomWidth": 0.5,
+          "borderColor": "rgba(216,216,216,1)",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 15,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgba(74,74,74,1)",
+          "fontSize": 17,
+          "lineHeight": 22,
+        }
+      }
+    >
+      hello
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(74,74,74,1)",
+              "fontSize": 14,
+              "lineHeight": 22,
+            },
+            Object {},
+          ]
+        }
+      >
+        stuff
+      </Text>
+    </View>
+  </View>
+</View>
+`;

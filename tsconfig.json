@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "target": "es2015", 
+      "module": "es2015",
+      "importHelpers": true,
+      "lib": ["es2017"],
+      "jsx": "react-native",
+      "noEmit": true,
+      "strict": true,
+      "allowJs": true,
+      "resolveJsonModule": true,
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "baseUrl": ".",
+      "paths": {
+          "uPortMobile/*": ["./*"],
+          "@kancha": ["./lib/kancha"],
+      }
+    },
+    "types": ["jest"],
+    "include": ["./lib/**/*", "@types"],
+    "exclude": [
+      "node_modules",
+    ],
+  }
