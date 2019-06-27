@@ -1496,9 +1496,9 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 82SAVLYZ3K;
+						DevelopmentTeam = Q5LN48QXF6;
 						LastSwiftMigration = 900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2415,13 +2415,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = uPortMobile/uPort.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				CURRENT_PROJECT_VERSION = 472;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 82SAVLYZ3K;
+				DEVELOPMENT_TEAM = Q5LN48QXF6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2466,7 +2466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.uport;
 				PRODUCT_NAME = uPort;
 				PROVISIONING_PROFILE = "d3940d33-32e7-4100-845f-8af85be559aa";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development me.uport";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "uPortMobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -2482,12 +2482,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = uPortMobile/uPort.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Consensus Systems LLC (82SAVLYZ3K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				CURRENT_PROJECT_VERSION = 472;
-				DEVELOPMENT_TEAM = 82SAVLYZ3K;
+				DEVELOPMENT_TEAM = Q5LN48QXF6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2506,7 +2506,7 @@
 					"$(SRCROOT)/../node_modules/react-native-permissions/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",				
+					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 					"$(SRCROOT)/../node_modules/react-native-intercom/iOS",
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
@@ -2531,7 +2531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.uport;
 				PRODUCT_NAME = uPort;
 				PROVISIONING_PROFILE = "6d9998b0-aea7-40d9-8599-d9ed4f4b8035";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore me.uport";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "uPortMobile-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
