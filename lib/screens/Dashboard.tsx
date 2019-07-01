@@ -26,7 +26,6 @@ interface DashboardProps {
 export const Dashboard: React.FC<DashboardProps> = props => {
   const [signPosts, updateSignPosts] = useState([]);
   const fetchSignPosts = async () => {
-    console.warn("json files is: ", dataJson);
     const response = await fetch(
       "https://uport-mobile-store.s3.us-east-2.amazonaws.com/dashboard-signposts/signposts.json"
     );
