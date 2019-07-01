@@ -2,72 +2,72 @@
  * Constant of all the screens in the app
  */
 export default {
-  Dashboard: 'Dashboard',
-  Credentials: 'Credentials',
-  Credential: 'Credential',
-  Contacts: 'Contacts',
-  Contact: 'Contact',
-  ShareContact: 'ShareContact',
-  Account: 'Account',
-  AccountFunding: 'AccountFunding',
-  Notifications: 'Notifications',
-  Settings: 'Settings',
-  Profile: 'Profile',
-  DesignSystem: 'DesignSystem',
-  Scanner: 'Scanner',
+  Dashboard: "Dashboard",
+  Credentials: "Credentials",
+  Credential: "Credential",
+  Contacts: "Contacts",
+  Contact: "Contact",
+  ShareContact: "ShareContact",
+  Account: "Account",
+  AccountFunding: "AccountFunding",
+  Notifications: "Notifications",
+  Settings: "Settings",
+  Profile: "Profile",
+  DesignSystem: "DesignSystem",
+  Scanner: "Scanner",
 
-  Welcome: 'Welcome',
-  Learn: 'Learn',
-  CreateIdentity: 'CreateIdentity',
-  Privacy: 'Privacy',
-  Terms: 'Terms',
+  Welcome: "Welcome",
+  Learn: "Learn",
+  CreateIdentity: "CreateIdentity",
+  Privacy: "Privacy",
+  Terms: "Terms",
 
-  ProfileQRCode: 'ProfileQRCode',
+  ProfileQRCode: "ProfileQRCode",
 
-  UPortId: 'UPortId',
-  Device: 'Device',
-  Network: 'Network',
-  Status: 'Status',
-  Hub: 'Hub',
-  TryUport: 'TryUport',
-  KeyChain: 'KeyChain',
+  UPortId: "UPortId",
+  Device: "Device",
+  Network: "Network",
+  Status: "Status",
+  Hub: "Hub",
+  TryUport: "TryUport",
+  KeyChain: "KeyChain",
 
-  Request: 'Request',
-  NewRequest: 'NewRequest',
-  NestedInfo: 'NestedInfo',
+  Request: "Request",
+  NewRequest: "NewRequest",
+  NestedInfo: "NestedInfo",
 
-  SecurityBlock: 'SecurityBlock',
+  SecurityBlock: "SecurityBlock",
 
-  MarketPlace: 'MarketPlace',
+  MarketPlace: "MarketPlace",
 
   BACKUP: {
-    DataBackupInstructions: 'DataBackupInstructions',
-    DataBackupSuccess: 'DataBackupSuccess',
-    CreateSeedInstructions: 'CreateSeedInstructions',
-    CreateSeedPhrase: 'CreateSeedPhrase',
-    CreateSeedPhraseConfirm: 'CreateSeedPhraseConfirm',
-    CreateSeedSuccess: 'CreateSeedSuccess',
+    DataBackupInstructions: "DataBackupInstructions",
+    DataBackupSuccess: "DataBackupSuccess",
+    CreateSeedInstructions: "CreateSeedInstructions",
+    CreateSeedPhrase: "CreateSeedPhrase",
+    CreateSeedPhraseConfirm: "CreateSeedPhraseConfirm",
+    CreateSeedSuccess: "CreateSeedSuccess"
   },
 
   RECOVERY: {
-    RestoreSeedInstructions: 'RestoreSeedInstructions',
-    RestoreSeedPhrase: 'RestoreSeedPhrase',
-    RestoreSeedSuccess: 'RestoreSeedSuccess',
+    RestoreSeedInstructions: "RestoreSeedInstructions",
+    RestoreSeedPhrase: "RestoreSeedPhrase",
+    RestoreSeedSuccess: "RestoreSeedSuccess"
   },
 
   MIGRATION: {
-    Legacy: 'MigrationLegacy',
-    Complete: 'MigrationComplete',
+    Legacy: "MigrationLegacy",
+    Complete: "MigrationComplete"
   },
 
   /**
    * For testing stuff
    */
-  Dummy: 'Dummy',
-  StaticRequest: 'StaticRequest',
-  AcceptCredential: 'AcceptCredential',
-}
+  Dummy: "Dummy",
+  StaticRequest: "StaticRequest",
+  AcceptCredential: "AcceptCredential"
+};
 
 export const COMPONENTS = {
-  Toast: 'Toast',
-}
+  Toast: "Toast"
+};

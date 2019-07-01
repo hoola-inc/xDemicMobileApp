@@ -1,21 +1,21 @@
-import { Linking } from 'react-native'
-import { Navigation } from 'react-native-navigation'
-import { Theme, Icon, Device } from '../kancha'
-import SCREENS from '../screens/Screens'
-import { RNUportSigner } from 'react-native-uport-signer'
-import store from '../store/store'
-import { registerDeviceForNotifications } from 'uPortMobile/lib/actions/snsRegistrationActions'
-import { handleURL } from '../actions/requestActions'
+import { Linking } from "react-native";
+import { Navigation } from "react-native-navigation";
+import { Theme, Icon, Device } from "../kancha";
+import SCREENS from "../screens/Screens";
+import { RNUportSigner } from "react-native-uport-signer";
+import store from "../store/store";
+import { registerDeviceForNotifications } from "uPortMobile/lib/actions/snsRegistrationActions";
+import { handleURL } from "../actions/requestActions";
 
 /**
  * This is called by the startUpSaga when the app is ready to launch
  */
 export function startApp(root: string) {
   switch (root) {
-    case 'ONBOARDING':
-      return startOnboarding()
-    case 'MAIN_APP':
-      return startMain()
+    case "ONBOARDING":
+      return startOnboarding();
+    case "MAIN_APP":
+      return startMain();
   }
 }
 
@@ -23,43 +23,47 @@ export function startApp(root: string) {
  * Global listener for Android Scan button
  */
 const listenForAndroidFabButtonEvent = () => {
-  Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
-    if (buttonId === 'androidScan') {
-      Navigation.showModal({
-        component: {
-          name: SCREENS.Scanner,
-          options: {
-            animations: {
-              showModal: {
-                enabled: false,
+  Navigation.events().registerNavigationButtonPressedListener(
+    ({ buttonId }) => {
+      if (buttonId === "androidScan") {
+        Navigation.showModal({
+          component: {
+            name: SCREENS.Scanner,
+            options: {
+              animations: {
+                showModal: {
+                  enabled: false
+                }
               },
-            },
-            topBar: {
-              visible: false,
-            },
-          },
-        },
-      })
+              topBar: {
+                visible: false
+              }
+            }
+          }
+        });
+      }
     }
-  })
-}
+  );
+};
 
 /**
  * Global listener for IOS Scan button
  */
 const listenerForIOSScanButton = () => {
-  Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
-    if (buttonId === 'scanButton') {
-      Navigation.mergeOptions('Scanner', {
-        sideMenu: {
-          right: {
-            visible: true,
-          },
-        },
-      })
+  Navigation.events().registerNavigationButtonPressedListener(
+    ({ buttonId }) => {
+      if (buttonId === "scanButton") {
+        Navigation.mergeOptions("Scanner", {
+          sideMenu: {
+            right: {
+              visible: true
+            }
+          }
+        });
+      }
     }
-  })
-}
+  );
+};
 
 const startOnboarding = async () => {
   Navigation.setDefaultOptions({
@@ -68,32 +72,34 @@ const startOnboarding = async () => {
         alpha: {
           from: 0,
           to: 1,
-          duration: 500,
-        },
-      },
+          duration: 500
+        }
+      }
     },
     topBar: {
       drawBehind: true,
       background: {
-        color: 'transparent',
+        color: "transparent"
       },
       // @ts-ignore
-      buttonColor: 'white',
+      buttonColor: "white",
       backButton: {
-        title: 'Back',
-        color: 'white',
-        visible: true,
-      },
-    },
-  })
+        title: "Back",
+        color: "white",
+        visible: true
+      }
+    }
+  });
 
   /**
    * Check if we have a securtiy pin set
    */
-  let STARTUP_SCREEN = SCREENS.Welcome
+  let STARTUP_SCREEN = SCREENS.Welcome;
   if (RNUportSigner && RNUportSigner.hasSecureKeyguard) {
-    const hasSecureKeyguard = await RNUportSigner.hasSecureKeyguard()
-    STARTUP_SCREEN = hasSecureKeyguard ? SCREENS.Welcome : SCREENS.SecurityBlock
+    const hasSecureKeyguard = await RNUportSigner.hasSecureKeyguard();
+    STARTUP_SCREEN = hasSecureKeyguard
+      ? SCREENS.Welcome
+      : SCREENS.SecurityBlock;
   }
 
   Navigation.setRoot({
@@ -105,52 +111,56 @@ const startOnboarding = async () => {
               name: STARTUP_SCREEN,
               options: {
                 topBar: {
-                  visible: false,
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-  })
-}
+                  visible: false
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  });
+};
 
 const navBarText = (title: string, noBorder?: boolean) => {
   return {
     noBorder: noBorder && noBorder,
     title: {
       text: title,
-      color: Theme.colors.inverted.text,
+      color: Theme.colors.inverted.text
     },
     largeTitle: {
       visible: true,
-      color: Theme.colors.inverted.text,
-    },
-  }
-}
+      color: Theme.colors.inverted.text
+    }
+  };
+};
 
 export async function startMain() {
   /**
    * After icon design cleanup sort these out.
    */
-  const credentialsIcon = await Icon.getImageSource('feather', 'check-circle', 26)
-  const profileIcon = await Icon.getImageSource('feather', 'user', 26)
-  const contactsIcon = await Icon.getImageSource('feather', 'users', 26)
-  const notificationsIcon = await Icon.getImageSource('feather', 'bell', 26)
-  const settingsIcon = await Icon.getImageSource('feather', 'settings', 26)
-  const scanIcon = await Icon.getImageSource('ionicons', Icon.Names.scan, 30)
+  const credentialsIcon = await Icon.getImageSource(
+    "feather",
+    "check-circle",
+    26
+  );
+  const profileIcon = await Icon.getImageSource("feather", "user", 26);
+  const contactsIcon = await Icon.getImageSource("feather", "users", 26);
+  const notificationsIcon = await Icon.getImageSource("feather", "bell", 26);
+  const settingsIcon = await Icon.getImageSource("feather", "settings", 26);
+  const scanIcon = await Icon.getImageSource("ionicons", Icon.Names.scan, 30);
   const rightButtonsCredentialScreen = Device.isIOS
     ? {
-        id: 'scanButton',
+        id: "scanButton",
         icon: scanIcon,
-        color: 'white',
+        color: "white"
       }
-    : {}
+    : {};
   const defaultProfileEditButton = {
-    id: 'edit',
-    text: 'Edit',
-  }
+    id: "edit",
+    text: "Edit"
+  };
 
   /**
    * Some options have not been updated in the nav library so we need to override it :(
@@ -162,44 +172,44 @@ export async function startMain() {
         alpha: {
           from: 0,
           to: 1,
-          duration: 500,
-        },
-      },
+          duration: 500
+        }
+      }
     },
     layout: {
-      backgroundColor: Theme.colors.secondary.background,
+      backgroundColor: Theme.colors.secondary.background
     },
     sideMenu: {
       right: {
         enabled: true,
         // @ts-ignore
-        width: Device.w,
-      },
+        width: Device.w
+      }
     },
     bottomTabs: {
       animate: false,
-      titleDisplayMode: 'alwaysHide',
+      titleDisplayMode: "alwaysHide"
     },
     topBar: {
       background: {
         color: Theme.colors.primary.brand,
-        translucent: false,
+        translucent: false
       },
       elevation: 0,
       // @ts-ignore
-      buttonColor: 'white',
+      buttonColor: "white",
       backButton: {
-        title: 'Back',
-        color: 'white',
+        title: "Back",
+        color: "white"
         // visible: true,
       },
       largeTitle: {
-        color: 'white',
-      },
-    },
-  })
+        color: "white"
+      }
+    }
+  });
 
-  const SCREEN_DEV_MODE = false
+  const SCREEN_DEV_MODE = false;
 
   if (SCREEN_DEV_MODE) {
     Navigation.setRoot({
@@ -211,15 +221,15 @@ export async function startMain() {
                 name: SCREENS.AcceptCredential,
                 options: {
                   topBar: {
-                    visible: false,
-                  },
-                },
-              },
-            },
-          ],
-        },
-      },
-    })
+                    visible: false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    });
   } else {
     /**
      * Begin root
@@ -231,12 +241,12 @@ export async function startMain() {
           right: {
             component: {
               id: SCREENS.Scanner,
-              name: SCREENS.Scanner,
-            },
+              name: SCREENS.Scanner
+            }
           },
           center: {
             bottomTabs: {
-              id: 'MainTabsId',
+              id: "MainTabsId",
               children: [
                 {
                   stack: {
@@ -248,34 +258,39 @@ export async function startMain() {
                             topBar: {
                               rightButtons: [rightButtonsCredentialScreen],
                               title: {
-                                text: 'Credentials',
-                                color: Theme.colors.inverted.text,
+                                text: "Credentials",
+                                color: Theme.colors.inverted.text
                               },
                               largeTitle: {
                                 visible: true,
-                                color: Theme.colors.inverted.text,
-                              },
+                                color: Theme.colors.inverted.text
+                              }
                             },
                             bottomTab: {
                               icon: credentialsIcon,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: { top: 0, left: 0, bottom: -8, right: 0 },
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
                             },
                             fab: {
-                              id: 'androidScan',
+                              id: "androidScan",
                               visible: true,
                               backgroundColor: Theme.colors.primary.brand,
-                              clickColor: '#FFF',
-                              rippleColor: '#ddd',
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
                               icon: scanIcon,
-                              iconColor: '#FFF',
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   stack: {
@@ -288,34 +303,39 @@ export async function startMain() {
                               noBorder: true,
                               rightButtons: [defaultProfileEditButton],
                               title: {
-                                text: '',
-                                color: Theme.colors.inverted.text,
+                                text: "",
+                                color: Theme.colors.inverted.text
                               },
                               largeTitle: {
                                 visible: true,
-                                color: Theme.colors.inverted.text,
-                              },
+                                color: Theme.colors.inverted.text
+                              }
                             },
                             bottomTab: {
                               icon: profileIcon,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: { top: 0, left: 0, bottom: -8, right: 0 },
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
                             },
                             fab: {
-                              id: 'androidScan',
+                              id: "androidScan",
                               visible: true,
                               backgroundColor: Theme.colors.primary.brand,
-                              clickColor: '#FFF',
-                              rippleColor: '#ddd',
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
                               icon: scanIcon,
-                              iconColor: '#FFF',
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   stack: {
@@ -324,27 +344,32 @@ export async function startMain() {
                         component: {
                           name: SCREENS.Contacts,
                           options: {
-                            topBar: navBarText('Contacts', true),
+                            topBar: navBarText("Contacts", true),
                             bottomTab: {
                               icon: contactsIcon,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: { top: 0, left: 0, bottom: -8, right: 0 },
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
                             },
                             fab: {
-                              id: 'androidScan',
+                              id: "androidScan",
                               visible: true,
                               backgroundColor: Theme.colors.primary.brand,
-                              clickColor: '#FFF',
-                              rippleColor: '#ddd',
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
                               icon: scanIcon,
-                              iconColor: '#FFF',
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   stack: {
@@ -353,27 +378,32 @@ export async function startMain() {
                         component: {
                           name: SCREENS.Notifications,
                           options: {
-                            topBar: navBarText('Notifications', true),
+                            topBar: navBarText("Notifications", true),
                             bottomTab: {
                               icon: notificationsIcon,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: { top: 0, left: 0, bottom: -8, right: 0 },
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
                             },
                             fab: {
-                              id: 'androidScan',
+                              id: "androidScan",
                               visible: true,
                               backgroundColor: Theme.colors.primary.brand,
-                              clickColor: '#FFF',
-                              rippleColor: '#ddd',
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
                               icon: scanIcon,
-                              iconColor: '#FFF',
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
                 },
                 {
                   stack: {
@@ -382,34 +412,39 @@ export async function startMain() {
                         component: {
                           name: SCREENS.Settings,
                           options: {
-                            topBar: navBarText('Settings', true),
+                            topBar: navBarText("Settings", true),
                             bottomTab: {
                               icon: settingsIcon,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: { top: 0, left: 0, bottom: -8, right: 0 },
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
                             },
                             fab: {
-                              id: 'androidScan',
+                              id: "androidScan",
                               visible: true,
                               backgroundColor: Theme.colors.primary.brand,
-                              clickColor: '#FFF',
-                              rippleColor: '#ddd',
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
                               icon: scanIcon,
-                              iconColor: '#FFF',
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        },
-      },
-    })
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    });
     /** ^^ End root ^^ */
   }
 
@@ -417,21 +452,21 @@ export async function startMain() {
    * Set up global listener for android fab button
    */
   if (Device.isAndroid) {
-    listenForAndroidFabButtonEvent()
+    listenForAndroidFabButtonEvent();
   } else if (Device.isIOS) {
-    listenerForIOSScanButton()
+    listenerForIOSScanButton();
   }
 
   /**
    * Register for notifications
    */
-  store.dispatch(registerDeviceForNotifications())
+  store.dispatch(registerDeviceForNotifications());
 
   Linking.getInitialURL().then(url => {
-    store.dispatch(handleURL(url))
-  })
+    store.dispatch(handleURL(url));
+  });
 
-  Linking.addEventListener('url', event => {
-    if (event && event.url) store.dispatch(handleURL(event.url))
-  })
+  Linking.addEventListener("url", event => {
+    if (event && event.url) store.dispatch(handleURL(event.url));
+  });
 }

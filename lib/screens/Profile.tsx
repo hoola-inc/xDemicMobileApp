@@ -1,107 +1,132 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { TouchableOpacity, Share, Alert, Clipboard } from 'react-native'
-import { Screen, Container, Text, Section, ListItem, Button, Theme, Icon } from '@kancha'
-import Avatar from 'uPortMobile/lib/components/shared/Avatar'
+import React from "react";
+import { connect } from "react-redux";
+import { TouchableOpacity, Share, Alert, Clipboard } from "react-native";
+import {
+  Screen,
+  Container,
+  Text,
+  Section,
+  ListItem,
+  Button,
+  Theme,
+  Icon
+} from "@kancha";
+import Avatar from "uPortMobile/lib/components/shared/Avatar";
 
-import { Navigation } from 'react-native-navigation'
-import { wei2eth } from 'uPortMobile/lib/helpers/conversions'
-import { currentAddress, ownClaims, myAccounts, allIdentities } from 'uPortMobile/lib/selectors/identities'
-import { externalProfile } from 'uPortMobile/lib/selectors/requests'
-import { editMyInfo, updateShareToken } from 'uPortMobile/lib/actions/myInfoActions'
-import { addClaims, addImage, switchIdentity, refreshBalance } from 'uPortMobile/lib/actions/uportActions'
-import { onlyLatestAttestationsWithIssuer } from 'uPortMobile/lib/selectors/attestations'
-import SCREENS from '../screens/Screens'
-import photoSelectionHandler from 'uPortMobile/lib/utilities/photoSelection'
-import Mori from 'mori'
+import { Navigation } from "react-native-navigation";
+import { wei2eth } from "uPortMobile/lib/helpers/conversions";
+import {
+  currentAddress,
+  ownClaims,
+  myAccounts,
+  allIdentities
+} from "uPortMobile/lib/selectors/identities";
+import { externalProfile } from "uPortMobile/lib/selectors/requests";
+import {
+  editMyInfo,
+  updateShareToken
+} from "uPortMobile/lib/actions/myInfoActions";
+import {
+  addClaims,
+  addImage,
+  switchIdentity,
+  refreshBalance
+} from "uPortMobile/lib/actions/uportActions";
+import { onlyLatestAttestationsWithIssuer } from "uPortMobile/lib/selectors/attestations";
+import SCREENS from "../screens/Screens";
+import photoSelectionHandler from "uPortMobile/lib/utilities/photoSelection";
+import Mori from "mori";
 
 /**
  * User data fields (Self attested claims)
  */
-const USER_FIELDS = ['name', 'email', 'country', 'phone', 'avatar']
+const USER_FIELDS = ["name", "email", "country", "phone", "avatar"];
 
 interface EthereumAccountListItem {
-  name: string
-  network: string
-  balance: string
-  address: string
-  hexaddress: string
-  accountProfile: any
-  isLast: boolean
+  name: string;
+  network: string;
+  balance: string;
+  address: string;
+  hexaddress: string;
+  accountProfile: any;
+  isLast: boolean;
 }
 
 interface Identity {
-  name: string
-  address: string
-  network: string
-  isCurrent: boolean
+  name: string;
+  address: string;
+  network: string;
+  isCurrent: boolean;
 }
 
 interface SelfClaim {
-  type: string
-  name: string
-  value: string | undefined
+  type: string;
+  name: string;
+  value: string | undefined;
 }
 
 interface UserProfileProps {
-  [index: string]: any
-  avatar: any
-  name: string
-  email: string
-  country: string
-  phone: string
-  userData: any
-  address: string
-  shareToken: string
-  verifications: any
-  allIdentities: any[]
-  accounts: any
+  [index: string]: any;
+  avatar: any;
+  name: string;
+  email: string;
+  country: string;
+  phone: string;
+  userData: any;
+  address: string;
+  shareToken: string;
+  verifications: any;
+  allIdentities: any[];
+  accounts: any;
 
   /**
    * Redux actions
    */
-  updateShareToken: (address: string) => any
-  accountProfileLookup: (clientId: string) => any
-  storeOwnClaim: (address: string, claims: any) => void
-  editMyInfo: (change: any) => void
-  addImage: (address: string, claimType: string, image: any) => void
-  switchIdentity: (address: string) => void
-  refreshBalance: (address: string) => void
+  updateShareToken: (address: string) => any;
+  accountProfileLookup: (clientId: string) => any;
+  storeOwnClaim: (address: string, claims: any) => void;
+  editMyInfo: (change: any) => void;
+  addImage: (address: string, claimType: string, image: any) => void;
+  switchIdentity: (address: string) => void;
+  refreshBalance: (address: string) => void;
 }
 
 interface UserProfileState {
-  editMode: boolean
+  editMode: boolean;
 }
 
-export class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
+export class UserProfile extends React.Component<
+  UserProfileProps,
+  UserProfileState
+> {
   constructor(props: UserProfileProps) {
-    super(props)
+    super(props);
 
     this.state = {
-      editMode: false,
-    }
+      editMode: false
+    };
 
-    Navigation.events().bindComponent(this)
-    this.photoSelection = this.photoSelection.bind(this)
+    Navigation.events().bindComponent(this);
+    this.photoSelection = this.photoSelection.bind(this);
   }
 
   /** Method from Navigator */
   navigationButtonPressed({ buttonId }: { buttonId: string }) {
     switch (buttonId) {
-      case 'edit':
-        this.setState({ editMode: true })
-        this.setEditModeButtons()
-        return
-      case 'save':
-        this.handleSubmit()
-        this.setState({ editMode: false })
-        this.setDefaultButtons()
-        return
-      case 'cancel':
-        this.setState({ editMode: false })
-        this.setDefaultButtons()
-        this.handleCancel()
-        return
+      case "edit":
+        this.setState({ editMode: true });
+        this.setEditModeButtons();
+        return;
+      case "save":
+        this.handleSubmit();
+        this.setState({ editMode: false });
+        this.setDefaultButtons();
+        return;
+      case "cancel":
+        this.setState({ editMode: false });
+        this.setDefaultButtons();
+        this.handleCancel();
+        return;
     }
   }
 
@@ -110,7 +135,8 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
       <Screen
         config={Screen.Config.Scroll}
         headerBackgroundColor={Theme.colors.primary.brand}
-        expandingHeaderContent={this.renderHeader()}>
+        expandingHeaderContent={this.renderHeader()}
+      >
         <Container paddingBottom>
           {this.renderInfoBar()}
           {this.renderIdentitySwitcher()}
@@ -118,179 +144,233 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
           {this.renderEthereumAccounts()}
         </Container>
       </Screen>
-    )
+    );
   }
 
   renderHeader() {
     return (
-      <Container justifyContent={'center'} alignItems={'center'} paddingTop>
+      <Container justifyContent={"center"} alignItems={"center"} paddingTop>
         {this.state.editMode && (
           <TouchableOpacity
             onPress={this.photoSelection}
             style={{
-              position: 'absolute',
+              position: "absolute",
               top: 20,
-              backgroundColor: 'rgba(0,0,0,0.8)',
+              backgroundColor: "rgba(0,0,0,0.8)",
               zIndex: 1,
               borderRadius: 8,
-              padding: 5,
-            }}>
+              padding: 5
+            }}
+          >
             <Text textColor={Theme.colors.inverted.text}>Update avatar</Text>
           </TouchableOpacity>
         )}
         <Avatar
           source={this.props.avatar}
           size={150}
-          style={{ borderWidth: 2, borderColor: Theme.colors.inverted.accessories }}
+          style={{
+            borderWidth: 2,
+            borderColor: Theme.colors.inverted.accessories
+          }}
         />
-        <Container padding flexDirection={'row'} alignItems={'center'}>
-          <Text bold type={Text.Types.H2} textColor={Theme.colors.inverted.text}>
+        <Container padding flexDirection={"row"} alignItems={"center"}>
+          <Text
+            bold
+            type={Text.Types.H2}
+            textColor={Theme.colors.inverted.text}
+          >
             {this.props.name}
           </Text>
         </Container>
       </Container>
-    )
+    );
   }
 
   renderInfoBar() {
     return (
       <Container
         padding
-        flexDirection={'row'}
-        alignItems={'center'}
+        flexDirection={"row"}
+        alignItems={"center"}
         flex={1}
         backgroundColor={Theme.colors.primary.background}
-        dividerBottom>
-        <Container flex={3} alignItems={'center'}>
+        dividerBottom
+      >
+        <Container flex={3} alignItems={"center"}>
           <Button
             block={Button.Block.Clear}
-            icon={<Icon name={'success'} color={Theme.colors.primary.accessories} />}
+            icon={
+              <Icon name={"success"} color={Theme.colors.primary.accessories} />
+            }
             onPress={() =>
               Navigation.mergeOptions(this.props.componentId, {
                 bottomTabs: {
-                  currentTabIndex: 0,
-                },
+                  currentTabIndex: 0
+                }
               })
             }
           />
           <Container>
-            <Text type={Text.Types.ListItemNote}>{Mori.count(this.props.verifications)} Credentials</Text>
+            <Text type={Text.Types.ListItemNote}>
+              {Mori.count(this.props.verifications)} Credentials
+            </Text>
           </Container>
         </Container>
-        <Container flex={3} alignItems={'center'}>
+        <Container flex={3} alignItems={"center"}>
           <Button
             block={Button.Block.Clear}
-            icon={<Icon name={'qrcode'} font={'fontawesome'} color={Theme.colors.primary.accessories} />}
+            icon={
+              <Icon
+                name={"qrcode"}
+                font={"fontawesome"}
+                color={Theme.colors.primary.accessories}
+              />
+            }
             onPress={() => this.showQRCode()}
           />
           <Text type={Text.Types.ListItemNote}>QR Code</Text>
         </Container>
-        <Container flex={3} alignItems={'center'}>
+        <Container flex={3} alignItems={"center"}>
           <Button
             block={Button.Block.Clear}
-            icon={<Icon name={'share'} color={Theme.colors.primary.accessories} />}
+            icon={
+              <Icon name={"share"} color={Theme.colors.primary.accessories} />
+            }
             onPress={() => this.showQShareDialog()}
           />
           <Text type={Text.Types.ListItemNote}>Share</Text>
         </Container>
       </Container>
-    )
+    );
   }
 
   renderIdentitySwitcher() {
     return (
       this.props.allIdentities.length > 1 && (
-        <Section title={'Identities'} sectionTitleType={Text.Types.SectionHeader}>
-          {this.formattedIdentityList().map(({ name, address, network, isCurrent }: Identity, index: number) => {
-            return (
-              <ListItem
-                disabled={this.state.editMode}
-                hideForwardArrow
-                selected={isCurrent}
-                title={network}
-                contentRight={address}
-                key={address}
-                onPress={() => this.switchIdentity(address)}
-                last={index === 1}>
-                {name}
-              </ListItem>
-            )
-          })}
+        <Section
+          title={"Identities"}
+          sectionTitleType={Text.Types.SectionHeader}
+        >
+          {this.formattedIdentityList().map(
+            (
+              { name, address, network, isCurrent }: Identity,
+              index: number
+            ) => {
+              return (
+                <ListItem
+                  disabled={this.state.editMode}
+                  hideForwardArrow
+                  selected={isCurrent}
+                  title={network}
+                  contentRight={address}
+                  key={address}
+                  onPress={() => this.switchIdentity(address)}
+                  last={index === 1}
+                >
+                  {name}
+                </ListItem>
+              );
+            }
+          )}
         </Section>
       )
-    )
+    );
   }
 
   renderPersonalInformation() {
     return (
-      <Section title={'Personal'} sectionTitleType={Text.Types.SectionHeader}>
+      <Section title={"Personal"} sectionTitleType={Text.Types.SectionHeader}>
         {this.selfAttestedClaims().map((item: SelfClaim, index: number) => {
           return (
-            item.type !== 'avatar' && (
+            item.type !== "avatar" && (
               <ListItem
                 title={item.name}
                 last={true} /** Remove divider */
                 key={item.type}
                 editMode={this.state.editMode}
-                updateItem={(value: string) => this.handleChange({ [item.type]: value })}>
+                updateItem={(value: string) =>
+                  this.handleChange({ [item.type]: value })
+                }
+              >
                 {item.value}
               </ListItem>
             )
-          )
+          );
         })}
       </Section>
-    )
+    );
   }
   showAlert(account: EthereumAccountListItem) {
-    const title = account.network.toLowerCase() === 'mainnet' ? 'Mainnet Ethereum Account' : 'Testnet Ethereum Account'
+    const title =
+      account.network.toLowerCase() === "mainnet"
+        ? "Mainnet Ethereum Account"
+        : "Testnet Ethereum Account";
     const message =
-      account.network.toLowerCase() === 'mainnet'
-        ? `Copy your Mainnet ethereum adddress to your clipboard ${account.hexaddress}`
+      account.network.toLowerCase() === "mainnet"
+        ? `Copy your Mainnet ethereum adddress to your clipboard ${
+            account.hexaddress
+          }`
         : `Warning! This is a testnet account (${
             account.network
-          }). Do not send real ETH to this account or you will lose it. ${account.hexaddress}.`
+          }). Do not send real ETH to this account or you will lose it. ${
+            account.hexaddress
+          }.`;
 
     Alert.alert(
       title,
       message,
-      [{ text: 'Cancel' }, { text: 'Copy', onPress: () => Clipboard.setString(account.hexaddress) }],
+      [
+        { text: "Cancel" },
+        { text: "Copy", onPress: () => Clipboard.setString(account.hexaddress) }
+      ],
       {
-        cancelable: true,
-      },
-    )
+        cancelable: true
+      }
+    );
   }
   renderEthereumAccounts() {
     return (
       this.props.accounts.length > 0 && (
-        <Section title={'Ethereum Accounts for signing'} sectionTitleType={Text.Types.SectionHeader}>
-          {this.formattedAccountList().map((account: EthereumAccountListItem, index: number) => {
-            return (
-              <ListItem
-                avatarComponent={
-                  <TouchableOpacity onPress={() => this.props.refreshBalance(account.address)}>
-                    <Icon name={'sync'} color={Theme.colors.primary.accessories} />
-                  </TouchableOpacity>
-                }
-                title={account.name + ' - ' + account.network}
-                key={account.address}
-                accessoryRight={account.balance}
-                last={account.isLast}
-                hideForwardArrow
-                onPress={() => this.showAlert(account)}>
-                {account.hexaddress.slice(0, 15) + '...'}
-              </ListItem>
-            )
-          })}
+        <Section
+          title={"Ethereum Accounts for signing"}
+          sectionTitleType={Text.Types.SectionHeader}
+        >
+          {this.formattedAccountList().map(
+            (account: EthereumAccountListItem, index: number) => {
+              return (
+                <ListItem
+                  avatarComponent={
+                    <TouchableOpacity
+                      onPress={() => this.props.refreshBalance(account.address)}
+                    >
+                      <Icon
+                        name={"sync"}
+                        color={Theme.colors.primary.accessories}
+                      />
+                    </TouchableOpacity>
+                  }
+                  title={account.name + " - " + account.network}
+                  key={account.address}
+                  accessoryRight={account.balance}
+                  last={account.isLast}
+                  hideForwardArrow
+                  onPress={() => this.showAlert(account)}
+                >
+                  {account.hexaddress.slice(0, 15) + "..."}
+                </ListItem>
+              );
+            }
+          )}
         </Section>
       )
-    )
+    );
   }
 
   /**
    * Check if identity matches /did:ethr/ (mainnet)
    */
   isMainIdentity(address: string) {
-    return address.match(/did:ethr/)
+    return address.match(/did:ethr/);
   }
 
   /**
@@ -298,19 +378,19 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
    */
   switchIdentity(address: string) {
     if (!this.isMainIdentity(address)) {
-      this.setLegacyModeButtons()
+      this.setLegacyModeButtons();
     } else {
-      this.setDefaultButtons()
+      this.setDefaultButtons();
     }
 
-    this.props.switchIdentity(address)
+    this.props.switchIdentity(address);
   }
 
   /**
    * Show QRCode of users profile for sharing
    */
   showQRCode() {
-    const url = `https://id.uport.me/req/${this.props.shareToken}`
+    const url = `https://id.uport.me/req/${this.props.shareToken}`;
 
     Navigation.showModal({
       component: {
@@ -319,34 +399,34 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
           url,
           title: this.props.name,
           onClose: Navigation.dismissModal,
-          componentId: this.props.componentId,
+          componentId: this.props.componentId
         },
         options: {
           topBar: {
-            visible: false,
-          },
-        },
-      },
-    })
+            visible: false
+          }
+        }
+      }
+    });
   }
 
   /**
    * Show share dialog
    */
   showQShareDialog() {
-    this.props.updateShareToken(this.props.address)
-    const url = `https://id.uport.me/req/${this.props.shareToken}`
+    this.props.updateShareToken(this.props.address);
+    const url = `https://id.uport.me/req/${this.props.shareToken}`;
 
     Share.share(
       {
         url,
         title: `Share contact`,
-        message: `${this.props.name} would like you to add them as a contact`,
+        message: `${this.props.name} would like you to add them as a contact`
       },
       {
-        dialogTitle: `Share contact`,
-      },
-    )
+        dialogTitle: `Share contact`
+      }
+    );
   }
 
   /**
@@ -355,20 +435,26 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
   formattedAccountList(): EthereumAccountListItem[] {
     return this.props.accounts.map(
       (account: any, index: number): EthereumAccountListItem => {
-        const accountProfile = account.clientId ? this.props.accountProfileLookup(account.clientId) : null
-        const networkName = account.network.charAt(0).toUpperCase() + account.network.slice(1).toLowerCase()
+        const accountProfile = account.clientId
+          ? this.props.accountProfileLookup(account.clientId)
+          : null;
+        const networkName =
+          account.network.charAt(0).toUpperCase() +
+          account.network.slice(1).toLowerCase();
         return {
-          name: accountProfile ? accountProfile.name : 'Ethereum Account',
+          name: accountProfile ? accountProfile.name : "Ethereum Account",
           network: networkName,
           balance:
-            account.balance && account.balance.ethBalance ? `${wei2eth(account.balance.ethBalance)} ETH` : `${0} ETH`,
+            account.balance && account.balance.ethBalance
+              ? `${wei2eth(account.balance.ethBalance)} ETH`
+              : `${0} ETH`,
           address: account.address,
           hexaddress: account.hexaddress,
           accountProfile,
-          isLast: this.props.accounts.length === index + 1,
-        }
-      },
-    )
+          isLast: this.props.accounts.length === index + 1
+        };
+      }
+    );
   }
 
   /**
@@ -379,14 +465,14 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
       .map(
         ({ address, network }): Identity => {
           return {
-            name: `${address.match(/did:ethr:/) ? 'Primary' : 'Legacy'}`,
+            name: `${address.match(/did:ethr:/) ? "Primary" : "Legacy"}`,
             address,
             network: `${network.charAt(0).toUpperCase() + network.slice(1)}`,
-            isCurrent: address === this.props.address,
-          }
-        },
+            isCurrent: address === this.props.address
+          };
+        }
       )
-      .reverse()
+      .reverse();
   }
 
   /**
@@ -398,18 +484,18 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
         return {
           type: item,
           name: item.charAt(0).toUpperCase() + item.slice(1),
-          value: this.props[item],
-        }
-      },
-    )
+          value: this.props[item]
+        };
+      }
+    );
   }
 
   /**
    * Update share token
    */
   componentDidMount() {
-    this.setDefaultButtons()
-    this.props.updateShareToken(this.props.address)
+    this.setDefaultButtons();
+    this.props.updateShareToken(this.props.address);
   }
 
   /**
@@ -420,16 +506,16 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
       topBar: {
         rightButtons: [
           {
-            id: 'cancel',
-            text: 'Cancel',
+            id: "cancel",
+            text: "Cancel"
           },
           {
-            id: 'save',
-            text: 'Save',
-          },
-        ],
-      },
-    })
+            id: "save",
+            text: "Save"
+          }
+        ]
+      }
+    });
   }
 
   setDefaultButtons() {
@@ -437,20 +523,20 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
       topBar: {
         rightButtons: [
           {
-            id: 'edit',
-            text: 'Edit',
-          },
-        ],
-      },
-    })
+            id: "edit",
+            text: "Edit"
+          }
+        ]
+      }
+    });
   }
 
   setLegacyModeButtons() {
     Navigation.mergeOptions(this.props.componentId, {
       topBar: {
-        rightButtons: [],
-      },
-    })
+        rightButtons: []
+      }
+    });
   }
 
   /**
@@ -461,87 +547,103 @@ export class UserProfile extends React.Component<UserProfileProps, UserProfileSt
       cameraStatus: null,
       photoStatus: null,
       segmentId: null,
-      addFn: this.props.editMyInfo,
-    })
+      addFn: this.props.editMyInfo
+    });
   }
 
   handleChange(change: any) {
-    this.props.editMyInfo(change)
+    this.props.editMyInfo(change);
   }
 
   handleCancel() {
-    const change: { [index: string]: any } = {}
+    const change: { [index: string]: any } = {};
     USER_FIELDS.map(attr => {
-      change[attr] = this.props.userData[attr]
-    })
-    this.props.editMyInfo(change)
-    this.setState({ editMode: false })
+      change[attr] = this.props.userData[attr];
+    });
+    this.props.editMyInfo(change);
+    this.setState({ editMode: false });
   }
 
   changed() {
-    const change: { [index: string]: any } = {}
+    const change: { [index: string]: any } = {};
     USER_FIELDS.map(attr => {
       if (this.props[attr] !== this.props.userData[attr]) {
-        change[attr] = this.props[attr]
+        change[attr] = this.props[attr];
       }
-    })
-    return change
+    });
+    return change;
   }
 
   handleSubmit() {
-    const change = this.changed()
+    const change = this.changed();
     // tslint:disable-next-line:no-string-literal
-    delete change['avatar']
+    delete change["avatar"];
     if (Object.keys(change).length > 0) {
-      this.props.storeOwnClaim(this.props.address, change)
+      this.props.storeOwnClaim(this.props.address, change);
     }
     if (this.props.avatar && this.props.avatar.data) {
-      this.props.addImage(this.props.address, 'avatar', this.props.avatar)
+      this.props.addImage(this.props.address, "avatar", this.props.avatar);
     }
-    this.props.updateShareToken(this.props.address)
+    this.props.updateShareToken(this.props.address);
   }
 }
 
 const mapStateToProps = (state: any, ownProps: any) => {
-  const userData = Mori.toJs(ownClaims(state)) || {}
+  const userData = Mori.toJs(ownClaims(state)) || {};
   return {
     ...ownProps,
-    avatar: typeof state.myInfo.changed.avatar !== 'undefined' ? state.myInfo.changed.avatar : userData.avatar,
-    name: typeof state.myInfo.changed.name !== 'undefined' ? state.myInfo.changed.name : userData.name,
-    email: typeof state.myInfo.changed.email !== 'undefined' ? state.myInfo.changed.email : userData.email,
-    country: typeof state.myInfo.changed.country !== 'undefined' ? state.myInfo.changed.country : userData.country,
-    phone: typeof state.myInfo.changed.phone !== 'undefined' ? state.myInfo.changed.phone : userData.phone,
+    avatar:
+      typeof state.myInfo.changed.avatar !== "undefined"
+        ? state.myInfo.changed.avatar
+        : userData.avatar,
+    name:
+      typeof state.myInfo.changed.name !== "undefined"
+        ? state.myInfo.changed.name
+        : userData.name,
+    email:
+      typeof state.myInfo.changed.email !== "undefined"
+        ? state.myInfo.changed.email
+        : userData.email,
+    country:
+      typeof state.myInfo.changed.country !== "undefined"
+        ? state.myInfo.changed.country
+        : userData.country,
+    phone:
+      typeof state.myInfo.changed.phone !== "undefined"
+        ? state.myInfo.changed.phone
+        : userData.phone,
     userData,
     address: currentAddress(state),
     shareToken: state.myInfo.shareToken,
     verifications: onlyLatestAttestationsWithIssuer(state),
     allIdentities: Mori.toJs(allIdentities(state)),
     accounts: myAccounts(state),
-    accountProfileLookup: (clientId: string) => Mori.toJs(externalProfile(state, clientId)),
-  }
-}
+    accountProfileLookup: (clientId: string) =>
+      Mori.toJs(externalProfile(state, clientId))
+  };
+};
 export const mapDispatchToProps = (dispatch: any) => {
   return {
     storeOwnClaim: (address: string, claims: any) => {
-      dispatch(addClaims(address, claims))
+      dispatch(addClaims(address, claims));
     },
     editMyInfo: (change: any) => {
-      dispatch(editMyInfo(change))
+      dispatch(editMyInfo(change));
     },
     addImage: (address: string, claimType: string, image: any) => {
-      dispatch(addImage(address, claimType, image))
+      dispatch(addImage(address, claimType, image));
     },
     updateShareToken: (address: string) => {
-      dispatch(updateShareToken(address))
+      dispatch(updateShareToken(address));
     },
     switchIdentity: (address: string) => {
-      dispatch(switchIdentity(address))
+      dispatch(switchIdentity(address));
     },
-    refreshBalance: (address: string) => dispatch(refreshBalance(address)),
-  }
-}
+    refreshBalance: (address: string) => dispatch(refreshBalance(address))
+  };
+};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-)(UserProfile)
+  mapDispatchToProps
+)(UserProfile);
