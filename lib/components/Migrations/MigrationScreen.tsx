@@ -19,24 +19,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, ActivityIndicator } from 'react-native'
-import ProcessCard from 'uPortMobile/lib/components/shared/ProcessCard'
-import { Text } from 'uPortMobile/lib/components/shared'
+import ProcessCard from 'xdemic/lib/components/shared/ProcessCard'
+import { Text } from 'xdemic/lib/components/shared'
 // Selectors
-import { currentAddress } from 'uPortMobile/lib/selectors/identities'
-import { working, statusMessage, errorMessage } from 'uPortMobile/lib/selectors/processStatus'
-import { migrationStepStatus, migrationCompleted } from 'uPortMobile/lib/selectors/migrations'
+import { currentAddress } from 'xdemic/lib/selectors/identities'
+import { working, statusMessage, errorMessage } from 'xdemic/lib/selectors/processStatus'
+import { migrationStepStatus, migrationCompleted } from 'xdemic/lib/selectors/migrations'
 import {
   MigrationTarget,
   MigrationStep,
   MigrationStatus,
   targetRecipes,
-} from 'uPortMobile/lib/constants/MigrationActionTypes'
-import { runMigrations } from 'uPortMobile/lib/actions/migrationActions'
+} from 'xdemic/lib/constants/MigrationActionTypes'
+import { runMigrations } from 'xdemic/lib/actions/migrationActions'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { colors } from 'uPortMobile/lib/styles/globalStyles'
+import { colors } from 'xdemic/lib/styles/globalStyles'
 import { Navigation } from 'react-native-navigation'
-import { SCREEN } from 'uPortMobile/lib/constants/MetricActionTypes'
-import Screens from 'uPortMobile/lib/screens/Screens'
+import { SCREEN } from 'xdemic/lib/constants/MetricActionTypes'
+import Screens from 'xdemic/lib/screens/Screens'
 
 const S = require('string')
 

@@ -22,12 +22,12 @@ import { Screen, Section, ListItem, Theme, Strings } from '@kancha'
 import { connect } from 'react-redux'
 
 // Selectors
-import { networkSettings } from 'uPortMobile/lib/selectors/chains'
-import { working } from 'uPortMobile/lib/selectors/processStatus'
+import { networkSettings } from 'xdemic/lib/selectors/chains'
+import { working } from 'xdemic/lib/selectors/processStatus'
 
 // Utilities
-import { wei2eth } from 'uPortMobile/lib/helpers/conversions'
-import { networksByName } from 'uPortMobile/lib/utilities/networks'
+import { wei2eth } from 'xdemic/lib/helpers/conversions'
+import { networksByName } from 'xdemic/lib/utilities/networks'
 
 interface DeviceProps {
   deviceAddress: string

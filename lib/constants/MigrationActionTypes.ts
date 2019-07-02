@@ -23,7 +23,7 @@ export const STARTED_MIGRATION_STEP = 'STARTED_MIGRATION_STEP'
 export const COMPLETED_MIGRATION_STEP = 'COMPLETED_MIGRATION_STEP'
 export const FAILED_MIGRATION_STEP = 'FAILED_MIGRATION_STEP'
 
-import SCREENS from 'uPortMobile/lib/screens/Screens'
+import SCREENS from 'xdemic/lib/screens/Screens'
 
 export enum MigrationTarget {
   Legacy = 'Legacy',

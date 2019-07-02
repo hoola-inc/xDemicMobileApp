@@ -32,7 +32,7 @@ import {
 } from '@kancha'
 
 import withRequestModel from './DisclosureRequestContainer'
-import SCREENS from 'uPortMobile/lib/screens/Screens'
+import SCREENS from 'xdemic/lib/screens/Screens'
 
 /**
  * Dumb request component. Please DO NOT litter JSX template with conditional logic :D

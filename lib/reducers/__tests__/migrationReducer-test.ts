@@ -15,8 +15,8 @@
 
 // (C) Copyright 2016-2018 ConsenSys AG
 
-import { addMigrationTarget, startedMigrationStep, completedMigrationStep, failedMigrationStep } from 'uPortMobile/lib/actions/migrationActions'
-import { MigrationStep, MigrationTarget, MigrationStatus } from 'uPortMobile/lib/constants/MigrationActionTypes'
+import { addMigrationTarget, startedMigrationStep, completedMigrationStep, failedMigrationStep } from 'xdemic/lib/actions/migrationActions'
+import { MigrationStep, MigrationTarget, MigrationStatus } from 'xdemic/lib/constants/MigrationActionTypes'
 import reducer, { MigrationState } from '../migrationsReducer'
 
 

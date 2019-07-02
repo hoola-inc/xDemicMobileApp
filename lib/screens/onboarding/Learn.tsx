@@ -2,9 +2,9 @@ import * as React from 'react'
 import { Navigation } from 'react-native-navigation'
 import SCREENS from '../Screens'
 import { Device, Screen, Images, Theme, Slide, NavBar, OnboardingSwiperSlide, Button, Container } from '@kancha'
-import { OnboardingContent } from 'uPortMobile/lib/content/onboardingSlideContent'
+import { OnboardingContent } from 'xdemic/lib/content/onboardingSlideContent'
 import Swiper from 'react-native-swiper'
-import TESTID from 'uPortMobile/lib/e2e/testIDs'
+import TESTID from 'xdemic/lib/e2e/testIDs'
 
 const onboardingSlides: OnboardingSwiperSlide[] = OnboardingContent(Images)
 

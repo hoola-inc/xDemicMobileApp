@@ -18,22 +18,22 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { currentRequest } from 'uPortMobile/lib/selectors/requests'
-import { currentAddress } from 'uPortMobile/lib/selectors/identities'
-import { externalProfile } from 'uPortMobile/lib/selectors/requests'
+import { currentRequest } from 'xdemic/lib/selectors/requests'
+import { currentAddress } from 'xdemic/lib/selectors/identities'
+import { externalProfile } from 'xdemic/lib/selectors/requests'
 
 import Mori from 'mori'
 import { sha3_256 } from 'js-sha3'
-import { cancelRequest } from 'uPortMobile/lib/actions/requestActions'
-import { removeAttestation } from 'uPortMobile/lib/actions/uportActions'
+import { cancelRequest } from 'xdemic/lib/actions/requestActions'
+import { removeAttestation } from 'xdemic/lib/actions/uportActions'
 
 import AcceptCredential from './AcceptCredential'
 import { Navigation } from 'react-native-navigation'
 /**
  * Refactor the parsers and move to kancah utils
  */
-import { parseClaimItem } from 'uPortMobile/lib/utilities/parseClaims'
-import { showMarketPlaceModal } from 'uPortMobile/lib/utilities/requestScreenManager'
+import { parseClaimItem } from 'xdemic/lib/utilities/parseClaims'
+import { showMarketPlaceModal } from 'xdemic/lib/utilities/requestScreenManager'
 
 interface AcceptCredentialProps {
   verification: any

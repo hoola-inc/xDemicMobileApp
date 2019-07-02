@@ -2,7 +2,7 @@ import React from 'react'
 import { Share } from 'react-native'
 import { Navigator } from 'react-native-navigation'
 import { Screen, Container, Text, Theme, ListItem, Section, Strings } from '@kancha'
-import Avatar from 'uPortMobile/lib/components/shared/Avatar'
+import Avatar from 'xdemic/lib/components/shared/Avatar'
 
 interface User {
   name: string

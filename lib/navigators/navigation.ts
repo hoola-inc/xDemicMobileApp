@@ -4,7 +4,7 @@ import { Theme, Icon, Device } from "../kancha";
 import SCREENS from "../screens/Screens";
 import { RNUportSigner } from "react-native-uport-signer";
 import store from "../store/store";
-import { registerDeviceForNotifications } from "uPortMobile/lib/actions/snsRegistrationActions";
+import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
 import { handleURL } from "../actions/requestActions";
 
 /**

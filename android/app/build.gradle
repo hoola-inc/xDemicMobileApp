@@ -164,7 +164,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.uportMobile"
+        applicationId "com.xdemic"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode = getBuildVersionCode()

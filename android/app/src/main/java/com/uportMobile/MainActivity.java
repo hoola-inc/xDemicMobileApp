@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package com.uportMobile;
+package com.xdemic;
 
 import android.content.Intent;
 import android.os.Bundle;

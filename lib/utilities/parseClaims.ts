@@ -1,5 +1,5 @@
 import { Linking } from 'react-native'
-import { capitalizeFirstLetter } from 'uPortMobile/lib/utilities/string'
+import { capitalizeFirstLetter } from 'xdemic/lib/utilities/string'
 import S from 'string'
 
 /*********************************************************************************

@@ -6,8 +6,8 @@ import { Navigation } from 'react-native-navigation'
 /**
  * Use existing Avatar until its rewritten
  */
-import Avatar from 'uPortMobile/lib/components/shared/Avatar'
-import { capitalizeFirstLetter } from 'uPortMobile/lib/utilities/string'
+import Avatar from 'xdemic/lib/components/shared/Avatar'
+import { capitalizeFirstLetter } from 'xdemic/lib/utilities/string'
 import { Theme } from '../../themes/default'
 
 interface CredentialProps {

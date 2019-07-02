@@ -21,11 +21,11 @@ import {
   MigrationStatus,
   Recipes,
   targetRecipes
-} from 'uPortMobile/lib/constants/MigrationActionTypes'
+} from 'xdemic/lib/constants/MigrationActionTypes'
 
 import {
   MigrationState
-} from 'uPortMobile/lib/reducers/migrationsReducer'
+} from 'xdemic/lib/reducers/migrationsReducer'
 
 import { createSelector } from 'reselect'
 

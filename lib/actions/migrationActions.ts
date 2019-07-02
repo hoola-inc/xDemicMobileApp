@@ -15,7 +15,7 @@
 // along with uPort Mobile App.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-import { ADD_MIGRATION_TARGET, STARTED_MIGRATION_STEP, COMPLETED_MIGRATION_STEP, FAILED_MIGRATION_STEP, RUN_MIGRATIONS, MigrationStep, MigrationTarget, TargetAction, StepAction } from 'uPortMobile/lib/constants/MigrationActionTypes'
+import { ADD_MIGRATION_TARGET, STARTED_MIGRATION_STEP, COMPLETED_MIGRATION_STEP, FAILED_MIGRATION_STEP, RUN_MIGRATIONS, MigrationStep, MigrationTarget, TargetAction, StepAction } from 'xdemic/lib/constants/MigrationActionTypes'
 
 const _backup = true
 

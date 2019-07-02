@@ -21,9 +21,9 @@
 	<key>BUNDLE_ID</key>
 	<string>me.uport</string>
 	<key>PROJECT_ID</key>
-	<string>uport-157202</string>
+	<string>xdemic-157202</string>
 	<key>STORAGE_BUCKET</key>
-	<string>uport-157202.appspot.com</string>
+	<string>xdemic-157202.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>

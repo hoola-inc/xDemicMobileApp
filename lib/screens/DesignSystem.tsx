@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Container, Text, ListItem, Screen, Section, Button, Credential } from '@kancha'
-import SCREENS from 'uPortMobile/lib/screens/Screens'
+import SCREENS from 'xdemic/lib/screens/Screens'
 import { Navigation } from 'react-native-navigation'
 
 interface FakeAvatarProps {}

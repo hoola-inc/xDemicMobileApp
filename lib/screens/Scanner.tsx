@@ -6,7 +6,7 @@ import { Screen, Container, Scanner, Device, Theme } from '@kancha'
 
 // Redux Connect
 import { connect } from 'react-redux'
-import { handleURL } from 'uPortMobile/lib/actions/requestActions'
+import { handleURL } from 'xdemic/lib/actions/requestActions'
 
 /**
  * Timeout value for scanner to stop trying to scan QR codes

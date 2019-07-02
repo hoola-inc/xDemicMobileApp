@@ -5,10 +5,10 @@ import { Screen, Container, Button, Text, Images, Theme } from '@kancha'
 import SCREENS from '../Screens'
 import { Navigation } from 'react-native-navigation'
 
-import { track } from 'uPortMobile/lib/actions/metricActions'
-import { segmentId } from 'uPortMobile/lib/selectors/identities'
+import { track } from 'xdemic/lib/actions/metricActions'
+import { segmentId } from 'xdemic/lib/selectors/identities'
 
-import TESTID from 'uPortMobile/lib/e2e/testIDs'
+import TESTID from 'xdemic/lib/e2e/testIDs'
 
 interface WelcomeProps {
   trackSegment: (event: any) => any

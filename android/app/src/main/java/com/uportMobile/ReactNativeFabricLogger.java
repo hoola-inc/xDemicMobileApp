@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-package com.uportMobile;
+package com.xdemic;
 
 import com.facebook.common.logging.LoggingDelegate;
 

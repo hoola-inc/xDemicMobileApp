@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_uPortMobileVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_uPortMobileVersionString[];
+FOUNDATION_EXPORT double Pods_xdemicVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_xdemicVersionString[];
 

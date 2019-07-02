@@ -12,7 +12,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* uPortMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* uPortMobileTests.m */; };
+		00E356F31AD99517003FC87E /* xdemicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* xdemicTests.m */; };
 		030297BC2005526E008D4098 /* HDSignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 030297BB2005526E008D4098 /* HDSignerTests.m */; };
 		032335471F9E62BA005306F9 /* SignerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 032335461F9E62BA005306F9 /* SignerTests.m */; };
 		03459E6B1F97F372004DDC10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03459E3B1F97F371004DDC10 /* AppDelegate.m */; };
@@ -25,10 +25,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		18A8B33123784F4A8F5737C9 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B50108A2C9348E08E763F64 /* libReactNativePermissions.a */; };
-		25BA382724C11DC0665FE966 /* Pods_uPortMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8068C66CD9E6262A70001AC /* Pods_uPortMobileTests.framework */; };
+		25BA382724C11DC0665FE966 /* Pods_xdemicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8068C66CD9E6262A70001AC /* Pods_xdemicTests.framework */; };
 		2D0BF972C4A94A1C96438657 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5268696FF6F94335993C6940 /* libRNVectorIcons.a */; };
 		480A11F61E14627C0041E8BA /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 480A11D41E1460360041E8BA /* libART.a */; };
-		575B97591931696114AC99BD /* Pods_uPortMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11738FDE267F889900DBAB73 /* Pods_uPortMobile.framework */; };
+		575B97591931696114AC99BD /* Pods_xdemic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11738FDE267F889900DBAB73 /* Pods_xdemic.framework */; };
 		5FA3A014A25E45698C2359BF /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33447046707947CCB022ECCA /* libRNDeviceInfo.a */; };
 		600A93DB1D0F813700DB5AEB /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 600A93DA1D0F811200DB5AEB /* libRCTCameraRoll.a */; };
 		601B76DD1D410D3F00F62DDB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601B76DB1D410D3F00F62DDB /* Fabric.framework */; };
@@ -127,7 +127,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = uPortMobile;
+			remoteInfo = xdemic;
 		};
 		04CB09C720AF5B76004D4F0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -578,18 +578,18 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* uPortMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uPortMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* xdemicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xdemicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* uPortMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uPortMobileTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* xdemicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xdemicTests.m; sourceTree = "<group>"; };
 		030297BB2005526E008D4098 /* HDSignerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDSignerTests.m; sourceTree = "<group>"; };
 		032335461F9E62BA005306F9 /* SignerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignerTests.m; sourceTree = "<group>"; };
-		03459E3B1F97F371004DDC10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = uPortMobile/Classes/AppDelegate.m; sourceTree = "<group>"; };
-		03459E6A1F97F372004DDC10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = uPortMobile/Classes/AppDelegate.h; sourceTree = "<group>"; };
-		03459E7B1F97F75D004DDC10 /* RNSNS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNSNS.m; path = uPortMobile/Classes/RNSNS.m; sourceTree = "<group>"; };
-		03459E7C1F97F75D004DDC10 /* RNSNS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNSNS.h; path = uPortMobile/Classes/RNSNS.h; sourceTree = "<group>"; };
-		037EA23E1F75DB850015DD6A /* uPortMobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uPortMobile-Bridging-Header.h"; sourceTree = "<group>"; };
-		038F14D91F9547C500DF45E1 /* keccak.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = keccak.c; path = uPortMobile/keccak.c; sourceTree = "<group>"; };
-		038F14DA1F9547C500DF45E1 /* keccak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keccak.h; path = uPortMobile/keccak.h; sourceTree = "<group>"; };
+		03459E3B1F97F371004DDC10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = xdemic/Classes/AppDelegate.m; sourceTree = "<group>"; };
+		03459E6A1F97F372004DDC10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = xdemic/Classes/AppDelegate.h; sourceTree = "<group>"; };
+		03459E7B1F97F75D004DDC10 /* RNSNS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNSNS.m; path = xdemic/Classes/RNSNS.m; sourceTree = "<group>"; };
+		03459E7C1F97F75D004DDC10 /* RNSNS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNSNS.h; path = xdemic/Classes/RNSNS.h; sourceTree = "<group>"; };
+		037EA23E1F75DB850015DD6A /* xdemic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xdemic-Bridging-Header.h"; sourceTree = "<group>"; };
+		038F14D91F9547C500DF45E1 /* keccak.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = keccak.c; path = xdemic/keccak.c; sourceTree = "<group>"; };
+		038F14DA1F9547C500DF45E1 /* keccak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = keccak.h; path = xdemic/keccak.h; sourceTree = "<group>"; };
 		038F14E11F954FC900DF45E1 /* aes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		038F14E21F954FC900DF45E1 /* asn1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
 		038F14E31F954FC900DF45E1 /* asn1_mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
@@ -670,14 +670,14 @@
 		038F15301F954FCA00DF45E1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0B137393457A4411B6A82656 /* libTouchID.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTouchID.a; sourceTree = "<group>"; };
 		0FF12F882F814AF2842C390A /* libRNKeychain.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNKeychain.a; sourceTree = "<group>"; };
-		11738FDE267F889900DBAB73 /* Pods_uPortMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uPortMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11738FDE267F889900DBAB73 /* Pods_xdemic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xdemic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* uPort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uPort.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* xdemic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xdemic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = uPortMobile/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = uPortMobile/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = uPortMobile/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = xdemic/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = xdemic/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = xdemic/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		16999B55454D4C328D7FACD3 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		174FBABC30B146B5A883E319 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -689,30 +689,30 @@
 		33447046707947CCB022ECCA /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		3F473FD8BE754AA592BCA8F9 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		44373E1AA3B34FD18D6872EB /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
-		46DD473D4DA157B879D9DD94 /* Pods-uPortMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uPortMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uPortMobile/Pods-uPortMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		46DD473D4DA157B879D9DD94 /* Pods-xdemic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xdemic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xdemic/Pods-xdemic.debug.xcconfig"; sourceTree = "<group>"; };
 		480A11CF1E1460350041E8BA /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		5268696FF6F94335993C6940 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		544D74BA2AF94BF89CBE0725 /* libRNRandomBytes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNRandomBytes.a; sourceTree = "<group>"; };
 		600A93D51D0F811200DB5AEB /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		601B76DB1D410D3F00F62DDB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		601B76DC1D410D3F00F62DDB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		62FA6261B132A60C0AFA99A4 /* Pods-uPortMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uPortMobileTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uPortMobileTests/Pods-uPortMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		62FA6261B132A60C0AFA99A4 /* Pods-xdemicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xdemicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xdemicTests/Pods-xdemicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		641915B2200ECEB70042DA49 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		641C9A0D1E1738F3008A4D38 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		646FCC6922B0FCF7007D8B04 /* RNCNetInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCNetInfo.xcodeproj; path = "../node_modules/@react-native-community/netinfo/ios/RNCNetInfo.xcodeproj"; sourceTree = "<group>"; };
-		64BE8C84877D1A6F45E58FF9 /* Pods-uPortMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uPortMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-uPortMobile/Pods-uPortMobile.release.xcconfig"; sourceTree = "<group>"; };
+		64BE8C84877D1A6F45E58FF9 /* Pods-xdemic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xdemic.release.xcconfig"; path = "Pods/Target Support Files/Pods-xdemic/Pods-xdemic.release.xcconfig"; sourceTree = "<group>"; };
 		64E863C0229A0660004F1B20 /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
-		64E92F5B1D8CCCED0001FE7A /* uPort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = uPort.entitlements; path = uPortMobile/uPort.entitlements; sourceTree = "<group>"; };
+		64E92F5B1D8CCCED0001FE7A /* uPort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = uPort.entitlements; path = xdemic/uPort.entitlements; sourceTree = "<group>"; };
 		6F0D5A3203A64CCBB09EE7F6 /* PasscodeAuth.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = PasscodeAuth.xcodeproj; path = "../node_modules/react-native-passcode-auth/PasscodeAuth.xcodeproj"; sourceTree = "<group>"; };
 		70304EBE221EB29F0092DB60 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		70304EFC221EB2DD0092DB60 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		70304EFE221EB2E50092DB60 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		70D18C4D218C53CB0004E667 /* file-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "file-icon.png"; sourceTree = "<group>"; };
-		70F06E6E1FC5C15F000BD332 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "uPortMobile/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		70F06E6E1FC5C15F000BD332 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "xdemic/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		962873292241212B002158C5 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
-		9645632F21CBC6B100FC1C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = uPortMobile/Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
+		9645632F21CBC6B100FC1C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xdemic/Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		9688718E2D954B93AD154055 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		96CB54A322B3BA3B005ECA31 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		96CFFD752295665E003A9AAB /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -750,12 +750,12 @@
 		96F3C95821C12981006806BE /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		9BCC68FED7074B2AA27193D1 /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../node_modules/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 		9D3BBAA8C3514D689B8A4ECA /* RNRandomBytes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNRandomBytes.xcodeproj; path = "../node_modules/react-native-randombytes/RNRandomBytes.xcodeproj"; sourceTree = "<group>"; };
-		AC8CE00CDBB3F3D8A93D2848 /* Pods-uPortMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uPortMobileTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-uPortMobileTests/Pods-uPortMobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC8CE00CDBB3F3D8A93D2848 /* Pods-xdemicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xdemicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-xdemicTests/Pods-xdemicTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE4808EA30EA4B79B99DD6D0 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		C8D312D12269198A003E3199 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "../node_modules/react-native-uport-signer/ios/Pods/Pods.xcodeproj"; sourceTree = "<group>"; };
 		C8D855DE225FC8420086560A /* RNUportSigner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNUportSigner.xcodeproj; path = "../node_modules/react-native-uport-signer/ios/RNUportSigner.xcodeproj"; sourceTree = "<group>"; };
 		D17E3DC91DEDEF6A00C460F9 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		D8068C66CD9E6262A70001AC /* Pods_uPortMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uPortMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8068C66CD9E6262A70001AC /* Pods_xdemicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xdemicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CE7701FC7E4BEFAEC88B61 /* TouchID.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = TouchID.xcodeproj; path = "../node_modules/react-native-touch-id/TouchID.xcodeproj"; sourceTree = "<group>"; };
 		E7319A7A6E974F709EFB2571 /* libRNIntercom.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNIntercom.a; sourceTree = "<group>"; };
 		EBB278FF1A5046B9972A3597 /* libPasscodeAuth.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libPasscodeAuth.a; sourceTree = "<group>"; };
@@ -766,7 +766,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25BA382724C11DC0665FE966 /* Pods_uPortMobileTests.framework in Frameworks */,
+				25BA382724C11DC0665FE966 /* Pods_xdemicTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,7 +806,7 @@
 				E850396E4153417FBC5EC4C0 /* libRNFetchBlob.a in Frameworks */,
 				5FA3A014A25E45698C2359BF /* libRNDeviceInfo.a in Frameworks */,
 				641C9A161E17390C008A4D38 /* libRCTPushNotification.a in Frameworks */,
-				575B97591931696114AC99BD /* Pods_uPortMobile.framework in Frameworks */,
+				575B97591931696114AC99BD /* Pods_xdemic.framework in Frameworks */,
 				D6EA3454F6A041D7814CCCD3 /* libRNFirebase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,15 +856,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* uPortMobileTests */ = {
+		00E356EF1AD99517003FC87E /* xdemicTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* uPortMobileTests.m */,
+				00E356F21AD99517003FC87E /* xdemicTests.m */,
 				032335461F9E62BA005306F9 /* SignerTests.m */,
 				030297BB2005526E008D4098 /* HDSignerTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = uPortMobileTests;
+			path = xdemicTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -1008,7 +1008,7 @@
 		038F15CB1F9692D500DF45E1 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				037EA23E1F75DB850015DD6A /* uPortMobile-Bridging-Header.h */,
+				037EA23E1F75DB850015DD6A /* xdemic-Bridging-Header.h */,
 				64E92F5B1D8CCCED0001FE7A /* uPort.entitlements */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -1038,7 +1038,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* uPortMobile */ = {
+		13B07FAE1A68108700A75B9A /* xdemic */ = {
 			isa = PBXGroup;
 			children = (
 				70F06E6E1FC5C15F000BD332 /* GoogleService-Info.plist */,
@@ -1047,7 +1047,7 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 			);
-			name = uPortMobile;
+			name = xdemic;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -1080,8 +1080,8 @@
 				70304EFE221EB2E50092DB60 /* MessageUI.framework */,
 				70304EFC221EB2DD0092DB60 /* Social.framework */,
 				2287C0EB70D14ECEA474A926 /* libz.tbd */,
-				11738FDE267F889900DBAB73 /* Pods_uPortMobile.framework */,
-				D8068C66CD9E6262A70001AC /* Pods_uPortMobileTests.framework */,
+				11738FDE267F889900DBAB73 /* Pods_xdemic.framework */,
+				D8068C66CD9E6262A70001AC /* Pods_xdemicTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1302,9 +1302,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* uPortMobile */,
+				13B07FAE1A68108700A75B9A /* xdemic */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* uPortMobileTests */,
+				00E356EF1AD99517003FC87E /* xdemicTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				4D8FE2605A504D3895725F78 /* Resources */,
 				240B33BF22EF467CB324BAB2 /* Frameworks */,
@@ -1318,8 +1318,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* uPort.app */,
-				00E356EE1AD99517003FC87E /* uPortMobileTests.xctest */,
+				13B07F961A680F5B00A75B9A /* xdemic.app */,
+				00E356EE1AD99517003FC87E /* xdemicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1428,10 +1428,10 @@
 		D683D13AC74A5A32222435C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				46DD473D4DA157B879D9DD94 /* Pods-uPortMobile.debug.xcconfig */,
-				64BE8C84877D1A6F45E58FF9 /* Pods-uPortMobile.release.xcconfig */,
-				62FA6261B132A60C0AFA99A4 /* Pods-uPortMobileTests.debug.xcconfig */,
-				AC8CE00CDBB3F3D8A93D2848 /* Pods-uPortMobileTests.release.xcconfig */,
+				46DD473D4DA157B879D9DD94 /* Pods-xdemic.debug.xcconfig */,
+				64BE8C84877D1A6F45E58FF9 /* Pods-xdemic.release.xcconfig */,
+				62FA6261B132A60C0AFA99A4 /* Pods-xdemicTests.debug.xcconfig */,
+				AC8CE00CDBB3F3D8A93D2848 /* Pods-xdemicTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1439,9 +1439,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* uPortMobileTests */ = {
+		00E356ED1AD99517003FC87E /* xdemicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "uPortMobileTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "xdemicTests" */;
 			buildPhases = (
 				65C8E31E1819E9C5133BD014 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -1453,14 +1453,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = uPortMobileTests;
-			productName = uPortMobileTests;
-			productReference = 00E356EE1AD99517003FC87E /* uPortMobileTests.xctest */;
+			name = xdemicTests;
+			productName = xdemicTests;
+			productReference = 00E356EE1AD99517003FC87E /* xdemicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* uPortMobile */ = {
+		13B07F861A680F5B00A75B9A /* xdemic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "uPortMobile" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "xdemic" */;
 			buildPhases = (
 				A190DE9710FDAB340E3193DE /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -1475,9 +1475,9 @@
 			);
 			dependencies = (
 			);
-			name = uPortMobile;
+			name = xdemic;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* uPort.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* xdemic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1519,7 +1519,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "uPortMobile" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "xdemic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1659,8 +1659,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* uPortMobile */,
-				00E356ED1AD99517003FC87E /* uPortMobileTests */,
+				13B07F861A680F5B00A75B9A /* xdemic */,
+				00E356ED1AD99517003FC87E /* xdemicTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2222,7 +2222,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-uPortMobileTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-xdemicTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2235,7 +2235,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-uPortMobile/Pods-uPortMobile-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-xdemic/Pods-xdemic-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSSNS/AWSSNS.framework",
@@ -2256,7 +2256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uPortMobile/Pods-uPortMobile-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xdemic/Pods-xdemic-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A190DE9710FDAB340E3193DE /* [CP] Check Pods Manifest.lock */ = {
@@ -2270,7 +2270,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-uPortMobile-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-xdemic-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2284,7 +2284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* uPortMobileTests.m in Sources */,
+				00E356F31AD99517003FC87E /* xdemicTests.m in Sources */,
 				032335471F9E62BA005306F9 /* SignerTests.m in Sources */,
 				030297BC2005526E008D4098 /* HDSignerTests.m in Sources */,
 			);
@@ -2305,7 +2305,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* uPortMobile */;
+			target = 13B07F861A680F5B00A75B9A /* xdemic */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2317,7 +2317,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = uPortMobile;
+			path = xdemic;
 			sourceTree = "<group>";
 		};
 		9645632E21CBC6B100FC1C48 /* Launch.storyboard */ = {
@@ -2333,7 +2333,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62FA6261B132A60C0AFA99A4 /* Pods-uPortMobileTests.debug.xcconfig */;
+			baseConfigurationReference = 62FA6261B132A60C0AFA99A4 /* Pods-xdemicTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2353,7 +2353,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
-				INFOPLIST_FILE = uPortMobileTests/Info.plist;
+				INFOPLIST_FILE = xdemicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2367,13 +2367,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uPort.app/uPort";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xdemic.app/uPort";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC8CE00CDBB3F3D8A93D2848 /* Pods-uPortMobileTests.release.xcconfig */;
+			baseConfigurationReference = AC8CE00CDBB3F3D8A93D2848 /* Pods-xdemicTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2390,7 +2390,7 @@
 					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
-				INFOPLIST_FILE = uPortMobileTests/Info.plist;
+				INFOPLIST_FILE = xdemicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2404,17 +2404,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uPort.app/uPort";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xdemic.app/uPort";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46DD473D4DA157B879D9DD94 /* Pods-uPortMobile.debug.xcconfig */;
+			baseConfigurationReference = 46DD473D4DA157B879D9DD94 /* Pods-xdemic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = uPortMobile/uPort.entitlements;
+				CODE_SIGN_ENTITLEMENTS = xdemic/uPort.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -2450,7 +2450,7 @@
 					"$(SRCROOT)/OpenSSL-Universal/include-ios/**",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
-				INFOPLIST_FILE = uPortMobile/Info.plist;
+				INFOPLIST_FILE = xdemic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2467,7 +2467,7 @@
 				PRODUCT_NAME = uPort;
 				PROVISIONING_PROFILE = "d3940d33-32e7-4100-845f-8af85be559aa";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "uPortMobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "xdemic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2477,11 +2477,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64BE8C84877D1A6F45E58FF9 /* Pods-uPortMobile.release.xcconfig */;
+			baseConfigurationReference = 64BE8C84877D1A6F45E58FF9 /* Pods-xdemic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = uPortMobile/uPort.entitlements;
+				CODE_SIGN_ENTITLEMENTS = xdemic/uPort.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
@@ -2516,7 +2516,7 @@
 					"$(SRCROOT)/OpenSSL-Universal/include-ios/**",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
-				INFOPLIST_FILE = uPortMobile/Info.plist;
+				INFOPLIST_FILE = xdemic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2532,7 +2532,7 @@
 				PRODUCT_NAME = uPort;
 				PROVISIONING_PROFILE = "6d9998b0-aea7-40d9-8599-d9ed4f4b8035";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "uPortMobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "xdemic-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2679,7 +2679,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "uPortMobileTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "xdemicTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -2688,7 +2688,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "uPortMobile" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "xdemic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -2697,7 +2697,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "uPortMobile" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "xdemic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

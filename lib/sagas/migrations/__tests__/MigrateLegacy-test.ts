@@ -18,11 +18,11 @@
 import { expectSaga } from 'redux-saga-test-plan'
 import { select, call } from 'redux-saga/effects'
 import { migrate } from '../MigrateLegacy'
-import { createAttestationToken } from 'uPortMobile/lib/sagas/jwt'
-import { MigrationStep } from 'uPortMobile/lib/constants/MigrationActionTypes'
-import { saveMessage } from 'uPortMobile/lib/actions/processStatusActions'
-import { subAccounts, currentAddress, ownClaimsMap, hasMainnetAccounts } from 'uPortMobile/lib/selectors/identities'
-import { updateIdentity, storeIdentity, storeConnection, storeExternalUport } from 'uPortMobile/lib/actions/uportActions'
+import { createAttestationToken } from 'xdemic/lib/sagas/jwt'
+import { MigrationStep } from 'xdemic/lib/constants/MigrationActionTypes'
+import { saveMessage } from 'xdemic/lib/actions/processStatusActions'
+import { subAccounts, currentAddress, ownClaimsMap, hasMainnetAccounts } from 'xdemic/lib/selectors/identities'
+import { updateIdentity, storeIdentity, storeConnection, storeExternalUport } from 'xdemic/lib/actions/uportActions'
 import {
   createIdentityKeyPair,
   canSignFor,
@@ -31,14 +31,14 @@ import {
   encryptionPublicKey,
   DEFAULT_LEVEL,
 } from '../../keychain'
-import { networkSettings } from 'uPortMobile/lib/selectors/chains'
-import { hdRootAddress } from 'uPortMobile/lib/selectors/hdWallet'
-import { hasAttestations } from 'uPortMobile/lib/selectors/attestations';
-import { resetHDWallet } from 'uPortMobile/lib/actions/HDWalletActions'
-import { handleURL } from 'uPortMobile/lib/actions/requestActions';
-import { dataBackup } from 'uPortMobile/lib/selectors/settings';
+import { networkSettings } from 'xdemic/lib/selectors/chains'
+import { hdRootAddress } from 'xdemic/lib/selectors/hdWallet'
+import { hasAttestations } from 'xdemic/lib/selectors/attestations';
+import { resetHDWallet } from 'xdemic/lib/actions/HDWalletActions'
+import { handleURL } from 'xdemic/lib/actions/requestActions';
+import { dataBackup } from 'xdemic/lib/selectors/settings';
 import { handleStartSwitchingSettingsChange } from '../../hubSaga';
-import { setDataBackup } from 'uPortMobile/lib/actions/settingsActions';
+import { setDataBackup } from 'xdemic/lib/actions/settingsActions';
 
 const step = MigrationStep.MigrateLegacy
 

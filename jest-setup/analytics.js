@@ -1,4 +1,4 @@
-jest.mock('uPortMobile/lib/utilities/analytics', () => {
+jest.mock('xdemic/lib/utilities/analytics', () => {
   return {
     identify: () => ({}),
     screen: () => ({}),

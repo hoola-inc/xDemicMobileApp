@@ -34,7 +34,7 @@ Please keep this list updated
 
 ## Writing a process
 
-When designing a saga to call an external process there are a few actions to use. These all live in `uPortMobile/lib/actions/processStatusActions.js`
+When designing a saga to call an external process there are a few actions to use. These all live in `xdemic/lib/actions/processStatusActions.js`
 
 - `startWorking(processId)` The first thing to call for any process. In the beginning of the saga for example.
 - `saveMessage(processId, 'Sending to ipfs')` If you want to show a message to the user about what is going on
@@ -43,7 +43,7 @@ When designing a saga to call an external process there are a few actions to use
 
 ## Reading process status in the UX
 
-There are a selection of selectors you can query in the container functions to check the current status of a process. They all live in `uPortMobile/lib/selectors/processStatus`.
+There are a selection of selectors you can query in the container functions to check the current status of a process. They all live in `xdemic/lib/selectors/processStatus`.
 
 - `offline(state)` Not process specific but returns a boolean if you're offline
 - `working(state, processId)` Returns a boolean if the process is currently working. Meaning it has been started but not completed nor failed

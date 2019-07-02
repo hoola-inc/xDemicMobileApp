@@ -17,10 +17,10 @@
 //
 import {
   migrationStepStatus, migrationTargets, globalState, migrationCompleted, pendingMigrations
-} from 'uPortMobile/lib/selectors/migrations'
+} from 'xdemic/lib/selectors/migrations'
 
-import { MigrationStep, MigrationTarget, MigrationStatus } from 'uPortMobile/lib/constants/MigrationActionTypes'
-import { MigrationState } from 'uPortMobile/lib/reducers/migrationsReducer'
+import { MigrationStep, MigrationTarget, MigrationStatus } from 'xdemic/lib/constants/MigrationActionTypes'
+import { MigrationState } from 'xdemic/lib/reducers/migrationsReducer'
 
 const empty: globalState = {
   migrations: {

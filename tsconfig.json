@@ -13,7 +13,7 @@
       "moduleResolution": "node",
       "baseUrl": ".",
       "paths": {
-          "uPortMobile/*": ["./*"],
+          "xdemic/*": ["./*"],
           "@kancha": ["./lib/kancha"],
       }
     },

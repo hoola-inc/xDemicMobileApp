@@ -52,7 +52,7 @@ const RequestContent: React.FC<any> = () => {
 const Logo: React.FC<any> = () => {
   return (
     <Image
-      source={require('uPortMobile/assets/images/sample-logo.png')}
+      source={require('xdemic/assets/images/sample-logo.png')}
       borderRadius={10}
       style={{ height: 60, width: 60 }}
     />
@@ -67,7 +67,7 @@ const Banner: React.FC<any> = () => {
   }
 
   return (
-    <ImageBackground source={require('uPortMobile/assets/images/sydney.png')} style={BannerStyle}>
+    <ImageBackground source={require('xdemic/assets/images/sydney.png')} style={BannerStyle}>
       <Container
         backgroundColor={'rgba(0,0,0,0.5)'}
         flex={1}

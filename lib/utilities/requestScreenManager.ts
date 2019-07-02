@@ -1,7 +1,7 @@
 import { Navigation } from 'react-native-navigation'
-import SCREENS from 'uPortMobile/lib/screens/Screens'
-import { UportmarketPlaceConfig } from 'uPortMobile/lib/utilities/parseClaims'
-import fetchMarketPlaceData from 'uPortMobile/lib/utilities/fetchMarketplace'
+import SCREENS from 'xdemic/lib/screens/Screens'
+import { UportmarketPlaceConfig } from 'xdemic/lib/utilities/parseClaims'
+import fetchMarketPlaceData from 'xdemic/lib/utilities/fetchMarketplace'
 
 const requestScreenManager = (requestType: string) => {
   switch (requestType) {

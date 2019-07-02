@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package com.uportMobile;
+package com.xdemic;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;

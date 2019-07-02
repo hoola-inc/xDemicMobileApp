@@ -4,20 +4,20 @@ import { compose } from 'redux'
 import { ActivityIndicator } from 'react-native'
 
 // Selectors
-import { clientProfile, currentRequest, externalProfile } from 'uPortMobile/lib/selectors/requests'
-import { publicUport, currentAddress, interactionStats, subAccounts } from 'uPortMobile/lib/selectors/identities'
-import { requestedOwnClaims, requestedVerifiableClaims, missingClaims } from 'uPortMobile/lib/selectors/attestations'
-import { working, errorMessage } from 'uPortMobile/lib/selectors/processStatus'
-import { endpointArn } from 'uPortMobile/lib/selectors/snsRegistrationStatus'
-import { networkSettingsForAddress } from 'uPortMobile/lib/selectors/chains'
+import { clientProfile, currentRequest, externalProfile } from 'xdemic/lib/selectors/requests'
+import { publicUport, currentAddress, interactionStats, subAccounts } from 'xdemic/lib/selectors/identities'
+import { requestedOwnClaims, requestedVerifiableClaims, missingClaims } from 'xdemic/lib/selectors/attestations'
+import { working, errorMessage } from 'xdemic/lib/selectors/processStatus'
+import { endpointArn } from 'xdemic/lib/selectors/snsRegistrationStatus'
+import { networkSettingsForAddress } from 'xdemic/lib/selectors/chains'
 
 import Mori from 'mori'
-import verifiedByUport from 'uPortMobile/lib/utilities/verifiedByUport'
-import { networks } from 'uPortMobile/lib/utilities/networks'
-import { formatWeiAsEth } from 'uPortMobile/lib/helpers/conversions'
+import verifiedByUport from 'xdemic/lib/utilities/verifiedByUport'
+import { networks } from 'xdemic/lib/utilities/networks'
+import { formatWeiAsEth } from 'xdemic/lib/helpers/conversions'
 
 // Actions
-import { authorizeRequest, cancelRequest, clearRequest, authorizeAccount } from 'uPortMobile/lib/actions/requestActions'
+import { authorizeRequest, cancelRequest, clearRequest, authorizeAccount } from 'xdemic/lib/actions/requestActions'
 // Data model
 import disclosureRequestModel, {
   DisclosureRequestModelType,
@@ -25,7 +25,7 @@ import disclosureRequestModel, {
   ClaimSpecType,
 } from './DisclosureRequestModel'
 import { Container, Theme, Text } from '@kancha'
-import { VerifiableClaimsSpec, UserInfo } from 'uPortMobile/lib/types/Credentials'
+import { VerifiableClaimsSpec, UserInfo } from 'xdemic/lib/types/Credentials'
 export interface DisclosureRequestContainerProps {
   componentId: string
 }

@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import { Screen, Container, Input, Text, Button, Theme, Icon, Images, Checkbox, Section, ListItem } from '@kancha'
 import { Navigation } from 'react-native-navigation'
 import SCREENS from '../Screens'
-import photoSelectionHandler from 'uPortMobile/lib/utilities/photoSelection'
+import photoSelectionHandler from 'xdemic/lib/utilities/photoSelection'
 import { currentAddress } from '../../selectors/identities'
-import { activationEvent } from 'uPortMobile/lib/actions/userActivationActions'
-import { track } from 'uPortMobile/lib/actions/metricActions'
-import { startMain } from 'uPortMobile/lib/navigators/navigation'
-import { createIdentity, addClaims, addImage } from 'uPortMobile/lib/actions/uportActions'
-import { registerDeviceForNotifications } from 'uPortMobile/lib/actions/snsRegistrationActions'
+import { activationEvent } from 'xdemic/lib/actions/userActivationActions'
+import { track } from 'xdemic/lib/actions/metricActions'
+import { startMain } from 'xdemic/lib/navigators/navigation'
+import { createIdentity, addClaims, addImage } from 'xdemic/lib/actions/uportActions'
+import { registerDeviceForNotifications } from 'xdemic/lib/actions/snsRegistrationActions'
 
-import TESTID from 'uPortMobile/lib/e2e/testIDs'
+import TESTID from 'xdemic/lib/e2e/testIDs'
 
 interface ImageObj {
   fileSize: number

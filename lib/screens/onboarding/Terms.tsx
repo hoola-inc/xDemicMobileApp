@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Screen, Container, Text, NavBar } from '@kancha'
-import termsConditions from 'uPortMobile/lib/content/termsContent.json'
+import termsConditions from 'xdemic/lib/content/termsContent.json'
 
 /**
  * Terms screen. The terms component could be extracted so it can be used in the setting also

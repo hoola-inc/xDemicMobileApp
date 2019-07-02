@@ -8,7 +8,7 @@ import {
   ClaimTreeNormalised,
   isTopLevelSingleKey,
   renderCrendentialItem,
-} from 'uPortMobile/lib/utilities/parseClaims'
+} from 'xdemic/lib/utilities/parseClaims'
 
 const { UIManager } = NativeModules
 

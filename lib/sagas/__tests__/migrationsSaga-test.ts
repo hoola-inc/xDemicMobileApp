@@ -28,39 +28,39 @@ import migrationsSaga, {
   alert,
 } from '../migrationsSaga'
 import MigrateLegacy from '../migrations/MigrateLegacy'
-import { canSignFor, hasWorkingSeed } from 'uPortMobile/lib/sagas/keychain'
-import { MigrationStep, MigrationTarget, MigrationStatus } from 'uPortMobile/lib/constants/MigrationActionTypes'
+import { canSignFor, hasWorkingSeed } from 'xdemic/lib/sagas/keychain'
+import { MigrationStep, MigrationTarget, MigrationStatus } from 'xdemic/lib/constants/MigrationActionTypes'
 
-import { loadedDB } from 'uPortMobile/lib/actions/globalActions'
+import { loadedDB } from 'xdemic/lib/actions/globalActions'
 import {
   runMigrations as runMigrationAction,
   addMigrationTarget,
   startedMigrationStep,
   completedMigrationStep,
   failedMigrationStep,
-} from 'uPortMobile/lib/actions/migrationActions'
+} from 'xdemic/lib/actions/migrationActions'
 import {
   startWorking,
   stopWorking,
   saveMessage,
   completeProcess,
   failProcess,
-} from 'uPortMobile/lib/actions/processStatusActions'
+} from 'xdemic/lib/actions/processStatusActions'
 
 import {
   migrationStepStatus,
   migrationTargets,
   pendingMigrations,
   migrationCompleted,
-} from 'uPortMobile/lib/selectors/migrations'
-import { isFullyHD, isHD } from 'uPortMobile/lib/selectors/chains'
-import { hdRootAddress } from 'uPortMobile/lib/selectors/hdWallet'
+} from 'xdemic/lib/selectors/migrations'
+import { isFullyHD, isHD } from 'xdemic/lib/selectors/chains'
+import { hdRootAddress } from 'xdemic/lib/selectors/hdWallet'
 import {
   migrateableIdentities,
   currentAddress,
   hasMainnetAccounts,
   validPrimaryIdentities,
-} from 'uPortMobile/lib/selectors/identities'
+} from 'xdemic/lib/selectors/identities'
 import { Alert } from 'react-native'
 
 describe('checkup', () => {

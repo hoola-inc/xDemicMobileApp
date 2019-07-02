@@ -11,30 +11,30 @@ import {
   Theme,
   Icon
 } from "@kancha";
-import Avatar from "uPortMobile/lib/components/shared/Avatar";
+import Avatar from "xdemic/lib/components/shared/Avatar";
 
 import { Navigation } from "react-native-navigation";
-import { wei2eth } from "uPortMobile/lib/helpers/conversions";
+import { wei2eth } from "xdemic/lib/helpers/conversions";
 import {
   currentAddress,
   ownClaims,
   myAccounts,
   allIdentities
-} from "uPortMobile/lib/selectors/identities";
-import { externalProfile } from "uPortMobile/lib/selectors/requests";
+} from "xdemic/lib/selectors/identities";
+import { externalProfile } from "xdemic/lib/selectors/requests";
 import {
   editMyInfo,
   updateShareToken
-} from "uPortMobile/lib/actions/myInfoActions";
+} from "xdemic/lib/actions/myInfoActions";
 import {
   addClaims,
   addImage,
   switchIdentity,
   refreshBalance
-} from "uPortMobile/lib/actions/uportActions";
-import { onlyLatestAttestationsWithIssuer } from "uPortMobile/lib/selectors/attestations";
+} from "xdemic/lib/actions/uportActions";
+import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
 import SCREENS from "../screens/Screens";
-import photoSelectionHandler from "uPortMobile/lib/utilities/photoSelection";
+import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
 import Mori from "mori";
 
 /**

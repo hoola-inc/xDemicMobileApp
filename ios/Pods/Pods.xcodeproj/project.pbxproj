@@ -81,7 +81,7 @@
 		3AB17280D42B085569AC1CF5F37C6F97 /* GPBRuntimeTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FC1DCA54DE30F20EF29EFA706BA11A /* GPBRuntimeTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BFD0F540FE63EFD96F06D55E2C094EF /* AWSMTLJSONAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA76F411499BC4560D68BD177F05E9 /* AWSMTLJSONAdapter.m */; };
 		3EE595586D14A745953FB7485AC73965 /* AWSCognitoSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E77F31DEC5EBFF814CD8B71E58EF4F /* AWSCognitoSyncService.m */; };
-		3F01C0B6D1AEBA5DCA7B11B58068B951 /* Pods-uPortMobileTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D91F4BB6317AB6D019A0862D7F79F1 /* Pods-uPortMobileTests-dummy.m */; };
+		3F01C0B6D1AEBA5DCA7B11B58068B951 /* Pods-xdemicTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D91F4BB6317AB6D019A0862D7F79F1 /* Pods-xdemicTests-dummy.m */; };
 		3FD30FC21DC94B213D1911BF46A1F280 /* GPBCodedInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = B884CC7BD6E1D064356768AE1FCB24AC /* GPBCodedInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4086452A395412BCF6AE577F0C49F6CE /* AWSCognitoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CA8AB9523BD0A895D4E6637F76D2D8 /* AWSCognitoService.m */; };
 		409CAAF2191A7927528976503FB1E2AE /* AWSIdentityProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B3DB56A28A7DBC3B040FE60747585DB9 /* AWSIdentityProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,7 +192,7 @@
 		AB98798D8650B863223483B2113A0434 /* NSObject+AWSMTLComparisonAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B8CCF5C17CBD7F4986CF2B1BD2553EEC /* NSObject+AWSMTLComparisonAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACAC792578849162FF6B0B52033F0E5C /* AWSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F12EB12913D6A042F1063B93305EE929 /* AWSModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ADAF03771E6BB792C4128D8058700F62 /* AWSNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 9788F293665CCD79C132A413E5A32EC7 /* AWSNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AEE5BCCDAEBAD91E1F553C2E7181CE8E /* Pods-uPortMobile-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27747B590CB0F12D6581DF10EEC6037F /* Pods-uPortMobile-dummy.m */; };
+		AEE5BCCDAEBAD91E1F553C2E7181CE8E /* Pods-xdemic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27747B590CB0F12D6581DF10EEC6037F /* Pods-xdemic-dummy.m */; };
 		AEF3E9F6BBA76070ED73355FDF7D6631 /* Valet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D558790F51BF80F4CD358406F2187A3A /* Valet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF8E0B6C0D108178E98DC0055AA157BD /* FieldMask.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDB733DB220207A5D1EB6E05AF612A6 /* FieldMask.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B125E7380793673E51A2975BA424FB53 /* Wrappers.pbobjc.h in Headers */ = {isa = PBXBuildFile; fileRef = F7D2D859C3280E0CDC7A3DC22A310FF7 /* Wrappers.pbobjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -209,7 +209,7 @@
 		BE0B7154190049479B70EF7EE1200FAD /* NSArray+AWSMTLManipulationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E0E0861E6D1DC4E5ADE2663DFC1609 /* NSArray+AWSMTLManipulationAdditions.m */; };
 		BE136CFC2DBF58CD473DB43C50CC4155 /* GTMLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 585E97C163E85B86EDB0BB6F45C084BE /* GTMLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF4365979AF1F6D13608C8F9740A737C /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A5241818C3A62B68433D67972C27629E /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.m */; };
-		BFABDFE8E9CC9364D904386B3713C710 /* Pods-uPortMobileTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AD388B2AD829C397E802F555A1B5B21 /* Pods-uPortMobileTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFABDFE8E9CC9364D904386B3713C710 /* Pods-xdemicTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AD388B2AD829C397E802F555A1B5B21 /* Pods-xdemicTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFCAA9E35B929750EE9929054FC61BD9 /* AWSUICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A63A278EC1DBFC7428501D1D26047819 /* AWSUICKeyChainStore.m */; };
 		BFEB6D6FD0BDC9C7DDBD31C5010439C1 /* AWSTMDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9964837948B7EE8101F61A691712E0F8 /* AWSTMDiskCache.m */; };
 		C04FF83C6DDF40E31E94EDAF4A1E6A86 /* AWSEXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DF4E4BEEAE586888F19BAD1384544C29 /* AWSEXTRuntimeExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -235,7 +235,7 @@
 		D52D7457C88373574E3A3EB2DA4A68F1 /* AWSSNSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CBCBE8367D2B9C845AC34FAF44A9A /* AWSSNSModel.m */; };
 		D5574AAFEFE6D007389F72D0A812AC75 /* FABAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 63347ECAAAC0518A02E02BB1F3ABE6E8 /* FABAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D7C665C31A9681B4523947BD92AE45 /* AWSSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 2547B6C90A5DCE71C4807447572BCD6A /* AWSSignature.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D635417A50C30FBF553DF064A0A83EF0 /* Pods-uPortMobile-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A45A3B1E369CD0613B58A696C4DCA94 /* Pods-uPortMobile-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D635417A50C30FBF553DF064A0A83EF0 /* Pods-xdemic-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A45A3B1E369CD0613B58A696C4DCA94 /* Pods-xdemic-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D65454ABBC4F3A1555EC6DAD671BF33F /* GPBExtensionInternals.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A264B3BF9613D5F142EBB9B25D1E473 /* GPBExtensionInternals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D888757D46E354E4602F9B9CECE26AD8 /* ValetDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C43124638133BC7A98E745481DF8203 /* ValetDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D94E81D14FCEE4C6F35209E08173ED45 /* AWSValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E566D9AA02490091714B408181BF29 /* AWSValidation.m */; };
@@ -307,7 +307,7 @@
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F3D80AFB5B248799641F994DCB894303;
-			remoteInfo = "Pods-uPortMobile";
+			remoteInfo = "Pods-xdemic";
 		};
 		997BA4BB922EC6A17C3D342E34F003AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -361,20 +361,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E88C789AC89A30A44362B0886619FA /* Pods-uPortMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-uPortMobile.release.xcconfig"; sourceTree = "<group>"; };
-		0259468E0AE00A60D4B648D93F8BEEB8 /* Pods-uPortMobile-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-uPortMobile-acknowledgements.plist"; sourceTree = "<group>"; };
+		00E88C789AC89A30A44362B0886619FA /* Pods-xdemic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-xdemic.release.xcconfig"; sourceTree = "<group>"; };
+		0259468E0AE00A60D4B648D93F8BEEB8 /* Pods-xdemic-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-xdemic-acknowledgements.plist"; sourceTree = "<group>"; };
 		02A52CFF8439C8601377C0AAF20C936F /* AWSValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSValidation.h; path = AWSCore/Serialization/AWSValidation.h; sourceTree = "<group>"; };
 		03091FA1B78E1A779A7C59F30215F46D /* AWSSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSerialization.h; path = AWSCore/Serialization/AWSSerialization.h; sourceTree = "<group>"; };
 		04FC0B36BBD54B83E38F8106128F24BA /* AWSFMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDB.h; path = AWSCore/FMDB/AWSFMDB.h; sourceTree = "<group>"; };
 		057069B44DA5B32BDD44FE2F20042D41 /* AWSExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSExecutor.m; path = AWSCore/Bolts/AWSExecutor.m; sourceTree = "<group>"; };
-		05E2AED56FAEA558BF130EDD962B997F /* Pods-uPortMobile-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-uPortMobile-frameworks.sh"; sourceTree = "<group>"; };
+		05E2AED56FAEA558BF130EDD962B997F /* Pods-xdemic-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-xdemic-frameworks.sh"; sourceTree = "<group>"; };
 		071D1CCDA30CEC1FB40B0AA4ADED34B4 /* VALValet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VALValet.m; path = Valet/VALValet.m; sourceTree = "<group>"; };
 		0BD5E27AB005C9D8F240D251416BE489 /* NSDictionary+AWSMTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+AWSMTLManipulationAdditions.h"; path = "AWSCore/Mantle/NSDictionary+AWSMTLManipulationAdditions.h"; sourceTree = "<group>"; };
 		0BD6BF29586CFFB8E5A7FBBE466EA884 /* AWSCognitoIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentity.h; path = AWSCore/CognitoIdentity/AWSCognitoIdentity.h; sourceTree = "<group>"; };
 		0BDB7035D2216974872BDA5784D31132 /* AWSCognitoIdentityResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityResources.h; path = AWSCore/CognitoIdentity/AWSCognitoIdentityResources.h; sourceTree = "<group>"; };
 		0CB749875EC90CE71EAD9461EEB8F66E /* GPBWireFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBWireFormat.h; path = objectivec/GPBWireFormat.h; sourceTree = "<group>"; };
 		0CD505BD12A12989F9CEDB732DC46455 /* AWSMTLManagedObjectAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMTLManagedObjectAdapter.h; path = AWSCore/Mantle/AWSMTLManagedObjectAdapter.h; sourceTree = "<group>"; };
-		0D7E47643369D656C1DDAA65CAC5E6EF /* Pods-uPortMobile.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-uPortMobile.modulemap"; sourceTree = "<group>"; };
+		0D7E47643369D656C1DDAA65CAC5E6EF /* Pods-xdemic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-xdemic.modulemap"; sourceTree = "<group>"; };
 		0F96662F6A61473ABEB622CE73A0B397 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Frameworks/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		10189669AC6E560CD9EB3A4A6628B622 /* pb_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_common.h; sourceTree = "<group>"; };
 		10B3E6F1D76442C270CF2277180E14C5 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
@@ -414,7 +414,7 @@
 		25E956DF621B04C7391BBE7F4D60D921 /* VALValet_Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VALValet_Protected.h; path = Valet/VALValet_Protected.h; sourceTree = "<group>"; };
 		26117C10F7A9B2F99306B89D121ABE92 /* AWSMTLManagedObjectAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLManagedObjectAdapter.m; path = AWSCore/Mantle/AWSMTLManagedObjectAdapter.m; sourceTree = "<group>"; };
 		26F66F2AEDBD58F0741F650D065431A3 /* AWSCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AWSCore-umbrella.h"; sourceTree = "<group>"; };
-		27747B590CB0F12D6581DF10EEC6037F /* Pods-uPortMobile-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-uPortMobile-dummy.m"; sourceTree = "<group>"; };
+		27747B590CB0F12D6581DF10EEC6037F /* Pods-xdemic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-xdemic-dummy.m"; sourceTree = "<group>"; };
 		2A90798DCED432CA7A9E2F9458491FA7 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		2B6FFD0696E5814ADF2D2B0A4BDF7196 /* Empty.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Empty.pbobjc.h; path = objectivec/google/protobuf/Empty.pbobjc.h; sourceTree = "<group>"; };
 		2CC1E9F2E5F2E3107C5C9DF7BB821B58 /* AWSFMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSFMResultSet.m; path = AWSCore/FMDB/AWSFMResultSet.m; sourceTree = "<group>"; };
@@ -424,12 +424,12 @@
 		2F97F146094C06E69821E1BB1492441D /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Frameworks/FirebaseABTesting.framework; sourceTree = "<group>"; };
 		30835D96098849B381339230F44351A4 /* Duration.pbobjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Duration.pbobjc.m; path = objectivec/google/protobuf/Duration.pbobjc.m; sourceTree = "<group>"; };
 		308CB575DBF471FA9B927B4DDE3BF8B0 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSCore.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30C614C951A0F1C5EF0DD886963603B9 /* Pods-uPortMobile-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-uPortMobile-acknowledgements.markdown"; sourceTree = "<group>"; };
+		30C614C951A0F1C5EF0DD886963603B9 /* Pods-xdemic-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-xdemic-acknowledgements.markdown"; sourceTree = "<group>"; };
 		30E566D9AA02490091714B408181BF29 /* AWSValidation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSValidation.m; path = AWSCore/Serialization/AWSValidation.m; sourceTree = "<group>"; };
 		322855989BAF694268831A4D92E37405 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		327A6BE8025BC8C9B7C2C4F57C66C188 /* AWSXMLDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSXMLDictionary.m; path = AWSCore/XMLDictionary/AWSXMLDictionary.m; sourceTree = "<group>"; };
 		339D45DD388F10BA128EE7DDECE23838 /* GPBProtocolBuffers_RuntimeSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBProtocolBuffers_RuntimeSupport.h; path = objectivec/GPBProtocolBuffers_RuntimeSupport.h; sourceTree = "<group>"; };
-		34AF15418C0EC9E0B636F0C5E134FCB3 /* Pods-uPortMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-uPortMobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		34AF15418C0EC9E0B636F0C5E134FCB3 /* Pods-xdemicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-xdemicTests.release.xcconfig"; sourceTree = "<group>"; };
 		374F5A53381FE17122191BCF4E164EAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		37F9EAB6EC1EB6C6F941EEA0910CF7E8 /* AWSXMLWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSXMLWriter.h; path = AWSCore/XMLWriter/AWSXMLWriter.h; sourceTree = "<group>"; };
 		383296A286BB2DC4E0D11218D0DE657E /* AWSEXTScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSEXTScope.h; path = AWSCore/Mantle/extobjc/AWSEXTScope.h; sourceTree = "<group>"; };
@@ -440,7 +440,7 @@
 		3ED1DC2D12FDBEB7C09CBDD15B4CD2A4 /* NSValueTransformer+AWSMTLInversionAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+AWSMTLInversionAdditions.h"; path = "AWSCore/Mantle/NSValueTransformer+AWSMTLInversionAdditions.h"; sourceTree = "<group>"; };
 		3F0099CE5D447F8FBC10D9452FF578E7 /* Any.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Any.pbobjc.h; path = objectivec/google/protobuf/Any.pbobjc.h; sourceTree = "<group>"; };
 		40FC1DCA54DE30F20EF29EFA706BA11A /* GPBRuntimeTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBRuntimeTypes.h; path = objectivec/GPBRuntimeTypes.h; sourceTree = "<group>"; };
-		41D91F4BB6317AB6D019A0862D7F79F1 /* Pods-uPortMobileTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-uPortMobileTests-dummy.m"; sourceTree = "<group>"; };
+		41D91F4BB6317AB6D019A0862D7F79F1 /* Pods-xdemicTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-xdemicTests-dummy.m"; sourceTree = "<group>"; };
 		41E35B60E2DCE078A126D198BDC22A06 /* Protobuf-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Protobuf-umbrella.h"; sourceTree = "<group>"; };
 		42BD824326CA6EF2DE75D3FF41BA39DA /* AWSmetamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSmetamacros.h; path = AWSCore/Mantle/extobjc/AWSmetamacros.h; sourceTree = "<group>"; };
 		437CDBF68307D973201CA8DFBDC140A6 /* AWSSNSModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSNSModel.h; path = AWSSNS/AWSSNSModel.h; sourceTree = "<group>"; };
@@ -466,7 +466,7 @@
 		599788E60EDC8920BA46E89B3B0F1670 /* Valet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Valet-prefix.pch"; sourceTree = "<group>"; };
 		5A6FEA37BFB57F4E47728BAC7A9D4E2A /* GPBExtensionInternals.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBExtensionInternals.m; path = objectivec/GPBExtensionInternals.m; sourceTree = "<group>"; };
 		5AC57AECEE58D819781725FF408B12AD /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_encode.c; sourceTree = "<group>"; };
-		5AD388B2AD829C397E802F555A1B5B21 /* Pods-uPortMobileTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-uPortMobileTests-umbrella.h"; sourceTree = "<group>"; };
+		5AD388B2AD829C397E802F555A1B5B21 /* Pods-xdemicTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-xdemicTests-umbrella.h"; sourceTree = "<group>"; };
 		5B2E017360D58989A2216DF0F00BA28C /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Protobuf.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C43124638133BC7A98E745481DF8203 /* ValetDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ValetDefines.h; path = Other/ValetDefines.h; sourceTree = "<group>"; };
 		5CF481FEB650AE5D60AAE6C36ABD7C92 /* GPBWireFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBWireFormat.m; path = objectivec/GPBWireFormat.m; sourceTree = "<group>"; };
@@ -493,13 +493,13 @@
 		73672D5536DBA24FBCAB773250A7DA2E /* AWSMTLModel+NSCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AWSMTLModel+NSCoding.h"; path = "AWSCore/Mantle/AWSMTLModel+NSCoding.h"; sourceTree = "<group>"; };
 		73BA76F411499BC4560D68BD177F05E9 /* AWSMTLJSONAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLJSONAdapter.m; path = AWSCore/Mantle/AWSMTLJSONAdapter.m; sourceTree = "<group>"; };
 		741D1CE669AE8CC9DF738E39406C7DAB /* Timestamp.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Timestamp.pbobjc.h; path = objectivec/google/protobuf/Timestamp.pbobjc.h; sourceTree = "<group>"; };
-		743D9984C3242D706A893EC7588E1AA1 /* Pods-uPortMobileTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-uPortMobileTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		743D9984C3242D706A893EC7588E1AA1 /* Pods-xdemicTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-xdemicTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		745BB0F8D20F319A71E783E28C145BA8 /* GPBMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBMessage.m; path = objectivec/GPBMessage.m; sourceTree = "<group>"; };
 		74643AE6655BD8F326A3B2CF4997A204 /* AWSSNS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AWSSNS.modulemap; sourceTree = "<group>"; };
 		74D7A5524B661E183735A8D28DBA3C81 /* AWSURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSURLRequestSerialization.m; path = AWSCore/Serialization/AWSURLRequestSerialization.m; sourceTree = "<group>"; };
 		750C1B2CF4C9697F8F94BFCBC9FB9201 /* AWSEXTRuntimeExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSEXTRuntimeExtensions.m; path = AWSCore/Mantle/extobjc/AWSEXTRuntimeExtensions.m; sourceTree = "<group>"; };
 		755796B6577BD567836F4E9C7C951616 /* AWSCognitoDataset_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoDataset_Internal.h; path = Cognito/Internal/AWSCognitoDataset_Internal.h; sourceTree = "<group>"; };
-		766ABF776B14F0766334010DAE9F48F0 /* Pods-uPortMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-uPortMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		766ABF776B14F0766334010DAE9F48F0 /* Pods-xdemic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-xdemic.debug.xcconfig"; sourceTree = "<group>"; };
 		771D025B37785BEE914C75A47F440BCD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77D3FE71531C07CAD86B625135CC955C /* AWSCognitoSyncModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoSyncModel.m; path = CognitoSync/AWSCognitoSyncModel.m; sourceTree = "<group>"; };
 		77D4A4DCF67DFB8269E3662001293C82 /* Api.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Api.pbobjc.h; path = objectivec/google/protobuf/Api.pbobjc.h; sourceTree = "<group>"; };
@@ -507,15 +507,15 @@
 		7AE97C17C746141CA107D56B3DED30ED /* AWSReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSReachability.h; path = AWSCore/Reachability/AWSReachability.h; sourceTree = "<group>"; };
 		7B95C91AD453A4B9EF26E7940C7BBE99 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Frameworks/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
 		7C5853457DE7E61758EC8CCE6B8D2319 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C93EDE0B510E59C41822CE44A0FC2CB /* Pods-uPortMobileTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-uPortMobileTests.modulemap"; sourceTree = "<group>"; };
+		7C93EDE0B510E59C41822CE44A0FC2CB /* Pods-xdemicTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-xdemicTests.modulemap"; sourceTree = "<group>"; };
 		7C9B14D256E6F832453FF3F51435B030 /* AWSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSLogging.h; path = AWSCore/Utility/AWSLogging.h; sourceTree = "<group>"; };
 		7D29B2A26C7C2DB1E8D72FD633496C07 /* nanopb-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "nanopb-dummy.m"; sourceTree = "<group>"; };
 		7DA078754CCB1616CC9F2FC4730D69CE /* AWSBolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSBolts.h; path = AWSCore/Bolts/AWSBolts.h; sourceTree = "<group>"; };
-		7DAEEBA46E358A5CE481066F627C16B4 /* Pods-uPortMobileTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-uPortMobileTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7DAEEBA46E358A5CE481066F627C16B4 /* Pods-xdemicTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-xdemicTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7EF796B42135B7A7946D15B6752F4E3E /* AWSCognitoConflict.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoConflict.h; path = Cognito/AWSCognitoConflict.h; sourceTree = "<group>"; };
 		7F4250B984F2AEA03329218E1D11CA02 /* AWSCognitoRecord_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoRecord_Internal.h; path = Cognito/Internal/AWSCognitoRecord_Internal.h; sourceTree = "<group>"; };
 		7FF0A1504F3C1894906740793B5B20DA /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		80AE186F7E3749EF636796136D7F8F77 /* Pods-uPortMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-uPortMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		80AE186F7E3749EF636796136D7F8F77 /* Pods-xdemicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-xdemicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		812151751EBE847F27B95E1F73B0ED77 /* NSObject+AWSMTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AWSMTLComparisonAdditions.m"; path = "AWSCore/Mantle/NSObject+AWSMTLComparisonAdditions.m"; sourceTree = "<group>"; };
 		81ACD4254A57B2CC3133CE842B40A0A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81FE18CF5E7FC0ADB3626A2E9D26B320 /* AWSSTSModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSTSModel.m; path = AWSCore/STS/AWSSTSModel.m; sourceTree = "<group>"; };
@@ -550,7 +550,7 @@
 		99A61250CD2DA3D5A50DE3F59A64EDB2 /* nanopb-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-umbrella.h"; sourceTree = "<group>"; };
 		99C05EEA6643CECCC59935362961D5B7 /* AWSSNSService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSNSService.h; path = AWSSNS/AWSSNSService.h; sourceTree = "<group>"; };
 		9A18B905E8BEB342A63192F7CB88DE60 /* AWSTMCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSTMCache.h; path = AWSCore/TMCache/AWSTMCache.h; sourceTree = "<group>"; };
-		9A45A3B1E369CD0613B58A696C4DCA94 /* Pods-uPortMobile-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-uPortMobile-umbrella.h"; sourceTree = "<group>"; };
+		9A45A3B1E369CD0613B58A696C4DCA94 /* Pods-xdemic-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-xdemic-umbrella.h"; sourceTree = "<group>"; };
 		9C6BC160387C72C6264931621DC27202 /* GPBUnknownFieldSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBUnknownFieldSet.h; path = objectivec/GPBUnknownFieldSet.h; sourceTree = "<group>"; };
 		9E027DEAB17FB2C91ABD664EADAB92DF /* GPBExtensionRegistry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBExtensionRegistry.m; path = objectivec/GPBExtensionRegistry.m; sourceTree = "<group>"; };
 		9E310580BA6193AC0840AB198979CD3C /* GPBUnknownField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBUnknownField.h; path = objectivec/GPBUnknownField.h; sourceTree = "<group>"; };
@@ -614,7 +614,7 @@
 		C40DCC551534F454D43C670288217738 /* AWSTMCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTMCache.m; path = AWSCore/TMCache/AWSTMCache.m; sourceTree = "<group>"; };
 		C53662DB48B1ABADBC4905ADE1E58BBA /* AWSTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTaskCompletionSource.m; path = AWSCore/Bolts/AWSTaskCompletionSource.m; sourceTree = "<group>"; };
 		C5369BCDFA471A697274F9F6C63EF161 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
-		C55C4BC277AAA7AE4CC77F275930D80B /* Pods-uPortMobileTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-uPortMobileTests-resources.sh"; sourceTree = "<group>"; };
+		C55C4BC277AAA7AE4CC77F275930D80B /* Pods-xdemicTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-xdemicTests-resources.sh"; sourceTree = "<group>"; };
 		C62504F95901AE13832DEE45CB0AEB73 /* AWSXMLDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSXMLDictionary.h; path = AWSCore/XMLDictionary/AWSXMLDictionary.h; sourceTree = "<group>"; };
 		C635DD3BB8BB3ACFB812F3540EB9D7FF /* AWSCognitoIdentityModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityModel.m; path = AWSCore/CognitoIdentity/AWSCognitoIdentityModel.m; sourceTree = "<group>"; };
 		C67CAB64DEEC297DC3084EECB40FAAA1 /* AWSTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTask.m; path = AWSCore/Bolts/AWSTask.m; sourceTree = "<group>"; };
@@ -634,7 +634,7 @@
 		D32D2F4ECF4973465DBB5B5F0238CBCB /* Duration.pbobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Duration.pbobjc.h; path = objectivec/google/protobuf/Duration.pbobjc.h; sourceTree = "<group>"; };
 		D34DACD85E86AB413CE49FD508E54298 /* AWSMTLReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLReflection.m; path = AWSCore/Mantle/AWSMTLReflection.m; sourceTree = "<group>"; };
 		D3E81FC26661B73F10E193E4762B90A5 /* AWSEXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSEXTScope.m; path = AWSCore/Mantle/extobjc/AWSEXTScope.m; sourceTree = "<group>"; };
-		D4167B5636017312641F8DC237051190 /* Pods-uPortMobileTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-uPortMobileTests-frameworks.sh"; sourceTree = "<group>"; };
+		D4167B5636017312641F8DC237051190 /* Pods-xdemicTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-xdemicTests-frameworks.sh"; sourceTree = "<group>"; };
 		D4A2FF3B3FB0504A638EC20E359F5466 /* AWSFMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMResultSet.h; path = AWSCore/FMDB/AWSFMResultSet.h; sourceTree = "<group>"; };
 		D558790F51BF80F4CD358406F2187A3A /* Valet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Valet-umbrella.h"; sourceTree = "<group>"; };
 		D56A898F10E98C49D3B33C38A17D5430 /* VALSinglePromptSecureEnclaveValet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VALSinglePromptSecureEnclaveValet.m; path = Valet/VALSinglePromptSecureEnclaveValet.m; sourceTree = "<group>"; };
@@ -656,12 +656,12 @@
 		E42EF8907DEFF0A19422928000010B82 /* AWSCognitoIdentityResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityResources.m; path = AWSCore/CognitoIdentity/AWSCognitoIdentityResources.m; sourceTree = "<group>"; };
 		E49BB7C1009BFF020D54D22717D5D2B3 /* AWSCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCategory.m; path = AWSCore/Utility/AWSCategory.m; sourceTree = "<group>"; };
 		E4F1B1772BDA14494580B9DBFA4534A1 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
-		E56010FDB856A8042514793C2D6EC734 /* Pods_uPortMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_uPortMobile.framework; path = "Pods-uPortMobile.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E56010FDB856A8042514793C2D6EC734 /* Pods_xdemic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_xdemic.framework; path = "Pods-xdemic.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BC96193F3791A28B937A3FACAE5690 /* NSDictionary+AWSMTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+AWSMTLManipulationAdditions.m"; path = "AWSCore/Mantle/NSDictionary+AWSMTLManipulationAdditions.m"; sourceTree = "<group>"; };
 		E69223BE508C0BD4099FECE2EEDDC537 /* AWSTMCacheBackgroundTaskManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSTMCacheBackgroundTaskManager.h; path = AWSCore/TMCache/AWSTMCacheBackgroundTaskManager.h; sourceTree = "<group>"; };
 		E6EC2846999CB1FB73D5EBD2295E8BAE /* AWSClientContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSClientContext.h; path = AWSCore/Service/AWSClientContext.h; sourceTree = "<group>"; };
 		E705986FC24BED8EFD8300833E92622C /* AWSURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSURLResponseSerialization.m; path = AWSCore/Serialization/AWSURLResponseSerialization.m; sourceTree = "<group>"; };
-		E7AB18231DE39DEA31634762D172753D /* Pods_uPortMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_uPortMobileTests.framework; path = "Pods-uPortMobileTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7AB18231DE39DEA31634762D172753D /* Pods_xdemicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_xdemicTests.framework; path = "Pods-xdemicTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88EB9A6DFDCAB8621EDEAE9FC62F9EE /* VALSinglePromptSecureEnclaveValet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VALSinglePromptSecureEnclaveValet.h; path = Valet/VALSinglePromptSecureEnclaveValet.h; sourceTree = "<group>"; };
 		E95A5A3E2525E6D97246FB7A616EB385 /* Empty.pbobjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Empty.pbobjc.m; path = objectivec/google/protobuf/Empty.pbobjc.m; sourceTree = "<group>"; };
 		E99FE198467B1D2BDC69B464DE46AEF2 /* GPBArray_PackagePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBArray_PackagePrivate.h; path = objectivec/GPBArray_PackagePrivate.h; sourceTree = "<group>"; };
@@ -678,7 +678,7 @@
 		F2CA8AB9523BD0A895D4E6637F76D2D8 /* AWSCognitoService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoService.m; path = Cognito/AWSCognitoService.m; sourceTree = "<group>"; };
 		F332E103ED0C68765280D8A4F00F7EAD /* AWSCognitoDataset.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoDataset.h; path = Cognito/AWSCognitoDataset.h; sourceTree = "<group>"; };
 		F3A5956C8D77FA7D8C3752186377332E /* GPBMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPBMessage.h; path = objectivec/GPBMessage.h; sourceTree = "<group>"; };
-		F43BF00D2BCE0EFEC996EB8259DF9ADC /* Pods-uPortMobile-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-uPortMobile-resources.sh"; sourceTree = "<group>"; };
+		F43BF00D2BCE0EFEC996EB8259DF9ADC /* Pods-xdemic-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-xdemic-resources.sh"; sourceTree = "<group>"; };
 		F55F90B2695D139F38C0BABFDF16F4EF /* AWSSTSService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSTSService.h; path = AWSCore/STS/AWSSTSService.h; sourceTree = "<group>"; };
 		F573DFCA8F778B4C0D80FD1AF5918507 /* AWSCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCancellationTokenSource.h; path = AWSCore/Bolts/AWSCancellationTokenSource.h; sourceTree = "<group>"; };
 		F74AAABAC99AC093ADA3956E651CB7CD /* AWSCancellationTokenRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCancellationTokenRegistration.h; path = AWSCore/Bolts/AWSCancellationTokenRegistration.h; sourceTree = "<group>"; };
@@ -855,28 +855,28 @@
 		18FFD26EE9FD5FF1389048951581CDDB /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				23B77DC39827EAAD72ADE5E5FF0C53EF /* Pods-uPortMobile */,
-				70582835332AC8D3CB876FAC34D42281 /* Pods-uPortMobileTests */,
+				23B77DC39827EAAD72ADE5E5FF0C53EF /* Pods-xdemic */,
+				70582835332AC8D3CB876FAC34D42281 /* Pods-xdemicTests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		23B77DC39827EAAD72ADE5E5FF0C53EF /* Pods-uPortMobile */ = {
+		23B77DC39827EAAD72ADE5E5FF0C53EF /* Pods-xdemic */ = {
 			isa = PBXGroup;
 			children = (
 				81ACD4254A57B2CC3133CE842B40A0A0 /* Info.plist */,
-				0D7E47643369D656C1DDAA65CAC5E6EF /* Pods-uPortMobile.modulemap */,
-				30C614C951A0F1C5EF0DD886963603B9 /* Pods-uPortMobile-acknowledgements.markdown */,
-				0259468E0AE00A60D4B648D93F8BEEB8 /* Pods-uPortMobile-acknowledgements.plist */,
-				27747B590CB0F12D6581DF10EEC6037F /* Pods-uPortMobile-dummy.m */,
-				05E2AED56FAEA558BF130EDD962B997F /* Pods-uPortMobile-frameworks.sh */,
-				F43BF00D2BCE0EFEC996EB8259DF9ADC /* Pods-uPortMobile-resources.sh */,
-				9A45A3B1E369CD0613B58A696C4DCA94 /* Pods-uPortMobile-umbrella.h */,
-				766ABF776B14F0766334010DAE9F48F0 /* Pods-uPortMobile.debug.xcconfig */,
-				00E88C789AC89A30A44362B0886619FA /* Pods-uPortMobile.release.xcconfig */,
+				0D7E47643369D656C1DDAA65CAC5E6EF /* Pods-xdemic.modulemap */,
+				30C614C951A0F1C5EF0DD886963603B9 /* Pods-xdemic-acknowledgements.markdown */,
+				0259468E0AE00A60D4B648D93F8BEEB8 /* Pods-xdemic-acknowledgements.plist */,
+				27747B590CB0F12D6581DF10EEC6037F /* Pods-xdemic-dummy.m */,
+				05E2AED56FAEA558BF130EDD962B997F /* Pods-xdemic-frameworks.sh */,
+				F43BF00D2BCE0EFEC996EB8259DF9ADC /* Pods-xdemic-resources.sh */,
+				9A45A3B1E369CD0613B58A696C4DCA94 /* Pods-xdemic-umbrella.h */,
+				766ABF776B14F0766334010DAE9F48F0 /* Pods-xdemic.debug.xcconfig */,
+				00E88C789AC89A30A44362B0886619FA /* Pods-xdemic.release.xcconfig */,
 			);
-			name = "Pods-uPortMobile";
-			path = "Target Support Files/Pods-uPortMobile";
+			name = "Pods-xdemic";
+			path = "Target Support Files/Pods-xdemic";
 			sourceTree = "<group>";
 		};
 		2598328C1EEE81DD55850238B0E4488E /* Support Files */ = {
@@ -1141,22 +1141,22 @@
 			path = "../Target Support Files/nanopb";
 			sourceTree = "<group>";
 		};
-		70582835332AC8D3CB876FAC34D42281 /* Pods-uPortMobileTests */ = {
+		70582835332AC8D3CB876FAC34D42281 /* Pods-xdemicTests */ = {
 			isa = PBXGroup;
 			children = (
 				97A5E88948FE12C5AC444C5F388C726E /* Info.plist */,
-				7C93EDE0B510E59C41822CE44A0FC2CB /* Pods-uPortMobileTests.modulemap */,
-				743D9984C3242D706A893EC7588E1AA1 /* Pods-uPortMobileTests-acknowledgements.markdown */,
-				7DAEEBA46E358A5CE481066F627C16B4 /* Pods-uPortMobileTests-acknowledgements.plist */,
-				41D91F4BB6317AB6D019A0862D7F79F1 /* Pods-uPortMobileTests-dummy.m */,
-				D4167B5636017312641F8DC237051190 /* Pods-uPortMobileTests-frameworks.sh */,
-				C55C4BC277AAA7AE4CC77F275930D80B /* Pods-uPortMobileTests-resources.sh */,
-				5AD388B2AD829C397E802F555A1B5B21 /* Pods-uPortMobileTests-umbrella.h */,
-				80AE186F7E3749EF636796136D7F8F77 /* Pods-uPortMobileTests.debug.xcconfig */,
-				34AF15418C0EC9E0B636F0C5E134FCB3 /* Pods-uPortMobileTests.release.xcconfig */,
+				7C93EDE0B510E59C41822CE44A0FC2CB /* Pods-xdemicTests.modulemap */,
+				743D9984C3242D706A893EC7588E1AA1 /* Pods-xdemicTests-acknowledgements.markdown */,
+				7DAEEBA46E358A5CE481066F627C16B4 /* Pods-xdemicTests-acknowledgements.plist */,
+				41D91F4BB6317AB6D019A0862D7F79F1 /* Pods-xdemicTests-dummy.m */,
+				D4167B5636017312641F8DC237051190 /* Pods-xdemicTests-frameworks.sh */,
+				C55C4BC277AAA7AE4CC77F275930D80B /* Pods-xdemicTests-resources.sh */,
+				5AD388B2AD829C397E802F555A1B5B21 /* Pods-xdemicTests-umbrella.h */,
+				80AE186F7E3749EF636796136D7F8F77 /* Pods-xdemicTests.debug.xcconfig */,
+				34AF15418C0EC9E0B636F0C5E134FCB3 /* Pods-xdemicTests.release.xcconfig */,
 			);
-			name = "Pods-uPortMobileTests";
-			path = "Target Support Files/Pods-uPortMobileTests";
+			name = "Pods-xdemicTests";
+			path = "Target Support Files/Pods-xdemicTests";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -1440,8 +1440,8 @@
 				68B7563062903FCB5C63C0E64E882E3E /* AWSSNS.framework */,
 				7FF0A1504F3C1894906740793B5B20DA /* GoogleToolboxForMac.framework */,
 				BBF3684AD886D88E11A01C9100BC4B04 /* nanopb.framework */,
-				E56010FDB856A8042514793C2D6EC734 /* Pods_uPortMobile.framework */,
-				E7AB18231DE39DEA31634762D172753D /* Pods_uPortMobileTests.framework */,
+				E56010FDB856A8042514793C2D6EC734 /* Pods_xdemic.framework */,
+				E7AB18231DE39DEA31634762D172753D /* Pods_xdemicTests.framework */,
 				5B2E017360D58989A2216DF0F00BA28C /* Protobuf.framework */,
 				FD98E286C7ECC8D2C07F2670339A864A /* Valet.framework */,
 			);
@@ -1487,7 +1487,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D635417A50C30FBF553DF064A0A83EF0 /* Pods-uPortMobile-umbrella.h in Headers */,
+				D635417A50C30FBF553DF064A0A83EF0 /* Pods-xdemic-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,7 +1633,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFABDFE8E9CC9364D904386B3713C710 /* Pods-uPortMobileTests-umbrella.h in Headers */,
+				BFABDFE8E9CC9364D904386B3713C710 /* Pods-xdemicTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1807,9 +1807,9 @@
 			productReference = 5B2E017360D58989A2216DF0F00BA28C /* Protobuf.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		ECDA268B1BEE375D5DF6511483D29C51 /* Pods-uPortMobileTests */ = {
+		ECDA268B1BEE375D5DF6511483D29C51 /* Pods-xdemicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE2F3E2246D1146E2A8954246D3911F1 /* Build configuration list for PBXNativeTarget "Pods-uPortMobileTests" */;
+			buildConfigurationList = CE2F3E2246D1146E2A8954246D3911F1 /* Build configuration list for PBXNativeTarget "Pods-xdemicTests" */;
 			buildPhases = (
 				A49A4E235CE05D8BFE8283F8C4DF30E3 /* Headers */,
 				88CD7FAFC83551A8E523CA7BD821E8E7 /* Sources */,
@@ -1821,14 +1821,14 @@
 			dependencies = (
 				F6CC29F21E6E9B4547771DA890167DC4 /* PBXTargetDependency */,
 			);
-			name = "Pods-uPortMobileTests";
-			productName = "Pods-uPortMobileTests";
-			productReference = E7AB18231DE39DEA31634762D172753D /* Pods_uPortMobileTests.framework */;
+			name = "Pods-xdemicTests";
+			productName = "Pods-xdemicTests";
+			productReference = E7AB18231DE39DEA31634762D172753D /* Pods_xdemicTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F3D80AFB5B248799641F994DCB894303 /* Pods-uPortMobile */ = {
+		F3D80AFB5B248799641F994DCB894303 /* Pods-xdemic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D23A27BD17BB1828EC0FB220081CE2A8 /* Build configuration list for PBXNativeTarget "Pods-uPortMobile" */;
+			buildConfigurationList = D23A27BD17BB1828EC0FB220081CE2A8 /* Build configuration list for PBXNativeTarget "Pods-xdemic" */;
 			buildPhases = (
 				1ED233AFD74CCA3ED359A63182AD94AD /* Headers */,
 				D77148AE1F1A8880062EF2DD97EFE97E /* Sources */,
@@ -1846,9 +1846,9 @@
 				9FE29B4821E86E7D0E724E2356414EC3 /* PBXTargetDependency */,
 				9696C4ECCA76791D0B8251E834A26E4C /* PBXTargetDependency */,
 			);
-			name = "Pods-uPortMobile";
-			productName = "Pods-uPortMobile";
-			productReference = E56010FDB856A8042514793C2D6EC734 /* Pods_uPortMobile.framework */;
+			name = "Pods-xdemic";
+			productName = "Pods-xdemic";
+			productReference = E56010FDB856A8042514793C2D6EC734 /* Pods_xdemic.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1877,8 +1877,8 @@
 				D498B2DA71CAF18879ADCAE424753E70 /* AWSSNS */,
 				1C1B4785E765B983D6BEDE94D0E498D3 /* GoogleToolboxForMac */,
 				8364BB258018143B83798DE31C13546D /* nanopb */,
-				F3D80AFB5B248799641F994DCB894303 /* Pods-uPortMobile */,
-				ECDA268B1BEE375D5DF6511483D29C51 /* Pods-uPortMobileTests */,
+				F3D80AFB5B248799641F994DCB894303 /* Pods-xdemic */,
+				ECDA268B1BEE375D5DF6511483D29C51 /* Pods-xdemicTests */,
 				DA30842E3EE8B41C09F1E17AE7E67070 /* Protobuf */,
 				3E574F5D44462A924E575C1413E0157B /* Valet */,
 			);
@@ -2007,7 +2007,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F01C0B6D1AEBA5DCA7B11B58068B951 /* Pods-uPortMobileTests-dummy.m in Sources */,
+				3F01C0B6D1AEBA5DCA7B11B58068B951 /* Pods-xdemicTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2111,7 +2111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEE5BCCDAEBAD91E1F553C2E7181CE8E /* Pods-uPortMobile-dummy.m in Sources */,
+				AEE5BCCDAEBAD91E1F553C2E7181CE8E /* Pods-xdemic-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2179,8 +2179,8 @@
 		};
 		F6CC29F21E6E9B4547771DA890167DC4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-uPortMobile";
-			target = F3D80AFB5B248799641F994DCB894303 /* Pods-uPortMobile */;
+			name = "Pods-xdemic";
+			target = F3D80AFB5B248799641F994DCB894303 /* Pods-xdemic */;
 			targetProxy = 44AA9576BA970E340D88D3DBF3CA6B3C /* PBXContainerItemProxy */;
 		};
 		F6F283D52E7D0A48ADBFC74711555924 /* PBXTargetDependency */ = {
@@ -2194,7 +2194,7 @@
 /* Begin XCBuildConfiguration section */
 		09BECFA414B84206A95F6706D23EAE5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34AF15418C0EC9E0B636F0C5E134FCB3 /* Pods-uPortMobileTests.release.xcconfig */;
+			baseConfigurationReference = 34AF15418C0EC9E0B636F0C5E134FCB3 /* Pods-xdemicTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2206,12 +2206,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-uPortMobileTests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-xdemicTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-uPortMobileTests/Pods-uPortMobileTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-xdemicTests/Pods-xdemicTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2259,7 +2259,7 @@
 		};
 		1BC577A1ECE257CDCBFCEFE7A9ED5616 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80AE186F7E3749EF636796136D7F8F77 /* Pods-uPortMobileTests.debug.xcconfig */;
+			baseConfigurationReference = 80AE186F7E3749EF636796136D7F8F77 /* Pods-xdemicTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2271,12 +2271,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-uPortMobileTests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-xdemicTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-uPortMobileTests/Pods-uPortMobileTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-xdemicTests/Pods-xdemicTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2418,7 +2418,7 @@
 		};
 		52E202939FC3E0B518F58F97D86433B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00E88C789AC89A30A44362B0886619FA /* Pods-uPortMobile.release.xcconfig */;
+			baseConfigurationReference = 00E88C789AC89A30A44362B0886619FA /* Pods-xdemic.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2430,12 +2430,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-uPortMobile/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-xdemic/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-uPortMobile/Pods-uPortMobile.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-xdemic/Pods-xdemic.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2576,7 +2576,7 @@
 		};
 		6EA7B39F5D204831CF2699262A327A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 766ABF776B14F0766334010DAE9F48F0 /* Pods-uPortMobile.debug.xcconfig */;
+			baseConfigurationReference = 766ABF776B14F0766334010DAE9F48F0 /* Pods-xdemic.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2588,12 +2588,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-uPortMobile/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-xdemic/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-uPortMobile/Pods-uPortMobile.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-xdemic/Pods-xdemic.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2952,7 +2952,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE2F3E2246D1146E2A8954246D3911F1 /* Build configuration list for PBXNativeTarget "Pods-uPortMobileTests" */ = {
+		CE2F3E2246D1146E2A8954246D3911F1 /* Build configuration list for PBXNativeTarget "Pods-xdemicTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1BC577A1ECE257CDCBFCEFE7A9ED5616 /* Debug */,
@@ -2961,7 +2961,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D23A27BD17BB1828EC0FB220081CE2A8 /* Build configuration list for PBXNativeTarget "Pods-uPortMobile" */ = {
+		D23A27BD17BB1828EC0FB220081CE2A8 /* Build configuration list for PBXNativeTarget "Pods-xdemic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6EA7B39F5D204831CF2699262A327A54 /* Debug */,

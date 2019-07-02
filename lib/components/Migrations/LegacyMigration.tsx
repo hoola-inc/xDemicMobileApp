@@ -23,9 +23,9 @@ import {
   View,
   ActivityIndicator
 } from 'react-native'
-import { Text } from 'uPortMobile/lib/components/shared'
-import { MigrationTarget, MigrationStep, MigrationStatus, targetRecipes } from 'uPortMobile/lib/constants/MigrationActionTypes'
-import { colors } from 'uPortMobile/lib/styles/globalStyles'
+import { Text } from 'xdemic/lib/components/shared'
+import { MigrationTarget, MigrationStep, MigrationStatus, targetRecipes } from 'xdemic/lib/constants/MigrationActionTypes'
+import { colors } from 'xdemic/lib/styles/globalStyles'
 
 const S = require('string')
 

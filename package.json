@@ -1,5 +1,5 @@
 {
-  "name": "uPortMobile",
+  "name": "xdemic",
   "version": "0.0.8",
   "private": true,
   "scripts": {
@@ -72,7 +72,7 @@
     ],
     "moduleNameMapper": {
       "@kancha": "<rootDir>/lib/kancha/index",
-      "uPortMobile(.*)$": "<rootDir>$1"
+      "xdemic(.*)$": "<rootDir>$1"
     },
     "globals": {
       "ts-jest": {

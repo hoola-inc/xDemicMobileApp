@@ -18,9 +18,9 @@
 import React from 'react'
 import { ActivityIndicator } from 'react-native'
 import { Container, Theme, Text } from '@kancha'
-import DisclosureCard from 'uPortMobile/lib/screens/requests/disclosure/DisclosureCard'
+import DisclosureCard from 'xdemic/lib/screens/requests/disclosure/DisclosureCard'
 import TransactionCard from './types/transaction/TransactionCard'
-import AcceptCredential from 'uPortMobile/lib/screens/requests/credentials/AcceptCredentialContainer'
+import AcceptCredential from 'xdemic/lib/screens/requests/credentials/AcceptCredentialContainer'
 import { SafeAreaView } from 'react-native'
 
 const REQUEST_TYPE = {

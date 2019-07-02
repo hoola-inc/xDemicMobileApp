@@ -12,7 +12,7 @@
 				<string>file-icon.png</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>uPort Signed Data</string>
+			<string>xdemic Signed Data</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSHandlerRank</key>
@@ -118,7 +118,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Required to scan QR codes and for document and facial capture.</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>uPort uses Face ID to confirm transactions.</string>
+	<string>xdemic uses Face ID to confirm transactions.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This app does not require location usage.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -198,13 +198,13 @@
 				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>uPort Signed Data</string>
+			<string>xdemic Signed Data</string>
 			<key>UTTypeIdentifier</key>
 			<string>me.uport.extension</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
-				<string>uPort</string>
+				<string>xdemic</string>
 				<key>public.mime-type</key>
 				<string>application/octet-stream</string>
 			</dict>

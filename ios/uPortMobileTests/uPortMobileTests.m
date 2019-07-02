@@ -16,11 +16,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React Native!"
 
-@interface uPortMobileTests : XCTestCase
+@interface xdemicTests : XCTestCase
 
 @end
 
-@implementation uPortMobileTests
+@implementation xdemicTests
 
 /**
  *  Tests if app booted via checking if the rootViewController has a view. If so,

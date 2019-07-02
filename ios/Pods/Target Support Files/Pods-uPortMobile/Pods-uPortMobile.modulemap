@@ -1,5 +1,5 @@
-framework module Pods_uPortMobile {
-  umbrella header "Pods-uPortMobile-umbrella.h"
+framework module Pods_xdemic {
+  umbrella header "Pods-xdemic-umbrella.h"
 
   export *
   module * { export * }

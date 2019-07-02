@@ -22,9 +22,9 @@ import {
   completedMigrationStep,
   failedMigrationStep,
   startedMigrationStep,
-} from 'uPortMobile/lib/actions/migrationActions'
-import { completeProcess, failProcess, startWorking, stopWorking } from 'uPortMobile/lib/actions/processStatusActions'
-import { LOADED_DB } from 'uPortMobile/lib/constants/GlobalActionTypes'
+} from 'xdemic/lib/actions/migrationActions'
+import { completeProcess, failProcess, startWorking, stopWorking } from 'xdemic/lib/actions/processStatusActions'
+import { LOADED_DB } from 'xdemic/lib/constants/GlobalActionTypes'
 import {
   MigrationStatus,
   MigrationStep,
@@ -33,11 +33,11 @@ import {
   TargetAction,
   targetRecipes,
   migrationScreens,
-} from 'uPortMobile/lib/constants/MigrationActionTypes'
-import { canSignFor } from 'uPortMobile/lib/sagas/keychain'
-import { isHD } from 'uPortMobile/lib/selectors/chains'
-import { currentAddress, validPrimaryIdentities } from 'uPortMobile/lib/selectors/identities'
-import { migrationStepStatus, pendingMigrations } from 'uPortMobile/lib/selectors/migrations'
+} from 'xdemic/lib/constants/MigrationActionTypes'
+import { canSignFor } from 'xdemic/lib/sagas/keychain'
+import { isHD } from 'xdemic/lib/selectors/chains'
+import { currentAddress, validPrimaryIdentities } from 'xdemic/lib/selectors/identities'
+import { migrationStepStatus, pendingMigrations } from 'xdemic/lib/selectors/migrations'
 import { Navigation } from 'react-native-navigation'
 
 import MigrateLegacy from './migrations/MigrateLegacy'

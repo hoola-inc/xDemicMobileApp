@@ -15,7 +15,7 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package com.uportMobile;
+package com.xdemic;
 
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.authentication.AuthenticationScreenPackage;
@@ -90,7 +90,7 @@ public class MainApplication extends NavigationApplication implements ShareAppli
 
     @Override
     public String getFileProviderAuthority() {
-        return "com.uportMobile.provider";
+        return "com.xdemic.provider";
     }
 
     protected List<ReactPackage> getPackages() {

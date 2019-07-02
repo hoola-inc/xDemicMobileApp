@@ -16,7 +16,7 @@
 // (C) Copyright 2016-2018 ConsenSys AG
 
 import { addMigrationTarget, runMigrations, startedMigrationStep, completedMigrationStep, failedMigrationStep } from '../migrationActions'
-import { MigrationStep, MigrationTarget } from 'uPortMobile/lib/constants/MigrationActionTypes'
+import { MigrationStep, MigrationTarget } from 'xdemic/lib/constants/MigrationActionTypes'
 
 it('creates a ADD_MIGRATION_TARGET action', () => {
   expect(addMigrationTarget(MigrationTarget.Legacy)).toMatchSnapshot()

@@ -13,9 +13,9 @@ import {
   SignPostCardType
 } from "@kancha";
 import SCREENS from "./Screens";
-import { parseClaimItem } from "uPortMobile/lib/utilities/parseClaims";
-import { onlyLatestAttestationsWithIssuer } from "uPortMobile/lib/selectors/attestations";
-import dataJson from "uPortMobile/lib/stubbs/signposts";
+import { parseClaimItem } from "xdemic/lib/utilities/parseClaims";
+import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
+import dataJson from "xdemic/lib/stubbs/signposts";
 
 interface DashboardProps {
   credentials: any[];

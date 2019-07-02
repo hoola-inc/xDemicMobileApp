@@ -17,39 +17,42 @@
  * 
  ***/
 
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { Screen, ListItem, Section, Device, Container } from '@kancha'
-import { Navigation } from 'react-native-navigation'
-import SCREENS from '../screens/Screens'
-import { connections } from 'uPortMobile/lib/selectors/identities'
-import { hdRootAddress, seedConfirmedSelector } from 'uPortMobile/lib/selectors/hdWallet'
+import * as React from "react";
+import { connect } from "react-redux";
+import { Screen, ListItem, Section, Device, Container } from "@kancha";
+import { Navigation } from "react-native-navigation";
+import SCREENS from "../screens/Screens";
+import { connections } from "xdemic/lib/selectors/identities";
+import {
+  hdRootAddress,
+  seedConfirmedSelector
+} from "xdemic/lib/selectors/hdWallet";
 
 interface SettingsProps {
-  componentId: string
-  connections: any[]
-  hasHDWallet: boolean
-  seedConfirmed: boolean
-  version: number | string
-  channel: string
+  componentId: string;
+  connections: any[];
+  hasHDWallet: boolean;
+  seedConfirmed: boolean;
+  version: number | string;
+  channel: string;
 }
 
 interface SettingsState {
-  devMode: boolean
-  count: number
+  devMode: boolean;
+  count: number;
 }
 
 export class Settings extends React.Component<SettingsProps, SettingsState> {
   constructor(props: SettingsProps) {
-    super(props)
+    super(props);
 
     /**
      * Enable devmode in simulator by default
      */
     this.state = {
       devMode: __DEV__ ? true : false,
-      count: 0,
-    }
+      count: 0
+    };
   }
 
   goToScreen(screenID: string) {
@@ -59,21 +62,21 @@ export class Settings extends React.Component<SettingsProps, SettingsState> {
         options: {
           topBar: {
             largeTitle: {
-              visible: false,
-            },
-          },
-        },
-      },
-    })
+              visible: false
+            }
+          }
+        }
+      }
+    });
   }
 
   incrementDeveloperModeCount() {
     this.setState(state => {
       return {
         count: state.count + 1,
-        devMode: state.count >= 10,
-      }
-    })
+        devMode: state.count >= 10
+      };
+    });
   }
 
   render() {
@@ -87,19 +90,36 @@ export class Settings extends React.Component<SettingsProps, SettingsState> {
           >
             Version
           </ListItem>
-          <ListItem onPress={() => this.goToScreen(SCREENS.UPortId)}>uPort ID</ListItem>
-          <ListItem onPress={() => this.goToScreen(SCREENS.TryUport)}>Try uPort</ListItem>
-          <ListItem externalLink={'https://uport.zendesk.com/hc/en-us/requests/new'} last>
+          <ListItem onPress={() => this.goToScreen(SCREENS.UPortId)}>
+            xdemic ID
+          </ListItem>
+          <ListItem onPress={() => this.goToScreen(SCREENS.TryUport)}>
+            Try uPort
+          </ListItem>
+          <ListItem
+            externalLink={"https://uport.zendesk.com/hc/en-us/requests/new"}
+            last
+          >
             Support
           </ListItem>
         </Section>
         {this.props.hasHDWallet && (
           <Section>
-            <ListItem onPress={() => this.goToScreen(SCREENS.BACKUP.DataBackupInstructions)}>Account Back Up</ListItem>
+            <ListItem
+              onPress={() =>
+                this.goToScreen(SCREENS.BACKUP.DataBackupInstructions)
+              }
+            >
+              Account Back Up
+            </ListItem>
             <ListItem
               warn={!this.props.seedConfirmed}
-              accessoryRight={this.props.seedConfirmed ? undefined : 'Account At Risk'}
-              onPress={() => this.goToScreen(SCREENS.BACKUP.CreateSeedInstructions)}
+              accessoryRight={
+                this.props.seedConfirmed ? undefined : "Account At Risk"
+              }
+              onPress={() =>
+                this.goToScreen(SCREENS.BACKUP.CreateSeedInstructions)
+              }
               last
             >
               Account Recovery
@@ -107,31 +127,46 @@ export class Settings extends React.Component<SettingsProps, SettingsState> {
           </Section>
         )}
         <Section>
-          <ListItem onPress={() => this.goToScreen(SCREENS.Device)}>Device</ListItem>
+          <ListItem onPress={() => this.goToScreen(SCREENS.Device)}>
+            Device
+          </ListItem>
           {this.props.hasHDWallet && (
-            <ListItem onPress={() => this.goToScreen(SCREENS.Hub)}>Identity Hub Status</ListItem>
+            <ListItem onPress={() => this.goToScreen(SCREENS.Hub)}>
+              Identity Hub Status
+            </ListItem>
           )}
-          <ListItem onPress={() => this.goToScreen(SCREENS.Status)}>System Messages</ListItem>
+          <ListItem onPress={() => this.goToScreen(SCREENS.Status)}>
+            System Messages
+          </ListItem>
           <ListItem onPress={() => this.goToScreen(SCREENS.Network)} last>
             Network
           </ListItem>
         </Section>
         <Section>
-          <ListItem onPress={() => this.goToScreen(SCREENS.Privacy)}>Privacy Policy</ListItem>
-          <ListItem last accessoryRight={'v1.2 (5/24/2018)'} onPress={() => this.goToScreen(SCREENS.Terms)}>
+          <ListItem onPress={() => this.goToScreen(SCREENS.Privacy)}>
+            Privacy Policy
+          </ListItem>
+          <ListItem
+            last
+            accessoryRight={"v1.2 (5/24/2018)"}
+            onPress={() => this.goToScreen(SCREENS.Terms)}
+          >
             Terms &amp; Conditions
           </ListItem>
         </Section>
         {this.state.devMode && (
-          <Section title={'Developer Options'}>
-            <ListItem last onPress={() => this.goToScreen(SCREENS.DesignSystem)}>
+          <Section title={"Developer Options"}>
+            <ListItem
+              last
+              onPress={() => this.goToScreen(SCREENS.DesignSystem)}
+            >
               Design System
             </ListItem>
           </Section>
         )}
         <Container paddingBottom />
       </Screen>
-    )
+    );
   }
 }
 
@@ -141,8 +176,8 @@ const mapStateToProps = (state: any) => {
     hasHDWallet: !!hdRootAddress(state),
     seedConfirmed: seedConfirmedSelector(state),
     version: Device.buildNumber,
-    channel: state.settings && state.settings.channel,
-  }
-}
+    channel: state.settings && state.settings.channel
+  };
+};
 
-export default connect(mapStateToProps)(Settings)
+export default connect(mapStateToProps)(Settings);

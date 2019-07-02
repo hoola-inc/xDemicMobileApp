@@ -1,5 +1,5 @@
-import { capitalizeFirstLetter } from 'uPortMobile/lib/utilities/string'
-import { UserInfo } from 'uPortMobile/lib/types/Credentials'
+import { capitalizeFirstLetter } from 'xdemic/lib/utilities/string'
+import { UserInfo } from 'xdemic/lib/types/Credentials'
 
 /**
  * Types for the disclourse request

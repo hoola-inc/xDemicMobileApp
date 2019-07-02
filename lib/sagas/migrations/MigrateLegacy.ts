@@ -24,27 +24,27 @@ import {
   addressFor,
   encryptionPublicKey,
   DEFAULT_LEVEL,
-} from 'uPortMobile/lib/sagas/keychain'
-import { createAttestationToken } from 'uPortMobile/lib/sagas/jwt'
-import { MigrationStep } from 'uPortMobile/lib/constants/MigrationActionTypes'
-import { saveMessage } from 'uPortMobile/lib/actions/processStatusActions'
-import { resetHub } from 'uPortMobile/lib/actions/hubActions'
-import { subAccounts, currentAddress, ownClaimsMap, hasMainnetAccounts } from 'uPortMobile/lib/selectors/identities'
-import { hasAttestations } from 'uPortMobile/lib/selectors/attestations'
+} from 'xdemic/lib/sagas/keychain'
+import { createAttestationToken } from 'xdemic/lib/sagas/jwt'
+import { MigrationStep } from 'xdemic/lib/constants/MigrationActionTypes'
+import { saveMessage } from 'xdemic/lib/actions/processStatusActions'
+import { resetHub } from 'xdemic/lib/actions/hubActions'
+import { subAccounts, currentAddress, ownClaimsMap, hasMainnetAccounts } from 'xdemic/lib/selectors/identities'
+import { hasAttestations } from 'xdemic/lib/selectors/attestations'
 import {
   updateIdentity,
   storeIdentity,
   storeConnection,
   storeExternalUport,
-} from 'uPortMobile/lib/actions/uportActions'
-import { hdRootAddress } from 'uPortMobile/lib/selectors/hdWallet'
-import { resetHDWallet } from 'uPortMobile/lib/actions/HDWalletActions'
-import { track } from 'uPortMobile/lib/actions/metricActions'
-import { handleURL } from 'uPortMobile/lib/actions/requestActions'
+} from 'xdemic/lib/actions/uportActions'
+import { hdRootAddress } from 'xdemic/lib/selectors/hdWallet'
+import { resetHDWallet } from 'xdemic/lib/actions/HDWalletActions'
+import { track } from 'xdemic/lib/actions/metricActions'
+import { handleURL } from 'xdemic/lib/actions/requestActions'
 
 import { Alert } from 'react-native'
-import { dataBackup } from 'uPortMobile/lib/selectors/settings';
-import { setDataBackup } from 'uPortMobile/lib/actions/settingsActions';
+import { dataBackup } from 'xdemic/lib/selectors/settings';
+import { setDataBackup } from 'xdemic/lib/actions/settingsActions';
 import { handleStartSwitchingSettingsChange } from '../hubSaga';
 
 const step = MigrationStep.MigrateLegacy

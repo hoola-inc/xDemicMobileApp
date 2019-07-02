@@ -36,7 +36,7 @@ export function registerScreens(redux: any) {
   /**
    * Modal screens
    */
-  registerComponentWithRedux(redux)(SCREENS.ProfileQRCode, require('uPortMobile/lib/components/shared/QRCodeModal').default)
+  registerComponentWithRedux(redux)(SCREENS.ProfileQRCode, require('xdemic/lib/components/shared/QRCodeModal').default)
   registerComponentWithRedux(redux)(SCREENS.MarketPlace, require('../screens/MarketPlace').default)
 
   /**
