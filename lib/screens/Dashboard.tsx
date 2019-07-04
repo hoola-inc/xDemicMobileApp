@@ -13,6 +13,7 @@ import {
   SignPostCardType
 } from "@kancha";
 import SCREENS from "./Screens";
+import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import { parseClaimItem } from "xdemic/lib/utilities/parseClaims";
 import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
 import dataJson from "xdemic/lib/stubbs/signposts";
@@ -64,6 +65,14 @@ export const Dashboard: React.FC<DashboardProps> = props => {
     <Screen>
       <Container padding>
         <Text>Working text</Text>
+        <BaseCard
+          data={{
+            courseCode: "courseCode",
+            DateTime: "DateTime",
+            courseName: "courseCode",
+            schoolName: "Sultana"
+          }}
+        />
         {showSignPosts}
         {showCredentials}
       </Container>
