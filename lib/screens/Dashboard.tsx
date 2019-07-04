@@ -14,6 +14,7 @@ import {
 } from "@kancha";
 import SCREENS from "./Screens";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
+import BaseChip from "xdemic/lib/components/shared/BaseChip";
 import { parseClaimItem } from "xdemic/lib/utilities/parseClaims";
 import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
 import dataJson from "xdemic/lib/stubbs/signposts";
@@ -65,6 +66,7 @@ export const Dashboard: React.FC<DashboardProps> = props => {
     <Screen>
       <Container padding>
         <Text>Working text</Text>
+        <BaseChip data={{ title: "this is title ", index: "index" }} />
         <BaseCard
           data={{
             courseCode: "courseCode",
