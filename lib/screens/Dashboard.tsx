@@ -65,7 +65,6 @@ export const Dashboard: React.FC<DashboardProps> = props => {
   return (
     <Screen>
       <Container padding>
-        <Text>Working text</Text>
         <BaseChip data={{ title: "this is title ", index: "index" }} />
         <BaseCard
           data={{
