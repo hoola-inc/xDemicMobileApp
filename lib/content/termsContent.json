@@ -54,7 +54,7 @@
         {
           "number": "4.3",
           "title": "DID",
-          "content": "By using the uPort app, you acknowledge, accept and consent to the creation of a decentralized identity (DID) for you.  DID is essentially a public address, a string that serves asan \u201Con-chain identifier.\u201D  Because uPort is an identity platform on the Ethereum blockchain,  DIDs are linked to the Ethereum blockchain as transactions.  As a user of uPort, you acknowledge that because transactions on the Ethereum blockchain are immutable, the record of your DID\u2019s on-chain transactions are also immutable and cannot be deleted from the Ethereum blockchain.  Your DID, as it is designed in the uPort mobile application, is not tied to your natural name or personal information, and uPort does not collect data that would enable the two to be linked or associated together."
+          "content": "By using the uPort app, you acknowledge, accept and consent to the creation of a decentralized identity (DID) for you.  DID is essentially a public address, a string that serves asan \u201Con-chain identifier.\u201D  Because uPort is an identity platform on the Ethereum blockchain,  DIDs are linked to the Ethereum blockchain as transactions.  As a user of uPort, you acknowledge that because transactions on the Ethereum blockchain are immutable, the record of your DID\u2019s on-chain transactions are also immutable and cannot be deleted from the Ethereum blockchain.  Your DID, as it is designed in the xDemic Mobile Application, is not tied to your natural name or personal information, and uPort does not collect data that would enable the two to be linked or associated together."
         }
       ]
     },

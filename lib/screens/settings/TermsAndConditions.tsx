@@ -1,19 +1,19 @@
 /***
  *  Copyright (C) 2018 ConsenSys AG
  *
- *  This file is part of uPort Mobile App
- *  uPort Mobile App is free software: you can redistribute it and/or modify
+ *  This file is part of xDemic Mobile App
+ *  xDemic Mobile App is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
 
- *  uPort Mobile App is distributed in the hope that it will be useful,
+ *  xDemic Mobile App is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  ERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  * 
  *  You should have received a copy of the GNU General Public License
- *  along with uPort Mobile App.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
  * 
  ***/
 
@@ -48,7 +48,7 @@ Your private key, corresponding to your public Ethereum identity address is stor
 
 DID
 
-By using the uPort app, you acknowledge, accept and consent to the creation of a decentralized identity (DID) for you.  DID is essentially a public address, a string that serves asan “on-chain identifier.”  Because uPort is an identity platform on the Ethereum blockchain,  DIDs are linked to the Ethereum blockchain as transactions.  As a user of uPort, you acknowledge that because transactions on the Ethereum blockchain are immutable, the record of your DID’s on-chain transactions are also immutable and cannot be deleted from the Ethereum blockchain.  Your DID, as it is designed in the uPort mobile application, is not tied to your natural name or personal information, and uPort does not collect data that would enable the two to be linked or associated together. `
+By using the uPort app, you acknowledge, accept and consent to the creation of a decentralized identity (DID) for you.  DID is essentially a public address, a string that serves asan “on-chain identifier.”  Because uPort is an identity platform on the Ethereum blockchain,  DIDs are linked to the Ethereum blockchain as transactions.  As a user of uPort, you acknowledge that because transactions on the Ethereum blockchain are immutable, the record of your DID’s on-chain transactions are also immutable and cannot be deleted from the Ethereum blockchain.  Your DID, as it is designed in the xDemic Mobile Application, is not tied to your natural name or personal information, and uPort does not collect data that would enable the two to be linked or associated together. `
 
 export const termsAndConditions12 = `
 5. Representations, Warranties, and Risks
