@@ -19,7 +19,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>me.uport.extension</string>
+				<string>me.xdemic.extension</string>
 			</array>
 		</dict>
 	</array>
@@ -43,11 +43,11 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>me.uport</string>
+			<string>me.xdemic</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>ethereum</string>
-				<string>me.uport</string>
+				<string>me.xdemic</string>
 			</array>
 		</dict>
 	</array>
@@ -200,7 +200,7 @@
 			<key>UTTypeDescription</key>
 			<string>xdemic Signed Data</string>
 			<key>UTTypeIdentifier</key>
-			<string>me.uport.extension</string>
+			<string>me.xdemic.extension</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

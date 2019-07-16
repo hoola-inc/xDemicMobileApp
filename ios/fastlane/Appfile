@@ -1,4 +1,4 @@
-app_identifier("me.uport") # The bundle identifier of your app
+app_identifier("me.xdemic") # The bundle identifier of your app
 apple_id("ios-certificates@uport.me") # Your Apple email address
 
 itc_team_id("118263247") # iTunes Connect Team ID

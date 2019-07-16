@@ -13,7 +13,7 @@
 	<string>NSFileProtectionComplete</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)me.uport</string>
+		<string>$(AppIdentifierPrefix)me.xdemic</string>
 	</array>
 </dict>
 </plist>
