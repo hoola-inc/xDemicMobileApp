@@ -1,13 +1,13 @@
-import { Navigation } from 'react-native-navigation'
-import SCREENS from 'xdemic/lib/screens/Screens'
-import { UportmarketPlaceConfig } from 'xdemic/lib/utilities/parseClaims'
-import fetchMarketPlaceData from 'xdemic/lib/utilities/fetchMarketplace'
+import { Navigation } from "react-native-navigation";
+import SCREENS from "xdemic/lib/screens/Screens";
+import { UportmarketPlaceConfig } from "xdemic/lib/utilities/parseClaims";
+import fetchMarketPlaceData from "xdemic/lib/utilities/fetchMarketplace";
 
 const requestScreenManager = (requestType: string) => {
   switch (requestType) {
-    case 'disclosure':
-    case 'sign':
-    case 'attestation':
+    case "disclosure":
+    case "sign":
+    case "attestation":
       Navigation.showModal({
         stack: {
           children: [
@@ -15,36 +15,39 @@ const requestScreenManager = (requestType: string) => {
               component: {
                 name: SCREENS.NewRequest,
                 passProps: {
-                  requestType,
+                  requestType
                 },
                 options: {
                   topBar: {
                     visible: false,
-                    drawBehind: true,
-                  },
-                },
-              },
-            },
-          ],
-        },
-      })
-      break
+                    drawBehind: true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      });
+      break;
     default:
       Navigation.showModal({
         stack: {
           children: [
             {
               component: {
-                name: SCREENS.Request,
-              },
-            },
-          ],
-        },
-      })
+                name: SCREENS.Request
+              }
+            }
+          ]
+        }
+      });
   }
-}
+};
 
-export const showMarketPlaceModal = async (iss: string, _config?: UportmarketPlaceConfig) => {
+export const showMarketPlaceModal = async (
+  iss: string,
+  _config?: UportmarketPlaceConfig
+) => {
   const showModal = (config: UportmarketPlaceConfig) => {
     Navigation.showModal({
       // @ts-ignore
@@ -52,34 +55,34 @@ export const showMarketPlaceModal = async (iss: string, _config?: UportmarketPla
         children: [
           {
             component: {
-              name: 'MarketPlace',
+              name: "MarketPlace",
               passProps: {
-                config,
+                config
               },
               options: {
-                modalPresentationStyle: 'overFullScreen',
+                modalPresentationStyle: "overFullScreen",
                 layout: {
-                  backgroundColor: 'rgba(0,0,0,0.4)',
+                  backgroundColor: "rgba(0,0,0,0.4)"
                 },
                 topBar: {
-                  visible: false,
-                },
-              },
-            },
-          },
-        ],
-      },
-    })
-  }
+                  visible: false
+                }
+              }
+            }
+          }
+        ]
+      }
+    });
+  };
 
   if (!_config) {
-    const config = await fetchMarketPlaceData(iss)
+    const config = await fetchMarketPlaceData(iss);
     if (config) {
-      setTimeout(() => showModal(config), 500)
+      setTimeout(() => showModal(config), 500);
     }
   } else {
-    showModal(_config)
+    showModal(_config);
   }
-}
+};
 
-export default requestScreenManager
+export default requestScreenManager;

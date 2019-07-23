@@ -128,7 +128,7 @@
 	<key>NSMotionUsageDescription</key>
 	<string>This app does not require your devices motion usage</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Access to the photo library is needed to add a picture to your uport identity.</string>
+	<string>Access to the photo library is needed to add a picture to your xdemic identity.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>This app does not require speech recognition</string>
 	<key>UIAppFonts</key>
