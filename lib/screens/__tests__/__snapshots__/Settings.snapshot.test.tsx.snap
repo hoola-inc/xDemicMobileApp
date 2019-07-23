@@ -2182,7 +2182,7 @@ exports[`SettingsRoot renders with props 1`] = `
                             }
                           }
                         >
-                          v1.2 (5/24/2018)
+                          v1.0 (7/23/2019)
                         </Text>
                       </View>
                       <Icon

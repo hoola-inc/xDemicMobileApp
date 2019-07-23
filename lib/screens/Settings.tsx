@@ -91,10 +91,10 @@ export class Settings extends React.Component<SettingsProps, SettingsState> {
             Version
           </ListItem>
           <ListItem onPress={() => this.goToScreen(SCREENS.UPortId)}>
-            xdemic ID
+            xDemic ID
           </ListItem>
           <ListItem onPress={() => this.goToScreen(SCREENS.TryUport)}>
-            Try uPort
+            Try xDemic
           </ListItem>
           <ListItem
             externalLink={"https://uport.zendesk.com/hc/en-us/requests/new"}
@@ -148,7 +148,7 @@ export class Settings extends React.Component<SettingsProps, SettingsState> {
           </ListItem>
           <ListItem
             last
-            accessoryRight={"v1.2 (5/24/2018)"}
+            accessoryRight={"v1.0 (7/23/2019)"}
             onPress={() => this.goToScreen(SCREENS.Terms)}
           >
             Terms &amp; Conditions
