@@ -16,56 +16,63 @@
 // along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
 //
 // Frameworks
-import React from 'react'
-import { connect } from 'react-redux'
-import { View, ActivityIndicator } from 'react-native'
-import ProcessCard from 'xdemic/lib/components/shared/ProcessCard'
-import { Text } from 'xdemic/lib/components/shared'
+import React from "react";
+import { connect } from "react-redux";
+import { View, ActivityIndicator } from "react-native";
+import ProcessCard from "xdemic/lib/components/shared/ProcessCard";
+import { Text } from "xdemic/lib/components/shared";
 // Selectors
-import { currentAddress } from 'xdemic/lib/selectors/identities'
-import { working, statusMessage, errorMessage } from 'xdemic/lib/selectors/processStatus'
-import { migrationStepStatus, migrationCompleted } from 'xdemic/lib/selectors/migrations'
+import { currentAddress } from "xdemic/lib/selectors/identities";
+import {
+  working,
+  statusMessage,
+  errorMessage
+} from "xdemic/lib/selectors/processStatus";
+import {
+  migrationStepStatus,
+  migrationCompleted
+} from "xdemic/lib/selectors/migrations";
 import {
   MigrationTarget,
   MigrationStep,
   MigrationStatus,
-  targetRecipes,
-} from 'xdemic/lib/constants/MigrationActionTypes'
-import { runMigrations } from 'xdemic/lib/actions/migrationActions'
-import Icon from 'react-native-vector-icons/Ionicons'
-import { colors } from 'xdemic/lib/styles/globalStyles'
-import { Navigation } from 'react-native-navigation'
-import { SCREEN } from 'xdemic/lib/constants/MetricActionTypes'
-import Screens from 'xdemic/lib/screens/Screens'
+  targetRecipes
+} from "xdemic/lib/constants/MigrationActionTypes";
+import { runMigrations } from "xdemic/lib/actions/migrationActions";
+import Icon from "react-native-vector-icons/Ionicons";
+import { colors } from "xdemic/lib/styles/globalStyles";
+import { Navigation } from "react-native-navigation";
+import { SCREEN } from "xdemic/lib/constants/MetricActionTypes";
+import Screens from "xdemic/lib/screens/Screens";
 
-const S = require('string')
+const S = require("string");
 
 export interface Navigator {
-  dismissModal: Function
-  push: Function
-  popToRoot: Function
+  dismissModal: Function;
+  push: Function;
+  popToRoot: Function;
 }
 
 interface StepProps {
-  step: MigrationStep
-  working: boolean
-  status: MigrationStatus
-  message: string
-  error: string
+  step: MigrationStep;
+  working: boolean;
+  status: MigrationStatus;
+  message: string;
+  error: string;
 }
 
 interface StatusIcon {
-  [index: number]: string
+  [index: number]: string;
 }
 
 const icons: StatusIcon = {
-  2: 'ios-checkmark',
-  3: 'ios-alert',
-}
+  2: "ios-checkmark",
+  3: "ios-alert"
+};
 
 interface StatusProps {
-  status: MigrationStatus
-  working: boolean
+  status: MigrationStatus;
+  working: boolean;
 }
 
 const Status: React.SFC<StatusProps> = ({ status, working }) => {
@@ -74,60 +81,72 @@ const Status: React.SFC<StatusProps> = ({ status, working }) => {
       <View style={{ width: 18, height: 18, marginRight: 9 }}>
         <ActivityIndicator />
       </View>
-    )
+    );
   }
-  const icon = icons[status]
+  const icon = icons[status];
   if (icon) {
     return (
       <View style={{ paddingLeft: 20 }}>
-        <Icon name={icon} color={status === MigrationStatus.Completed ? colors.green : colors.red} size={20} />
+        <Icon
+          name={icon}
+          color={
+            status === MigrationStatus.Completed ? colors.green : colors.red
+          }
+          size={20}
+        />
       </View>
-    )
+    );
   }
-  return null
-}
+  return null;
+};
 
-const StepView: React.SFC<StepProps> = ({ step, working, status, message, error }) => {
-  const title = S(step).humanize().s
+const StepView: React.SFC<StepProps> = ({
+  step,
+  working,
+  status,
+  message,
+  error
+}) => {
+  const title = S(step).humanize().s;
   return (
     <View style={{ marginBottom: 16 }}>
       <Text bold style={{ fontSize: 18 }}>
         {title}
       </Text>
       <Status working={working} status={status} />
-      <Text small secondary style={error ? { color: 'red' } : {}}>
-        {error || message || (status ? MigrationStatus[status] : '...')}
+      <Text small secondary style={error ? { color: "red" } : {}}>
+        {error || message || (status ? MigrationStatus[status] : "...")}
       </Text>
     </View>
-  )
-}
+  );
+};
 
 interface withStep {
-  step: MigrationStep
+  step: MigrationStep;
 }
 
 export const Step = connect(
   (state: any, ownProps: withStep): StepProps => {
-    const step = ownProps.step
+    const step = ownProps.step;
     return {
       ...ownProps,
       working: working(state, step),
       status: migrationStepStatus(state, step),
       message: statusMessage(state, step),
-      error: errorMessage(state, step),
-    }
-  },
-)(StepView)
+      error: errorMessage(state, step)
+    };
+  }
+)(StepView);
 
 interface MigrateProps {
-  componentId: string
-  navigator: Navigator
-  migrate: Function
-  working: boolean
-  completed: boolean
-  target: MigrationTarget
-  title: string
-  children: any
+  componentId: string;
+  navigator: Navigator;
+  migrate: Function;
+  working: boolean;
+  completed: boolean;
+  target: MigrationTarget;
+  title: string;
+  children: any;
 }
 
 const Migrate: React.SFC<MigrateProps> = props => {
@@ -143,39 +162,39 @@ const Migrate: React.SFC<MigrateProps> = props => {
             name: Screens.MIGRATION.Complete,
             options: {
               topBar: {
-                visible: false,
-              },
-            },
-          },
+                visible: false
+              }
+            }
+          }
         })
       }
-      skipTitle={'Cancel'}
+      skipTitle={"Cancel"}
       skippable={!props.working && !props.completed}
       onSkip={() => Navigation.popToRoot(props.componentId)}
     >
       {props.children}
     </ProcessCard>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state: any, ownProps: object) => {
   return {
     ...ownProps,
     address: currentAddress(state),
     working: working(state, ownProps.target),
-    completed: migrationCompleted(state, ownProps.target),
-  }
-}
+    completed: migrationCompleted(state, ownProps.target)
+  };
+};
 
 export const mapDispatchToProps = (dispatch: Function) => {
   return {
     migrate: (target: MigrationTarget) => {
-      dispatch(runMigrations(target))
-    },
-  }
-}
+      dispatch(runMigrations(target));
+    }
+  };
+};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-)(Migrate)
+  mapDispatchToProps
+)(Migrate);
