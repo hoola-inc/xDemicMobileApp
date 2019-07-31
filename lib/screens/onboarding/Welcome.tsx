@@ -197,11 +197,11 @@ class Welcome extends React.Component<WelcomeProps> {
             alignItems={"center"}
             paddingTop={50}
           >
-            <Image
+            {/* <Image
               source={Images.branding.logoWhite}
               style={{ height: 100 }}
               resizeMode={"contain"}
-            />
+            /> */}
             <Text
               type={Text.Types.H3}
               textColor={"white"}
@@ -232,18 +232,6 @@ class Welcome extends React.Component<WelcomeProps> {
                 }
                 type={Button.Types.Custom}
                 block={Button.Block.Filled}
-              />
-              <Button
-                testID={TESTID.ONBOARDING_GET_STARTED}
-                bold
-                fullWidth
-                buttonText={"Click for testing"}
-                onPress={() => {
-                  console.warn("clicking!!!");
-                  this.callAPI();
-                }}
-                type={Button.Types.Custom}
-                block={Button.Block.Clear}
               />
               <Button
                 testID={TESTID.ONBOARDING_RECOVER}

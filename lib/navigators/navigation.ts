@@ -248,50 +248,50 @@ export async function startMain() {
             bottomTabs: {
               id: "MainTabsId",
               children: [
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: SCREENS.Dashboard,
-                          options: {
-                            topBar: {
-                              rightButtons: [rightButtonsCredentialScreen],
-                              title: {
-                                text: "Credentials",
-                                color: Theme.colors.inverted.text
-                              },
-                              largeTitle: {
-                                visible: true,
-                                color: Theme.colors.inverted.text
-                              }
-                            },
-                            bottomTab: {
-                              icon: credentialsIcon,
-                              iconColor: Theme.colors.primary.accessories,
-                              selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: {
-                                top: 0,
-                                left: 0,
-                                bottom: -8,
-                                right: 0
-                              }
-                            },
-                            fab: {
-                              id: "androidScan",
-                              visible: true,
-                              backgroundColor: Theme.colors.primary.brand,
-                              clickColor: "#FFF",
-                              rippleColor: "#ddd",
-                              icon: scanIcon,
-                              iconColor: "#FFF"
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
-                },
+                // {
+                //   stack: {
+                //     children: [
+                //       {
+                //         component: {
+                //           name: SCREENS.Dashboard,
+                //           options: {
+                //             topBar: {
+                //               rightButtons: [rightButtonsCredentialScreen],
+                //               title: {
+                //                 text: "Credentials",
+                //                 color: Theme.colors.inverted.text
+                //               },
+                //               largeTitle: {
+                //                 visible: true,
+                //                 color: Theme.colors.inverted.text
+                //               }
+                //             },
+                //             bottomTab: {
+                //               icon: credentialsIcon,
+                //               iconColor: Theme.colors.primary.accessories,
+                //               selectedIconColor: Theme.colors.primary.brand,
+                //               iconInsets: {
+                //                 top: 0,
+                //                 left: 0,
+                //                 bottom: -8,
+                //                 right: 0
+                //               }
+                //             },
+                //             fab: {
+                //               id: "androidScan",
+                //               visible: true,
+                //               backgroundColor: Theme.colors.primary.brand,
+                //               clickColor: "#FFF",
+                //               rippleColor: "#ddd",
+                //               icon: scanIcon,
+                //               iconColor: "#FFF"
+                //             }
+                //           }
+                //         }
+                //       }
+                //     ]
+                //   }
+                // },
                 {
                   stack: {
                     children: [
