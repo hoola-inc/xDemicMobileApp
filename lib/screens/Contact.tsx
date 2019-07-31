@@ -1,19 +1,27 @@
-import React from 'react'
-import { Share } from 'react-native'
-import { Navigator } from 'react-native-navigation'
-import { Screen, Container, Text, Theme, ListItem, Section, Strings } from '@kancha'
-import Avatar from 'xdemic/lib/components/shared/Avatar'
+import React from "react";
+import { Share } from "react-native";
+import { Navigator } from "react-native-navigation";
+import {
+  Screen,
+  Container,
+  Text,
+  Theme,
+  ListItem,
+  Section,
+  Strings
+} from "@kancha";
+import Avatar from "xdemic/lib/components/shared/Avatar";
 
 interface User {
-  name: string
-  avatar: any
-  address: string
-  shareToken: string
+  name: string;
+  avatar: any;
+  address: string;
+  shareToken: string;
 }
 
 interface ContactProps {
-  navigator: Navigator
-  user: User
+  navigator: Navigator;
+  user: User;
 }
 
 class Contact extends React.Component<ContactProps> {
@@ -22,8 +30,8 @@ class Contact extends React.Component<ContactProps> {
     navBarNoBorder: true,
     navBarBackgroundColor: Theme.colors.tertiary.background,
     navBarButtonColor: Theme.colors.primary.text,
-    navBarTextColor: Theme.colors.primary.text,
-  }
+    navBarTextColor: Theme.colors.primary.text
+  };
 
   render() {
     return (
@@ -31,8 +39,12 @@ class Contact extends React.Component<ContactProps> {
         type={Screen.Types.Primary}
         headerBackgroundColor={Theme.colors.tertiary.background}
         expandingHeaderContent={
-          <Container justifyContent={'center'} alignItems={'center'}>
-            <Avatar source={this.props.user.avatar} size={100} style={{ borderWidth: 2, borderColor: 'white' }} />
+          <Container justifyContent={"center"} alignItems={"center"}>
+            <Avatar
+              source={this.props.user.avatar}
+              size={100}
+              style={{ borderWidth: 2, borderColor: "white" }}
+            />
             <Container padding>
               <Text bold type={Text.Types.H2}>
                 {this.props.user.name}
@@ -41,49 +53,52 @@ class Contact extends React.Component<ContactProps> {
           </Container>
         }
       >
-        <Section title={'Personal'} sectionTitleType={Text.Types.SectionHeader}>
-          <ListItem last accessoryRight={Strings.abbreviate(this.props.user.address, 20)}>
-            uPort ID
+        <Section title={"Personal"} sectionTitleType={Text.Types.SectionHeader}>
+          <ListItem
+            last
+            accessoryRight={Strings.abbreviate(this.props.user.address, 20)}
+          >
+            xDemic ID
           </ListItem>
         </Section>
       </Screen>
-    )
+    );
   }
 
   /**
    * Share functionality is deprecated
    */
   showQShareDialog() {
-    const url = `https://id.uport.me/req/${this.props.user.shareToken}`
+    const url = `https://id.uport.me/req/${this.props.user.shareToken}`;
 
     Share.share(
       {
         url,
         message: `${this.props.user.name}`,
-        title: `Share contact`,
+        title: `Share contact`
       },
       {
-        dialogTitle: `Share contact`,
-      },
-    )
+        dialogTitle: `Share contact`
+      }
+    );
   }
 
   showQRCode() {
-    const url = `https://id.uport.me/req/${this.props.user.shareToken}`
+    const url = `https://id.uport.me/req/${this.props.user.shareToken}`;
 
     this.props.navigator.showModal({
-      screen: 'uport.QRCodeModal',
+      screen: "uport.QRCodeModal",
       passProps: {
         title: this.props.user.name,
         url,
-        onClose: this.props.navigator.dismissModal,
+        onClose: this.props.navigator.dismissModal
       },
       navigatorStyle: {
         navBarHidden: true,
-        screenBackgroundColor: 'white',
-      },
-    })
+        screenBackgroundColor: "white"
+      }
+    });
   }
 }
 
-export default Contact
+export default Contact;

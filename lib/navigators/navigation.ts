@@ -248,17 +248,62 @@ export async function startMain() {
             bottomTabs: {
               id: "MainTabsId",
               children: [
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: SCREENS.Dashboard,
+                          options: {
+                            topBar: {
+                              rightButtons: [rightButtonsCredentialScreen],
+                              title: {
+                                text: "Add School",
+                                color: Theme.colors.inverted.text
+                              },
+                              largeTitle: {
+                                visible: true,
+                                color: Theme.colors.inverted.text
+                              }
+                            },
+                            bottomTab: {
+                              icon: credentialsIcon,
+                              iconColor: Theme.colors.primary.accessories,
+                              selectedIconColor: Theme.colors.primary.brand,
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
+                            },
+                            fab: {
+                              id: "androidScan",
+                              visible: true,
+                              backgroundColor: Theme.colors.primary.brand,
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
+                              icon: scanIcon,
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
                 // {
                 //   stack: {
                 //     children: [
                 //       {
                 //         component: {
-                //           name: SCREENS.Dashboard,
+                //           name: SCREENS.Profile,
                 //           options: {
                 //             topBar: {
-                //               rightButtons: [rightButtonsCredentialScreen],
+                //               noBorder: true,
+                //               rightButtons: [defaultProfileEditButton],
                 //               title: {
-                //                 text: "Credentials",
+                //                 text: "",
                 //                 color: Theme.colors.inverted.text
                 //               },
                 //               largeTitle: {
@@ -267,7 +312,7 @@ export async function startMain() {
                 //               }
                 //             },
                 //             bottomTab: {
-                //               icon: credentialsIcon,
+                //               icon: profileIcon,
                 //               iconColor: Theme.colors.primary.accessories,
                 //               selectedIconColor: Theme.colors.primary.brand,
                 //               iconInsets: {
@@ -292,85 +337,40 @@ export async function startMain() {
                 //     ]
                 //   }
                 // },
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: SCREENS.Profile,
-                          options: {
-                            topBar: {
-                              noBorder: true,
-                              rightButtons: [defaultProfileEditButton],
-                              title: {
-                                text: "",
-                                color: Theme.colors.inverted.text
-                              },
-                              largeTitle: {
-                                visible: true,
-                                color: Theme.colors.inverted.text
-                              }
-                            },
-                            bottomTab: {
-                              icon: profileIcon,
-                              iconColor: Theme.colors.primary.accessories,
-                              selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: {
-                                top: 0,
-                                left: 0,
-                                bottom: -8,
-                                right: 0
-                              }
-                            },
-                            fab: {
-                              id: "androidScan",
-                              visible: true,
-                              backgroundColor: Theme.colors.primary.brand,
-                              clickColor: "#FFF",
-                              rippleColor: "#ddd",
-                              icon: scanIcon,
-                              iconColor: "#FFF"
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: SCREENS.Contacts,
-                          options: {
-                            topBar: navBarText("Contacts", true),
-                            bottomTab: {
-                              icon: contactsIcon,
-                              iconColor: Theme.colors.primary.accessories,
-                              selectedIconColor: Theme.colors.primary.brand,
-                              iconInsets: {
-                                top: 0,
-                                left: 0,
-                                bottom: -8,
-                                right: 0
-                              }
-                            },
-                            fab: {
-                              id: "androidScan",
-                              visible: true,
-                              backgroundColor: Theme.colors.primary.brand,
-                              clickColor: "#FFF",
-                              rippleColor: "#ddd",
-                              icon: scanIcon,
-                              iconColor: "#FFF"
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
-                },
+                // {
+                //   stack: {
+                //     children: [
+                //       {
+                //         component: {
+                //           name: SCREENS.Contacts,
+                //           options: {
+                //             topBar: navBarText("Contacts", true),
+                //             bottomTab: {
+                //               icon: contactsIcon,
+                //               iconColor: Theme.colors.primary.accessories,
+                //               selectedIconColor: Theme.colors.primary.brand,
+                //               iconInsets: {
+                //                 top: 0,
+                //                 left: 0,
+                //                 bottom: -8,
+                //                 right: 0
+                //               }
+                //             },
+                //             fab: {
+                //               id: "androidScan",
+                //               visible: true,
+                //               backgroundColor: Theme.colors.primary.brand,
+                //               clickColor: "#FFF",
+                //               rippleColor: "#ddd",
+                //               icon: scanIcon,
+                //               iconColor: "#FFF"
+                //             }
+                //           }
+                //         }
+                //       }
+                //     ]
+                //   }
+                // },
                 {
                   stack: {
                     children: [

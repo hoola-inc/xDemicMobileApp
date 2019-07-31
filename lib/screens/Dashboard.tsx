@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { Header, Item, Input, Button } from "native-base";
+import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
+
 import {
   Screen,
   Container,
@@ -67,8 +70,19 @@ export const Dashboard: React.FC<DashboardProps> = props => {
   return (
     <Screen>
       <Container padding>
+        <Item style={Styles.input}>
+          <Icon name={"search"} font={"feather"} color={"black"} size={40} />
+          <Input style={{ fontSize: 14 }} placeholder="Search..." />
+        </Item>
+        {/* <Button transparent>
+          <Text>Search</Text>
+        </Button> */}
         <View style={{ marginTop: 32 }}>
-          <Text textColor={"#000000"} type={Text.Types.ListItem}>
+          <Text
+            textStyle={{ fontWeight: "bold" }}
+            textColor={"#000000"}
+            type={Text.Types.ListItem}
+          >
             Search Result
           </Text>
         </View>
@@ -76,7 +90,9 @@ export const Dashboard: React.FC<DashboardProps> = props => {
           return <BaseCard data={data} key={i} />;
         })}
         <View style={{ marginTop: 32 }}>
-          <Text>Near you</Text>
+          <Text textStyle={{ fontWeight: "bold" }} textColor={"#000000"}>
+            Near you
+          </Text>
         </View>
         {config.dummyData.NearYouData.map((data: any, i: any) => {
           return <BaseCard data={data} key={i} />;
@@ -93,3 +109,14 @@ const mapStateToProps = (state: any) => {
 };
 
 export default connect(mapStateToProps)(Dashboard);
+
+const Styles = StyleSheet.create({
+  input: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
+    height: 40
+  }
+});
