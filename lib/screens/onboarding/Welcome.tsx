@@ -67,29 +67,8 @@ class Welcome extends React.Component<WelcomeProps> {
   componentDidMount() {
     this.props.trackSegment("Start");
   }
+  // this function use for the RNUportHDSigner signjwt verification
   async callAPI() {
-    // RNUportHDSigner.createSeed().then((seed: any) => {
-    //   const credentialsParams = {};
-    //   // Get Signer function to be used by credentials, address given by RNUportHDSigner
-    //   credentialsParams.signer = getSignerForHDPath(seed.address);
-    //   // set did of the issuer
-    //   credentialsParams.did = `did:ethr:${seed.address}`;
-
-    //   const cred = new Credentials(credentialsParams);
-
-    //   cred
-    //     .createVerification({
-    //       sub: subject, //Address of receiver of the verification
-    //       claim: { name: "John Smith" }
-    //     })
-    //     .then(verification => {
-    //       const url = `https://id.uport.me/req/${verification}`;
-    //       Linking.openURL(url).catch(err =>
-    //         console.error("An error occurred", err)
-    //       );
-    //     });
-    // });
-
     RNUportHDSigner.createSeed("prompt").then((addressOj: any) => {
       //keep a record of it to reference the seed when signing
       console.warn("addressOj.addressOj is: ", addressOj.address);
@@ -138,49 +117,6 @@ class Welcome extends React.Component<WelcomeProps> {
           console.warn("error # 7 in catch ", e);
         });
     });
-
-    // console.warn("1 ");
-    // const signer = didJWT.SimpleSigner(
-    //   "fa09a3ff0d486be2eb69545c393e2cf47cb53feb44a3550199346bdfa6f53245"
-    // );
-
-    // console.warn("2");
-    // let jwt = "";
-    // didJWT
-    //   .createJWT(
-    //     {
-    //       aud: "did:uport:2osnfJ4Wy7LBAm2nPBXire1WfQn75RrV6Ts",
-    //       exp: 1957463421,
-    //       name: "uPort Developer"
-    //     },
-    //     { issuer: "did:uport:2osnfJ4Wy7LBAm2nPBXire1WfQn75RrV6Ts", signer }
-    //   )
-    //   .then(async response => {
-    //     console.warn("3");
-    //     jwt = response;
-    //     console.warn("in then jwt is: ", jwt);
-    //     axios
-    //       .post("https://xdemic-api.herokuapp.com/school", {
-    //         schema: response
-    //       })
-    //       .then(data => {
-    //         console.warn("6");
-    //         // const json = await data.json();
-    //         // updateSignPosts(dataJson);
-    //         console.warn("json is: ", data);
-    //         const decodejson = didJWT.decodeJWT(jwt);
-    //         console.warn("decodet jwt is: ", decodejson);
-    //       })
-    //       .catch(e => {
-    //         console.warn("7");
-    //         console.warn("error # 7 in catch ", e);
-    //       });
-    //   })
-    //   .catch(e => {
-    //     console.warn("4");
-    //     console.warn("error in catch ", e);
-    //   });
-    // console.warn("5");
   }
   render() {
     return (

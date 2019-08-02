@@ -29,6 +29,7 @@ export function registerScreens(redux: any) {
   registerComponentWithRedux(redux)(SCREENS.Welcome, require('./onboarding/Welcome').default)
   registerComponentWithRedux(redux)(SCREENS.Learn, require('./onboarding/Learn').default)
   registerComponentWithRedux(redux)(SCREENS.CreateIdentity, require('./onboarding/CreateIdentity').default)
+  registerComponentWithRedux(redux)(SCREENS.AddSchool, require('./onboarding/AddSchool').default)
   registerComponentWithRedux(redux)(SCREENS.Terms, require('./onboarding/Terms').default)
   registerComponentWithRedux(redux)(SCREENS.Privacy, require('./onboarding/Privacy').default)
   registerComponentWithRedux(redux)(SCREENS.SecurityBlock, require('./onboarding/SecurityBlock').default)

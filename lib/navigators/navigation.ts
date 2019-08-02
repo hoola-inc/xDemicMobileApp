@@ -93,6 +93,7 @@ const startOnboarding = async () => {
 
   /**
    * Check if we have a securtiy pin set
+   * @func{hasSecureKeyguard} kotlin function & comming from file  "android/src/main/java/com/reactlibrary/RNUportSignerModule.kt"
    */
   let STARTUP_SCREEN = SCREENS.Welcome;
   if (RNUportSigner && RNUportSigner.hasSecureKeyguard) {

@@ -21,6 +21,7 @@ export default {
   CreateIdentity: "CreateIdentity",
   Privacy: "Privacy",
   Terms: "Terms",
+  AddSchool: "AddSchool",
 
   ProfileQRCode: "ProfileQRCode",
 
