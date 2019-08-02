@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Image, Modal } from "react-native";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Image, Modal, StyleSheet } from "react-native";
 import { connect } from "react-redux";
+import { Item } from "native-base";
 import {
   Screen,
   Container,
@@ -146,7 +146,7 @@ class AddSchool extends React.Component<
         statusBarHidden
         // footerNavDivider
         footerNavComponent={
-          <Container alignItems={"center"} paddingBottom>
+          <Container alignItems={"center"} paddingBottom paddingLeft>
             <Container w={300}>
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
@@ -166,9 +166,9 @@ class AddSchool extends React.Component<
                 // }
                 buttonText={
                   // this.state.userCreatingidentity
-                  //   ? "Generating keys...."
+                  //   ? "Add to School"
                   // :
-                  "Add to Schools"
+                  "Skip"
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
@@ -194,67 +194,35 @@ class AddSchool extends React.Component<
         }
       >
         <Container flex={1} justifyContent={"center"} alignItems={"center"}>
-          <Modal
-            onRequestClose={() => ""}
-            animationType={"slide"}
-            transparent={true}
-            visible={this.state.identityCreationSuccess}
-          >
-            {this.renderIdentityCreationSuccess()}
-          </Modal>
-
-          {/* <Container alignItems={"center"} paddingBottom paddingTop>
-            <Text type={Text.Types.H2} bold>
-              AddSchool Personalize xDemic
-            </Text>
-            <Container paddingTop={5} paddingBottom>
-              <Text type={Text.Types.SubTitle}>
-                Add your name and optional photo
-              </Text>
-            </Container>
-          </Container> */}
-
-          {/* <Container
-            justifyContent={"center"}
-            alignItems={"center"}
-            paddingBottom
-          >
-            <Avatar
-              image={this.state.image && this.state.image.uri}
-              text={this.state.name}
-            />
-            <Button
-              buttonText={"Upload photo"}
-              block={Button.Block.Clear}
-              type={Button.Types.Primary}
-              onPress={this.chooseProfileImage}
-            />
-          </Container> */}
-
-          {/* <Container flexDirection={"row"} w={280}>
-            <Input
-              testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"Enter name or username"}
-              textType={Text.Types.H4}
-              value={this.state.name}
-              onChangeText={this.onChangeText}
-              valid={!!this.state.name}
-            />
-          </Container> */}
-          <Container padding>
+          <Container>
+            <Item style={Styles.input}>
+              <Icon
+                name={"search"}
+                font={"feather"}
+                color={"black"}
+                size={40}
+              />
+              <Input style={{ fontSize: 14 }} placeholder="Search..." />
+            </Item>
             <Text type={Text.Types.SubTitle} textAlign={"center"}>
               You can always change this information later
             </Text>
+            {config.dummyData.BaseCardData.map((data: any, i: any) => {
+              return <BaseCard data={data} key={i} />;
+            })}
           </Container>
         </Container>
         <Container flexDirection={"column"}>
           <Container>
             <Text type={Text.Types.SubTitle} textAlign={"center"}>
+              <Icon
+                name={"search"}
+                font={"ionicons"}
+                color={"black"}
+                size={40}
+              />
               Rizwan information later
             </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return <BaseCard data={data} key={i} />;
-            })}
           </Container>
         </Container>
       </Container>
@@ -413,6 +381,18 @@ export const mapDispatchToProps = (dispatch: any) => {
     }
   };
 };
+
+const Styles = StyleSheet.create({
+  input: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
+    height: 40
+  }
+});
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
