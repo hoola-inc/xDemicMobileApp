@@ -17,30 +17,30 @@
  * 
  ***/
 
-import * as React from 'react'
-import { Text, TextStyle } from 'react-native'
-import { TextThemeMap, Theme } from '@kancha'
+import * as React from "react";
+import { Text, TextStyle } from "react-native";
+import { TextThemeMap, Theme } from "@kancha";
 
 /**
  *  Implemenation details: Will move static types to theor own file or namespace later
  */
 
 const TextTypes: Kancha.TextTypesStatic = {
-  H1: 'h1',
-  H2: 'h2',
-  H3: 'h3',
-  H4: 'h4',
-  H5: 'h5',
-  ListItem: 'listItem',
-  ListItemRight: 'listItemRight',
-  ListItemNote: 'listItemNote',
-  SubTitle: 'subTitle',
-  Body: 'body',
-  Button: 'button',
-  NavButton: 'navButton',
-  Summary: 'summary',
-  SectionHeader: 'sectionHeader',
-}
+  H1: "h1",
+  H2: "h2",
+  H3: "h3",
+  H4: "h4",
+  H5: "h5",
+  ListItem: "listItem",
+  ListItemRight: "listItemRight",
+  ListItemNote: "listItemNote",
+  SubTitle: "subTitle",
+  Body: "body",
+  Button: "button",
+  NavButton: "navButton",
+  Summary: "summary",
+  SectionHeader: "sectionHeader"
+};
 
 /**
  * Kancha Text Props
@@ -49,96 +49,110 @@ interface KanchaTextProps {
   /**
    * The type of text to display. This will be styled accordinly to the theme
    */
-  type?: string
+  type?: string;
 
   /**
    * Overide the color with a warning color
    */
-  warn?: boolean
+  warn?: boolean;
 
   /**
    * Color prop is used to configure button text colors
    */
-  buttonTextColor?: Kancha.BrandPropOptions
+  buttonTextColor?: Kancha.BrandPropOptions;
 
   /**
    * Overide the brand color
    */
-  textColor?: string
+  textColor?: string;
 
   /**
    * Overide the color with a warning color
    */
-  block?: Kancha.BlockPropsOptions
+  block?: Kancha.BlockPropsOptions;
 
   /**
    * Make the text bold
    */
-  bold?: boolean
+  bold?: boolean;
 
   /**
    * The padding around the text
    */
-  padding?: number
+  padding?: number;
 
   /**
    * A bottom padding for the text. Useful for headings
    */
-  paddingBottom?: number | boolean | undefined
+  paddingBottom?: number | boolean | undefined;
+
+  paddingTop?: number | boolean | undefined;
 
   /**
    * The margin around the text
    */
-  margin?: number
+  margin?: number;
+
+  marginTop?: number | boolean | undefined;
+  marginBottom?: number | boolean | undefined;
+  marginLeft?: number | boolean | undefined;
 
   /**
    * The margin around the text
    */
-  textAlign?: string
+  textAlign?: string;
 
   /**
    * Decoration for button text
    */
-  textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through' | undefined
+  textDecorationLine?:
+    | "none"
+    | "underline"
+    | "line-through"
+    | "underline line-through"
+    | undefined;
 
   /**
    * Transform the text
    */
-  transform?: 'uppercase' | 'lowercase' | undefined
+  transform?: "uppercase" | "lowercase" | undefined;
 
   /**
    * Transform the text
    */
-  textStyle?: TextStyle
+  textStyle?: TextStyle;
 }
 
-const KanchaText: React.FC<KanchaTextProps> & { Types: Kancha.TextTypesStatic } = props => {
+const KanchaText: React.FC<KanchaTextProps> & {
+  Types: Kancha.TextTypesStatic;
+} = props => {
   const styles: TextStyle = {
     ...(props.type ? { ...TextThemeMap[props.type] } : {}),
     ...(props.textColor ? { color: props.textColor } : {}),
-    ...(props.bold ? { fontWeight: 'bold' } : {}),
+    ...(props.bold ? { fontWeight: "bold" } : {}),
     ...(props.warn ? { color: Theme.colors.warning.text } : {}),
     ...(props.textAlign ? { textAlign: props.textAlign } : {}),
     ...(props.buttonTextColor
       ? {
           color: props.block
             ? Theme.colors[props.buttonTextColor].buttonText[props.block]
-            : Theme.colors[props.buttonTextColor].buttonText.filled,
+            : Theme.colors[props.buttonTextColor].buttonText.filled
         }
       : {}),
     ...(props.paddingBottom ? { paddingBottom: props.paddingBottom } : {}),
-    ...(props.paddingBottom && typeof props.paddingBottom === 'boolean'
+    ...(props.paddingTop ? { paddingTop: props.paddingTop } : {}),
+    ...(props.paddingBottom && typeof props.paddingBottom === "boolean"
       ? { paddingBottom: Theme.spacing.default }
       : {}),
     ...(props.transform ? { textTransform: props.transform } : {}),
-    ...(props.textStyle ? { ...props.textStyle } : {}),
-  }
+    ...(props.textStyle ? { ...props.textStyle } : {})
+  };
 
-  return <Text style={styles}>{props.children}</Text>
-}
+  return <Text style={styles}>{props.children}</Text>;
+};
 KanchaText.defaultProps = {
-  type: TextTypes.Body,
-}
-KanchaText.Types = TextTypes
+  type: TextTypes.Body
+};
+KanchaText.Types = TextTypes;
 
-export default KanchaText
+export default KanchaText;

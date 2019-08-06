@@ -42,7 +42,20 @@ const Learn: React.FC<LearnProps> = props => {
                 Navigation.push(props.componentId, {
                   component: {
                     name: SCREENS.AddSchool,
-                    options: { topBar: { elevation: 0, drawBehind: false } }
+                    options: {
+                      topBar: {
+                        elevation: 0,
+                        drawBehind: false,
+                        title: {
+                          text: "Add School",
+                          alignment: "center",
+                          fontFamily: "bold"
+                        },
+                        backButton: {
+                          visible: false
+                        }
+                      }
+                    }
                   }
                 })
               }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ActivityIndicator, Image, Modal, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import { Item } from "native-base";
+import { Item, Input as InputNative } from "native-base";
 import {
   Screen,
   Container,
@@ -12,6 +12,7 @@ import {
   Icon,
   Images,
   Checkbox,
+  Colors,
   Section,
   Card,
   ListItem
@@ -56,6 +57,7 @@ interface CreateIdentityProps {
 interface CreateIdentityState {
   valid: boolean;
   name: string;
+  search: string;
   termsAccepted: boolean;
   privacyAccepted: boolean;
   userAddingInfo: boolean;
@@ -108,6 +110,7 @@ class AddSchool extends React.Component<
     this.state = {
       valid: false,
       name: "",
+      search: "",
       termsAccepted: false,
       privacyAccepted: false,
       image: undefined,
@@ -193,36 +196,47 @@ class AddSchool extends React.Component<
           this.state.userCreatingidentity || this.state.identityCreationSuccess
         }
       >
-        <Container flex={1} justifyContent={"center"} alignItems={"center"}>
+        <Container
+          flex={1}
+          justifyContent={"center"}
+          paddingLeft={16}
+          paddingRight={16}
+        >
+          <Item style={Styles.input}>
+            <Icon name={"search"} font={"feather"} color={"grey"} size={20} />
+            <InputNative style={{ fontSize: 14 }} placeholder="Search..." />
+          </Item>
           <Container>
-            <Item style={Styles.input}>
-              <Icon
-                name={"search"}
-                font={"feather"}
-                color={"black"}
-                size={40}
-              />
-              <Input style={{ fontSize: 14 }} placeholder="Search..." />
-            </Item>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              You can always change this information later
+            <Text
+              type={Text.Types.H5}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={32}
+              paddingBottom={16}
+            >
+              Search Result
             </Text>
             {config.dummyData.BaseCardData.map((data: any, i: any) => {
               return <BaseCard data={data} key={i} />;
             })}
           </Container>
         </Container>
-        <Container flexDirection={"column"}>
+        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
           <Container>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              <Icon
-                name={"search"}
-                font={"ionicons"}
-                color={"black"}
-                size={40}
-              />
-              Rizwan information later
+            <Text
+              type={Text.Types.H5}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={32}
+              paddingBottom={16}
+            >
+              Near You
             </Text>
+            {config.dummyData.BaseCardData.map((data: any, i: any) => {
+              return <BaseCard data={data} key={i} />;
+            })}
           </Container>
         </Container>
       </Container>
@@ -382,6 +396,11 @@ export const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddSchool);
+
 const Styles = StyleSheet.create({
   input: {
     backgroundColor: "white",
@@ -392,8 +411,3 @@ const Styles = StyleSheet.create({
     height: 40
   }
 });
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddSchool);
