@@ -94,7 +94,7 @@ const Avatar: React.FC<AvatarProps> = ({ image, text }) => {
   );
 };
 
-class AddSchool extends React.Component<
+class AddSchoolInformation extends React.Component<
   CreateIdentityProps,
   CreateIdentityState
 > {
@@ -142,7 +142,6 @@ class AddSchool extends React.Component<
    * UI Render main Screen
    */
   render() {
-    const scanIcon = Icon.getImageSource("ionicons", Icon.Names.scan, 30);
     return (
       <Screen
         type={Screen.Types.Secondary}
@@ -150,8 +149,39 @@ class AddSchool extends React.Component<
         statusBarHidden
         // footerNavDivider
         footerNavComponent={
-          <Container alignItems={"center"} paddingBottom paddingLeft>
+          <Container
+            // flexDirection={"row"}
+            alignItems={"center"}
+            paddingBottom
+            paddingLeft
+          >
             <Container w={300}>
+              {/* <Button
+                testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+                icon={
+                  this.state.userCreatingidentity && (
+                    <ActivityIndicator
+                      color={"white"}
+                      style={{ marginRight: 10 }}
+                    />
+                  )
+                }
+                fullWidth
+                // disabled={
+                //   !this.isValid() ||
+                //   this.state.userCreatingidentity ||
+                //   this.state.identityCreationSuccess
+                // }
+                buttonText={
+                  // this.state.userCreatingidentity
+                  //   ? "Add to School"
+                  // :
+                  "Add School"
+                }
+                type={Button.Types.Custom}
+                block={Button.Block.Filled}
+                onPress={() => this.createIdentity()}
+              /> */}
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
@@ -172,41 +202,11 @@ class AddSchool extends React.Component<
                   // this.state.userCreatingidentity
                   //   ? "Add to School"
                   // :
-                  "Skip"
+                  "Add School"
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
-                onPress={() =>
-                  Navigation.push(this.props.componentId, {
-                    component: {
-                      name: SCREENS.Dashboard,
-                      options: {
-                        topBar: {
-                          elevation: 0,
-                          drawBehind: false,
-                          // rightButtons: [rightButtonsCredentialScreen],
-                          title: {
-                            text: "Add School",
-                            alignment: "center",
-                            fontFamily: "bold"
-                          },
-                          backButton: {
-                            visible: false
-                          }
-                        },
-                        fab: {
-                          id: "androidScan",
-                          visible: true,
-                          backgroundColor: Theme.colors.primary.brand,
-                          clickColor: "#FFF",
-                          rippleColor: "#ddd",
-                          icon: scanIcon,
-                          iconColor: "#FFF"
-                        }
-                      }
-                    }
-                  })
-                }
+                onPress={() => this.createIdentity()}
               />
             </Container>
           </Container>
@@ -233,51 +233,11 @@ class AddSchool extends React.Component<
           paddingLeft={16}
           paddingRight={16}
         >
-          <Container paddingTop={20}>
-            <Item style={Styles.input}>
-              <Icon
-                name={"search"}
-                font={"feather"}
-                color={Colors.LIGHT_GREY}
-                size={20}
-              />
-              <InputNative
-                style={{ fontSize: 14, color: Colors.LIGHT_GREY }}
-                placeholder="Search..."
-              />
-            </Item>
-          </Container>
           <Container>
-            <Text
-              type={Text.Types.H5}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={32}
-              paddingBottom={16}
-            >
-              Search Result
-            </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return <BaseCard {...this.props} data={data} key={i} />;
-            })}
-          </Container>
-        </Container>
-        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
-          <Container>
-            <Text
-              type={Text.Types.H5}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={32}
-              paddingBottom={16}
-            >
-              Near You
-            </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return <BaseCard {...this.props} data={data} key={i} />;
-            })}
+            <BaseCard
+              data={config.dummyData.BaseCardData[0]}
+              key={"rizwankey"}
+            />
           </Container>
         </Container>
       </Container>
@@ -440,7 +400,7 @@ export const mapDispatchToProps = (dispatch: any) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddSchool);
+)(AddSchoolInformation);
 
 const Styles = StyleSheet.create({
   input: {

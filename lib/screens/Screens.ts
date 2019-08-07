@@ -22,6 +22,7 @@ export default {
   Privacy: "Privacy",
   Terms: "Terms",
   AddSchool: "AddSchool",
+  AddSchoolInformation: "AddSchoolInformation",
 
   ProfileQRCode: "ProfileQRCode",
 

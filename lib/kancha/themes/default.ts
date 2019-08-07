@@ -1,23 +1,23 @@
 interface IndexSignature {
-  [index: string]: any
+  [index: string]: any;
 }
 
 interface TextDefaultThemeMapTypes extends IndexSignature {}
 
 export const COLORS = {
-  BLACK: '#000000',
-  WHITE: '#FFFFFF',
-  CHARCOAL: '#333333',
-  LIGHTEST_GREY: '#EFEEF3',
-  LIGHT_GREY: '#BBBBBB',
-  MEDIUM_GREY: '#CCCCCC',
-  DARK_GREY: '#333333',
-  ROYAL_PURPLE: '#6A54D1',
-  CRIMSON_RED: '#D63A59',
-  WASHED_GREEN: '#3DCF8A',
-  SUNNY_ORANGE: '#E89835',
-  TRANSPARENT: 'transparent',
-}
+  BLACK: "#000000",
+  WHITE: "#FFFFFF",
+  CHARCOAL: "#333333",
+  LIGHTEST_GREY: "#EFEEF3",
+  LIGHT_GREY: "#BBBBBB",
+  MEDIUM_GREY: "#CCCCCC",
+  DARK_GREY: "#333333",
+  ROYAL_PURPLE: "#6A54D1",
+  CRIMSON_RED: "#D63A59",
+  WASHED_GREEN: "#3DCF8A",
+  SUNNY_ORANGE: "#E89835",
+  TRANSPARENT: "transparent"
+};
 
 /**
  * Not implemented yet. A funtion so we can provide a theme color dictionary and generate the object below
@@ -32,7 +32,7 @@ const ThemeColor = (
   button: string,
   buttonTextFilled: string,
   buttonTextOutlined: string,
-  buttonTextClear: string,
+  buttonTextClear: string
 ) => {
   return {
     brand,
@@ -45,10 +45,10 @@ const ThemeColor = (
     buttonText: {
       filled: buttonTextFilled,
       outlined: buttonTextOutlined,
-      clear: buttonTextClear,
-    },
-  }
-}
+      clear: buttonTextClear
+    }
+  };
+};
 
 /**
  * Base DefaultTheme file
@@ -56,7 +56,7 @@ const ThemeColor = (
 const DefaultTheme: Kancha.ThemeStatic = {
   text: {
     lineHeights: {
-      body: 22,
+      body: 22
     },
     sizes: {
       h1: 32,
@@ -73,8 +73,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       summary: 18,
       body: 16,
       button: 18,
-      navButton: 20,
-    },
+      navButton: 20
+    }
   },
   colors: {
     /**
@@ -90,7 +90,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       COLORS.ROYAL_PURPLE,
       COLORS.WHITE,
       COLORS.ROYAL_PURPLE,
-      COLORS.ROYAL_PURPLE,
+      COLORS.ROYAL_PURPLE
     ),
     // primary: {
     //   brand: COLORS.ROYAL_PURPLE,
@@ -117,8 +117,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.WHITE,
         outlined: COLORS.MEDIUM_GREY,
-        clear: COLORS.MEDIUM_GREY,
-      },
+        clear: COLORS.MEDIUM_GREY
+      }
     },
     tertiary: {
       brand: COLORS.LIGHT_GREY,
@@ -131,8 +131,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.LIGHT_GREY,
         outlined: COLORS.LIGHT_GREY,
-        clear: COLORS.LIGHT_GREY,
-      },
+        clear: COLORS.LIGHT_GREY
+      }
     },
     accent: {
       brand: COLORS.SUNNY_ORANGE,
@@ -145,8 +145,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.WHITE,
         outlined: COLORS.SUNNY_ORANGE,
-        clear: COLORS.SUNNY_ORANGE,
-      },
+        clear: COLORS.SUNNY_ORANGE
+      }
     },
     warning: {
       brand: COLORS.CRIMSON_RED,
@@ -159,8 +159,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.WHITE,
         outlined: COLORS.CRIMSON_RED,
-        clear: COLORS.CRIMSON_RED,
-      },
+        clear: COLORS.CRIMSON_RED
+      }
     },
     confirm: {
       brand: COLORS.WASHED_GREEN,
@@ -173,8 +173,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.WHITE,
         outlined: COLORS.WASHED_GREEN,
-        clear: COLORS.WASHED_GREEN,
-      },
+        clear: COLORS.WASHED_GREEN
+      }
     },
     inverted: {
       brand: COLORS.TRANSPARENT,
@@ -187,8 +187,8 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.ROYAL_PURPLE,
         outlined: COLORS.WHITE,
-        clear: COLORS.WHITE,
-      },
+        clear: COLORS.WHITE
+      }
     },
     custom: {
       brand: COLORS.TRANSPARENT,
@@ -201,21 +201,21 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.ROYAL_PURPLE,
         outlined: COLORS.WHITE,
-        clear: COLORS.WHITE,
-      },
-    },
+        clear: COLORS.WHITE
+      }
+    }
   },
   spacing: {
     default: 15,
-    section: 20,
+    section: 20
   },
   roundedCorners: {
     buttons: 8,
     cards: 5,
-    textInputs: 8,
+    textInputs: 8
   },
-  navigation: {},
-}
+  navigation: {}
+};
 
 /**
  * For RNN
@@ -224,33 +224,33 @@ const NavigationThemeDefault = {
   largeTitle: false,
   navBarBackgroundColor: DefaultTheme.colors.primary.brand,
   navBarButtonColor: DefaultTheme.colors.primary.background,
-  navBarTextColor: DefaultTheme.colors.primary.background,
-}
+  navBarTextColor: DefaultTheme.colors.primary.background
+};
 
 /**
  * Append nav theming
  */
-const Theme = DefaultTheme
-Theme.navigation = NavigationThemeDefault
+const Theme = DefaultTheme;
+Theme.navigation = NavigationThemeDefault;
 
 /**
  * Temporary implementaion.
  * Refactor later to make more succint.
  */
 const TextTypes = {
-  H1: 'h1',
-  H2: 'h2',
-  H3: 'h3',
-  H4: 'h4',
-  H5: 'h5',
-  ListItem: 'listItem',
-  ListItemRight: 'listItemRight',
-  ListItemNote: 'listItemNote',
-  SubTitle: 'subTitle',
-  Body: 'body',
-  Summary: 'summary',
-  SectionHeader: 'sectionHeader',
-}
+  H1: "h1",
+  H2: "h2",
+  H3: "h3",
+  H4: "h4",
+  H5: "h5",
+  ListItem: "listItem",
+  ListItemRight: "listItemRight",
+  ListItemNote: "listItemNote",
+  SubTitle: "subTitle",
+  Body: "body",
+  Summary: "summary",
+  SectionHeader: "sectionHeader"
+};
 
 /**
  * Temporary implementaion. Refactor later to make more succint.
@@ -261,59 +261,59 @@ const TextTypes = {
 const TextThemeMap: TextDefaultThemeMapTypes = {
   h1: {
     fontSize: DefaultTheme.text.sizes.h1,
-    color: DefaultTheme.colors.primary.text,
+    color: DefaultTheme.colors.primary.text
   },
   h2: {
     fontSize: DefaultTheme.text.sizes.h2,
-    color: DefaultTheme.colors.primary.text,
+    color: DefaultTheme.colors.primary.text
   },
   h3: {
     fontSize: DefaultTheme.text.sizes.h3,
-    color: DefaultTheme.colors.primary.text,
+    color: DefaultTheme.colors.primary.text
   },
   h4: {
     fontSize: DefaultTheme.text.sizes.h4,
-    color: DefaultTheme.colors.primary.text,
+    color: DefaultTheme.colors.primary.text
   },
   h5: {
     fontSize: DefaultTheme.text.sizes.h5,
-    color: DefaultTheme.colors.primary.text,
+    color: DefaultTheme.colors.primary.text
   },
   subTitle: {
     fontSize: DefaultTheme.text.sizes.subTitle,
-    color: DefaultTheme.colors.secondary.text,
+    color: DefaultTheme.colors.secondary.text
   },
   listItem: {
     fontSize: DefaultTheme.text.sizes.listItem,
-    color: DefaultTheme.colors.primary.text,
+    color: DefaultTheme.colors.primary.text
   },
   listItemNote: {
     fontSize: DefaultTheme.text.sizes.listItemNote,
-    color: DefaultTheme.colors.secondary.text,
+    color: DefaultTheme.colors.secondary.text
   },
   listItemRight: {
     fontSize: DefaultTheme.text.sizes.listItemRight,
-    color: DefaultTheme.colors.secondary.text,
+    color: DefaultTheme.colors.secondary.text
   },
   summary: {
     fontSize: DefaultTheme.text.sizes.summary,
-    color: DefaultTheme.colors.secondary.text,
+    color: DefaultTheme.colors.secondary.text
   },
   body: {
     fontSize: DefaultTheme.text.sizes.body,
     color: DefaultTheme.colors.primary.text,
-    lineHeight: DefaultTheme.text.lineHeights.body,
+    lineHeight: DefaultTheme.text.lineHeights.body
   },
   button: {
-    fontSize: DefaultTheme.text.sizes.button,
+    fontSize: DefaultTheme.text.sizes.button
   },
   navButton: {
-    fontSize: DefaultTheme.text.sizes.navButton,
+    fontSize: DefaultTheme.text.sizes.navButton
   },
   sectionHeader: {
     fontSize: DefaultTheme.text.sizes.sectionHeader,
-    color: DefaultTheme.colors.secondary.text,
-  },
-}
+    color: DefaultTheme.colors.secondary.text
+  }
+};
 
-export { TextThemeMap, Theme, TextTypes }
+export { TextThemeMap, Theme, TextTypes };

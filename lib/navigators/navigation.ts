@@ -66,6 +66,14 @@ const listenerForIOSScanButton = () => {
 };
 
 const startOnboarding = async () => {
+  const scanIcon = await Icon.getImageSource("ionicons", Icon.Names.scan, 30);
+  const rightButtonsCredentialScreen = Device.isIOS
+    ? {
+        id: "scanButton",
+        icon: scanIcon,
+        color: "white"
+      }
+    : {};
   Navigation.setDefaultOptions({
     animations: {
       setRoot: {
@@ -77,6 +85,7 @@ const startOnboarding = async () => {
       }
     },
     topBar: {
+      rightButtons: [rightButtonsCredentialScreen],
       drawBehind: true,
       background: {
         color: "transparent"
@@ -88,6 +97,15 @@ const startOnboarding = async () => {
         color: "white",
         visible: true
       }
+    },
+    fab: {
+      id: "androidScan",
+      visible: true,
+      backgroundColor: Theme.colors.primary.brand,
+      clickColor: "#FFF",
+      rippleColor: "#ddd",
+      icon: scanIcon,
+      iconColor: "#FFF"
     }
   });
 
@@ -113,6 +131,15 @@ const startOnboarding = async () => {
               options: {
                 topBar: {
                   visible: false
+                },
+                fab: {
+                  id: "androidScan",
+                  visible: true,
+                  backgroundColor: Theme.colors.primary.brand,
+                  clickColor: "#FFF",
+                  rippleColor: "#ddd",
+                  icon: scanIcon,
+                  iconColor: "#FFF"
                 }
               }
             }
@@ -239,7 +266,7 @@ export async function startMain() {
       root: {
         // @ts-ignore
         sideMenu: {
-          right: {
+          left: {
             component: {
               id: SCREENS.Scanner,
               name: SCREENS.Scanner
@@ -257,13 +284,14 @@ export async function startMain() {
                           name: SCREENS.Dashboard,
                           options: {
                             topBar: {
-                              rightButtons: [rightButtonsCredentialScreen],
+                              visible: false,
+                              // rightButtons: [rightButtonsCredentialScreen],
                               title: {
                                 text: "Add School",
                                 color: Theme.colors.inverted.text
                               },
                               largeTitle: {
-                                visible: true,
+                                visible: false,
                                 color: Theme.colors.inverted.text
                               }
                             },
