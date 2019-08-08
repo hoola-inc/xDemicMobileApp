@@ -32,7 +32,6 @@ import {
 import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import config from "xdemic/lib/config";
-
 import TESTID from "xdemic/lib/e2e/testIDs";
 
 interface ImageObj {
@@ -44,6 +43,7 @@ interface CreateIdentityProps {
   componentId: string;
   navigator: Navigator;
   address: string;
+  data: object;
 
   //**Redux Actions */
   createIdentity: () => void;
@@ -142,6 +142,7 @@ class AddSchoolInformation extends React.Component<
    * UI Render main Screen
    */
   render() {
+    console.log("AddSchoolInformation props is: ", this.props.data);
     return (
       <Screen
         type={Screen.Types.Secondary}
@@ -150,13 +151,13 @@ class AddSchoolInformation extends React.Component<
         // footerNavDivider
         footerNavComponent={
           <Container
-            // flexDirection={"row"}
+            flexDirection={"row"}
             alignItems={"center"}
             paddingBottom
             paddingLeft
           >
-            <Container w={300}>
-              {/* <Button
+            <Container w={160}>
+              <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
                   this.state.userCreatingidentity && (
@@ -176,12 +177,16 @@ class AddSchoolInformation extends React.Component<
                   // this.state.userCreatingidentity
                   //   ? "Add to School"
                   // :
-                  "Add School"
+                  "Contact"
                 }
                 type={Button.Types.Custom}
                 block={Button.Block.Filled}
-                onPress={() => this.createIdentity()}
-              /> */}
+                onPress={() => {
+                  startMain();
+                }}
+              />
+            </Container>
+            <Container w={160} paddingLeft>
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
@@ -235,8 +240,8 @@ class AddSchoolInformation extends React.Component<
         >
           <Container>
             <BaseCard
-              data={config.dummyData.BaseCardData[0]}
-              key={"rizwankey"}
+              data={{ ...this.props.data, expandable: true }}
+              key={"keys"}
             />
           </Container>
         </Container>

@@ -176,37 +176,9 @@ class AddSchool extends React.Component<
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
-                onPress={() =>
-                  Navigation.push(this.props.componentId, {
-                    component: {
-                      name: SCREENS.Dashboard,
-                      options: {
-                        topBar: {
-                          elevation: 0,
-                          drawBehind: false,
-                          // rightButtons: [rightButtonsCredentialScreen],
-                          title: {
-                            text: "Add School",
-                            alignment: "center",
-                            fontFamily: "bold"
-                          },
-                          backButton: {
-                            visible: false
-                          }
-                        },
-                        fab: {
-                          id: "androidScan",
-                          visible: true,
-                          backgroundColor: Theme.colors.primary.brand,
-                          clickColor: "#FFF",
-                          rippleColor: "#ddd",
-                          icon: scanIcon,
-                          iconColor: "#FFF"
-                        }
-                      }
-                    }
-                  })
-                }
+                onPress={() => {
+                  startMain();
+                }}
               />
             </Container>
           </Container>
@@ -259,7 +231,13 @@ class AddSchool extends React.Component<
               Search Result
             </Text>
             {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return <BaseCard {...this.props} data={data} key={i} />;
+              return (
+                <BaseCard
+                  {...this.props}
+                  data={{ ...data, expandable: false }}
+                  key={i}
+                />
+              );
             })}
           </Container>
         </Container>
@@ -276,7 +254,13 @@ class AddSchool extends React.Component<
               Near You
             </Text>
             {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return <BaseCard {...this.props} data={data} key={i} />;
+              return (
+                <BaseCard
+                  {...this.props}
+                  data={{ ...data, expandable: false }}
+                  key={i}
+                />
+              );
             })}
           </Container>
         </Container>
