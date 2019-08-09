@@ -75,6 +75,7 @@ interface IconsStatic {
   add: string;
   remove: string;
   search: string;
+  heart: string;
 }
 
 const Icons: IconsStatic = {
@@ -100,7 +101,8 @@ const Icons: IconsStatic = {
   add: "ios-add-circle-outline",
   remove: "ios-remove-circle",
   bell: "bell",
-  search: "search"
+  search: "search",
+  heart: "heart"
 };
 
 const IconImageSource = (font: string, icon: string, size: number) => {

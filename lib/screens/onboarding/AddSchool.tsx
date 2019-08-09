@@ -142,7 +142,6 @@ class AddSchool extends React.Component<
    * UI Render main Screen
    */
   render() {
-    const scanIcon = Icon.getImageSource("ionicons", Icon.Names.scan, 30);
     return (
       <Screen
         type={Screen.Types.Secondary}
