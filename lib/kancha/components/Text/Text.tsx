@@ -31,6 +31,7 @@ const TextTypes: Kancha.TextTypesStatic = {
   H3: "h3",
   H4: "h4",
   H5: "h5",
+  H6: "h6",
   ListItem: "listItem",
   ListItemRight: "listItemRight",
   ListItemNote: "listItemNote",
@@ -94,7 +95,9 @@ interface KanchaTextProps {
   margin?: number;
 
   marginTop?: number | boolean | undefined;
+
   marginBottom?: number | boolean | undefined;
+
   marginLeft?: number | boolean | undefined;
 
   /**
