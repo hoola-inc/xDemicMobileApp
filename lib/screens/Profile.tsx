@@ -22,10 +22,7 @@ import {
   allIdentities
 } from "xdemic/lib/selectors/identities";
 import { externalProfile } from "xdemic/lib/selectors/requests";
-import {
-  editMyInfo,
-  updateShareToken
-} from "xdemic/lib/actions/myInfoActions";
+import { editMyInfo, updateShareToken } from "xdemic/lib/actions/myInfoActions";
 import {
   addClaims,
   addImage,
@@ -300,6 +297,7 @@ export class UserProfile extends React.Component<
       </Section>
     );
   }
+  
   showAlert(account: EthereumAccountListItem) {
     const title =
       account.network.toLowerCase() === "mainnet"
