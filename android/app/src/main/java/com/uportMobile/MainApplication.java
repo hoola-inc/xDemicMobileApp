@@ -47,6 +47,7 @@ import cl.json.ShareApplication;
 
 import com.facebook.react.ReactNativeHost;
 import com.reactnativenavigation.NavigationApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 
@@ -100,7 +101,7 @@ public class MainApplication extends NavigationApplication implements ShareAppli
                 new VectorIconsPackage(), new RNCameraPackage(), new RandomBytesPackage(), new ImagePickerPackage(),
                 new AuthenticationScreenPackage(), new MySNSPackage(), new IntentLauncherPackage(),
                 new RNUportSignerPackage(), new RNFirebaseAnalyticsPackage(), new AsyncStoragePackage(),
-                new NetInfoPackage());
+                new MapsPackage(), new NetInfoPackage());
     }
 
 }

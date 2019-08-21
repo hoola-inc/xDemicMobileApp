@@ -2235,7 +2235,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-xdemic/Pods-xdemic-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-xdemic/Pods-xdemic-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSSNS/AWSSNS.framework",
@@ -2256,7 +2256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xdemic/Pods-xdemic-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-xdemic/Pods-xdemic-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A190DE9710FDAB340E3193DE /* [CP] Check Pods Manifest.lock */ = {
