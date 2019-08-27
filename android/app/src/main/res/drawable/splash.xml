@@ -21,11 +21,12 @@
 
     <item
         android:drawable="@color/uport_background" />
-
+        <!-- splash screen image added here  -->
+<!-- 
     <item>
         <bitmap
             android:gravity="center"
             android:src="@mipmap/uport_logo_white" />
-    </item>
+    </item> -->
 
 </layer-list>
