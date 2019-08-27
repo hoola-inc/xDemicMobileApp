@@ -1,7 +1,7 @@
 version: 2
 jobs:
   node-dependencies:
-    working_directory: ~/uport-mobile
+    working_directory: ~/xdemic
     docker:
       - image: circleci/node:8
     steps:
@@ -18,18 +18,18 @@ jobs:
           paths:
             - ~/.cache/yarn
       - persist_to_workspace:
-          root: ~/uport-mobile
+          root: ~/xdemic
           paths:
             - node_modules
 
   node-test:
-    working_directory: ~/uport-mobile
+    working_directory: ~/xdemic
     docker:
       - image: circleci/node:8
     steps:
       - checkout
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
       - restore_cache:
           keys:
             - yarn-{{ arch }}-v5-{{ checksum "yarn.lock" }}
@@ -51,13 +51,13 @@ jobs:
           path: test-results
 
   package-android-bundle:
-    working_directory: ~/uport-mobile
+    working_directory: ~/xdemic
     docker:
       - image: circleci/node:8
     steps:
       - checkout
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
       - restore_cache:
           keys:
             - yarn-{{ arch }}-v5-{{ checksum "yarn.lock" }}
@@ -67,14 +67,14 @@ jobs:
           command: yarn package-android --max-workers=4
           no_output_timeout: 30m
       - persist_to_workspace:
-          root: ~/uport-mobile
+          root: ~/xdemic
           paths:
             - node_modules
             - android/app/build/jsbundle/assets
             - android/app/build/jsbundle/res
 
   android-dependencies:
-    working_directory: ~/uport-mobile/android
+    working_directory: ~/xdemic/android
     docker:
       - image: circleci/android:api-28-node8-alpha
         environment:
@@ -85,9 +85,9 @@ jobs:
           LANG: en_US.UTF-8
     steps:
       - checkout:
-          path: ~/uport-mobile
+          path: ~/xdemic
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
 
       - run: wget https://releases.hashicorp.com/vault/0.10.1/vault_0.10.1_linux_amd64.zip -O ~/vault.zip
       - run: mkdir -p ./tools/vault/ && unzip ~/vault.zip -d ./tools/vault/
@@ -109,12 +109,12 @@ jobs:
             - ~/.gradle
 
       - persist_to_workspace:
-          root: ~/uport-mobile
+          root: ~/xdemic
           paths:
             - android/tools/vault
 
   android:
-    working_directory: ~/uport-mobile/android
+    working_directory: ~/xdemic/android
     docker:
       - image: circleci/android:api-28-node8-alpha
         environment:
@@ -125,9 +125,9 @@ jobs:
           LANG: en_US.UTF-8
     steps:
       - checkout:
-          path: ~/uport-mobile
+          path: ~/xdemic
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
 
       - restore_cache:
           keys:
@@ -147,7 +147,7 @@ jobs:
           command: ./gradlew :app:lint :app:test -x bundleReleaseJsAndAssets --no-parallel --max-workers 1
 
       - persist_to_workspace:
-          root: ~/uport-mobile
+          root: ~/xdemic
           paths:
             - android/app/build/outputs
 
@@ -158,25 +158,25 @@ jobs:
           path: app/build/reports
 
   ios:
-    working_directory: ~/uport-mobile
+    working_directory: ~/xdemic
     environment:
-      FL_OUTPUT_DIR: ~/uport-mobile/ios
+      FL_OUTPUT_DIR: ~/xdemic/ios
       TERM: dumb
       REACT_NATIVE_MAX_WORKERS: 2
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
     macos:
-      xcode: '10.1.0'
+      xcode: "10.1.0"
     shell: /bin/bash --login -o pipefail
     steps:
       - checkout:
-          path: ~/uport-mobile
+          path: ~/xdemic
       - run:
           name: Fetch CocoaPods Specs
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
       - restore_cache:
           keys:
             - bundle-{{ arch }}-v4-ios-{{ checksum "Gemfile.lock" }}
@@ -191,19 +191,19 @@ jobs:
       - run:
           name: xcrun
           command: |
-            cd ~/uport-mobile/ios && xcrun instruments -w "iPhone 8 (11.2) [" || true
+            cd ~/xdemic/ios && xcrun instruments -w "iPhone 8 (11.2) [" || true
             pod install --verbose
             npm install
             yarn
       - run:
           name: Fastlane
-          command: cd ~/uport-mobile/ios && bundle exec fastlane buildTheApp
+          command: cd ~/xdemic/ios && bundle exec fastlane buildTheApp
       - persist_to_workspace:
-          root: ~/uport-mobile
+          root: ~/xdemic
           paths:
             - ios/gym
       - store_artifacts:
-          path: ~/uport-mobile/ios/gym
+          path: ~/xdemic/ios/gym
 
   vault:
     docker:
@@ -212,14 +212,14 @@ jobs:
       - run: vault token-renew > /dev/null
 
   deploy-android:
-    working_directory: ~/uport-mobile/android
+    working_directory: ~/xdemic/android
     docker:
       - image: circleci/android:api-28-node8-alpha
     steps:
       - checkout:
-          path: ~/uport-mobile
+          path: ~/xdemic
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
       - restore_cache:
           keys:
             - bundle-{{ arch }}-v8-{{ checksum "Gemfile.lock" }}
@@ -235,20 +235,20 @@ jobs:
       - run: PATH="$PATH:$(pwd)/tools/vault" && bash ../scripts/pull_service_key.sh && fastlane android internal; rm -f ../google-play-key-file.json
 
   deploy-ios:
-    working_directory: ~/uport-mobile
+    working_directory: ~/xdemic
     environment:
       TERM: dumb
       REACT_NATIVE_MAX_WORKERS: 2
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
     macos:
-      xcode: '10.1.0'
+      xcode: "10.1.0"
     shell: /bin/bash --login -o pipefail
     steps:
       - checkout:
-          path: ~/uport-mobile
+          path: ~/xdemic
       - attach_workspace:
-          at: ~/uport-mobile
+          at: ~/xdemic
       - restore_cache:
           keys:
             - bundle-{{ arch }}-v4-ios-{{ checksum "Gemfile.lock" }}
@@ -256,7 +256,7 @@ jobs:
       - run: bundle install
       - run:
           name: Upload To Testflight
-          command: cd ~/uport-mobile/ios && bundle exec fastlane uploadToTestflight
+          command: cd ~/xdemic/ios && bundle exec fastlane uploadToTestflight
 workflows:
   version: 2
   node-android-ios:

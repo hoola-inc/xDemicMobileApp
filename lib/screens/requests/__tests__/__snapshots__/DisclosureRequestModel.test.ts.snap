@@ -11,7 +11,7 @@ Object {
   "appBranding": Object {
     "bannerImage": "",
     "profileImage": "",
-    "requestor": "Uport Test Labs",
+    "requestor": "xDemic Test Labs",
   },
   "cancelButton": Object {
     "action": undefined,
@@ -19,12 +19,12 @@ Object {
     "text": "Cancel",
   },
   "componentId": undefined,
-  "description": "You need to create an ethereum account to interact with Uport Test Labs",
+  "description": "You need to create an ethereum account to interact with xDemic Test Labs",
   "error": null,
   "missingCredentials": Array [],
   "requestId": undefined,
   "requestItems": Array [],
-  "statsMessage": "You have never interacted with Uport Test Labs",
+  "statsMessage": "You have never interacted with xDemic Test Labs",
   "title": "Create Account",
   "verifiedCredentials": Array [],
 }
@@ -41,7 +41,7 @@ Object {
   "appBranding": Object {
     "bannerImage": "",
     "profileImage": "",
-    "requestor": "Uport Test Labs",
+    "requestor": "xDemic Test Labs",
   },
   "cancelButton": Object {
     "action": undefined,
@@ -54,7 +54,7 @@ Object {
   "missingCredentials": Array [],
   "requestId": undefined,
   "requestItems": Array [],
-  "statsMessage": "You have never interacted with Uport Test Labs",
+  "statsMessage": "You have never interacted with xDemic Test Labs",
   "title": "Share to login",
   "verifiedCredentials": Array [],
 }
@@ -71,7 +71,7 @@ Object {
   "appBranding": Object {
     "bannerImage": "",
     "profileImage": "",
-    "requestor": "Uport Test Labs",
+    "requestor": "xDemic Test Labs",
   },
   "cancelButton": Object {
     "action": undefined,
@@ -94,7 +94,7 @@ Object {
   ],
   "requestId": undefined,
   "requestItems": Array [],
-  "statsMessage": "You have never interacted with Uport Test Labs",
+  "statsMessage": "You have never interacted with xDemic Test Labs",
   "title": "Share to login",
   "verifiedCredentials": Array [],
 }
@@ -111,7 +111,7 @@ Object {
   "appBranding": Object {
     "bannerImage": "",
     "profileImage": "",
-    "requestor": "Uport Test Labs",
+    "requestor": "xDemic Test Labs",
   },
   "cancelButton": Object {
     "action": undefined,
@@ -135,7 +135,7 @@ Object {
       "value": "bob@email.com",
     },
   ],
-  "statsMessage": "You have never interacted with Uport Test Labs",
+  "statsMessage": "You have never interacted with xDemic Test Labs",
   "title": "Share to login",
   "verifiedCredentials": Array [],
 }
@@ -152,7 +152,7 @@ Object {
   "appBranding": Object {
     "bannerImage": "",
     "profileImage": "",
-    "requestor": "Uport Test Labs",
+    "requestor": "xDemic Test Labs",
   },
   "cancelButton": Object {
     "action": undefined,
@@ -165,7 +165,7 @@ Object {
   "missingCredentials": Array [],
   "requestId": undefined,
   "requestItems": Array [],
-  "statsMessage": "You have never interacted with Uport Test Labs",
+  "statsMessage": "You have never interacted with xDemic Test Labs",
   "title": "Share to login",
   "verifiedCredentials": Array [
     Object {

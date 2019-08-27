@@ -1,4 +1,4 @@
-IMAGENAME := uport-android
+IMAGENAME := xdemic-android
 SHELL := /bin/bash
 
 build-image:

@@ -18,6 +18,8 @@ target 'xdemic' do
   pod 'Firebase/Messaging'
   pod 'Firebase/RemoteConfig'
   
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
   target 'xdemicTests' do
     inherit! :search_paths
     # Pods for testing

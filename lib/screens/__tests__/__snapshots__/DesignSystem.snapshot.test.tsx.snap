@@ -5159,7 +5159,7 @@ exports[`DesignSystem renders with props 1`] = `
                                 }
                               }
                             >
-                              Uport Apps Team
+                              xDemic Apps Team
                             </Text>
                           </View>
                         </View>
@@ -6530,7 +6530,7 @@ exports[`DesignSystem renders with props 1`] = `
                                     }
                                   }
                                 >
-                                  uport.claims
+                                  xdemic.claims
                                 </Text>
                                 <Icon
                                   color="#BBBBBB"

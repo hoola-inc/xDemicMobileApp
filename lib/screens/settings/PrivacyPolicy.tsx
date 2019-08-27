@@ -17,11 +17,11 @@
 //
 /* globals it, expect */
 
-import * as React from 'react'
-import { Container, Theme, Text, Screen } from '@kancha'
+import * as React from "react";
+import { Container, Theme, Text, Screen } from "@kancha";
 
 const text1 = `
-This privacy policy (“Policy”) describes how ConsenSys AG’s uPort(“uPort” “Company”, “we”, “our”, “us”) collects, uses, shares, and stores personal information of users of this website, https://www.uport.me/ (the “Site”) and the Services (as defined below).. This Policy applies to the Site, applications, products and services (collectively, “Services”) on or in which it is posted, linked, or referenced. 
+This privacy policy (“Policy”) describes how ConsenSys AG’s xDemic(“xDemic” “Company”, “we”, “our”, “us”) collects, uses, shares, and stores personal information of users of this website, https://www.uport.me/ (the “Site”) and the Services (as defined below).. This Policy applies to the Site, applications, products and services (collectively, “Services”) on or in which it is posted, linked, or referenced. 
 
 By using the Services, you accept the terms of this Policy and our Terms of Use, and consent to our collection, use, disclosure, and retention of your information as described in this Policy.  If you have not done so already, please also review our terms of use. The terms of use contain provisions that limit our liability to you and require you to resolve any dispute with us on an individual basis and not as part of any class or representative action. IF YOU DO NOT AGREE WITH ANY PART OF THIS PRIVACY POLICY OR OUR TERMS OF USE, THEN PLEASE DO NOT USE ANY OF THE SERVICES.
 
@@ -42,7 +42,7 @@ Anonymized usage information, such as information about how you use the Service 
 Marketing information, such as your preferences for receiving marketing communications and details about how you engage with them.
 
 Information We Get From Others. We may get information about you from other third party sources and we may add this to information we get from your use of the Services. 
-`
+`;
 const text2 = `
 Information Automatically Collected. We may automatically record certain information about how you use our Site (we refer to this information as “Log Data“). Log Data may include information such as a user’s Internet Protocol (IP) address, hash of IPFS address, device and browser type, the pages or features of our Site to which a user browsed and the time spent on those pages or features, the frequency with which the Site is used by a user, search terms, the links on our Site that a user clicked on or used, referral url, and other statistics. We use this information to administer the Service and we analyze (and may engage third parties to analyze) this information to improve and enhance the Service by expanding its features and functionality and tailoring it to our users’ needs and preferences.
 
@@ -74,7 +74,7 @@ We may use or share your personal information with your consent, such as when yo
 
 For compliance, fraud prevention, and safety
 We may use your personal information to protect, investigate, and deter against fraudulent, unauthorized, or illegal activity.
-`
+`;
 const text3 = `
 
 SHARING OF PERSONAL INFORMATION
@@ -112,7 +112,7 @@ Regular cookies may generally be disabled or removed by tools available as part 
 Google Analytics
 You may exercise choices regarding the use of cookies from Google Analytics by going to https://tools.google.com/dlpage/gaoptout and downloading the Google Analytics Opt-out Browser Add-on.
 
-`
+`;
 const text4 = `
 
 CONTACT INFORMATION. We welcome your comments or questions about this Policy, and you may contact us at: support@uport.me.
@@ -168,7 +168,7 @@ Processing Purpose
 Legal Basis  
 
   Where our use of your personal information is based upon your consent, you have the right to withdraw it anytime in the manner indicated in the Service or by contacting us at support@uport.me.
-`
+`;
 const text5 = `
   
 Use for New Purposes
@@ -209,7 +209,7 @@ To improve our Site and to better understand your visits on our platforms and Si
 To serve you with interest-based or targeted advertising.
 To observe your behaviors and browsing activities over time across multiple websites or other platforms.
 To better understand the interests of our customers and our website visitors.
-`
+`;
 const text6 = `
 
 Some Cookies are necessary for certain uses of the Site, and without such Cookies, we would not be able to provide many services that you need to properly use the Site. These Cookies, for example, allow us to operate our Site so you may access it as you have requested and let us recognize that you have created an account and have logged into that account to access Site content. They also include Cookies that enable us to remember your previous actions within the same browsing session and secure our Sites.  
@@ -273,7 +273,7 @@ Analytics hub
 3rd - Segment
 Persistent
 1 year
-`
+`;
 
 const PrivacyPolicy = (props: void) => {
   return (
@@ -292,15 +292,15 @@ const PrivacyPolicy = (props: void) => {
         </Container>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
 PrivacyPolicy.defaultProps = {
-  defaultPadding: true,
-}
+  defaultPadding: true
+};
 
 PrivacyPolicy.navigatorStyle = {
-  ...Theme.navigation,
-}
+  ...Theme.navigation
+};
 
-export default PrivacyPolicy
+export default PrivacyPolicy;

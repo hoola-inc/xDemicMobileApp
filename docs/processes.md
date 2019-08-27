@@ -1,6 +1,6 @@
 # Processes
 
-Processes is any external (or internal process) that isn't instant. 
+Processes is any external (or internal process) that isn't instant.
 
 The model of processes within the app is just a standard abstraction for the actual code doing the processing to mark that the process has started, any errors, status messages and data about what it's doing to the UX.
 
@@ -22,10 +22,10 @@ These are the ones we currently have:
   - `fuel` fetches balance of devicekey
   - `gasPrice` fetches gasPrice
   - `nonce` fetches nonce of deviceKey
-- notifications.js 
+- notifications.js
   - `push` registers phone for push notifications on Amazon SNS
 - `tx` transaction signing and sending
-- `persona` updating uport profile
+- `persona` updating xdemic profile
 - recoverySaga
   - `recoverySetup`
   - `restoreIdentity`
@@ -64,12 +64,12 @@ We currently have a couple of premade components that will automatically interac
 Just include this with the processId:
 
 ```jsx
-<Status process='verifyPhoneCode' />
+<Status process="verifyPhoneCode" />
 ```
 
-*Props*
+_Props_
 
-- `process`* The processId
+- `process`\* The processId
 - `color` The color of notification text and spinner. Generally this uses the defaults from the stylesheet. Override this primarily when using on a dark background
 
 ### ProcessCard
@@ -77,18 +77,18 @@ Just include this with the processId:
 Use this instead of a View wrapping any text or Data input components. It has an optional title at the top, it's child content, A `Status` component, an action button and an optional skip button.
 
 ```jsx
-<ProcessCard 
-  process='myProcess'
+<ProcessCard
+  process="myProcess"
   invalid={!props.someDataValue}
   skippable
-  onProcess={() => startMyProcess() }
-  onContinue={() => moveOnToNextScreen() }
-  >
+  onProcess={() => startMyProcess()}
+  onContinue={() => moveOnToNextScreen()}
+>
   <Text>Hello</Text>
 </ProcessCard>
 ```
 
-*Props*
+_Props_
 
 - `process` The processId
 - `title` Optional title to display at top of card
@@ -103,7 +103,7 @@ Use this instead of a View wrapping any text or Data input components. It has an
 
 When using with a process you should include at least a `onProcess` function to start the saga and a `onContinue` function to continue to the next screen automatically once it's completed.
 
-*Important* When using it in this setup `onProcess` should not return anything or `onContinue` is called.
+_Important_ When using it in this setup `onProcess` should not return anything or `onContinue` is called.
 
 ### Using without process
 
