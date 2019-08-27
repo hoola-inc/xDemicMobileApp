@@ -22,10 +22,7 @@ import {
   allIdentities
 } from "xdemic/lib/selectors/identities";
 import { externalProfile } from "xdemic/lib/selectors/requests";
-import {
-  editMyInfo,
-  updateShareToken
-} from "xdemic/lib/actions/myInfoActions";
+import { editMyInfo, updateShareToken } from "xdemic/lib/actions/myInfoActions";
 import {
   addClaims,
   addImage,
@@ -40,7 +37,14 @@ import Mori from "mori";
 /**
  * User data fields (Self attested claims)
  */
-const USER_FIELDS = ["name", "email", "country", "phone", "avatar"];
+const USER_FIELDS = [
+  "name",
+  "email",
+  "country",
+  "phone",
+  "avatar",
+  "date_of_Birth"
+];
 
 interface EthereumAccountListItem {
   name: string;
@@ -73,6 +77,7 @@ interface UserProfileProps {
   country: string;
   phone: string;
   userData: any;
+  date_of_birth: string;
   address: string;
   shareToken: string;
   verifications: any;
@@ -612,6 +617,10 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.phone !== "undefined"
         ? state.myInfo.changed.phone
         : userData.phone,
+    date_of_birth:
+      typeof state.myInfo.changed.date_of_birth !== "undefined"
+        ? state.myInfo.changed.date_of_birth
+        : userData.date_of_birth,
     userData,
     address: currentAddress(state),
     shareToken: state.myInfo.shareToken,
