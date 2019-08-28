@@ -12,7 +12,7 @@ export const COLORS = {
   LIGHT_GREY: "#BBBBBB",
   MEDIUM_GREY: "#CCCCCC",
   DARK_GREY: "#333333",
-  BRAND: "#75A4FF",
+  CORN_FLOWER_BLUE: "#75A4FF",
   CRIMSON_RED: "#D63A59",
   WASHED_GREEN: "#3DCF8A",
   SUNNY_ORANGE: "#E89835",
@@ -81,29 +81,29 @@ const DefaultTheme: Kancha.ThemeStatic = {
      * Not sure of this is harder to read than just showing the keys?
      */
     primary: ThemeColor(
-      COLORS.BRAND,
+      COLORS.CORN_FLOWER_BLUE,
       COLORS.CHARCOAL,
       COLORS.WHITE,
       COLORS.MEDIUM_GREY,
       COLORS.LIGHT_GREY,
       COLORS.MEDIUM_GREY,
-      COLORS.BRAND,
+      COLORS.CORN_FLOWER_BLUE,
       COLORS.WHITE,
-      COLORS.BRAND,
-      COLORS.BRAND
+      COLORS.CORN_FLOWER_BLUE,
+      COLORS.CORN_FLOWER_BLUE
     ),
     // primary: {
-    //   brand: COLORS.BRAND,
+    //   brand: COLORS.CORN_FLOWER_BLUE,
     //   text: COLORS.CHARCOAL,
     //   background: COLORS.WHITE,
     //   divider: COLORS.MEDIUM_GREY,
     //   accessories: COLORS.LIGHT_GREY,
     //   underlay: COLORS.MEDIUM_GREY,
-    //   button: COLORS.BRAND,
+    //   button: COLORS.CORN_FLOWER_BLUE,
     //   buttonText: {
     //     filled: COLORS.WHITE,
-    //     outlined: COLORS.BRAND,
-    //     clear: COLORS.BRAND,
+    //     outlined: COLORS.CORN_FLOWER_BLUE,
+    //     clear: COLORS.CORN_FLOWER_BLUE,
     //   },
     // },
     secondary: {
@@ -185,7 +185,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       underlay: COLORS.TRANSPARENT,
       button: COLORS.WHITE,
       buttonText: {
-        filled: COLORS.BRAND,
+        filled: COLORS.CORN_FLOWER_BLUE,
         outlined: COLORS.WHITE,
         clear: COLORS.WHITE
       }
@@ -199,7 +199,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       underlay: COLORS.TRANSPARENT,
       button: COLORS.WHITE,
       buttonText: {
-        filled: COLORS.BRAND,
+        filled: COLORS.CORN_FLOWER_BLUE,
         outlined: COLORS.WHITE,
         clear: COLORS.WHITE
       }
