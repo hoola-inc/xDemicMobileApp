@@ -230,6 +230,11 @@
   "react-native": {
     "crypto": false
   },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  },
   "standard": {
     "ignore": [
       "lib/browserified/**",
