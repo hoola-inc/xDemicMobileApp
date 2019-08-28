@@ -1,3 +1,4 @@
+import { font } from "xdemic/lib/styles/globalStyles";
 interface IndexSignature {
   [index: string]: any;
 }
@@ -261,57 +262,71 @@ const TextTypes = {
 const TextThemeMap: TextDefaultThemeMapTypes = {
   h1: {
     fontSize: DefaultTheme.text.sizes.h1,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
   h2: {
     fontSize: DefaultTheme.text.sizes.h2,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
   h3: {
     fontSize: DefaultTheme.text.sizes.h3,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
   h4: {
     fontSize: DefaultTheme.text.sizes.h4,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
   h5: {
     fontSize: DefaultTheme.text.sizes.h5,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
   subTitle: {
     fontSize: DefaultTheme.text.sizes.subTitle,
+    fontFamily: font,
     color: DefaultTheme.colors.secondary.text
   },
   listItem: {
     fontSize: DefaultTheme.text.sizes.listItem,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
   listItemNote: {
     fontSize: DefaultTheme.text.sizes.listItemNote,
+    fontFamily: font,
     color: DefaultTheme.colors.secondary.text
   },
   listItemRight: {
     fontSize: DefaultTheme.text.sizes.listItemRight,
+    fontFamily: font,
     color: DefaultTheme.colors.secondary.text
   },
   summary: {
     fontSize: DefaultTheme.text.sizes.summary,
+    fontFamily: font,
     color: DefaultTheme.colors.secondary.text
   },
   body: {
     fontSize: DefaultTheme.text.sizes.body,
+    fontFamily: font,
     color: DefaultTheme.colors.primary.text,
     lineHeight: DefaultTheme.text.lineHeights.body
   },
   button: {
-    fontSize: DefaultTheme.text.sizes.button
+    fontSize: DefaultTheme.text.sizes.button,
+    fontFamily: font
   },
   navButton: {
-    fontSize: DefaultTheme.text.sizes.navButton
+    fontSize: DefaultTheme.text.sizes.navButton,
+    fontFamily: font
   },
   sectionHeader: {
     fontSize: DefaultTheme.text.sizes.sectionHeader,
+    fontFamily: font,
     color: DefaultTheme.colors.secondary.text
   }
 };

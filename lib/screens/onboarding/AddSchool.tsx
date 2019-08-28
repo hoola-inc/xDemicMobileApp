@@ -171,7 +171,7 @@ class AddSchool extends React.Component<
                   // this.state.userCreatingidentity
                   //   ? "Add to School"
                   // :
-                  "Skip"
+                  "Skipa"
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
