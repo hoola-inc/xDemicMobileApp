@@ -266,6 +266,8 @@ configurations.all {
 }
 
 dependencies {
+    implementation project(':react-native-fs')
+    implementation project(':@react-native-community_netinfo')
     
    
     implementation fileTree(dir: "libs", include: ["*.jar"])

@@ -6,6 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
+	<!-- here we can update the uport link to xdemic link -->
 		<string>applinks:id.uport.me</string>
 		<string>applinks:tx.uport.me</string>
 	</array>

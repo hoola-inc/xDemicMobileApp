@@ -72,7 +72,7 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>mailto</string>
@@ -108,7 +108,7 @@
 		</dict>
 	</dict>
 	<key>NSAllowsArbitraryLoads</key>
-  <true/>
+	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>This app does not require media library access</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -166,7 +166,6 @@
 		<string>Poppins-ExtraLight.otf</string>
 		<string>Poppins-Italic.otf</string>
 		<string>Poppins-ExtraLightItalic.otf</string>
-		<string>Poppins-Italic.otf</string>
 		<string>Poppins-Light.otf</string>
 		<string>Poppins-LightItalic.otf</string>
 		<string>Poppins-Medium.otf</string>
@@ -176,6 +175,18 @@
 		<string>Poppins-SemiBoldItalic.otf</string>
 		<string>Poppins-Thin.otf</string>
 		<string>Poppins-ThinItalic.otf</string>
+		<string>Entypo.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>Roboto_medium.ttf</string>
+		<string>Roboto.ttf</string>
+		<string>rubicon-icon-font.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
