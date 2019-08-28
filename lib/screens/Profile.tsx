@@ -37,14 +37,7 @@ import Mori from "mori";
 /**
  * User data fields (Self attested claims)
  */
-const USER_FIELDS = [
-  "name",
-  "email",
-  "country",
-  "phone",
-  "avatar",
-  "date_of_Birth"
-];
+const USER_FIELDS = ["name", "email", "country", "phone", "avatar", "dob"];
 
 interface EthereumAccountListItem {
   name: string;
@@ -77,7 +70,7 @@ interface UserProfileProps {
   country: string;
   phone: string;
   userData: any;
-  date_of_birth: string;
+  dob: string;
   address: string;
   shareToken: string;
   verifications: any;
@@ -617,10 +610,10 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.phone !== "undefined"
         ? state.myInfo.changed.phone
         : userData.phone,
-    date_of_birth:
-      typeof state.myInfo.changed.date_of_birth !== "undefined"
-        ? state.myInfo.changed.date_of_birth
-        : userData.date_of_birth,
+    dob:
+      typeof state.myInfo.changed.dob !== "undefined"
+        ? state.myInfo.changed.dob
+        : userData.dob,
     userData,
     address: currentAddress(state),
     shareToken: state.myInfo.shareToken,
