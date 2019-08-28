@@ -232,7 +232,7 @@
   },
   "rnpm": {
     "assets": [
-   "./assets/fonts/"
+      "./assets/fonts/"
     ]
   },
   "standard": {
