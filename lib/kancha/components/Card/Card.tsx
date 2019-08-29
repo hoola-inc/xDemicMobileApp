@@ -2,6 +2,8 @@ import * as React from "react";
 import { Container, ContainerProps } from "@kancha";
 import { TouchableOpacity } from "react-native";
 
+const BorderSize = 8;
+
 interface Card extends ContainerProps {
   onPress?: () => void;
 }
@@ -19,10 +21,37 @@ const Card: React.FC<Card> = props => {
         backgroundColor={"#FFFFFF"}
         br={br}
         viewStyle={{
-          shadowColor: "#000000",
+          // shadowColor: "#000000",
+          // shadowRadius: 8,
+          // shadowOpacity: 0.2,
+          // elevation: 3,
+          // shadowRadius: 10,
+          // elevation: 10,
+          shadowColor: "#4f4f4f",
+          // shadowOpacity: 0.8,
+          borderRadius: 5,
           shadowRadius: 4,
           shadowOpacity: 0.2,
-          elevation: 3
+          elevation: 3,
+
+          borderColor: "#868FEC",
+
+          // borderBottomColor: "white",
+          // borderRightColor: "white",
+          // borderTopColor: "white",
+
+          borderBottomLeftRadius: BorderSize,
+          borderBottomRightRadius: BorderSize,
+
+          borderRightWidth: 0,
+          borderTopWidth: 0,
+          borderBottomWidth: 0,
+
+          borderLeftWidth: BorderSize,
+          borderWidth: BorderSize,
+
+          borderTopLeftRadius: BorderSize,
+          borderTopRightRadius: BorderSize
         }}
         {...props}
       >

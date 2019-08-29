@@ -17,9 +17,9 @@
  * 
  ***/
 
-import * as React from 'react'
-import { View, ViewStyle, StyleSheet } from 'react-native'
-import { Theme } from '@kancha'
+import * as React from "react";
+import { View, ViewStyle, StyleSheet } from "react-native";
+import { Theme } from "@kancha";
 
 /**
  * Container is the most basic building block of Kancha. It is an abstraction of View with a basic implementaion
@@ -28,112 +28,144 @@ import { Theme } from '@kancha'
  */
 export interface ContainerProps {
   /** Test ID used for e2e tests */
-  testID?: string
+  testID?: string;
 
   /** Width */
-  w?: string | number | undefined
+  w?: string | number | undefined;
 
   /** Height */
-  h?: string | number | undefined
+  h?: string | number | undefined;
 
   /** Bottom */
-  b?: string | number | undefined
+  b?: string | number | undefined;
 
   /** Bottom */
-  r?: string | number | undefined
+  r?: string | number | undefined;
 
   /** Border radius */
-  br?: number | undefined
+  br?: number | undefined;
 
   /** Flex */
-  flex?: number | undefined
+  flex?: number | undefined;
 
   /** Pre-defined backgrounds accordign to the theme. use these where possible. */
-  background?: Kancha.BrandPropOptions
+  background?: Kancha.BrandPropOptions;
 
   /** Temporary option to create custom color. Avoid is possible and deprecate if you can by modifying the theme */
-  backgroundColor?: string
+  backgroundColor?: string;
 
   /** Flex direction */
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse' | undefined
+  flexDirection?:
+    | "row"
+    | "column"
+    | "row-reverse"
+    | "column-reverse"
+    | undefined;
 
   /** Align items */
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | undefined
+  alignItems?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline"
+    | undefined;
 
   /** Justify Content */
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | undefined
+  justifyContent?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | undefined;
 
   /** Set the bottom divider */
-  dividerBottom?: boolean
+  dividerBottom?: boolean;
 
-  /** et the top divider */
-  dividerTop?: boolean
+  /** set the top divider */
+  dividerTop?: boolean;
+
+  /** set the left divider */
+  dividerLeft?: boolean;
+
+  /** set the right divider */
+  dividerRight?: boolean;
 
   /** Set the bottom margin */
-  marginBottom?: number | boolean | undefined
+  marginBottom?: number | boolean | undefined;
 
   /** Set the top margin */
-  marginTop?: number | boolean | undefined
+  marginTop?: number | boolean | undefined;
 
   /** Set the bottom margin */
-  marginLeft?: number | boolean | undefined
+  marginLeft?: number | boolean | undefined;
 
   /** Set the top margin */
-  marginRight?: number | boolean | undefined
+  marginRight?: number | boolean | undefined;
 
   /** Set the default padding */
-  padding?: number | boolean | undefined
+  padding?: number | boolean | undefined;
 
   /** Set the default paddingHorizontal */
-  paddingHorizontal?: number | boolean | undefined
+  paddingHorizontal?: number | boolean | undefined;
 
   /** Set the bottom padding */
-  paddingBottom?: number | boolean | undefined
+  paddingBottom?: number | boolean | undefined;
 
   /** Set the top padding */
-  paddingTop?: number | boolean | undefined
+  paddingTop?: number | boolean | undefined;
 
   /** Set the left padding */
-  paddingLeft?: number | boolean | undefined
+  paddingLeft?: number | boolean | undefined;
 
   /** Set the right padding */
-  paddingRight?: number | boolean | undefined
+  paddingRight?: number | boolean | undefined;
 
   /** Enable border for debugging layouts */
-  debugBorder?: boolean
+  debugBorder?: boolean;
 
   /** Enable border for debugging layouts */
-  borderColor?: string
+  borderColor?: string;
 
   /** Enable border for debugging layouts */
-  borderWidth?: number
+  borderWidth?: number;
 
   /** Change debug border color */
-  debugBorderColor?: string | undefined
+  debugBorderColor?: string | undefined;
 
   /** Add addionaly custom styles for a container. Use sparingly!! */
-  viewStyle?: ViewStyle
+  viewStyle?: ViewStyle;
 
   /** Disable the view from being able to detect interactions */
-  disabled?: boolean
+  disabled?: boolean;
 
   /** A shadow level to apply */
-  shadow?: number
+  shadow?: number;
 
   /** An opacity level. Use 1, 2, 3 etc  */
-  opacity?: number
+  opacity?: number;
 }
 
 const Container: React.FunctionComponent<ContainerProps> = props => {
   const DividerBottomStyles: ViewStyle = {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: Theme.colors.primary.divider,
-  }
+    borderBottomColor: Theme.colors.primary.divider
+  };
 
   const DividerTopStyles: ViewStyle = {
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: Theme.colors.primary.divider,
-  }
+    borderTopColor: Theme.colors.primary.divider
+  };
+  const DividerRigthStyles: ViewStyle = {
+    borderRightWidth: StyleSheet.hairlineWidth,
+    borderRightColor: Theme.colors.primary.divider
+  };
+  const DividerLetfStyles: ViewStyle = {
+    borderLeftWidth: StyleSheet.hairlineWidth,
+    borderLeftColor: Theme.colors.primary.divider
+  };
 
   const BaseStyles: ViewStyle = {
     /** Basic view styles */
@@ -143,57 +175,100 @@ const Container: React.FunctionComponent<ContainerProps> = props => {
     flexDirection: props.flexDirection,
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
-    backgroundColor: props.background && Theme.colors[props.background].background,
-    borderRadius: props.br,
-  }
+    backgroundColor:
+      props.background && Theme.colors[props.background].background,
+    borderRadius: props.br
+  };
 
   /** Conditionally spread props down to the View as styles */
   const styles: ViewStyle = {
     ...BaseStyles,
     ...(props.dividerBottom ? DividerBottomStyles : {}),
     ...(props.dividerTop ? DividerTopStyles : {}),
+    ...(props.dividerLeft ? DividerLetfStyles : {}),
+    ...(props.dividerRight ? DividerRigthStyles : {}),
     ...(props.borderColor ? { borderColor: props.borderColor } : {}),
     ...(props.borderWidth ? { borderWidth: props.borderWidth } : {}),
-    ...(props.backgroundColor ? { backgroundColor: props.backgroundColor } : {}),
-    ...(props.debugBorder ? { borderWidth: 1, borderColor: 'red' } : {}),
-    ...(props.b !== undefined ? { position: 'absolute', bottom: props.b, width: '100%' } : {}),
-    ...(props.r !== undefined ? { position: 'absolute', bottom: props.r, width: '100%' } : {}),
+    ...(props.backgroundColor
+      ? { backgroundColor: props.backgroundColor }
+      : {}),
+    ...(props.debugBorder ? { borderWidth: 1, borderColor: "red" } : {}),
+    ...(props.b !== undefined
+      ? { position: "absolute", bottom: props.b, width: "100%" }
+      : {}),
+    ...(props.r !== undefined
+      ? { position: "absolute", bottom: props.r, width: "100%" }
+      : {}),
     ...(props.disabled ? { opacity: 0.5 } : {}),
     ...(props.shadow
       ? {
-          shadowColor: '#ffffff',
+          shadowColor: "#ffffff",
           shadowOpacity: 0.2,
           shadowRadius: props.shadow * 5,
           backgroundColor: props.backgroundColor
             ? props.background && Theme.colors[props.background].background
-            : '#ffffff',
+            : "#ffffff"
         }
       : {}),
 
     /** Margins */
-    marginBottom: typeof props.marginBottom === 'boolean' ? Theme.spacing.default : props.marginBottom,
-    marginTop: typeof props.marginTop === 'boolean' ? Theme.spacing.default : props.marginTop,
-    marginLeft: typeof props.marginLeft === 'boolean' ? Theme.spacing.default : props.marginLeft,
-    marginRight: typeof props.marginRight === 'boolean' ? Theme.spacing.default : props.marginRight,
+    marginBottom:
+      typeof props.marginBottom === "boolean"
+        ? Theme.spacing.default
+        : props.marginBottom,
+    marginTop:
+      typeof props.marginTop === "boolean"
+        ? Theme.spacing.default
+        : props.marginTop,
+    marginLeft:
+      typeof props.marginLeft === "boolean"
+        ? Theme.spacing.default
+        : props.marginLeft,
+    marginRight:
+      typeof props.marginRight === "boolean"
+        ? Theme.spacing.default
+        : props.marginRight,
 
     /** Paddings */
-    padding: typeof props.padding === 'boolean' ? Theme.spacing.default : props.padding,
-    paddingHorizontal: typeof props.paddingHorizontal === 'boolean' ? Theme.spacing.default : props.paddingHorizontal,
+    padding:
+      typeof props.padding === "boolean"
+        ? Theme.spacing.default
+        : props.padding,
+    paddingHorizontal:
+      typeof props.paddingHorizontal === "boolean"
+        ? Theme.spacing.default
+        : props.paddingHorizontal,
 
-    paddingBottom: typeof props.paddingBottom === 'boolean' ? Theme.spacing.default : props.paddingBottom,
-    paddingTop: typeof props.paddingTop === 'boolean' ? Theme.spacing.default : props.paddingTop,
-    paddingLeft: typeof props.paddingLeft === 'boolean' ? Theme.spacing.default : props.paddingLeft,
-    paddingRight: typeof props.paddingRight === 'boolean' ? Theme.spacing.default : props.paddingRight,
+    paddingBottom:
+      typeof props.paddingBottom === "boolean"
+        ? Theme.spacing.default
+        : props.paddingBottom,
+    paddingTop:
+      typeof props.paddingTop === "boolean"
+        ? Theme.spacing.default
+        : props.paddingTop,
+    paddingLeft:
+      typeof props.paddingLeft === "boolean"
+        ? Theme.spacing.default
+        : props.paddingLeft,
+    paddingRight:
+      typeof props.paddingRight === "boolean"
+        ? Theme.spacing.default
+        : props.paddingRight,
 
     /** Viewstyle props will overide all options */
-    ...(props.viewStyle ? { ...props.viewStyle } : {}),
-  }
+    ...(props.viewStyle ? { ...props.viewStyle } : {})
+  };
 
   return (
-    <View testID={props.testID} style={styles} pointerEvents={props.disabled ? 'none' : 'auto'}>
+    <View
+      testID={props.testID}
+      style={styles}
+      pointerEvents={props.disabled ? "none" : "auto"}
+    >
       {props.children}
     </View>
-  )
-}
+  );
+};
 
-export default Container
+export default Container;

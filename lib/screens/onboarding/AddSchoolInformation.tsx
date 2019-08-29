@@ -32,7 +32,6 @@ import {
 import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import config from "xdemic/lib/config";
-
 import TESTID from "xdemic/lib/e2e/testIDs";
 
 interface ImageObj {
@@ -44,6 +43,7 @@ interface CreateIdentityProps {
   componentId: string;
   navigator: Navigator;
   address: string;
+  data: object;
 
   //**Redux Actions */
   createIdentity: () => void;
@@ -94,7 +94,7 @@ const Avatar: React.FC<AvatarProps> = ({ image, text }) => {
   );
 };
 
-class AddSchool extends React.Component<
+class AddSchoolInformation extends React.Component<
   CreateIdentityProps,
   CreateIdentityState
 > {
@@ -142,6 +142,7 @@ class AddSchool extends React.Component<
    * UI Render main Screen
    */
   render() {
+    console.log("AddSchoolInformation props is: ", this.props.data);
     return (
       <Screen
         type={Screen.Types.Secondary}
@@ -149,8 +150,13 @@ class AddSchool extends React.Component<
         statusBarHidden
         // footerNavDivider
         footerNavComponent={
-          <Container alignItems={"center"} paddingBottom paddingLeft>
-            <Container w={300}>
+          <Container
+            flexDirection={"row"}
+            alignItems={"center"}
+            paddingBottom
+            paddingLeft
+          >
+            <Container w={160}>
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
@@ -171,7 +177,37 @@ class AddSchool extends React.Component<
                   // this.state.userCreatingidentity
                   //   ? "Add to School"
                   // :
-                  "Skip"
+                  "Contact"
+                }
+                type={Button.Types.Custom}
+                block={Button.Block.Filled}
+                onPress={() => {
+                  startMain();
+                }}
+              />
+            </Container>
+            <Container w={160} paddingLeft>
+              <Button
+                testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+                icon={
+                  this.state.userCreatingidentity && (
+                    <ActivityIndicator
+                      color={"white"}
+                      style={{ marginRight: 10 }}
+                    />
+                  )
+                }
+                fullWidth
+                // disabled={
+                //   !this.isValid() ||
+                //   this.state.userCreatingidentity ||
+                //   this.state.identityCreationSuccess
+                // }
+                buttonText={
+                  // this.state.userCreatingidentity
+                  //   ? "Add to School"
+                  // :
+                  "Add School"
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
@@ -202,63 +238,11 @@ class AddSchool extends React.Component<
           paddingLeft={16}
           paddingRight={16}
         >
-          <Container paddingTop={20}>
-            <Item style={Styles.input}>
-              <Icon
-                name={"search"}
-                font={"feather"}
-                color={Colors.LIGHT_GREY}
-                size={20}
-              />
-              <InputNative
-                style={{ fontSize: 14, color: Colors.LIGHT_GREY }}
-                placeholder="Search..."
-              />
-            </Item>
-          </Container>
           <Container>
-            <Text
-              type={Text.Types.H5}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={32}
-              paddingBottom={16}
-            >
-              Search Result
-            </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return (
-                <BaseCard
-                  {...this.props}
-                  data={{ ...data, expandable: false }}
-                  key={i}
-                />
-              );
-            })}
-          </Container>
-        </Container>
-        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
-          <Container>
-            <Text
-              type={Text.Types.H5}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={32}
-              paddingBottom={16}
-            >
-              Near You
-            </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return (
-                <BaseCard
-                  {...this.props}
-                  data={{ ...data, expandable: false }}
-                  key={i}
-                />
-              );
-            })}
+            <BaseCard
+              data={{ ...this.props.data, expandable: true }}
+              key={"keys"}
+            />
           </Container>
         </Container>
       </Container>
@@ -421,7 +405,7 @@ export const mapDispatchToProps = (dispatch: any) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddSchool);
+)(AddSchoolInformation);
 
 const Styles = StyleSheet.create({
   input: {

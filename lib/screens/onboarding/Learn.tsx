@@ -10,7 +10,8 @@ import {
   NavBar,
   OnboardingSwiperSlide,
   Button,
-  Container
+  Container,
+  Icon
 } from "@kancha";
 import { OnboardingContent } from "xdemic/lib/content/onboardingSlideContent";
 import Swiper from "react-native-swiper";
@@ -23,6 +24,7 @@ interface LearnProps {
 }
 
 const Learn: React.FC<LearnProps> = props => {
+  const scanIcon = Icon.getImageSource("ionicons", Icon.Names.scan, 30);
   return (
     <Screen
       type={Screen.Types.Custom}
@@ -46,6 +48,7 @@ const Learn: React.FC<LearnProps> = props => {
                       topBar: {
                         elevation: 0,
                         drawBehind: false,
+                        // rightButtons: [rightButtonsCredentialScreen],
                         title: {
                           text: "Add School",
                           alignment: "center",
@@ -55,6 +58,15 @@ const Learn: React.FC<LearnProps> = props => {
                           visible: false
                         }
                       }
+                      // fab: {
+                      //   id: "androidScan",
+                      //   visible: true,
+                      //   backgroundColor: Theme.colors.primary.brand,
+                      //   clickColor: "#FFF",
+                      //   rippleColor: "#ddd",
+                      //   icon: scanIcon,
+                      //   iconColor: "#FFF"
+                      // }
                     }
                   }
                 })

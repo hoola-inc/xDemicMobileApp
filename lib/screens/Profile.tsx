@@ -298,6 +298,7 @@ export class UserProfile extends React.Component<
       </Section>
     );
   }
+  
   showAlert(account: EthereumAccountListItem) {
     const title =
       account.network.toLowerCase() === "mainnet"

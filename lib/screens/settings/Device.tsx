@@ -17,56 +17,62 @@
  * 
  ***/
 
-import * as React from 'react'
-import { Screen, Section, ListItem, Theme, Strings } from '@kancha'
-import { connect } from 'react-redux'
+import * as React from "react";
+import { Screen, Section, ListItem, Theme, Strings } from "@kancha";
+import { connect } from "react-redux";
 
 // Selectors
-import { networkSettings } from 'xdemic/lib/selectors/chains'
-import { working } from 'xdemic/lib/selectors/processStatus'
+import { networkSettings } from "xdemic/lib/selectors/chains";
+import { working } from "xdemic/lib/selectors/processStatus";
 
 // Utilities
-import { wei2eth } from 'xdemic/lib/helpers/conversions'
-import { networksByName } from 'xdemic/lib/utilities/networks'
+import { wei2eth } from "xdemic/lib/helpers/conversions";
+import { networksByName } from "xdemic/lib/utilities/networks";
 
 interface DeviceProps {
-  deviceAddress: string
-  fuel: number
-  nonce: number
-  explorerUrl: string
-  workingFuel: boolean
-  signerType: string
-  txRelayAddress: string
-  controllerAddress: string
+  deviceAddress: string;
+  fuel: number;
+  nonce: number;
+  explorerUrl: string;
+  workingFuel: boolean;
+  signerType: string;
+  txRelayAddress: string;
+  controllerAddress: string;
 }
 
 class Device extends React.Component<DeviceProps> {
   static navigatorStyle = {
-    ...Theme.navigation,
-  }
+    ...Theme.navigation
+  };
 
   render() {
-    const nonce = `${this.props.nonce || 0}`
+    const nonce = `${this.props.nonce || 0}`;
 
     return (
       <Screen>
         <Section>
-          <ListItem accessoryRight={Strings.abbreviate(this.props.deviceAddress, 12)}>Device Address</ListItem>
-          <ListItem accessoryRight={`${wei2eth(this.props.fuel || 0)} ETH`}>Device Gas</ListItem>
+          <ListItem
+            accessoryRight={Strings.abbreviate(this.props.deviceAddress, 12)}
+          >
+            Device Address
+          </ListItem>
+          <ListItem accessoryRight={`${wei2eth(this.props.fuel || 0)} ETH`}>
+            Device Gas
+          </ListItem>
           <ListItem accessoryRight={nonce} last>
             Device Nonce
           </ListItem>
         </Section>
       </Screen>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state: any) => {
-  const settings = networkSettings(state) || {}
-  const networks: { [index: string]: any } = networksByName
-  const networkDetails = networks[settings.network]
-  const explorerUrl = networkDetails && networkDetails.explorerUrl
+  const settings = networkSettings(state) || {};
+  const networks: { [index: string]: any } = networksByName;
+  const networkDetails = networks[settings.network];
+  const explorerUrl = networkDetails && networkDetails.explorerUrl;
   return {
     deviceAddress: settings.deviceAddress,
     fuel: settings.fuel,
@@ -75,8 +81,8 @@ const mapStateToProps = (state: any) => {
     workingFuel: working(state),
     signerType: settings.signerType,
     txRelayAddress: settings.txRelayAddress,
-    controllerAddress: settings.controllerAddress,
-  }
-}
+    controllerAddress: settings.controllerAddress
+  };
+};
 
-export default connect(mapStateToProps)(Device)
+export default connect(mapStateToProps)(Device);
