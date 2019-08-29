@@ -257,6 +257,7 @@ export async function startMain() {
                           name: SCREENS.Dashboard,
                           options: {
                             topBar: {
+                              visible: false,
                               rightButtons: [rightButtonsCredentialScreen],
                               title: {
                                 text: "Add School",

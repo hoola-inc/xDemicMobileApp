@@ -1,211 +1,241 @@
-import disclosureRequestModel from '../disclosure/DisclosureRequestModel'
+import disclosureRequestModel from "../disclosure/DisclosureRequestModel";
 
-describe('Disclosure Request Model', () => {
-  it('Create Account: creates a data model for disclosure request', () => {
+describe("Disclosure Request Model", () => {
+  it("Create Account: creates a data model for disclosure request", () => {
     const props = {
-      actType: 'keypair',
+      actType: "keypair",
       account: null,
       accountAuthorized: false,
       client: {
-        avatar: '',
-        bannerImage: '',
-        name: 'Uport Test Labs',
-      },
-    }
+        avatar: "",
+        bannerImage: "",
+        name: "xDemic Test Labs"
+      }
+    };
 
     const model = {
-      title: 'Create Account',
-      description: 'You need to create an ethereum account to interact with Uport Test Labs',
+      title: "Create Account",
+      description:
+        "You need to create an ethereum account to interact with xDemic Test Labs",
       actionButton: {
-        text: 'Create',
+        text: "Create"
       },
       cancelButton: {
-        text: 'Cancel',
-      },
-    }
+        text: "Cancel"
+      }
+    };
 
-    const requestModel = disclosureRequestModel(props)
+    const requestModel = disclosureRequestModel(props);
 
-    expect(requestModel && requestModel.title).toEqual(model.title)
-    expect(requestModel && requestModel.description).toEqual(model.description)
-    expect(requestModel && requestModel.actionButton.text).toEqual(model.actionButton.text)
-    expect(requestModel && requestModel.cancelButton.text).toEqual(model.cancelButton.text)
-    expect(requestModel && requestModel.requestItems).toEqual([])
-    expect(requestModel).toMatchSnapshot()
-  })
+    expect(requestModel && requestModel.title).toEqual(model.title);
+    expect(requestModel && requestModel.description).toEqual(model.description);
+    expect(requestModel && requestModel.actionButton.text).toEqual(
+      model.actionButton.text
+    );
+    expect(requestModel && requestModel.cancelButton.text).toEqual(
+      model.cancelButton.text
+    );
+    expect(requestModel && requestModel.requestItems).toEqual([]);
+    expect(requestModel).toMatchSnapshot();
+  });
 
-  it('Share Account: creates a data model for disclosure request', () => {
+  it("Share Account: creates a data model for disclosure request", () => {
     const props = {
-      actType: 'none',
+      actType: "none",
       account: true,
       accountAuthorized: true,
       client: {
-        avatar: '',
-        bannerImage: '',
-        name: 'Uport Test Labs',
-      },
-    }
+        avatar: "",
+        bannerImage: "",
+        name: "xDemic Test Labs"
+      }
+    };
 
     const model = {
-      title: 'Share to login',
+      title: "Share to login",
       description: null,
       actionButton: {
-        text: 'Login',
+        text: "Login"
       },
       cancelButton: {
-        text: 'Cancel',
-      },
-    }
+        text: "Cancel"
+      }
+    };
 
-    const requestModel = disclosureRequestModel(props)
+    const requestModel = disclosureRequestModel(props);
 
-    expect(requestModel && requestModel.title).toEqual(model.title)
-    expect(requestModel && requestModel.description).toEqual(model.description)
-    expect(requestModel && requestModel.actionButton.text).toEqual(model.actionButton.text)
-    expect(requestModel && requestModel.cancelButton.text).toEqual(model.cancelButton.text)
-    expect(requestModel && requestModel.requestItems).toEqual([])
-    expect(requestModel).toMatchSnapshot()
-  })
+    expect(requestModel && requestModel.title).toEqual(model.title);
+    expect(requestModel && requestModel.description).toEqual(model.description);
+    expect(requestModel && requestModel.actionButton.text).toEqual(
+      model.actionButton.text
+    );
+    expect(requestModel && requestModel.cancelButton.text).toEqual(
+      model.cancelButton.text
+    );
+    expect(requestModel && requestModel.requestItems).toEqual([]);
+    expect(requestModel).toMatchSnapshot();
+  });
 
-  it('with user info', () => {
+  it("with user info", () => {
     const props = {
-      actType: 'none',
+      actType: "none",
       account: true,
       accountAuthorized: true,
       client: {
-        avatar: '',
-        bannerImage: '',
-        name: 'Uport Test Labs',
+        avatar: "",
+        bannerImage: "",
+        name: "xDemic Test Labs"
       },
       requested: {
-        name: 'Bob Smith',
-        email: 'bob@email.com',
-      },
-    }
+        name: "Bob Smith",
+        email: "bob@email.com"
+      }
+    };
 
     const model = {
-      title: 'Share to login',
+      title: "Share to login",
       description: null,
       actionButton: {
-        text: 'Login',
+        text: "Login"
       },
       cancelButton: {
-        text: 'Cancel',
+        text: "Cancel"
       },
       requestItems: [
         {
-          key: '0name',
-          type: 'Name',
-          value: 'Bob Smith',
+          key: "0name",
+          type: "Name",
+          value: "Bob Smith"
         },
         {
-          key: '1email',
-          type: 'Email',
-          value: 'bob@email.com',
-        },
-      ],
-    }
+          key: "1email",
+          type: "Email",
+          value: "bob@email.com"
+        }
+      ]
+    };
 
-    const requestModel = disclosureRequestModel(props)
+    const requestModel = disclosureRequestModel(props);
 
-    expect(requestModel && requestModel.title).toEqual(model.title)
-    expect(requestModel && requestModel.description).toEqual(model.description)
-    expect(requestModel && requestModel.actionButton.text).toEqual(model.actionButton.text)
-    expect(requestModel && requestModel.cancelButton.text).toEqual(model.cancelButton.text)
-    expect(requestModel && requestModel.requestItems).toEqual(model.requestItems)
-    expect(requestModel).toMatchSnapshot()
-  })
+    expect(requestModel && requestModel.title).toEqual(model.title);
+    expect(requestModel && requestModel.description).toEqual(model.description);
+    expect(requestModel && requestModel.actionButton.text).toEqual(
+      model.actionButton.text
+    );
+    expect(requestModel && requestModel.cancelButton.text).toEqual(
+      model.cancelButton.text
+    );
+    expect(requestModel && requestModel.requestItems).toEqual(
+      model.requestItems
+    );
+    expect(requestModel).toMatchSnapshot();
+  });
 
-  it('with verified credentials', () => {
+  it("with verified credentials", () => {
     const props = {
-      actType: 'none',
+      actType: "none",
       account: true,
       accountAuthorized: true,
       client: {
-        avatar: '',
-        bannerImage: '',
-        name: 'Uport Test Labs',
+        avatar: "",
+        bannerImage: "",
+        name: "xDemic Test Labs"
       },
-      verified: [{ iss: '0x1a', issuer: {}, claimType: 'name' }, { iss: '0x1b', issuer: {}, claimType: 'email' }],
-    }
+      verified: [
+        { iss: "0x1a", issuer: {}, claimType: "name" },
+        { iss: "0x1b", issuer: {}, claimType: "email" }
+      ]
+    };
 
     const model = {
-      title: 'Share to login',
+      title: "Share to login",
       description: null,
       actionButton: {
-        text: 'Login',
+        text: "Login"
       },
       cancelButton: {
-        text: 'Cancel',
+        text: "Cancel"
       },
       verifiedCredentials: [
-        { iss: '0x1a', issuer: {}, claimType: 'name' },
-        { iss: '0x1b', issuer: {}, claimType: 'email' },
-      ],
-    }
+        { iss: "0x1a", issuer: {}, claimType: "name" },
+        { iss: "0x1b", issuer: {}, claimType: "email" }
+      ]
+    };
 
-    const requestModel = disclosureRequestModel(props)
+    const requestModel = disclosureRequestModel(props);
 
-    expect(requestModel && requestModel.title).toEqual(model.title)
-    expect(requestModel && requestModel.description).toEqual(model.description)
-    expect(requestModel && requestModel.actionButton.text).toEqual(model.actionButton.text)
-    expect(requestModel && requestModel.cancelButton.text).toEqual(model.cancelButton.text)
-    expect(requestModel && requestModel.verifiedCredentials).toEqual(model.verifiedCredentials)
-    expect(requestModel).toMatchSnapshot()
-  })
+    expect(requestModel && requestModel.title).toEqual(model.title);
+    expect(requestModel && requestModel.description).toEqual(model.description);
+    expect(requestModel && requestModel.actionButton.text).toEqual(
+      model.actionButton.text
+    );
+    expect(requestModel && requestModel.cancelButton.text).toEqual(
+      model.cancelButton.text
+    );
+    expect(requestModel && requestModel.verifiedCredentials).toEqual(
+      model.verifiedCredentials
+    );
+    expect(requestModel).toMatchSnapshot();
+  });
 
-  it('with missing credentials', () => {
+  it("with missing credentials", () => {
     const props = {
-      actType: 'none',
+      actType: "none",
       account: true,
       accountAuthorized: true,
       client: {
-        avatar: '',
-        bannerImage: '',
-        name: 'Uport Test Labs',
+        avatar: "",
+        bannerImage: "",
+        name: "xDemic Test Labs"
       },
       missing: [
         {
-          claimType: 'name',
+          claimType: "name",
           essential: true,
-          reason: 'We need this',
+          reason: "We need this"
         },
         {
-          claimType: 'email',
-          reason: 'We dont need this',
-        },
-      ],
-    }
+          claimType: "email",
+          reason: "We dont need this"
+        }
+      ]
+    };
 
     const model = {
-      title: 'Share to login',
+      title: "Share to login",
       description: null,
       actionButton: {
-        text: 'Login',
+        text: "Login"
       },
       cancelButton: {
-        text: 'Cancel',
+        text: "Cancel"
       },
       missingCredentials: [
         {
-          claimType: 'name',
+          claimType: "name",
           essential: true,
-          reason: 'We need this',
+          reason: "We need this"
         },
         {
-          claimType: 'email',
-          reason: 'We dont need this',
-        },
-      ],
-    }
+          claimType: "email",
+          reason: "We dont need this"
+        }
+      ]
+    };
 
-    const requestModel = disclosureRequestModel(props)
+    const requestModel = disclosureRequestModel(props);
 
-    expect(requestModel && requestModel.title).toEqual(model.title)
-    expect(requestModel && requestModel.description).toEqual(model.description)
-    expect(requestModel && requestModel.actionButton.text).toEqual(model.actionButton.text)
-    expect(requestModel && requestModel.cancelButton.text).toEqual(model.cancelButton.text)
-    expect(requestModel && requestModel.missingCredentials).toEqual(model.missingCredentials)
-    expect(requestModel).toMatchSnapshot()
-  })
-})
+    expect(requestModel && requestModel.title).toEqual(model.title);
+    expect(requestModel && requestModel.description).toEqual(model.description);
+    expect(requestModel && requestModel.actionButton.text).toEqual(
+      model.actionButton.text
+    );
+    expect(requestModel && requestModel.cancelButton.text).toEqual(
+      model.cancelButton.text
+    );
+    expect(requestModel && requestModel.missingCredentials).toEqual(
+      model.missingCredentials
+    );
+    expect(requestModel).toMatchSnapshot();
+  });
+});

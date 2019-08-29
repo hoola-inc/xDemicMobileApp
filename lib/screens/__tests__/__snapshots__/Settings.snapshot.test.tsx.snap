@@ -508,7 +508,7 @@ exports[`SettingsRoot renders with props 1`] = `
                               }
                             }
                           >
-                            uPort ID
+                            xDemic ID
                           </Text>
                         </View>
                       </View>
@@ -723,7 +723,7 @@ exports[`SettingsRoot renders with props 1`] = `
                               }
                             }
                           >
-                            Try uPort
+                            Try xDemic
                           </Text>
                         </View>
                       </View>

@@ -141,7 +141,7 @@ class Welcome extends React.Component<WelcomeProps> {
             <Text
               type={Text.Types.H3}
               textColor={"white"}
-              bold
+              // bold
               textAlign={"center"}
             >
               Get started by creating a new identity.

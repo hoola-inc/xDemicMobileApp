@@ -230,7 +230,7 @@ android {
                 def abi = output.getFilter(OutputFile.ABI)
                 if (abi != null) {  // null for the universal-debug, universal-release variants
                     output.versionCodeOverride =
-                            //there need to be 10 million uport releases until numbers start to overlap
+                            //there need to be 10 million xdemic releases until numbers start to overlap
                             versionCodes.get(abi) * 10000000 + defaultConfig.versionCode
                 }
             }

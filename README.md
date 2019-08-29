@@ -1,15 +1,15 @@
-# uPort Mobile
+# xDemic Mobile
 
-uPort mobile is a secure mobile self-sovereign identity wallet that gives you complete control over your identity and personal data.
+xDemic mobile is a secure mobile self-sovereign identity wallet that gives you complete control over your identity and personal data.
 
-Using uPort you can:
+Using xDemic you can:
 
-* Create an identity on the Ethereum blockchain network
-* Securely log-in to applications without passwords
-* Manage your personal information and verifications
-* Sign Ethereum transactions
+- Create an identity on the Ethereum blockchain network
+- Securely log-in to applications without passwords
+- Manage your personal information and verifications
+- Sign Ethereum transactions
 
-This mobile wallet is your connection to the uPort platform, an interoperable identity network for a secure, private, decentralized web. uPort provides open protocols for decentralized identity and interoperable messaging that enable trusted source attribution for all web communication. By allowing message recipients to trust message senders without centralized servers, we can create an entirely new framework for building applications, and many developers are already building on this system.
+This mobile wallet is your connection to the xDemic platform, an interoperable identity network for a secure, private, decentralized web. xDemic provides open protocols for decentralized identity and interoperable messaging that enable trusted source attribution for all web communication. By allowing message recipients to trust message senders without centralized servers, we can create an entirely new framework for building applications, and many developers are already building on this system.
 
 ## Getting started
 
@@ -27,8 +27,8 @@ $ yarn
 ```
 
 ### Linking native libraries
-Linking must be done manually. Do not run `react-native link` as this will mess up the exising links.
 
+Linking must be done manually. Do not run `react-native link` as this will mess up the exising links.
 
 ### IOS setup
 
@@ -55,41 +55,41 @@ It's also a good idea to run `yarn` every time you switch branches to sync the `
 - Select the custom install option and select options for performance and AVD creation
 - Ensure to install both the minimum SDK 21 and the latest that the current version of React Native supports from the new project settings
 - Since the app uses push messaging to receive signing requests from dApps it needs to be integrated into a Firebase project.
-    A `google-services.json` file must be placed in the `android/app/` folder.
-    You can get it by creating a project in the [firebase console](https://console.firebase.google.com)
+  A `google-services.json` file must be placed in the `android/app/` folder.
+  You can get it by creating a project in the [firebase console](https://console.firebase.google.com)
 
 #### Run from Android Studio
 
 - Load the `android` subfolder as a project in Android Studio
 
-    **Do not upgrade any dependencies (gradle) if prompted by Android Studio**
-    
+  **Do not upgrade any dependencies (gradle) if prompted by Android Studio**
+
 - React native uses a packaging server to enable hot-reloading during debugging.
-    
-    You'll need to run `yarn start` in a terminal window in the project root folder to start the packager.
-    This needs to be done only once for a debugging session and you can use the same server between app restarts.
-    
+  You'll need to run `yarn start` in a terminal window in the project root folder to start the packager.
+  This needs to be done only once for a debugging session and you can use the same server between app restarts.
 - With a packaging server running, you can now run the `app` runConfiguration by pressing the green play button in the tool window.
 
-- It will take a while to start the app for the first time because the packager needs to do it's job, during which you only see a splash-screen.   
+- It will take a while to start the app for the first time because the packager needs to do it's job, during which you only see a splash-screen.
 
 #### Run from command line
+
 After cloning repository, running `yarn` and also getting a `google-services.json` file,
-Run this in the project root folder 
+Run this in the project root folder
+
 ```bash=
 $ react-native run-android
 ```
+
 The above command also takes care of starting the packaging server.
 It will take a while to start the app for the first time because the packager needs to do it's job, during which you only see a splash-screen.
 
-
 ## StandardJS
 
-We're using StandardJS to maintain a consistent JavaScript style. Before submitting pull requests, please make sure that new code passes the StandardJS linter by running `npm run lint`. Some style errors can be fixed automatically by running `npm run lint-fix`. 
+We're using StandardJS to maintain a consistent JavaScript style. Before submitting pull requests, please make sure that new code passes the StandardJS linter by running `npm run lint`. Some style errors can be fixed automatically by running `npm run lint-fix`.
 
 Alternatively, you can install StandardJS globally with `yarn global add standard`, and then for pretty output use Snazzy: `yarn global add snazzy` then `standard --verbose | snazzy`.
 
-There are also a number of [text editor plugins](https://github.com/feross/standard#text-editor-plugins) available to highlight errors during development.   
+There are also a number of [text editor plugins](https://github.com/feross/standard#text-editor-plugins) available to highlight errors during development.
 
 ## Unit Testing
 
