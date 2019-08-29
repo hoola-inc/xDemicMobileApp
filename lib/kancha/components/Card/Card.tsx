@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container, ContainerProps } from "@kancha";
+import { Container, ContainerProps, Colors, Theme } from "@kancha";
 import { TouchableOpacity } from "react-native";
 
 const BorderSize = 8;
@@ -34,7 +34,7 @@ const Card: React.FC<Card> = props => {
           shadowOpacity: 0.2,
           elevation: 3,
 
-          borderColor: "#868FEC",
+          borderColor: Theme.colors.primary.brand,
 
           // borderBottomColor: "white",
           // borderRightColor: "white",
