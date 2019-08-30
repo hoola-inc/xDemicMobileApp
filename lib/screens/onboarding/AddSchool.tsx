@@ -222,8 +222,8 @@ class AddSchool extends React.Component<
               textAlign={"left"}
               textColor={Colors.BLACK}
               bold
-              paddingTop={32}
-              paddingBottom={16}
+              paddingTop={29}
+              paddingBottom={13}
             >
               Search Result
             </Text>
@@ -245,8 +245,8 @@ class AddSchool extends React.Component<
               textAlign={"left"}
               textColor={Colors.BLACK}
               bold
-              paddingTop={32}
-              paddingBottom={16}
+              paddingTop={29}
+              paddingBottom={13}
             >
               Near You
             </Text>
