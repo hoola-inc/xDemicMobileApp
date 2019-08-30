@@ -20,6 +20,7 @@
 import * as React from "react";
 import { Text, TextStyle } from "react-native";
 import { TextThemeMap, Theme } from "@kancha";
+import { fontBold, fontExtraBold } from "xdemic/lib/styles/globalStyles";
 
 /**
  *  Implemenation details: Will move static types to theor own file or namespace later
@@ -132,7 +133,7 @@ const KanchaText: React.FC<KanchaTextProps> & {
   const styles: TextStyle = {
     ...(props.type ? { ...TextThemeMap[props.type] } : {}),
     ...(props.textColor ? { color: props.textColor } : {}),
-    ...(props.bold ? { fontWeight: "bold" } : {}),
+    ...(props.bold ? { fontFamily: fontBold } : {}),
     ...(props.warn ? { color: Theme.colors.warning.text } : {}),
     ...(props.textAlign ? { textAlign: props.textAlign } : {}),
     ...(props.buttonTextColor
