@@ -14,7 +14,8 @@ import {
   Colors,
   Icon,
   SignPost,
-  SignPostCardType
+  SignPostCardType,
+  Section
 } from "@kancha";
 import SCREENS from "./Screens";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
@@ -135,6 +136,28 @@ export const Dashboard: React.FC<DashboardProps> = props => {
             })}
           </Container>
         </Container>
+        <Section title={"NEW CREDENTIALS"}>
+          <Container marginBottom>
+            <Credential
+              claimType={"Standard Credential"}
+              issuer={{
+                name: "xDemic Apps Team",
+                avatar: {
+                  uri:
+                    "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
+                }
+              }}
+            />
+          </Container>
+          <Container marginBottom>
+            <Credential
+              claimType={"Missing Credential"}
+              issuer={{ name: "xDemic Apps Team" }}
+              missing
+              spec={{}}
+            />
+          </Container>
+        </Section>
       </Container>
     </Screen>
   );
@@ -153,8 +176,9 @@ const Styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 8,
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    paddingLeft: 20,
     height: 40
   }
 });
