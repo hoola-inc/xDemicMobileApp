@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { View, StyleSheet } from "react-native";
-import { Header, Item, Input, Button } from "native-base";
+import { Header, Item, Input as InputNative, Button } from "native-base";
 import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
 
 import {
@@ -69,14 +69,11 @@ export const Dashboard: React.FC<DashboardProps> = props => {
   });
   return (
     <Screen>
-      <Container padding>
+      {/* <Container padding>
         <Item style={Styles.input}>
           <Icon name={"search"} font={"feather"} color={"black"} size={40} />
           <Input style={{ fontSize: 14 }} placeholder="Search..." />
         </Item>
-        {/* <Button transparent>
-          <Text>Search</Text>
-        </Button> */}
         <View style={{ marginTop: 32 }}>
           <Text
             textStyle={{ fontWeight: "bold" }}
@@ -97,6 +94,73 @@ export const Dashboard: React.FC<DashboardProps> = props => {
         {config.dummyData.NearYouData.map((data: any, i: any) => {
           return <BaseCard data={data} key={i} />;
         })}
+      </Container> */}
+      <Container>
+        <Container
+          flex={1}
+          justifyContent={"center"}
+          paddingLeft={16}
+          paddingRight={16}
+        >
+          <Container>
+            <Item style={Styles.input}>
+              <Icon
+                name={"search"}
+                font={"feather"}
+                color={Colors.LIGHT_GREY}
+                size={20}
+              />
+              <InputNative
+                style={{ fontSize: 14, color: Colors.LIGHT_GREY }}
+                placeholder="Search..."
+              />
+            </Item>
+          </Container>
+          <Container>
+            <Text
+              type={Text.Types.H5}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={32}
+              paddingBottom={13}
+            >
+              Search Result
+            </Text>
+            {config.dummyData.BaseCardData.map((data: any, i: any) => {
+              return (
+                <BaseCard
+                  {...props}
+                  data={{ ...data, expandable: false }}
+                  key={i}
+                />
+              );
+            })}
+          </Container>
+        </Container>
+        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
+          <Container>
+            <Text
+              type={Text.Types.H5}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={29}
+              paddingBottom={13}
+            >
+              Near You
+            </Text>
+            {config.dummyData.BaseCardData.map((data: any, i: any) => {
+              return (
+                <BaseCard
+                  {...props}
+                  data={{ ...data, expandable: false }}
+                  key={i}
+                />
+              );
+            })}
+          </Container>
+        </Container>
       </Container>
     </Screen>
   );
