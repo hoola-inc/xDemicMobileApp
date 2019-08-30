@@ -69,32 +69,6 @@ export const Dashboard: React.FC<DashboardProps> = props => {
   });
   return (
     <Screen>
-      {/* <Container padding>
-        <Item style={Styles.input}>
-          <Icon name={"search"} font={"feather"} color={"black"} size={40} />
-          <Input style={{ fontSize: 14 }} placeholder="Search..." />
-        </Item>
-        <View style={{ marginTop: 32 }}>
-          <Text
-            textStyle={{ fontWeight: "bold" }}
-            textColor={"#000000"}
-            type={Text.Types.ListItem}
-          >
-            Search Result
-          </Text>
-        </View>
-        {config.dummyData.BaseCardData.map((data: any, i: any) => {
-          return <BaseCard data={data} key={i} />;
-        })}
-        <View style={{ marginTop: 32 }}>
-          <Text textStyle={{ fontWeight: "bold" }} textColor={"#000000"}>
-            Near you
-          </Text>
-        </View>
-        {config.dummyData.NearYouData.map((data: any, i: any) => {
-          return <BaseCard data={data} key={i} />;
-        })}
-      </Container> */}
       <Container>
         <Container
           flex={1}
