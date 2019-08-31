@@ -1,24 +1,17 @@
 import * as React from "react";
-import { ActivityIndicator, Image, Modal, StyleSheet } from "react-native";
+import { ActivityIndicator, Image, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
 import {
   Screen,
   Container,
-  Input,
   Text,
   Button,
   Theme,
   Icon,
   Images,
-  Checkbox,
-  Colors,
-  Section,
-  Card,
-  ListItem
+  Colors
 } from "@kancha";
-import { Navigation } from "react-native-navigation";
-import SCREENS from "../Screens";
 import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
 import { currentAddress } from "../../selectors/identities";
 import { activationEvent } from "xdemic/lib/actions/userActivationActions";
