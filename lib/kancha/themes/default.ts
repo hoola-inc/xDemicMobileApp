@@ -6,13 +6,24 @@ interface IndexSignature {
 interface TextDefaultThemeMapTypes extends IndexSignature {}
 
 export const COLORS = {
-  BLACK: "#000000",
+  // xDemic figma colors
+  BRAND: "#75A4FF",
+  BRAND_LIGHT: "#DCE8FF",
+  BLACK: "#4F4F4F",
+  DARK_GREY: "rgba(79, 79, 79, 0.5)",
+  GREY: "#F8F8F8",
   WHITE: "#FFFFFF",
+  NOTIFICATION: "#FD5E00",
+
+  // Previous colors
+
+  // BLACK: "#000000",
+  // WHITE: "#FFFFFF",
   CHARCOAL: "#333333",
   LIGHTEST_GREY: "#EFEEF3",
   LIGHT_GREY: "#BBBBBB",
   MEDIUM_GREY: "#CCCCCC",
-  DARK_GREY: "#333333",
+  // DARK_GREY: "#333333",
   CORN_FLOWER_BLUE: "#75A4FF",
   CRIMSON_RED: "#D63A59",
   WASHED_GREEN: "#3DCF8A",
@@ -82,29 +93,29 @@ const DefaultTheme: Kancha.ThemeStatic = {
      * Not sure of this is harder to read than just showing the keys?
      */
     primary: ThemeColor(
-      COLORS.CORN_FLOWER_BLUE,
+      COLORS.BRAND,
       COLORS.CHARCOAL,
       COLORS.WHITE,
       COLORS.MEDIUM_GREY,
       COLORS.LIGHT_GREY,
       COLORS.MEDIUM_GREY,
-      COLORS.CORN_FLOWER_BLUE,
+      COLORS.BRAND,
       COLORS.WHITE,
-      COLORS.CORN_FLOWER_BLUE,
-      COLORS.CORN_FLOWER_BLUE
+      COLORS.BRAND,
+      COLORS.BRAND
     ),
     // primary: {
-    //   brand: COLORS.CORN_FLOWER_BLUE,
+    //   brand: COLORS.BRAND,
     //   text: COLORS.CHARCOAL,
     //   background: COLORS.WHITE,
     //   divider: COLORS.MEDIUM_GREY,
     //   accessories: COLORS.LIGHT_GREY,
     //   underlay: COLORS.MEDIUM_GREY,
-    //   button: COLORS.CORN_FLOWER_BLUE,
+    //   button: COLORS.BRAND,
     //   buttonText: {
     //     filled: COLORS.WHITE,
-    //     outlined: COLORS.CORN_FLOWER_BLUE,
-    //     clear: COLORS.CORN_FLOWER_BLUE,
+    //     outlined: COLORS.BRAND,
+    //     clear: COLORS.BRAND,
     //   },
     // },
     secondary: {
@@ -186,7 +197,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       underlay: COLORS.TRANSPARENT,
       button: COLORS.WHITE,
       buttonText: {
-        filled: COLORS.CORN_FLOWER_BLUE,
+        filled: COLORS.BRAND,
         outlined: COLORS.WHITE,
         clear: COLORS.WHITE
       }
@@ -200,7 +211,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       underlay: COLORS.TRANSPARENT,
       button: COLORS.WHITE,
       buttonText: {
-        filled: COLORS.CORN_FLOWER_BLUE,
+        filled: COLORS.BRAND,
         outlined: COLORS.WHITE,
         clear: COLORS.WHITE
       }
