@@ -27,12 +27,15 @@ import { fontBold, fontExtraBold } from "xdemic/lib/styles/globalStyles";
  */
 
 const TextTypes: Kancha.TextTypesStatic = {
+  HERO: "hero",
   H1: "h1",
   H2: "h2",
   H3: "h3",
   H4: "h4",
   H5: "h5",
   H6: "h6",
+  CAPTION1: "caption1",
+  CAPTION2: "caption2",
   ListItem: "listItem",
   ListItemRight: "listItemRight",
   ListItemNote: "listItemNote",

@@ -252,7 +252,7 @@ Theme.navigation = NavigationThemeDefault;
  * Temporary implementaion.
  * Refactor later to make more succint.
  */
-const TextTypes = {
+const TextTypes: Kancha.TextTypesStatic = {
   HERO: "hero",
   H1: "h1",
   H2: "h2",
