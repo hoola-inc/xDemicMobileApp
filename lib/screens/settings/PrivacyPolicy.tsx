@@ -1,4 +1,4 @@
-// Copyright (C) 2018 ConsenSys AG
+// Copyright (C) 2019 Hoola Inc
 //
 // This file is part of xDemic Mobile App.
 //
@@ -21,7 +21,7 @@ import * as React from "react";
 import { Container, Theme, Text, Screen } from "@kancha";
 
 const text1 = `
-This privacy policy (“Policy”) describes how ConsenSys AG’s xDemic(“xDemic” “Company”, “we”, “our”, “us”) collects, uses, shares, and stores personal information of users of this website, https://www.uport.me/ (the “Site”) and the Services (as defined below).. This Policy applies to the Site, applications, products and services (collectively, “Services”) on or in which it is posted, linked, or referenced. 
+This privacy policy (“Policy”) describes how Hoola Inc’s xDemic(“xDemic” “Company”, “we”, “our”, “us”) collects, uses, shares, and stores personal information of users of this website, https://www.uport.me/ (the “Site”) and the Services (as defined below).. This Policy applies to the Site, applications, products and services (collectively, “Services”) on or in which it is posted, linked, or referenced. 
 
 By using the Services, you accept the terms of this Policy and our Terms of Use, and consent to our collection, use, disclosure, and retention of your information as described in this Policy.  If you have not done so already, please also review our terms of use. The terms of use contain provisions that limit our liability to you and require you to resolve any dispute with us on an individual basis and not as part of any class or representative action. IF YOU DO NOT AGREE WITH ANY PART OF THIS PRIVACY POLICY OR OUR TERMS OF USE, THEN PLEASE DO NOT USE ANY OF THE SERVICES.
 

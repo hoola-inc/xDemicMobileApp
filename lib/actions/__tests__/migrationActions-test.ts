@@ -13,27 +13,36 @@
 // You should have received a copy of the GNU General Public License
 // along with The xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
 
-// (C) Copyright 2016-2018 ConsenSys AG
+// (C) Copyright (C) 2019 Hoola Inc
 
-import { addMigrationTarget, runMigrations, startedMigrationStep, completedMigrationStep, failedMigrationStep } from '../migrationActions'
-import { MigrationStep, MigrationTarget } from 'xdemic/lib/constants/MigrationActionTypes'
+import {
+  addMigrationTarget,
+  runMigrations,
+  startedMigrationStep,
+  completedMigrationStep,
+  failedMigrationStep
+} from "../migrationActions";
+import {
+  MigrationStep,
+  MigrationTarget
+} from "xdemic/lib/constants/MigrationActionTypes";
 
-it('creates a ADD_MIGRATION_TARGET action', () => {
-  expect(addMigrationTarget(MigrationTarget.Legacy)).toMatchSnapshot()
-})
+it("creates a ADD_MIGRATION_TARGET action", () => {
+  expect(addMigrationTarget(MigrationTarget.Legacy)).toMatchSnapshot();
+});
 
-it('creates a RUN_MIGRATIONS action', () => {
-  expect(runMigrations(MigrationTarget.Legacy)).toMatchSnapshot()
-})
+it("creates a RUN_MIGRATIONS action", () => {
+  expect(runMigrations(MigrationTarget.Legacy)).toMatchSnapshot();
+});
 
-it('creates a STARTED_MIGRATION_STEP action', () => {
-  expect(startedMigrationStep(MigrationStep.MigrateLegacy)).toMatchSnapshot()
-})
+it("creates a STARTED_MIGRATION_STEP action", () => {
+  expect(startedMigrationStep(MigrationStep.MigrateLegacy)).toMatchSnapshot();
+});
 
-it('creates a COMPLETED_MIGRATION_STEP action', () => {
-  expect(completedMigrationStep(MigrationStep.MigrateLegacy)).toMatchSnapshot()
-})
+it("creates a COMPLETED_MIGRATION_STEP action", () => {
+  expect(completedMigrationStep(MigrationStep.MigrateLegacy)).toMatchSnapshot();
+});
 
-it('creates a FAILED_MIGRATION_STEP action', () => {
-  expect(failedMigrationStep(MigrationStep.MigrateLegacy)).toMatchSnapshot()
-})
+it("creates a FAILED_MIGRATION_STEP action", () => {
+  expect(failedMigrationStep(MigrationStep.MigrateLegacy)).toMatchSnapshot();
+});

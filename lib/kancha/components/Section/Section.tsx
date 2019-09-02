@@ -1,5 +1,5 @@
 /***
- *  Copyright (C) 2018 ConsenSys AG
+ *  Copyright (C) 2019 Hoola Inc
  *
  *  This file is part of xDemic Mobile App
  *  xDemic Mobile App is free software: you can redistribute it and/or modify
