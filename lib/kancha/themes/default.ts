@@ -71,12 +71,15 @@ const DefaultTheme: Kancha.ThemeStatic = {
       body: 22
     },
     sizes: {
+      hero: 28,
       h1: 32,
       h2: 24,
       h3: 20,
       h4: 18,
       h5: 16,
       h6: 14,
+      caption1: 14,
+      caption2: 14,
       subTitle: 14,
       listItem: 18,
       listItemRight: 18,

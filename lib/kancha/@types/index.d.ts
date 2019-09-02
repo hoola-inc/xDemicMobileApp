@@ -71,12 +71,15 @@ declare namespace Kancha {
         body: number;
       };
       sizes: {
+        hero: number;
         h1: number;
         h2: number;
         h3: number;
         h4: number;
         h5: number;
         h6: number;
+        caption1: number;
+        caption2: number;
         subTitle: number;
         listItem: number;
         listItemRight: number;
