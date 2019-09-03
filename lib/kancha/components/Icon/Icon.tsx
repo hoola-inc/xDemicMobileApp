@@ -25,12 +25,14 @@ import Feather from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const IconSets: { [index: string]: any } = {
   ionicons: Ionicons,
   feather: Feather,
   fontawesome: FontAwesome,
-  evil: EvilIcons
+  evil: EvilIcons,
+  materialicons: MaterialIcons
 };
 
 interface IconProps {

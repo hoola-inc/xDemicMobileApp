@@ -200,7 +200,7 @@ class AddSchool extends React.Component<
             <Item style={Styles.input}>
               <Icon
                 name={"search"}
-                font={"feather"}
+                font={"materialicons"}
                 color={Colors.LIGHT_GREY}
                 size={20}
               />
@@ -208,7 +208,8 @@ class AddSchool extends React.Component<
                 style={{
                   ...textStyles.h3,
                   fontFamily: font,
-                  paddingLeft: 10,
+                  paddingTop: 15,
+                  paddingLeft: 15,
                   textAlign: "left"
                 }}
                 placeholder="Search..."
@@ -427,8 +428,14 @@ const Styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 8,
     shadowOffset: { width: 0, height: 1 },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 2,
+
+    shadowColor: "#4f4f4f",
+    shadowRadius: 4,
     shadowOpacity: 0.2,
-    shadowRadius: 2,
+    elevation: 3,
+
     paddingLeft: 20,
     height: 40
   }
