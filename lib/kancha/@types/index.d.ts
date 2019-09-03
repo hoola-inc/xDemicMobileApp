@@ -124,5 +124,11 @@ declare namespace Kancha {
       textInputs: number;
     };
     navigation: any;
+    avatarSize: {
+      default: number;
+      defaultx: number;
+      defaultxx: number;
+      defaultxxx: number;
+    };
   }
 }

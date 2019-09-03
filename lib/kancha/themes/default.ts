@@ -233,7 +233,13 @@ const DefaultTheme: Kancha.ThemeStatic = {
     cards: 5,
     textInputs: 8
   },
-  navigation: {}
+  navigation: {},
+  avatarSize: {
+    default: 40,
+    defaultx: 60,
+    defaultxx: 80,
+    defaultxxx: 100
+  }
 };
 
 /**
