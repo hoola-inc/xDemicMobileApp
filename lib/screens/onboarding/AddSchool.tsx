@@ -206,11 +206,13 @@ class AddSchool extends React.Component<
               />
               <InputNative
                 style={{
-                  ...textStyles.h3,
+                  // ...textStyles.h3,
                   fontFamily: font,
                   paddingTop: 15,
                   paddingLeft: 15,
-                  textAlign: "left"
+                  textAlign: "left",
+                  fontSize: Theme.text.sizes.h6,
+                  color: Colors.DARK_GREY
                 }}
                 placeholder="Search..."
               />
@@ -435,6 +437,9 @@ const Styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOpacity: 0.2,
     elevation: 3,
+
+    // fontSize: Theme.text.sizes.h6,
+    color: Colors.DARK_GREY,
 
     paddingLeft: 20,
     height: 40
