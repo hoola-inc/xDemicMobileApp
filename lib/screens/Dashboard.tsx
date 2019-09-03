@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { View, StyleSheet } from "react-native";
-import { Header, Item, Input as InputNative, Button } from "native-base";
 import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
 
 import {
   Screen,
   Container,
   Text,
-  Card,
   Credential,
   Theme,
   Colors,
-  Icon,
   SignPost,
   SignPostCardType,
-  Section
+  Section,
+  Images
 } from "@kancha";
 import SCREENS from "./Screens";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
+import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
 import { parseClaimItem } from "xdemic/lib/utilities/parseClaims";
 import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
 import dataJson from "xdemic/lib/stubbs/signposts";
@@ -68,75 +67,103 @@ export const Dashboard: React.FC<DashboardProps> = props => {
       </Container>
     );
   });
+  const showSearchResult = (props: any) => {
+    return (
+      <Container
+        flex={1}
+        justifyContent={"center"}
+        // paddingLeft={16}
+        // paddingRight={16}
+      >
+        <Container>
+          <Text
+            type={Text.Types.H5}
+            textAlign={"left"}
+            textColor={Colors.BLACK}
+            bold
+            // paddingTop={32}
+            // paddingBottom={13}
+          >
+            Search Result working
+          </Text>
+          {config.dummyData.BaseCardData.map((data: any, i: any) => {
+            return (
+              <BaseCard
+                {...props}
+                data={{ ...data, expandable: false }}
+                key={i}
+              />
+            );
+          })}
+        </Container>
+      </Container>
+    );
+  };
+
+  const showNearToYou = (props: any) => {
+    return (
+      <Container>
+        <Text
+          type={Text.Types.H5}
+          textAlign={"left"}
+          textColor={Colors.BLACK}
+          bold
+          paddingTop={29}
+          paddingBottom={13}
+        >
+          Near You
+        </Text>
+        {config.dummyData.BaseCardData.map((data: any, i: any) => {
+          return (
+            <BaseCard
+              {...props}
+              data={{ ...data, expandable: false }}
+              key={i}
+            />
+          );
+        })}
+      </Container>
+    );
+  };
   return (
     <Screen>
-      <Container>
-        <Container
-          flex={1}
-          justifyContent={"center"}
-          paddingLeft={16}
-          paddingRight={16}
-        >
-          <Container>
-            <Item style={Styles.input}>
-              <Icon
-                name={"search"}
-                font={"feather"}
-                color={Colors.LIGHT_GREY}
-                size={20}
-              />
-              <InputNative
-                style={{ fontSize: 14, color: Colors.LIGHT_GREY }}
-                placeholder="Search..."
-              />
-            </Item>
+      <Container
+        padding={Theme.spacing.default16}
+        // paddingRight={Theme.spacing.default16}
+        // paddingBottom={Theme.spacing.default16}
+      >
+        {showSearchResult}
+        {showNearToYou}
+        <AvatarNameWithSubHeader
+          avatar={Images.branding.avatar}
+          avatarSize={Theme.avatarSize.default}
+          name={"Bilal Javed Awan"}
+          subTitle={"N/A"}
+          detailed={false}
+        />
+        <Section title={"My Schools"}>
+          <Container marginBottom>
+            <Credential
+              claimType={"Standard Credential"}
+              issuer={{
+                name: "xDemic Apps Team",
+                avatar: {
+                  uri:
+                    "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
+                }
+              }}
+            />
           </Container>
-          <Container>
-            <Text
-              type={Text.Types.H5}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={32}
-              paddingBottom={13}
-            >
-              Search Result
-            </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return (
-                <BaseCard
-                  {...props}
-                  data={{ ...data, expandable: false }}
-                  key={i}
-                />
-              );
-            })}
+          <Container marginBottom>
+            <Credential
+              claimType={"Missing Credential"}
+              issuer={{ name: "xDemic Apps Team" }}
+              missing
+              spec={{}}
+            />
           </Container>
-        </Container>
-        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
-          <Container>
-            <Text
-              type={Text.Types.H5}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={29}
-              paddingBottom={13}
-            >
-              Near You
-            </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return (
-                <BaseCard
-                  {...props}
-                  data={{ ...data, expandable: false }}
-                  key={i}
-                />
-              );
-            })}
-          </Container>
-        </Container>
-        <Section title={"NEW CREDENTIALS"}>
+        </Section>
+        <Section title={"Records"}>
           <Container marginBottom>
             <Credential
               claimType={"Standard Credential"}
