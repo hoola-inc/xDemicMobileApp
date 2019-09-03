@@ -25,6 +25,7 @@ import {
 import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import config from "xdemic/lib/config";
+import { textStyles, font } from "xdemic/lib/styles/globalStyles";
 
 import TESTID from "xdemic/lib/e2e/testIDs";
 
@@ -204,7 +205,12 @@ class AddSchool extends React.Component<
                 size={20}
               />
               <InputNative
-                style={{ fontSize: 14, color: Colors.LIGHT_GREY }}
+                style={{
+                  ...textStyles.h3,
+                  fontFamily: font,
+                  paddingLeft: 10,
+                  textAlign: "left"
+                }}
                 placeholder="Search..."
               />
             </Item>
