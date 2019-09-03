@@ -136,6 +136,7 @@
     "react-native-camera": "^2.6.0",
     "react-native-device-info": "^0.13.0",
     "react-native-easy-grid": "^0.2.1",
+    "react-native-elements": "^1.1.0",
     "react-native-firebase": "^5.2.5",
     "react-native-fs": "^2.13.3",
     "react-native-image-picker": "uport-project/react-native-image-picker#develop",

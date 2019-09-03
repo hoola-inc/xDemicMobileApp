@@ -26,6 +26,7 @@ import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrati
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import config from "xdemic/lib/config";
 import { textStyles, font } from "xdemic/lib/styles/globalStyles";
+import { SearchBar } from "react-native-elements";
 
 import TESTID from "xdemic/lib/e2e/testIDs";
 
@@ -118,6 +119,8 @@ class AddSchool extends React.Component<
 
   componentDidMount() {
     this.props.trackSegment("Open");
+
+    // this.refs.searchBar;
   }
 
   onChangeText = (text: string) => {
@@ -126,7 +129,9 @@ class AddSchool extends React.Component<
       name: text
     });
   };
-
+  updateSearch = (search: string) => {
+    this.setState({ search });
+  };
   isValid() {
     const { name, termsAccepted, privacyAccepted } = this.state;
     return name && termsAccepted && privacyAccepted;
@@ -184,12 +189,41 @@ class AddSchool extends React.Component<
    * UI Render states
    */
   renderUserAddingInfo() {
+    const { search } = this.state;
     return (
       <Container
         disabled={
           this.state.userCreatingidentity || this.state.identityCreationSuccess
         }
       >
+        <SearchBar
+          placeholder="Search..."
+          round={true}
+          containerStyle={{
+            backgroundColor: "transparent",
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
+            marginLeft: 8,
+            marginRight: 8
+            // fontFamily: font,
+            // fontSize: Theme.text.sizes.h6,
+          }}
+          inputContainerStyle={{
+            backgroundColor: Colors.WHITE
+            // height: 60,
+            // padding: 0
+            // fontSize: Theme.text.sizes.h6
+          }}
+          inputStyle={{
+            fontSize: Theme.text.sizes.h6,
+            fontFamily: font,
+            minHeight: 20
+          }}
+          lightTheme={true}
+          underlineColorAndroid={"transparent"}
+          onChangeText={this.updateSearch}
+          value={search}
+        />
         <Container
           flex={1}
           justifyContent={"center"}
@@ -216,6 +250,9 @@ class AddSchool extends React.Component<
               />
             </Item>
           </Container>
+          {/* <Container paddingTop={20}> */}
+
+          {/* </Container> */}
           <Container>
             <Text
               type={Text.Types.H5}
