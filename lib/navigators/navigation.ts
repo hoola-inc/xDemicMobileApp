@@ -258,6 +258,7 @@ export async function startMain() {
                           options: {
                             topBar: {
                               visible: false,
+                              height: 0,
                               rightButtons: [rightButtonsCredentialScreen],
                               title: {
                                 text: "Add School",
