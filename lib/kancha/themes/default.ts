@@ -221,7 +221,11 @@ const DefaultTheme: Kancha.ThemeStatic = {
     }
   },
   spacing: {
+    default0: 4,
     default: 8,
+    default1: 16,
+    default2: 32,
+    default3: 64,
     section: 20
   },
   roundedCorners: {
