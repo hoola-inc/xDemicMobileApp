@@ -111,11 +111,11 @@ declare namespace Kancha {
       };
     };
     spacing: {
-      default0: number;
+      default4: number;
       default: number;
-      default1: number;
-      default2: number;
-      default3: number;
+      default16: number;
+      default32: number;
+      default64: number;
       section: number;
     };
     roundedCorners: {
