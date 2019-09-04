@@ -30,131 +30,140 @@ interface DashboardProps {
   signPosts: any[];
 }
 
-export const Dashboard: React.FC<DashboardProps> = props => {
-  const [signPosts, updateSignPosts] = useState([]);
-  const fetchSignPosts = async () => {
-    const response = await fetch(
-      "https://uport-mobile-store.s3.us-east-2.amazonaws.com/dashboard-signposts/signposts.json"
-    );
-    const json = await response.json();
-    // updateSignPosts(dataJson);
-    updateSignPosts(json);
-  };
-  const showSignPosts =
-    signPosts.length > 0 &&
-    props.credentials.length === 0 &&
-    signPosts.map((card: SignPostCardType) => {
-      return <SignPost key={card.id} card={card} />;
-    });
+export class Dashboard extends React.Component<DashboardProps> {
+  constructor(props: DashboardProps) {
+    super(props);
 
-  useEffect(() => {
-    fetchSignPosts();
-  }, []);
+    // this.state = {
+    //   editMode: false
+    // };
 
-  const showCredentials = props.credentials.map(credential => {
-    const { claimCardHeader } = parseClaimItem(credential);
+    // Navigation.events().bindComponent(this);
+    // this.photoSelection = this.photoSelection.bind(this);
+  }
 
+  // React.FC code
+  // const [signPosts, updateSignPosts] = useState([]);
+  // const fetchSignPosts = async () => {
+  //   const response = await fetch(
+  //     "https://uport-mobile-store.s3.us-east-2.amazonaws.com/dashboard-signposts/signposts.json"
+  //   );
+  //   const json = await response.json();
+  //   // updateSignPosts(dataJson);
+  //   updateSignPosts(json);
+  // };
+  // const showSignPosts =
+  //   signPosts.length > 0 &&
+  //   props.credentials.length === 0 &&
+  //   signPosts.map((card: SignPostCardType) => {
+  //     return <SignPost key={card.id} card={card} />;
+  //   });
+
+  // useEffect(() => {
+  //   fetchSignPosts();
+  // }, []);
+
+  // const showCredentials = props.credentials.map(credential => {
+  //   const { claimCardHeader } = parseClaimItem(credential);
+
+  //   return (
+  //     <Container key={credential.token} marginBottom>
+  //       <Credential
+  //         componentId={props.componentId}
+  //         screen={SCREENS.Credential}
+  //         verification={credential}
+  //         claimType={claimCardHeader}
+  //         issuer={credential.issuer}
+  //         noMargin
+  //       />
+  //     </Container>
+  //   );
+  // });
+  // const showSearchResult = (props: any) => {
+  //   return (
+  //     <Container
+  //       flex={1}
+  //       justifyContent={"center"}
+  //       // paddingLeft={16}
+  //       // paddingRight={16}
+  //     >
+  //       <Container>
+  //         <Text
+  //           type={Text.Types.H5}
+  //           textAlign={"left"}
+  //           textColor={Colors.BLACK}
+  //           bold
+  //           // paddingTop={32}
+  //           // paddingBottom={13}
+  //         >
+  //           Search Result working
+  //         </Text>
+  //         {config.dummyData.BaseCardData.map((data: any, i: any) => {
+  //           return (
+  //             <BaseCard
+  //               {...props}
+  //               data={{ ...data, expandable: false }}
+  //               key={i}
+  //             />
+  //           );
+  //         })}
+  //       </Container>
+  //     </Container>
+  //   );
+  // };
+
+  // const showNearToYou = (props: any) => {
+  //   return (
+  //     <Container>
+  //       <Text
+  //         type={Text.Types.H5}
+  //         textAlign={"left"}
+  //         textColor={Colors.BLACK}
+  //         bold
+  //         paddingTop={29}
+  //         paddingBottom={13}
+  //       >
+  //         Near You
+  //       </Text>
+  //       {config.dummyData.BaseCardData.map((data: any, i: any) => {
+  //         return (
+  //           <BaseCard
+  //             {...props}
+  //             data={{ ...data, expandable: false }}
+  //             key={i}
+  //           />
+  //         );
+  //       })}
+  //     </Container>
+  //   );
+  // };
+  render() {
     return (
-      <Container key={credential.token} marginBottom>
-        <Credential
-          componentId={props.componentId}
-          screen={SCREENS.Credential}
-          verification={credential}
-          claimType={claimCardHeader}
-          issuer={credential.issuer}
-          noMargin
-        />
-      </Container>
-    );
-  });
-  const showSearchResult = (props: any) => {
-    return (
-      <Container
-        flex={1}
-        justifyContent={"center"}
-        // paddingLeft={16}
-        // paddingRight={16}
-      >
+      <Screen>
+        {/* {showSearchResult}
+      {showNearToYou} */}
         <Container>
-          <Text
-            type={Text.Types.H5}
-            textAlign={"left"}
-            textColor={Colors.BLACK}
-            bold
-            // paddingTop={32}
-            // paddingBottom={13}
-          >
-            Search Result working
-          </Text>
-          {config.dummyData.BaseCardData.map((data: any, i: any) => {
-            return (
-              <BaseCard
-                {...props}
-                data={{ ...data, expandable: false }}
-                key={i}
-              />
-            );
-          })}
+          <AvatarNameWithSubHeader
+            avatar={Images.branding.avatar}
+            avatarSize={Theme.avatarSize.default}
+            name={"Bilal Javed Awan"}
+            subTitle={"N/A"}
+            detailed={false}
+          />
         </Container>
-      </Container>
-    );
-  };
-
-  const showNearToYou = (props: any) => {
-    return (
-      <Container>
-        <Text
-          type={Text.Types.H5}
-          textAlign={"left"}
-          textColor={Colors.BLACK}
-          bold
-          paddingTop={29}
-          paddingBottom={13}
-        >
-          Near You
-        </Text>
-        {config.dummyData.BaseCardData.map((data: any, i: any) => {
-          return (
-            <BaseCard
-              {...props}
-              data={{ ...data, expandable: false }}
-              key={i}
-            />
-          );
-        })}
-      </Container>
-    );
-  };
-  return (
-    <Screen>
-      {showSearchResult}
-      {showNearToYou}
-      <Container>
-        <AvatarNameWithSubHeader
-          avatar={Images.branding.avatar}
-          avatarSize={Theme.avatarSize.default}
-          name={"Bilal Javed Awan"}
-          subTitle={"N/A"}
-          detailed={false}
-        />
-      </Container>
-      <Container
-        padding={Theme.spacing.default16}
-        // paddingRight={Theme.spacing.default16}
-        // paddingBottom={Theme.spacing.default16}
-      >
-        {/* <Container>
-          <Text
-            type={Text.Types.H5}
-            textAlign={"left"}
-            textColor={Colors.BLACK}
-            bold
-            paddingTop={29}
-            paddingBottom={13}
-          >
-            Near You
-          </Text>
-          {config.dummyData.BaseCardData.map((data: any, i: any) => {
+        <Container padding={Theme.spacing.default16}>
+          <Container>
+            <Text
+              type={Text.Types.H1}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={29}
+              paddingBottom={13}
+            >
+              My Schools
+            </Text>
+            {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
             return (
               <BaseCard
                 {...props}
@@ -162,56 +171,57 @@ export const Dashboard: React.FC<DashboardProps> = props => {
                 key={i}
               />
             );
-          })}
-        </Container> */}
-        <Section title={"My Schools"}>
-          <Container marginBottom>
-            <Credential
-              claimType={"Standard Credential"}
-              issuer={{
-                name: "xDemic Apps Team",
-                avatar: {
-                  uri:
-                    "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
-                }
-              }}
-            />
+          })} */}
           </Container>
-          <Container marginBottom>
-            <Credential
-              claimType={"Missing Credential"}
-              issuer={{ name: "xDemic Apps Team" }}
-              missing
-              spec={{}}
-            />
-          </Container>
-        </Section>
-        <Section title={"Records"}>
-          <Container marginBottom>
-            <Credential
-              claimType={"Standard Credential"}
-              issuer={{
-                name: "xDemic Apps Team",
-                avatar: {
-                  uri:
-                    "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
-                }
-              }}
-            />
-          </Container>
-          <Container marginBottom>
-            <Credential
-              claimType={"Missing Credential"}
-              issuer={{ name: "xDemic Apps Team" }}
-              missing
-              spec={{}}
-            />
-          </Container>
-        </Section>
-      </Container>
-    </Screen>
-  );
-};
+          <Section title={"My Schools"}>
+            <Container marginBottom>
+              <Credential
+                claimType={"Standard Credential"}
+                issuer={{
+                  name: "xDemic Apps Team",
+                  avatar: {
+                    uri:
+                      "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
+                  }
+                }}
+              />
+            </Container>
+            <Container marginBottom>
+              <Credential
+                claimType={"Missing Credential"}
+                issuer={{ name: "xDemic Apps Team" }}
+                missing
+                spec={{}}
+              />
+            </Container>
+          </Section>
+          <Section title={"Records"}>
+            <Container marginBottom>
+              <Credential
+                claimType={"Standard Credential"}
+                issuer={{
+                  name: "xDemic Apps Team",
+                  avatar: {
+                    uri:
+                      "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
+                  }
+                }}
+              />
+            </Container>
+            <Container marginBottom>
+              <Credential
+                claimType={"Missing Credential"}
+                issuer={{ name: "xDemic Apps Team" }}
+                missing
+                spec={{}}
+              />
+            </Container>
+          </Section>
+        </Container>
+      </Screen>
+    );
+  }
+}
 
 const mapStateToProps = (state: any) => {
   return {
