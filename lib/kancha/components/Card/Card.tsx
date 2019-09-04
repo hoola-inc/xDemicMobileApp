@@ -15,7 +15,15 @@ interface Card extends ContainerProps {
 const Card: React.FC<Card> = props => {
   const br = 5;
   return (
-    <TouchableOpacity disabled={!props.onPress} onPress={props.onPress}>
+    <TouchableOpacity
+      disabled={!props.onPress}
+      onPress={props.onPress}
+      style={{
+        backgroundColor: "transparent",
+        borderRadius: 8,
+        padding: 0
+      }}
+    >
       <Container
         flexDirection={"row"}
         backgroundColor={"#FFFFFF"}

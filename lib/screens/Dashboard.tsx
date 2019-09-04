@@ -127,13 +127,9 @@ export const Dashboard: React.FC<DashboardProps> = props => {
   };
   return (
     <Screen>
-      <Container
-        padding={Theme.spacing.default16}
-        // paddingRight={Theme.spacing.default16}
-        // paddingBottom={Theme.spacing.default16}
-      >
-        {showSearchResult}
-        {showNearToYou}
+      {showSearchResult}
+      {showNearToYou}
+      <Container>
         <AvatarNameWithSubHeader
           avatar={Images.branding.avatar}
           avatarSize={Theme.avatarSize.default}
@@ -141,6 +137,33 @@ export const Dashboard: React.FC<DashboardProps> = props => {
           subTitle={"N/A"}
           detailed={false}
         />
+      </Container>
+      <Container
+        padding={Theme.spacing.default16}
+        // paddingRight={Theme.spacing.default16}
+        // paddingBottom={Theme.spacing.default16}
+      >
+        {/* <Container>
+          <Text
+            type={Text.Types.H5}
+            textAlign={"left"}
+            textColor={Colors.BLACK}
+            bold
+            paddingTop={29}
+            paddingBottom={13}
+          >
+            Near You
+          </Text>
+          {config.dummyData.BaseCardData.map((data: any, i: any) => {
+            return (
+              <BaseCard
+                {...props}
+                data={{ ...data, expandable: false }}
+                key={i}
+              />
+            );
+          })}
+        </Container> */}
         <Section title={"My Schools"}>
           <Container marginBottom>
             <Credential
