@@ -220,7 +220,7 @@ class AddSchool extends React.Component<
           </Container>
           <Container>
             <Text
-              type={Text.Types.H5}
+              type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
               bold
@@ -243,7 +243,7 @@ class AddSchool extends React.Component<
         <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
           <Container>
             <Text
-              type={Text.Types.H5}
+              type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
               bold
