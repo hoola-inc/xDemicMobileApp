@@ -26,13 +26,15 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const IconSets: { [index: string]: any } = {
   ionicons: Ionicons,
   feather: Feather,
   fontawesome: FontAwesome,
   evil: EvilIcons,
-  materialicons: MaterialIcons
+  materialicons: MaterialIcons,
+  materialcommunityicons: MaterialCommunityIcons
 };
 
 interface IconProps {
@@ -107,7 +109,7 @@ const Icons: IconsStatic = {
   bell: "bell",
   search: "search",
   heart: "heart",
-  addBox: "add_box",
+  addBox: "plus-box-outline",
   plusSquare: "far fa-plus-square"
 };
 
