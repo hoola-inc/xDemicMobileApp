@@ -9,16 +9,21 @@ import {
   Text,
   Credential,
   Theme,
+  Icon,
   Colors,
   SignPost,
   SignPostCardType,
   Section,
-  Images
+  Images,
+  Button
 } from "@kancha";
 import SCREENS from "./Screens";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
-import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
+import {
+  AvatarNameWithSubHeader,
+  BaseAddSchoolButton
+} from "xdemic/lib/components/shared";
 import { parseClaimItem } from "xdemic/lib/utilities/parseClaims";
 import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
 import dataJson from "xdemic/lib/stubbs/signposts";
@@ -42,101 +47,6 @@ export class Dashboard extends React.Component<DashboardProps> {
     // this.photoSelection = this.photoSelection.bind(this);
   }
 
-  // React.FC code
-  // const [signPosts, updateSignPosts] = useState([]);
-  // const fetchSignPosts = async () => {
-  //   const response = await fetch(
-  //     "https://uport-mobile-store.s3.us-east-2.amazonaws.com/dashboard-signposts/signposts.json"
-  //   );
-  //   const json = await response.json();
-  //   // updateSignPosts(dataJson);
-  //   updateSignPosts(json);
-  // };
-  // const showSignPosts =
-  //   signPosts.length > 0 &&
-  //   props.credentials.length === 0 &&
-  //   signPosts.map((card: SignPostCardType) => {
-  //     return <SignPost key={card.id} card={card} />;
-  //   });
-
-  // useEffect(() => {
-  //   fetchSignPosts();
-  // }, []);
-
-  // const showCredentials = props.credentials.map(credential => {
-  //   const { claimCardHeader } = parseClaimItem(credential);
-
-  //   return (
-  //     <Container key={credential.token} marginBottom>
-  //       <Credential
-  //         componentId={props.componentId}
-  //         screen={SCREENS.Credential}
-  //         verification={credential}
-  //         claimType={claimCardHeader}
-  //         issuer={credential.issuer}
-  //         noMargin
-  //       />
-  //     </Container>
-  //   );
-  // });
-  // const showSearchResult = (props: any) => {
-  //   return (
-  //     <Container
-  //       flex={1}
-  //       justifyContent={"center"}
-  //       // paddingLeft={16}
-  //       // paddingRight={16}
-  //     >
-  //       <Container>
-  //         <Text
-  //           type={Text.Types.H5}
-  //           textAlign={"left"}
-  //           textColor={Colors.BLACK}
-  //           bold
-  //           // paddingTop={32}
-  //           // paddingBottom={13}
-  //         >
-  //           Search Result working
-  //         </Text>
-  //         {config.dummyData.BaseCardData.map((data: any, i: any) => {
-  //           return (
-  //             <BaseCard
-  //               {...props}
-  //               data={{ ...data, expandable: false }}
-  //               key={i}
-  //             />
-  //           );
-  //         })}
-  //       </Container>
-  //     </Container>
-  //   );
-  // };
-
-  // const showNearToYou = (props: any) => {
-  //   return (
-  //     <Container>
-  //       <Text
-  //         type={Text.Types.H5}
-  //         textAlign={"left"}
-  //         textColor={Colors.BLACK}
-  //         bold
-  //         paddingTop={29}
-  //         paddingBottom={13}
-  //       >
-  //         Near You
-  //       </Text>
-  //       {config.dummyData.BaseCardData.map((data: any, i: any) => {
-  //         return (
-  //           <BaseCard
-  //             {...props}
-  //             data={{ ...data, expandable: false }}
-  //             key={i}
-  //           />
-  //         );
-  //       })}
-  //     </Container>
-  //   );
-  // };
   render() {
     return (
       <Screen>
@@ -158,11 +68,12 @@ export class Dashboard extends React.Component<DashboardProps> {
               textAlign={"left"}
               textColor={Colors.BLACK}
               bold
-              paddingTop={29}
-              paddingBottom={13}
             >
               My Schools
             </Text>
+            <Container>
+              <BaseAddSchoolButton name={"Add"} />
+            </Container>
             {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
             return (
               <BaseCard
@@ -173,7 +84,17 @@ export class Dashboard extends React.Component<DashboardProps> {
             );
           })} */}
           </Container>
-          <Section title={"My Schools"}>
+          <Container paddingTop={Theme.spacing.default16}>
+            <Text
+              type={Text.Types.H1}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+            >
+              Records
+            </Text>
+          </Container>
+          {/* <Section title={"My Schools"}>
             <Container marginBottom>
               <Credential
                 claimType={"Standard Credential"}
@@ -216,7 +137,7 @@ export class Dashboard extends React.Component<DashboardProps> {
                 spec={{}}
               />
             </Container>
-          </Section>
+          </Section> */}
         </Container>
       </Screen>
     );
@@ -225,7 +146,7 @@ export class Dashboard extends React.Component<DashboardProps> {
 
 const mapStateToProps = (state: any) => {
   return {
-    credentials: onlyLatestAttestationsWithIssuer(state)
+    // credentials: onlyLatestAttestationsWithIssuer(state)
   };
 };
 

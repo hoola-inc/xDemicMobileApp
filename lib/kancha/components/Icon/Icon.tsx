@@ -78,6 +78,8 @@ interface IconsStatic {
   remove: string;
   search: string;
   heart: string;
+  addBox: string;
+  plusSquare: string;
 }
 
 const Icons: IconsStatic = {
@@ -104,7 +106,9 @@ const Icons: IconsStatic = {
   remove: "ios-remove-circle",
   bell: "bell",
   search: "search",
-  heart: "heart"
+  heart: "heart",
+  addBox: "add_box",
+  plusSquare: "far fa-plus-square"
 };
 
 const IconImageSource = (font: string, icon: string, size: number) => {
