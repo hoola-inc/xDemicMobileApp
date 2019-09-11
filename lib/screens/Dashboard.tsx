@@ -72,7 +72,11 @@ export class Dashboard extends React.Component<DashboardProps> {
               My Schools
             </Text>
             <Container>
-              <BaseAddSchoolButton iconSize={23} name={"Add Schools"} />
+              <BaseAddSchoolButton
+                {...this.props}
+                iconSize={23}
+                name={"Add Schools"}
+              />
             </Container>
             {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
             return (
