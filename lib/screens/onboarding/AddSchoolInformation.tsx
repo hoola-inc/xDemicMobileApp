@@ -240,6 +240,7 @@ class AddSchoolInformation extends React.Component<
         >
           <Container>
             <BaseCard
+              {...this.props}
               data={{ ...this.props.data, expandable: true }}
               key={"keys"}
             />
