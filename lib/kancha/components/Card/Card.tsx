@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Container, ContainerProps, Colors, Theme } from "@kancha";
-import { TouchableOpacity } from "react-native";
+import { TouchableHighlight } from "react-native";
 
 const BorderSize = 8;
 
@@ -15,7 +15,7 @@ interface Card extends ContainerProps {
 const Card: React.FC<Card> = props => {
   const br = 5;
   return (
-    <TouchableOpacity
+    <TouchableHighlight
       disabled={!props.onPress}
       onPress={props.onPress}
       style={{
@@ -67,7 +67,7 @@ const Card: React.FC<Card> = props => {
           {props.children}
         </Container>
       </Container>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
