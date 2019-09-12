@@ -89,7 +89,7 @@ export class Dashboard extends React.Component<DashboardProps> {
             );
           })} */}
           </Container>
-          <Container>
+          <Container paddingTop={Theme.spacing.default16}>
             <BaseCollapsible {...this.props} />
           </Container>
           <Container paddingTop={Theme.spacing.default16}>
