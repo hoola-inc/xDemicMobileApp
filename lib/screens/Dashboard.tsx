@@ -20,6 +20,7 @@ import {
 import SCREENS from "./Screens";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
+import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import {
   AvatarNameWithSubHeader,
   BaseAddSchoolButton
@@ -87,6 +88,9 @@ export class Dashboard extends React.Component<DashboardProps> {
               />
             );
           })} */}
+          </Container>
+          <Container>
+            <BaseCollapsible {...this.props} />
           </Container>
           <Container paddingTop={Theme.spacing.default16}>
             <Text
