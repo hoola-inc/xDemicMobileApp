@@ -84,6 +84,7 @@ interface IconsStatic {
   menuDown: string;
   menuUp: string;
   plusSquare: string;
+  informationOutline: string;
 }
 
 const Icons: IconsStatic = {
@@ -114,7 +115,8 @@ const Icons: IconsStatic = {
   addBox: "plus-box-outline",
   menuDown: "menu-down",
   menuUp: "menu-up",
-  plusSquare: "far fa-plus-square"
+  plusSquare: "far fa-plus-square",
+  informationOutline: "information-outline"
 };
 
 const IconImageSource = (font: string, icon: string, size: number) => {
