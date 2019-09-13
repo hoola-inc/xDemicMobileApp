@@ -81,6 +81,8 @@ interface IconsStatic {
   search: string;
   heart: string;
   addBox: string;
+  menuDown: string;
+  menuUp: string;
   plusSquare: string;
 }
 
@@ -110,6 +112,8 @@ const Icons: IconsStatic = {
   search: "search",
   heart: "heart",
   addBox: "plus-box-outline",
+  menuDown: "menu-down",
+  menuUp: "menu-up",
   plusSquare: "far fa-plus-square"
 };
 
