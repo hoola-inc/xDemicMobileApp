@@ -238,7 +238,7 @@ class AddSchoolInformation extends React.Component<
           paddingLeft={16}
           paddingRight={16}
         >
-          <Container>
+          <Container paddingTop={Theme.spacing.default16}>
             <BaseCard
               {...this.props}
               data={{ ...this.props.data, expandable: true }}
