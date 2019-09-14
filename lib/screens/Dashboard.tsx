@@ -30,6 +30,13 @@ import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestati
 import dataJson from "xdemic/lib/stubbs/signposts";
 import config from "xdemic/lib/config";
 
+const SELECTORS = [
+  { title: "T&C", value: 0 },
+  { title: "Privacy Policy", value: 1 },
+  { title: "Return Policy", value: 2 },
+  { title: "Reset all" }
+];
+
 interface DashboardProps {
   credentials: any[];
   componentId: string;
@@ -89,9 +96,7 @@ export class Dashboard extends React.Component<DashboardProps> {
             );
           })} */}
           </Container>
-          <Container paddingTop={Theme.spacing.default16}>
-            <BaseCollapsible {...this.props} />
-          </Container>
+
           <Container paddingTop={Theme.spacing.default16}>
             <Text
               type={Text.Types.H1}
@@ -102,6 +107,12 @@ export class Dashboard extends React.Component<DashboardProps> {
               Records
             </Text>
           </Container>
+          {SELECTORS.map((data, i) => (
+            <Container paddingTop={Theme.spacing.default} key={i}>
+              <BaseCollapsible {...this.props} />
+            </Container>
+          ))}
+
           {/* <Section title={"My Schools"}>
             <Container marginBottom>
               <Credential
