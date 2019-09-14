@@ -2,10 +2,9 @@ import * as React from "react";
 import { Container, ContainerProps, Colors, Theme } from "@kancha";
 import { TouchableHighlight } from "react-native";
 
-const BorderSize = 8;
-
 interface Card extends ContainerProps {
   onPress?: () => void;
+  borderLeft?: any;
 }
 
 /**
@@ -48,18 +47,18 @@ const Card: React.FC<Card> = props => {
           // borderRightColor: "white",
           // borderTopColor: "white",
 
-          borderBottomLeftRadius: BorderSize,
-          borderBottomRightRadius: BorderSize,
+          borderBottomLeftRadius: Theme.card.borderSize,
+          borderBottomRightRadius: Theme.card.borderSize,
 
           borderRightWidth: 0,
           borderTopWidth: 0,
           borderBottomWidth: 0,
 
-          borderLeftWidth: BorderSize,
-          borderWidth: BorderSize,
+          borderLeftWidth: props.borderLeft ? Theme.card.borderSize : 0,
+          borderWidth: Theme.card.borderSize,
 
-          borderTopLeftRadius: BorderSize,
-          borderTopRightRadius: BorderSize
+          borderTopLeftRadius: Theme.card.borderSize,
+          borderTopRightRadius: Theme.card.borderSize
         }}
         {...props}
       >

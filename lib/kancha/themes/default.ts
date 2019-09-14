@@ -233,6 +233,9 @@ const DefaultTheme: Kancha.ThemeStatic = {
     cards: 5,
     textInputs: 8
   },
+  card: {
+    borderSize: 8
+  },
   navigation: {},
   avatarSize: {
     default: 40,

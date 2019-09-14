@@ -123,6 +123,9 @@ declare namespace Kancha {
       cards: number;
       textInputs: number;
     };
+    card: {
+      borderSize: number;
+    };
     navigation: any;
     avatarSize: {
       default: number;
