@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { View, StyleSheet } from "react-native";
 import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
 
+import { schools } from "xdemic/lib/selectors/school";
+
+import { getSchool } from "xdemic/lib/actions/schoolActions";
+
 import {
   Screen,
   Container,
@@ -41,9 +45,17 @@ interface DashboardProps {
   credentials: any[];
   componentId: string;
   signPosts: any[];
-}
+  schoolsState: any[];
 
-export class Dashboard extends React.Component<DashboardProps> {
+  /**
+   * Redux actions
+   */
+  getSchools: () => any;
+}
+interface DashboardState {
+  signPosts: any;
+}
+export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
     super(props);
 
@@ -60,18 +72,21 @@ export class Dashboard extends React.Component<DashboardProps> {
 
     console.log("json before state save is: ", json);
     this.setState({
-      signPosts: json
+      signPosts: json.data
     });
     console.log("json after state save is: ", json);
     // updateSignPosts(json)
   };
 
   componentDidMount() {
+    console.log("working");
     this.fetchSignPosts();
+    this.props.getSchools();
     // this.props.updateShareToken(this.props.address);
   }
 
   render() {
+    console.log("school props from map state is: ", this.state.signPosts);
     return (
       <Screen>
         {/* {showSearchResult}
@@ -101,7 +116,17 @@ export class Dashboard extends React.Component<DashboardProps> {
                 iconSize={23}
                 name={"Add Schools"}
               />
+              {this.state.signPosts !== "" &&
+                this.state.signPosts.map((data: any) => (
+                  <BaseAddSchoolButton
+                    {...this.props}
+                    iconSize={23}
+                    name={"Add Schools"}
+                    key={data.name}
+                  />
+                ))}
             </Container>
+
             {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
             return (
               <BaseCard
@@ -181,11 +206,23 @@ export class Dashboard extends React.Component<DashboardProps> {
 
 const mapStateToProps = (state: any) => {
   return {
+    schoolsState: schools(state)
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getSchools: () => {
+      dispatch(getSchool());
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);
 
 const Styles = StyleSheet.create({
   input: {
