@@ -47,12 +47,28 @@ export class Dashboard extends React.Component<DashboardProps> {
   constructor(props: DashboardProps) {
     super(props);
 
-    // this.state = {
-    //   editMode: false
-    // };
+    this.state = {
+      signPosts: []
+    };
 
     // Navigation.events().bindComponent(this);
-    // this.photoSelection = this.photoSelection.bind(this);
+    this.fetchSignPosts = this.fetchSignPosts.bind(this);
+  }
+  fetchSignPosts = async () => {
+    const response = await fetch("https://xdemic-api.herokuapp.com/school");
+    const json = await response.json();
+
+    console.log("json before state save is: ", json);
+    this.setState({
+      signPosts: json
+    });
+    console.log("json after state save is: ", json);
+    // updateSignPosts(json)
+  };
+
+  componentDidMount() {
+    this.fetchSignPosts();
+    // this.props.updateShareToken(this.props.address);
   }
 
   render() {
