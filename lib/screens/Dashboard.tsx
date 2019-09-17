@@ -88,7 +88,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   render() {
     console.log("school props from map state is: ", this.state.signPosts);
     return (
-      <Screen>
+      <Screen type={"secondary"}>
         {/* {showSearchResult}
       {showNearToYou} */}
         <Container>
@@ -153,8 +153,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               <BaseCollapsible {...this.props} />
             </Container>
           ))}
-
-          {/* <Section title={"My Schools"}>
+          <Section title={"My Schools"}>
             <Container marginBottom>
               <Credential
                 claimType={"Standard Credential"}
@@ -176,28 +175,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               />
             </Container>
           </Section>
-          <Section title={"Records"}>
-            <Container marginBottom>
-              <Credential
-                claimType={"Standard Credential"}
-                issuer={{
-                  name: "xDemic Apps Team",
-                  avatar: {
-                    uri:
-                      "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
-                  }
-                }}
-              />
-            </Container>
-            <Container marginBottom>
-              <Credential
-                claimType={"Missing Credential"}
-                issuer={{ name: "xDemic Apps Team" }}
-                missing
-                spec={{}}
-              />
-            </Container>
-          </Section> */}
         </Container>
       </Screen>
     );
