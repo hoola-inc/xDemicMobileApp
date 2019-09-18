@@ -58,6 +58,8 @@ interface CreateIdentityState {
   userCreatingidentity: boolean;
   identityCreationSuccess: boolean;
   image: ImageObj | undefined;
+
+  schools: any[];
 }
 
 /**
@@ -110,20 +112,30 @@ class AddSchool extends React.Component<
       image: undefined,
       userAddingInfo: true,
       userCreatingidentity: false,
-      identityCreationSuccess: false
+      identityCreationSuccess: false,
+      schools: []
     };
 
     this.addImage = this.addImage.bind(this);
+    this.fetchSignPosts = this.fetchSignPosts.bind(this);
   }
 
   componentDidMount() {
     this.props.trackSegment("Open");
+    this.fetchSignPosts();
   }
 
   onChangeText = (text: string) => {
     this.setState({
       ...this.state,
       name: text
+    });
+  };
+  fetchSignPosts = async () => {
+    const response = await fetch("https://xdemic-api.herokuapp.com/schools");
+    const json = await response.json();
+    this.setState({
+      schools: json.data
     });
   };
 
@@ -184,6 +196,7 @@ class AddSchool extends React.Component<
    * UI Render states
    */
   renderUserAddingInfo() {
+    console.log("renderUserAddingInfo is: ", this.state.schools);
     return (
       <Container
         disabled={
@@ -229,15 +242,21 @@ class AddSchool extends React.Component<
             >
               Search Result
             </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return (
-                <BaseCard
-                  {...this.props}
-                  data={{ ...data, expandable: false }}
-                  key={i}
-                />
-              );
-            })}
+            {this.state.schools.length !== 0 &&
+              this.state.schools.map((data: any, i: any) => {
+                return (
+                  <BaseCard
+                    {...this.props}
+                    data={{
+                      schoolName: data.subjectWebpage,
+                      courseName: data.name,
+                      schoolPosition: data.address,
+                      expandable: false
+                    }}
+                    key={i}
+                  />
+                );
+              })}
           </Container>
         </Container>
         <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
@@ -252,15 +271,21 @@ class AddSchool extends React.Component<
             >
               Near You
             </Text>
-            {config.dummyData.BaseCardData.map((data: any, i: any) => {
-              return (
-                <BaseCard
-                  {...this.props}
-                  data={{ ...data, expandable: false }}
-                  key={i}
-                />
-              );
-            })}
+            {this.state.schools.length !== 0 &&
+              this.state.schools.map((data: any, i: any) => {
+                return (
+                  <BaseCard
+                    {...this.props}
+                    data={{
+                      schoolName: data.subjectWebpage,
+                      courseName: data.name,
+                      schoolPosition: data.address,
+                      expandable: false
+                    }}
+                    key={i}
+                  />
+                );
+              })}
           </Container>
         </Container>
       </Container>
