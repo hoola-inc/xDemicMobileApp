@@ -65,6 +65,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     // Navigation.events().bindComponent(this);
     this.fetchSignPosts = this.fetchSignPosts.bind(this);
+    this.renderInfoBar = this.renderInfoBar.bind(this);
   }
   fetchSignPosts = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/school");
@@ -85,6 +86,79 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     // this.props.updateShareToken(this.props.address);
   }
 
+  renderInfoBar() {
+    return (
+      <Container
+        padding
+        flexDirection={"row"}
+        alignItems={"center"}
+        flex={1}
+        backgroundColor={Theme.colors.primary.background}
+        dividerBottom
+        w={1000}
+      >
+        <Container flex={3} alignItems={"center"}>
+          <Button
+            block={Button.Block.Clear}
+            icon={
+              <Icon
+                name={"addBox"}
+                font={"materialcommunityicons"}
+                color={Theme.colors.primary.accessories}
+              />
+            }
+            onPress={() => console.log("etisfdsn")}
+          />
+          <Container>
+            <Text type={Text.Types.ListItemNote}>Credentials</Text>
+          </Container>
+        </Container>
+        <Container flex={3} alignItems={"center"}>
+          <Button
+            block={Button.Block.Clear}
+            icon={
+              <Icon
+                name={"addBox"}
+                font={"materialcommunityicons"}
+                color={Theme.colors.primary.accessories}
+              />
+            }
+            onPress={() => console.log("dsfsdfs")}
+          />
+          <Text type={Text.Types.ListItemNote}>QR Code</Text>
+        </Container>
+        <Container flex={3} alignItems={"center"}>
+          <Button
+            block={Button.Block.Clear}
+            icon={
+              <Icon
+                name={"addBox"}
+                font={"materialcommunityicons"}
+                color={Theme.colors.primary.accessories}
+              />
+            }
+            onPress={() => console.log("etin")}
+          />
+          <Text type={Text.Types.ListItemNote}>Share</Text>
+        </Container>
+        <Container flex={3} alignItems={"center"}>
+          <Button
+            block={Button.Block.Clear}
+            icon={
+              <Icon
+                name={"addBox"}
+                font={"materialcommunityicons"}
+                color={Theme.colors.primary.accessories}
+              />
+            }
+            onPress={() => console.log("etin")}
+          />
+          <Text type={Text.Types.ListItemNote}>Share</Text>
+        </Container>
+      </Container>
+    );
+  }
+
   render() {
     console.log("school props from map state is: ", this.state.signPosts);
     return (
@@ -100,7 +174,12 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             detailed={false}
           />
         </Container>
-        <Container padding={Theme.spacing.default16}>
+        {/* {this.renderInfoBar()} */}
+        <Container
+          padding={Theme.spacing.default16}
+          flex={1}
+          flexDirection={"column"}
+        >
           <Container>
             <Text
               type={Text.Types.H1}
