@@ -68,7 +68,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.renderInfoBar = this.renderInfoBar.bind(this);
   }
   fetchSignPosts = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/school");
+    const response = await fetch("https://xdemic-api.herokuapp.com/courses");
     const json = await response.json();
 
     console.log("json before state save is: ", json);
@@ -82,7 +82,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   componentDidMount() {
     console.log("working");
     this.fetchSignPosts();
-    this.props.getSchools();
+    // this.props.getSchools();
     // this.props.updateShareToken(this.props.address);
   }
 
@@ -195,7 +195,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 iconSize={23}
                 name={"Add Schools"}
               />
-              {this.state.signPosts !== "" &&
+              {/* {this.state.signPosts !== "" &&
                 this.state.signPosts.map((data: any) => (
                   <BaseAddSchoolButton
                     {...this.props}
@@ -203,7 +203,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     name={"Add Schools"}
                     key={data.name}
                   />
-                ))}
+                ))} */}
             </Container>
 
             {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
@@ -227,11 +227,12 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               Records
             </Text>
           </Container>
-          {SELECTORS.map((data, i) => (
-            <Container paddingTop={Theme.spacing.default} key={i}>
-              <BaseCollapsible {...this.props} />
-            </Container>
-          ))}
+          {this.state.signPosts !== "" &&
+            this.state.signPosts.map((data: any, i: any) => (
+              <Container paddingTop={Theme.spacing.default} key={i}>
+                <BaseCollapsible {...this.props} data={data} />
+              </Container>
+            ))}
           <Section title={"My Schools"}>
             <Container marginBottom>
               <Credential
@@ -262,16 +263,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
 const mapStateToProps = (state: any) => {
   return {
-    schoolsState: schools(state)
+    // schoolsState: schools(state)
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
 };
 
 export const mapDispatchToProps = (dispatch: any) => {
   return {
-    getSchools: () => {
-      dispatch(getSchool());
-    }
+    // getSchools: () => {
+    //   dispatch(getSchool());
+    // }
   };
 };
 
