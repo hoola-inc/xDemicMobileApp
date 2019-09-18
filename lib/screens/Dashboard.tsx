@@ -233,7 +233,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 <BaseCollapsible {...this.props} data={data} />
               </Container>
             ))}
-          <Section title={"My Schools"}>
+
+          {/* <Section title={"My Schools"}>
             <Container marginBottom>
               <Credential
                 claimType={"Standard Credential"}
@@ -254,7 +255,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 spec={{}}
               />
             </Container>
-          </Section>
+          </Section> */}
         </Container>
       </Screen>
     );
