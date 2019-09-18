@@ -117,12 +117,12 @@ class AddSchool extends React.Component<
     };
 
     this.addImage = this.addImage.bind(this);
-    this.fetchSignPosts = this.fetchSignPosts.bind(this);
+    this.fetchSchools = this.fetchSchools.bind(this);
   }
 
   componentDidMount() {
     this.props.trackSegment("Open");
-    this.fetchSignPosts();
+    this.fetchSchools();
   }
 
   onChangeText = (text: string) => {
@@ -131,7 +131,7 @@ class AddSchool extends React.Component<
       name: text
     });
   };
-  fetchSignPosts = async () => {
+  fetchSchools = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/schools");
     const json = await response.json();
     this.setState({
