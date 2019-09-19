@@ -182,8 +182,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
           <AvatarNameWithSubHeader
             avatar={Images.branding.avatar}
             avatarSize={Theme.avatarSize.default}
-            name={"Bilal Javed Awan"}
-            subTitle={"N/A"}
+            schoolName={"Bilal Javed Awan"}
+            schoolAddress={"N/A"}
             detailed={false}
           />
         </Container>
