@@ -297,8 +297,8 @@ class AddSchool extends React.Component<
                   <BaseCard
                     {...this.props}
                     data={{
-                      schoolName: data.subjectWebpage,
-                      courseName: data.name,
+                      schoolAddress: data.address,
+                      schoolName: data.name,
                       schoolPosition: data.address,
                       expandable: false
                     }}
