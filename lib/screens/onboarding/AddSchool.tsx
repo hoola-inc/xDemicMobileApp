@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ActivityIndicator, Image, StyleSheet } from "react-native";
+import { ActivityIndicator, Image, StyleSheet, Alert } from "react-native";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
 import {
@@ -134,9 +134,29 @@ class AddSchool extends React.Component<
   fetchSchools = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/schools");
     const json = await response.json();
-    this.setState({
-      schools: json.data
-    });
+    if (!json.status) {
+      Alert.alert(
+        "Schools",
+        "Schools not found!",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      this.setState({
+        schools: json.data
+      });
+    }
   };
 
   isValid() {

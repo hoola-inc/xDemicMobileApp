@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
 
 import { schools } from "xdemic/lib/selectors/school";
@@ -11,7 +11,6 @@ import {
   Screen,
   Container,
   Text,
-  Credential,
   Theme,
   Icon,
   Colors,
@@ -21,18 +20,11 @@ import {
   Images,
   Button
 } from "@kancha";
-import SCREENS from "./Screens";
-import BaseCard from "xdemic/lib/components/shared/BaseCard";
-import BaseChip from "xdemic/lib/components/shared/BaseChip";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import {
   AvatarNameWithSubHeader,
   BaseAddSchoolButton
 } from "xdemic/lib/components/shared";
-import { parseClaimItem } from "xdemic/lib/utilities/parseClaims";
-import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
-import dataJson from "xdemic/lib/stubbs/signposts";
-import config from "xdemic/lib/config";
 
 const SELECTORS = [
   { title: "T&C", value: 0 },
@@ -44,7 +36,7 @@ const SELECTORS = [
 interface DashboardProps {
   credentials: any[];
   componentId: string;
-  signPosts: any[];
+  // coursesList: any[];
   schoolsState: any[];
 
   /**
@@ -53,35 +45,56 @@ interface DashboardProps {
   getSchools: () => any;
 }
 interface DashboardState {
-  signPosts: any;
+  coursesList: any;
 }
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
     super(props);
 
     this.state = {
-      signPosts: []
+      coursesList: []
     };
 
     // Navigation.events().bindComponent(this);
-    this.fetchSignPosts = this.fetchSignPosts.bind(this);
+    this.fetchCourses = this.fetchCourses.bind(this);
     this.renderInfoBar = this.renderInfoBar.bind(this);
   }
-  fetchSignPosts = async () => {
+  fetchCourses = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/courses");
     const json = await response.json();
 
     console.log("json before state save is: ", json);
-    this.setState({
-      signPosts: json.data
-    });
-    console.log("json after state save is: ", json);
-    // updateSignPosts(json)
+
+    if (!json.status) {
+      Alert.alert(
+        "Courses",
+        "Courses not found!",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      this.setState({
+        coursesList: json.data
+      });
+      console.log("json after state save is: ", json);
+    }
+    // updatecoursesList(json)
   };
 
   componentDidMount() {
     console.log("working");
-    this.fetchSignPosts();
+    this.fetchCourses();
     // this.props.getSchools();
     // this.props.updateShareToken(this.props.address);
   }
@@ -160,7 +173,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   }
 
   render() {
-    console.log("school props from map state is: ", this.state.signPosts);
+    console.log("school props from map state is: ", this.state.coursesList);
     return (
       <Screen type={"secondary"}>
         {/* {showSearchResult}
@@ -195,8 +208,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 iconSize={23}
                 name={"Add Schools"}
               />
-              {/* {this.state.signPosts !== "" &&
-                this.state.signPosts.map((data: any) => (
+              {/* {this.state.coursesList.length > 0 &&
+                this.state.coursesList.map((data: any) => (
                   <BaseAddSchoolButton
                     {...this.props}
                     iconSize={23}
@@ -227,8 +240,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               Records
             </Text>
           </Container>
-          {this.state.signPosts !== "" &&
-            this.state.signPosts.map((data: any, i: any) => (
+          {this.state.coursesList.length > 0 &&
+            this.state.coursesList.map((data: any, i: any) => (
               <Container paddingTop={Theme.spacing.default} key={i}>
                 <BaseCollapsible {...this.props} data={data} />
               </Container>
