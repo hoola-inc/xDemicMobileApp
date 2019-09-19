@@ -19,6 +19,7 @@ import {
 } from "@kancha";
 import { Navigation } from "react-native-navigation";
 import SCREENS from "../Screens";
+import { AddSchoolCancelGroup } from "xdemic/lib/components/shared/Button";
 import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
 import { currentAddress } from "../../selectors/identities";
 import { activationEvent } from "xdemic/lib/actions/userActivationActions";
@@ -156,7 +157,7 @@ class AddSchoolInformation extends React.Component<
             paddingBottom
             paddingLeft
           >
-            <Container w={160}>
+            {/* <Container w={160}>
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
@@ -185,9 +186,9 @@ class AddSchoolInformation extends React.Component<
                   startMain();
                 }}
               />
-            </Container>
-            <Container w={160} paddingLeft>
-              <Button
+            </Container> */}
+            {/* <Container w={160} paddingLeft> */}
+            {/* <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
                   this.state.userCreatingidentity && (
@@ -212,8 +213,18 @@ class AddSchoolInformation extends React.Component<
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
                 onPress={() => this.createIdentity()}
-              />
-            </Container>
+              /> */}
+            <AddSchoolCancelGroup
+              acceptText={"Add School"}
+              cancelText={"Contact"}
+              onAccept={() =>
+                console.log("on accept buttonText state is: ", this.state)
+              }
+              onCancel={() =>
+                console.log("on cancel buttonText props is: ", this.props)
+              }
+            />
+            {/* </Container> */}
           </Container>
         }
       >
