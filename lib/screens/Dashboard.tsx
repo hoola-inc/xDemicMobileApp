@@ -46,13 +46,15 @@ interface DashboardProps {
 }
 interface DashboardState {
   coursesList: any;
+  httpcoursesList: any;
 }
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
     super(props);
 
     this.state = {
-      coursesList: []
+      coursesList: [],
+      httpcoursesList: []
     };
 
     // Navigation.events().bindComponent(this);
@@ -91,10 +93,43 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     }
     // updatecoursesList(json)
   };
+  fetchHttpCourses = async () => {
+    const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
+    const json = await response.json();
+
+    console.log("json before state save is: ", json);
+
+    if (!json.status) {
+      Alert.alert(
+        "Http Courses",
+        "Http Courses not found!",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      this.setState({
+        httpcoursesList: json.data.graph
+      });
+      console.log("json after state save is: ", json);
+    }
+    // updatecoursesList(json)
+  };
 
   componentDidMount() {
     console.log("working");
     this.fetchCourses();
+    this.fetchHttpCourses();
     // this.props.getSchools();
     // this.props.updateShareToken(this.props.address);
   }
@@ -247,6 +282,32 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 <BaseCollapsible {...this.props} data={data} />
               </Container>
             ))}
+          {this.state.httpcoursesList.length > 0 &&
+            this.state.httpcoursesList.map((data: any, i: any) => {
+              console.log(
+                'data["ceterms:name"].value is: ',
+                data["ceterms:name"].value
+              );
+              return (
+                <Container paddingTop={Theme.spacing.default} key={i}>
+                  <BaseCollapsible
+                    {...this.props}
+                    data={{
+                      name: data["ceterms:name"].value,
+                      courseCode: data["ceterms:prerequisite"],
+                      DateTime: data.id,
+                      courseName: data["ceterms:name"].value,
+                      schoolName: data["ceterms:name"].value,
+                      courseGPA: i + 1,
+                      coursePercentage: i + 1 * 13,
+                      courseGrade: i + 1,
+                      schoolPosition: data.id,
+                      schoolAddress: data["ceterms:ctid"]
+                    }}
+                  />
+                </Container>
+              );
+            })}
 
           {/* <Section title={"My Schools"}>
             <Container marginBottom>
