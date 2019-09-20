@@ -39,6 +39,8 @@ import Mori from "mori";
  */
 const USER_FIELDS = ["name", "email", "country", "phone", "avatar", "dob"];
 
+// const USER_FIELDS = ['name', 'email', 'country', 'phone', 'avatar']
+
 interface EthereumAccountListItem {
   name: string;
   network: string;
@@ -129,6 +131,23 @@ export class UserProfile extends React.Component<
   }
 
   render() {
+    console.log("this.props.avatar is: ", this.props.avatar);
+    console.log("this.props.name is: ", this.props.name);
+    console.log("this.props.email is: ", this.props.email);
+    console.log("this.props.country is: ", this.props.country);
+    console.log("this.props.phone is: ", this.props.phone);
+    console.log("this.props.dob is: ", this.props.dob);
+    console.log("this.props.userData is: ", this.props.userData);
+    console.log("this.props.address is: ", this.props.address);
+    console.log("this.props.shareToken is: ", this.props.shareToken);
+    console.log("this.props.verifications is: ", this.props.verifications);
+    console.log("this.props.allIdentities is: ", this.props.allIdentities);
+    console.log("this.props.accounts is: ", this.props.accounts);
+    console.log(
+      "this.props.accountProfileLookup is: ",
+      this.props.accountProfileLookup
+    );
+
     return (
       <Screen
         config={Screen.Config.Scroll}

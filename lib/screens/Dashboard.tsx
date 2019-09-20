@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import Mori from "mori";
 import { View, StyleSheet, Alert } from "react-native";
 import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
 
 import { schools } from "xdemic/lib/selectors/school";
 
 import { getSchool } from "xdemic/lib/actions/schoolActions";
+
+import {
+  currentAddress,
+  ownClaims,
+  myAccounts,
+  allIdentities
+} from "xdemic/lib/selectors/identities";
 
 import {
   Screen,
@@ -31,6 +39,8 @@ interface DashboardProps {
   componentId: string;
   // coursesList: any[];
   schoolsState: any[];
+  name: string;
+  avatar: string;
 
   /**
    * Redux actions
@@ -202,15 +212,17 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
   render() {
     console.log("school props from map state is: ", this.state.coursesList);
+    console.log("rizwan is: ", this.props.name);
+    const { name, avatar } = this.props;
     return (
       <Screen type={Screen.Types.Secondary}>
         {/* {showSearchResult}
       {showNearToYou} */}
         <Container>
           <AvatarNameWithSubHeader
-            avatar={Images.branding.avatar}
+            avatar={avatar}
             avatarSize={Theme.avatarSize.default}
-            name={"Bilal Javed Awan"}
+            name={name || "Bilal Javed Awan"}
             address={"N/A"}
             type={"personInformation"}
             detailed={false}
@@ -330,8 +342,18 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any, ownProps: any) => {
+  const userData = Mori.toJs(ownClaims(state)) || {};
   return {
+    ...ownProps,
+    avatar:
+      typeof state.myInfo.changed.avatar !== "undefined"
+        ? state.myInfo.changed.avatar
+        : userData.avatar,
+    name:
+      typeof state.myInfo.changed.name !== "undefined"
+        ? state.myInfo.changed.name
+        : userData.name
     // schoolsState: schools(state)
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };

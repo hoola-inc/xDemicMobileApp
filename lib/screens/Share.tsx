@@ -130,13 +130,13 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
       <Screen
         config={Screen.Config.Scroll}
         headerBackgroundColor={Theme.colors.primary.brand}
-        expandingHeaderContent={this.renderHeader()}
+        // expandingHeaderContent={this.renderHeader()}
       >
         <Container paddingBottom>
-          {this.renderInfoBar()}
+          {/* {this.renderInfoBar()}
           {this.renderIdentitySwitcher()}
           {this.renderPersonalInformation()}
-          {this.renderEthereumAccounts()}
+          {this.renderEthereumAccounts()} */}
         </Container>
       </Screen>
     );
