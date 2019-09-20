@@ -1,4 +1,5 @@
 import * as React from "react";
+import axios from "axios";
 import {
   ActivityIndicator,
   Image,
@@ -50,7 +51,12 @@ interface CreateIdentityProps {
   componentId: string;
   navigator: Navigator;
   address: string;
-  data: object;
+  data: any;
+  expandable: any;
+  schoolAddress: string;
+  schoolName: string;
+  schoolPosition: string;
+  studentName: string;
 
   //**Redux Actions */
   createIdentity: () => void;
@@ -151,47 +157,53 @@ class AddSchoolInformation extends React.Component<
    */
   studentAddSchool = async () => {
     const data = { ...this.props.data, studentName: "Rizwan" };
-    console.log("studentAddSchool this.props.data is: ", this.props.data);
-    const response = await fetch(
+    const res = await axios.post(
       "https://xdemic-api.herokuapp.com/studentmobile",
-      {
-        method: "post",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      }
+      data
     );
-    // const json = await response.json();
+    // const json = await res.json();
 
     console.log("new data is: ", data);
-    console.log("response is: ", response);
+    console.log("res is: ", res);
 
-    // if (!json.status) {
-    //   Alert.alert(
-    //     "Courses",
-    //     "Courses not found!",
-    //     [
-    //       {
-    //         text: "Cancel",
-    //         onPress: () => console.log("Cancel Pressed"),
-    //         style: "cancel"
-    //       }
-    //       // {
-    //       //   text: " Event ClearQueue",
-    //       //   style: "destructive",
-    //       //   onPress: () => console.log("on Pressed")
-    //       // }
-    //     ],
-    //     { cancelable: true }
-    //   );
-    // } else {
-    //   // this.setState({
-    //   //   coursesList: json.data
-    //   // });
-    //   console.log("json after state save is: ", json);
-    // }
+    if (!res.status) {
+      Alert.alert(
+        `${this.props.data.schoolName}`,
+        `${this.props.data.schoolName} school not found!`,
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      Alert.alert(
+        `${this.props.data.schoolName}`,
+        `${this.props.data.schoolName} School is added successfully!`,
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+      console.log("json after state save is: ", res);
+    }
     // updatecoursesList(json)
   };
 
