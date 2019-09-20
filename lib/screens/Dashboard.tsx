@@ -26,13 +26,6 @@ import {
   BaseAddSchoolButton
 } from "xdemic/lib/components/shared";
 
-const SELECTORS = [
-  { title: "T&C", value: 0 },
-  { title: "Privacy Policy", value: 1 },
-  { title: "Return Policy", value: 2 },
-  { title: "Reset all" }
-];
-
 interface DashboardProps {
   credentials: any[];
   componentId: string;
