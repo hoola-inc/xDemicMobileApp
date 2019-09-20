@@ -170,7 +170,7 @@ class AddSchool extends React.Component<
   render() {
     return (
       <Screen
-        type={Screen.Types.Secondary}
+        type={Screen.Types.Primary}
         config={Screen.Config.SafeScroll}
         statusBarHidden
         // footerNavDivider

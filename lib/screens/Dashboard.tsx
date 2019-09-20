@@ -210,7 +210,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   render() {
     console.log("school props from map state is: ", this.state.coursesList);
     return (
-      <Screen type={"secondary"}>
+      <Screen type={"primary"}>
         {/* {showSearchResult}
       {showNearToYou} */}
         <Container>

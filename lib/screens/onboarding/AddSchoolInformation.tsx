@@ -214,7 +214,7 @@ class AddSchoolInformation extends React.Component<
     console.log("AddSchoolInformation props is: ", this.props.data);
     return (
       <Screen
-        type={Screen.Types.Secondary}
+        type={Screen.Types.Primary}
         config={Screen.Config.SafeScroll}
         statusBarHidden
         // footerNavDivider
