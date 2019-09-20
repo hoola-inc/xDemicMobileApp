@@ -1,5 +1,11 @@
 import * as React from "react";
-import { ActivityIndicator, Image, Modal, StyleSheet } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  Modal,
+  StyleSheet,
+  Alert
+} from "react-native";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
 import {
@@ -121,6 +127,7 @@ class AddSchoolInformation extends React.Component<
     };
 
     this.addImage = this.addImage.bind(this);
+    this.studentAddSchool = this.studentAddSchool.bind(this);
   }
 
   componentDidMount() {
@@ -138,6 +145,55 @@ class AddSchoolInformation extends React.Component<
     const { name, termsAccepted, privacyAccepted } = this.state;
     return name && termsAccepted && privacyAccepted;
   }
+  /**
+   * Api Funnctions for right now
+   * after that we will need to change this
+   */
+  studentAddSchool = async () => {
+    const data = { ...this.props.data, studentName: "Rizwan" };
+    console.log("studentAddSchool this.props.data is: ", this.props.data);
+    const response = await fetch(
+      "https://xdemic-api.herokuapp.com/studentmobile",
+      {
+        method: "post",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+    // const json = await response.json();
+
+    console.log("new data is: ", data);
+    console.log("response is: ", response);
+
+    // if (!json.status) {
+    //   Alert.alert(
+    //     "Courses",
+    //     "Courses not found!",
+    //     [
+    //       {
+    //         text: "Cancel",
+    //         onPress: () => console.log("Cancel Pressed"),
+    //         style: "cancel"
+    //       }
+    //       // {
+    //       //   text: " Event ClearQueue",
+    //       //   style: "destructive",
+    //       //   onPress: () => console.log("on Pressed")
+    //       // }
+    //     ],
+    //     { cancelable: true }
+    //   );
+    // } else {
+    //   // this.setState({
+    //   //   coursesList: json.data
+    //   // });
+    //   console.log("json after state save is: ", json);
+    // }
+    // updatecoursesList(json)
+  };
 
   /**
    * UI Render main Screen
@@ -217,12 +273,14 @@ class AddSchoolInformation extends React.Component<
             <AddSchoolCancelGroup
               acceptText={"Add School"}
               cancelText={"Contact"}
-              onAccept={() =>
-                console.log("on accept buttonText state is: ", this.state)
-              }
-              onCancel={() =>
-                console.log("on cancel buttonText props is: ", this.props)
-              }
+              onAccept={() => {
+                this.studentAddSchool();
+                console.log("on accept buttonText state is: ", this.state);
+              }}
+              onCancel={() => {
+                // this.studentAddSchool();
+                console.log("on cancel buttonText props is: ", this.props.data);
+              }}
             />
             {/* </Container> */}
           </Container>
