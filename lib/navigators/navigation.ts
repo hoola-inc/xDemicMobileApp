@@ -141,16 +141,31 @@ export async function startMain() {
   /**
    * After icon design cleanup sort these out.
    */
+  const homeOutLine = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.homeOutLine,
+    26
+  );
   const credentialsIcon = await Icon.getImageSource(
     "feather",
     "check-circle",
     26
   );
-  const profileIcon = await Icon.getImageSource("feather", "user", 26);
+  const profileIcon = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.tooltipAccount,
+    26
+  );
   const contactsIcon = await Icon.getImageSource("feather", "users", 26);
-  const notificationsIcon = await Icon.getImageSource("feather", "bell", 26);
+  const notificationsIcon = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.bellOutline,
+    26
+  );
   const settingsIcon = await Icon.getImageSource("feather", "settings", 26);
+  const shareIcon = await Icon.getImageSource("materialicons", "share", 26);
   const scanIcon = await Icon.getImageSource("ionicons", Icon.Names.scan, 30);
+
   const rightButtonsCredentialScreen = Device.isIOS
     ? {
         id: "scanButton",
@@ -270,7 +285,7 @@ export async function startMain() {
                               }
                             },
                             bottomTab: {
-                              icon: credentialsIcon,
+                              icon: homeOutLine,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
                               iconInsets: {
@@ -418,6 +433,40 @@ export async function startMain() {
                             topBar: navBarText("Settings", true),
                             bottomTab: {
                               icon: settingsIcon,
+                              iconColor: Theme.colors.primary.accessories,
+                              selectedIconColor: Theme.colors.primary.brand,
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
+                            },
+                            fab: {
+                              id: "androidScan",
+                              visible: true,
+                              backgroundColor: Theme.colors.primary.brand,
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
+                              icon: scanIcon,
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: SCREENS.Share,
+                          options: {
+                            topBar: navBarText("Share", true),
+                            bottomTab: {
+                              icon: shareIcon,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
                               iconInsets: {

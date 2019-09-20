@@ -12,6 +12,7 @@ export default {
   AccountFunding: "AccountFunding",
   Notifications: "Notifications",
   Settings: "Settings",
+  Share: "Share",
   Profile: "Profile",
   DesignSystem: "DesignSystem",
   Scanner: "Scanner",

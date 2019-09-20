@@ -85,6 +85,10 @@ interface IconsStatic {
   menuUp: string;
   plusSquare: string;
   informationOutline: string;
+  shareIcon: string;
+  homeOutLine: string;
+  bellOutline: string;
+  tooltipAccount: string;
 }
 
 const Icons: IconsStatic = {
@@ -110,13 +114,17 @@ const Icons: IconsStatic = {
   add: "ios-add-circle-outline",
   remove: "ios-remove-circle",
   bell: "bell",
+  bellOutline: "bell-outline",
   search: "search",
   heart: "heart",
   addBox: "plus-box-outline",
   menuDown: "menu-down",
   menuUp: "menu-up",
   plusSquare: "far fa-plus-square",
-  informationOutline: "information-outline"
+  informationOutline: "information-outline",
+  shareIcon: "share",
+  homeOutLine: "home-outline",
+  tooltipAccount: "tooltip-account"
 };
 
 const IconImageSource = (font: string, icon: string, size: number) => {
