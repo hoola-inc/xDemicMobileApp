@@ -72,6 +72,11 @@ declare namespace Kancha {
     text: {
       lineHeights: {
         body: number;
+        h1: number;
+        h2: number;
+        h3: number;
+        caption1: number;
+        caption2: number;
       };
       sizes: {
         hero: number;

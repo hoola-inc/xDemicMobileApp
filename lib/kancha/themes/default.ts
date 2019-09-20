@@ -68,7 +68,12 @@ const ThemeColor = (
 const DefaultTheme: Kancha.ThemeStatic = {
   text: {
     lineHeights: {
-      body: 22
+      body: 22,
+      h1: 21,
+      h2: 16,
+      h3: 16,
+      caption1: 13,
+      caption2: 13
     },
     sizes: {
       hero: 28,
