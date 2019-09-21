@@ -298,6 +298,8 @@ class CreateIdentity extends React.Component<
    * Todo - Create Modal component used below...
    */
   renderIdentityCreationSuccess() {
+    console.log("this.state of on createIdentity is: ", this.state);
+    console.log("this.props of on createIdentity is: ", this.props);
     return (
       <Container
         flex={1}
@@ -403,7 +405,39 @@ class CreateIdentity extends React.Component<
         /**
          * Onboarding complete
          */
-        this.props.finishOnboarding();
+        // this.props.finishOnboarding();
+        setTimeout(() => {
+          this.setState({ ...this.state, identityCreationSuccess: false });
+          Navigation.push(this.props.componentId, {
+            component: {
+              name: SCREENS.AddSchool,
+              options: {
+                topBar: {
+                  elevation: 0,
+                  drawBehind: false,
+                  // rightButtons: [rightButtonsCredentialScreen],
+                  title: {
+                    text: "Add School",
+                    alignment: "center",
+                    fontFamily: "bold"
+                  },
+                  backButton: {
+                    visible: false
+                  }
+                }
+                // fab: {
+                //   id: "androidScan",
+                //   visible: true,
+                //   backgroundColor: Theme.colors.primary.brand,
+                //   clickColor: "#FFF",
+                //   rippleColor: "#ddd",
+                //   icon: scanIcon,
+                //   iconColor: "#FFF"
+                // }
+              }
+            }
+          });
+        }, 2000);
       }, 2000);
     }, 2600);
   }
@@ -425,10 +459,14 @@ const mapStateToProps = (state: any) => {
 
 export const mapDispatchToProps = (dispatch: any) => {
   return {
-    createIdentity: () => dispatch(createIdentity()),
-    finishOnboarding: () => {
+    createIdentity: () => {
+      dispatch(createIdentity());
       dispatch(activationEvent("ONBOARDED"));
       dispatch(track("Onboarding Complete Finished"));
+    },
+    finishOnboarding: () => {
+      // dispatch(activationEvent("ONBOARDED"));
+      // dispatch(track("Onboarding Complete Finished"));
       //**Start app after tracking events fire */
       startMain();
     },

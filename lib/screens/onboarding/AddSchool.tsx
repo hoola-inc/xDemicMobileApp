@@ -201,7 +201,7 @@ class AddSchool extends React.Component<
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
-                onPress={() => this.createIdentity()}
+                onPress={() => this.props.finishOnboarding()}
               />
             </Container>
           </Container>
@@ -421,7 +421,7 @@ class AddSchool extends React.Component<
         /**
          * Onboarding complete
          */
-        this.props.finishOnboarding();
+        // this.props.finishOnboarding();
       }, 2000);
     }, 2600);
   }
@@ -445,8 +445,8 @@ export const mapDispatchToProps = (dispatch: any) => {
   return {
     createIdentity: () => dispatch(createIdentity()),
     finishOnboarding: () => {
-      dispatch(activationEvent("ONBOARDED"));
-      dispatch(track("Onboarding Complete Finished"));
+      // dispatch(activationEvent("ONBOARDED"));
+      // dispatch(track("Onboarding Complete Finished"));
       //**Start app after tracking events fire */
       startMain();
     },
