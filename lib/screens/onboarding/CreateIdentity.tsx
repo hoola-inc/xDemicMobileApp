@@ -53,6 +53,9 @@ interface CreateIdentityProps {
 interface CreateIdentityState {
   valid: boolean;
   name: string;
+  phoneNumber: string;
+  identityNumber: string;
+  dob: string;
   termsAccepted: boolean;
   privacyAccepted: boolean;
   userAddingInfo: boolean;
@@ -124,6 +127,24 @@ class CreateIdentity extends React.Component<
     this.setState({
       ...this.state,
       name: text
+    });
+  };
+  onChangePhoneNumber = (text: string) => {
+    this.setState({
+      ...this.state,
+      phoneNumber: text
+    });
+  };
+  onChangeIdentityNumber = (text: string) => {
+    this.setState({
+      ...this.state,
+      identityNumber: text
+    });
+  };
+  onChangeDob = (text: string) => {
+    this.setState({
+      ...this.state,
+      dob: text
     });
   };
 
@@ -242,32 +263,32 @@ class CreateIdentity extends React.Component<
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
-              testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"Enter name or username"}
+              testID={TESTID.ONBOARDING_PHONE_NUMBER}
+              placeholder={"Enter Phone Number"}
               textType={Text.Types.H4}
-              value={this.state.name}
-              onChangeText={this.onChangeText}
-              valid={!!this.state.name}
+              value={this.state.phoneNumber}
+              onChangeText={this.onChangePhoneNumber}
+              valid={!!this.state.phoneNumber}
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
-              testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"Enter name or username"}
+              testID={TESTID.ONBOARDING_IDENTITY_NUMBER}
+              placeholder={"Enter Identity Number"}
               textType={Text.Types.H4}
-              value={this.state.name}
-              onChangeText={this.onChangeText}
-              valid={!!this.state.name}
+              value={this.state.identityNumber}
+              onChangeText={this.onChangeIdentityNumber}
+              valid={!!this.state.identityNumber}
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
-              testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"Enter name or username"}
+              testID={TESTID.ONBOARDING_DATE_OF_BIRTH}
+              placeholder={"Enter Date of Birth"}
               textType={Text.Types.H4}
-              value={this.state.name}
-              onChangeText={this.onChangeText}
-              valid={!!this.state.name}
+              value={this.state.dob}
+              onChangeText={this.onChangeDob}
+              valid={!!this.state.dob}
             />
           </Container>
           <Container padding>
@@ -428,7 +449,10 @@ class CreateIdentity extends React.Component<
             this.props.addImage(this.props.address, "avatar", this.state.image);
           this.state.name &&
             this.props.storeOwnClaim(this.props.address, {
-              name: this.state.name
+              name: this.state.name,
+              dob: this.state.dob,
+              phone: this.state.phoneNumber,
+              country: this.state.identityNumber
             });
         }
 
