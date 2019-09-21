@@ -406,6 +406,8 @@ class CreateIdentity extends React.Component<
          * Onboarding complete
          */
         // this.props.finishOnboarding();
+        // if you want to goo on add school then use this below code
+        // otherwise uncommit "this.props.finishOnboarding()" & comment below code
         setTimeout(() => {
           this.setState({ ...this.state, identityCreationSuccess: false });
           Navigation.push(this.props.componentId, {
