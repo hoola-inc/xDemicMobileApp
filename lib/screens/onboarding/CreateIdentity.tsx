@@ -230,7 +230,37 @@ class CreateIdentity extends React.Component<
               onPress={this.chooseProfileImage}
             />
           </Container>
-          <Container flexDirection={"row"} w={280}>
+          <Container flexDirection={"row"} w={280} paddingBottom>
+            <Input
+              testID={TESTID.ONBOARDING_NAME_INPUT}
+              placeholder={"Enter name or username"}
+              textType={Text.Types.H4}
+              value={this.state.name}
+              onChangeText={this.onChangeText}
+              valid={!!this.state.name}
+            />
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
+            <Input
+              testID={TESTID.ONBOARDING_NAME_INPUT}
+              placeholder={"Enter name or username"}
+              textType={Text.Types.H4}
+              value={this.state.name}
+              onChangeText={this.onChangeText}
+              valid={!!this.state.name}
+            />
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
+            <Input
+              testID={TESTID.ONBOARDING_NAME_INPUT}
+              placeholder={"Enter name or username"}
+              textType={Text.Types.H4}
+              value={this.state.name}
+              onChangeText={this.onChangeText}
+              valid={!!this.state.name}
+            />
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
               placeholder={"Enter name or username"}
