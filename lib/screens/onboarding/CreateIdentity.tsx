@@ -113,7 +113,10 @@ class CreateIdentity extends React.Component<
       image: undefined,
       userAddingInfo: true,
       userCreatingidentity: false,
-      identityCreationSuccess: false
+      identityCreationSuccess: false,
+      phoneNumber: "",
+      identityNumber: "",
+      dob: ""
     };
 
     this.addImage = this.addImage.bind(this);
