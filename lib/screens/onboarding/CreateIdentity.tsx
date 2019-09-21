@@ -205,6 +205,11 @@ class CreateIdentity extends React.Component<
             </Text>
             <Container paddingTop={5} paddingBottom>
               <Text type={Text.Types.SubTitle}>
+                Submit your information to confirm your identity
+              </Text>
+            </Container>
+            <Container paddingTop={5} paddingBottom>
+              <Text type={Text.Types.SubTitle}>
                 Add your name and optional photo
               </Text>
             </Container>

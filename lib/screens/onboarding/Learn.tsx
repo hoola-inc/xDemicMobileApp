@@ -45,19 +45,19 @@ const Learn: React.FC<LearnProps> = props => {
                 //   component: {
                 //     name: SCREENS.CreateIdentity,
                 //     options: {
-                //       topBar: {
-                //         elevation: 0,
-                //         drawBehind: false,
-                //         // rightButtons: [rightButtonsCredentialScreen],
-                //         title: {
-                //           text: "Add School",
-                //           alignment: "center",
-                //           fontFamily: "bold"
-                //         },
-                //         backButton: {
-                //           visible: false
-                //         }
-                //       }
+                //        topBar: {
+                //          elevation: 0,
+                //          drawBehind: false,
+                //          // rightButtons: [rightButtonsCredentialScreen],
+                //          title: {
+                //            text: "Add School",
+                //            alignment: "center",
+                //            fontFamily: "bold"
+                //          },
+                //          backButton: {
+                //            visible: false
+                //          }
+                //        }
                 //       // fab: {
                 //       //   id: "androidScan",
                 //       //   visible: true,
@@ -73,7 +73,21 @@ const Learn: React.FC<LearnProps> = props => {
                 Navigation.push(props.componentId, {
                   component: {
                     name: SCREENS.CreateIdentity,
-                    options: { topBar: { elevation: 0, drawBehind: false } }
+                    options: {
+                      topBar: {
+                        elevation: 0,
+                        drawBehind: false,
+                        // rightButtons: [rightButtonsCredentialScreen],
+                        title: {
+                          text: "Confirm Details",
+                          alignment: "center",
+                          fontFamily: "bold"
+                        },
+                        backButton: {
+                          visible: true
+                        }
+                      }
+                    }
                   }
                 })
               }
