@@ -281,13 +281,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               Records
             </Text>
           </Container>
+
           {this.state.coursesList.length > 0 &&
             this.state.coursesList.map((data: any, i: any) => (
               <Container paddingTop={Theme.spacing.default} key={i}>
                 <BaseCollapsible {...this.props} data={data} />
               </Container>
             ))}
-          {this.state.httpcoursesList.length > 0 &&
+
+          {/* this data show in inforation dialog box */}
+          {/* {this.state.httpcoursesList.length > 0 &&
             this.state.httpcoursesList.map((data: any, i: any) => {
               console.log(
                 'data["ceterms:name"].value is: ',
@@ -312,7 +315,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                   />
                 </Container>
               );
-            })}
+            })} */}
 
           {/* <Section title={"My Schools"}>
             <Container marginBottom>
