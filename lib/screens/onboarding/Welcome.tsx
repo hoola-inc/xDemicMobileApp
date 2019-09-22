@@ -131,29 +131,51 @@ class Welcome extends React.Component<WelcomeProps> {
             flex={1}
             justifyContent={"space-around"}
             alignItems={"center"}
-            paddingTop={50}
+            // paddingTop={50}
           >
-            {/* <Image
-              source={Images.branding.logoWhite}
+            <Image
+              source={Images.branding.xDemicLogo}
               style={{ height: 100 }}
               resizeMode={"contain"}
-            /> */}
-            <Text
+            />
+            {/* <Text
               type={Text.Types.H3}
               textColor={"white"}
               // bold
               textAlign={"center"}
             >
               Get started by creating a new identity.
+            </Text> */}
+          </Container>
+          <Container
+            flex={1}
+            justifyContent={"space-around"}
+            alignItems={"flex-start"}
+            padding={Theme.spacing.default32}
+            paddingLeft={Theme.spacing.default16}
+          >
+            <Image
+              source={Images.branding.brandLogo}
+              style={{ height: 100 }}
+              resizeMode={"contain"}
+            />
+            <Text
+              type={Text.Types.HERO}
+              textColor={"white"}
+              bold
+              // textAlign={"center"}
+            >
+              All your academic credentials. In one place.
             </Text>
           </Container>
           <Container flex={1} paddingTop alignItems={"center"}>
-            <Container w={300}>
+            <Container w={350}>
               <Button
                 testID={TESTID.ONBOARDING_GET_STARTED}
                 bold
                 fullWidth
-                buttonText={"Get Started"}
+                marginTop={Theme.spacing.default16}
+                buttonText={"Create New Identity"}
                 onPress={() =>
                   Navigation.push(this.props.componentId, {
                     component: {
@@ -166,10 +188,35 @@ class Welcome extends React.Component<WelcomeProps> {
                     }
                   })
                 }
-                type={Button.Types.Custom}
+                type={Button.Types.Primary}
                 block={Button.Block.Filled}
               />
               <Button
+                testID={TESTID.ONBOARDING_RECOVER}
+                marginTop={Theme.spacing.default16}
+                bold
+                fullWidth
+                buttonText={"Sign In"}
+                onPress={() =>
+                  Navigation.push(this.props.componentId, {
+                    component: {
+                      name: SCREENS.RECOVERY.RestoreSeedInstructions,
+                      options: {
+                        topBar: {
+                          backButton: {
+                            title: "Back",
+                            color: Theme.colors.primary.brand,
+                            visible: true
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
+                type={Button.Types.Custom}
+                block={Button.Block.Clear}
+              />
+              {/* <Button
                 testID={TESTID.ONBOARDING_RECOVER}
                 bold
                 fullWidth
@@ -192,7 +239,7 @@ class Welcome extends React.Component<WelcomeProps> {
                 }
                 type={Button.Types.Custom}
                 block={Button.Block.Clear}
-              />
+              /> */}
             </Container>
           </Container>
         </Container>

@@ -298,6 +298,11 @@ const TextTypes: Kancha.TextTypesStatic = {
  */
 
 const TextThemeMap: TextDefaultThemeMapTypes = {
+  hero: {
+    fontSize: DefaultTheme.text.sizes.hero,
+    fontFamily: font,
+    color: DefaultTheme.colors.primary.text
+  },
   h1: {
     fontSize: DefaultTheme.text.sizes.h1,
     fontFamily: font,
