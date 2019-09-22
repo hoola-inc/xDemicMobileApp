@@ -175,8 +175,8 @@ class CreateIdentity extends React.Component<
         statusBarHidden
         // footerNavDivider
         // footerNavComponent={
-        //   <Container alignItems={"center"} paddingBottom>
-        //     <Container w={300}>
+        //   <Container alignItems={"flex-end"} paddingBottom paddingRight>
+        //     <Container padding={0}>
         //       <Button
         //         testID={TESTID.ONBOARDING_CREATE_IDENTITY}
         //         icon={
@@ -331,42 +331,41 @@ class CreateIdentity extends React.Component<
               You can always change this information later
             </Text>
           </Container>
-          <Container flexDirection={"row"} padding justifyContent={"flex-end"}>
-            {/* <Button
-              fullWidth
-              block={Button.Block.Filled}
-              type={Button.Types.Primary}
-              buttonText={"Create Identity"}
-              onPress={() => console.log("primary button Create Identity")}
-            /> */}
-            <Button
-              testID={TESTID.ONBOARDING_CREATE_IDENTITY}
-              icon={
-                this.state.userCreatingidentity && (
-                  <ActivityIndicator
-                    color={"white"}
-                    style={{ marginRight: 10 }}
-                  />
-                )
-              }
-              fullWidth
-              disabled={
-                !this.isValid() ||
-                this.state.userCreatingidentity ||
-                this.state.identityCreationSuccess
-              }
-              buttonText={
-                this.state.userCreatingidentity
-                  ? "Generating keys...."
-                  : "Create Identity"
-              }
-              type={Button.Types.Primary}
-              block={Button.Block.Filled}
-              onPress={
-                // () => console.log("primary button Create Identity 1")
-                () => this.createIdentity()
-              }
-            />
+        </Container>
+        <Container alignItems={"flex-end"}>
+          <Container
+            // flexDirection={"row"}
+            // alignItems={"flex-end"}
+            paddingBottom
+            paddingRight
+          >
+            <Container padding={Theme.spacing.default16}>
+              <Button
+                testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+                icon={
+                  this.state.userCreatingidentity && (
+                    <ActivityIndicator
+                      color={"white"}
+                      style={{ marginRight: 10 }}
+                    />
+                  )
+                }
+                fullWidth
+                disabled={
+                  !this.isValid() ||
+                  this.state.userCreatingidentity ||
+                  this.state.identityCreationSuccess
+                }
+                buttonText={
+                  this.state.userCreatingidentity
+                    ? "Generating keys...."
+                    : "Create Identity"
+                }
+                type={Button.Types.Primary}
+                block={Button.Block.Filled}
+                onPress={() => this.createIdentity()}
+              />
+            </Container>
           </Container>
         </Container>
         {/* <Container>
