@@ -122,7 +122,7 @@ interface KanchaTextProps {
   /**
    * Transform the text
    */
-  transform?: "uppercase" | "lowercase" | undefined;
+  transform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
 
   /**
    * Transform the text
