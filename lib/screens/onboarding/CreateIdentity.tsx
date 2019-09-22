@@ -280,7 +280,7 @@ class CreateIdentity extends React.Component<
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"name or username"}
+              placeholder={"Name or username"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.name}
