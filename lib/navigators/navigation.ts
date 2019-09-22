@@ -165,6 +165,11 @@ export async function startMain() {
   const settingsIcon = await Icon.getImageSource("feather", "settings", 26);
   const shareIcon = await Icon.getImageSource("materialicons", "share", 26);
   const scanIcon = await Icon.getImageSource("ionicons", Icon.Names.scan, 30);
+  const plus = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.plus,
+    30
+  );
 
   const rightButtonsCredentialScreen = Device.isIOS
     ? {
@@ -482,7 +487,7 @@ export async function startMain() {
                               backgroundColor: Theme.colors.primary.brand,
                               clickColor: "#FFF",
                               rippleColor: "#ddd",
-                              icon: scanIcon,
+                              icon: plus,
                               iconColor: "#FFF"
                             }
                           }
