@@ -152,8 +152,16 @@ class CreateIdentity extends React.Component<
   };
 
   isValid() {
-    const { name, termsAccepted, privacyAccepted } = this.state;
-    return name && termsAccepted && privacyAccepted;
+    const {
+      name,
+      dob,
+      phoneNumber,
+      identityNumber,
+      termsAccepted,
+      privacyAccepted
+    } = this.state;
+    return name && dob && phoneNumber && identityNumber;
+    //&& termsAccepted && privacyAccepted;
   }
 
   /**
@@ -162,41 +170,41 @@ class CreateIdentity extends React.Component<
   render() {
     return (
       <Screen
-        type={Screen.Types.Primary}
+        type={Screen.Types.Secondary}
         config={Screen.Config.SafeScroll}
         statusBarHidden
-        footerNavDivider
-        footerNavComponent={
-          <Container alignItems={"center"} paddingBottom>
-            <Container w={300}>
-              <Button
-                testID={TESTID.ONBOARDING_CREATE_IDENTITY}
-                icon={
-                  this.state.userCreatingidentity && (
-                    <ActivityIndicator
-                      color={"white"}
-                      style={{ marginRight: 10 }}
-                    />
-                  )
-                }
-                fullWidth
-                disabled={
-                  !this.isValid() ||
-                  this.state.userCreatingidentity ||
-                  this.state.identityCreationSuccess
-                }
-                buttonText={
-                  this.state.userCreatingidentity
-                    ? "Generating keys...."
-                    : "Create Identity"
-                }
-                type={Button.Types.Primary}
-                block={Button.Block.Filled}
-                onPress={() => this.createIdentity()}
-              />
-            </Container>
-          </Container>
-        }
+        // footerNavDivider
+        // footerNavComponent={
+        //   <Container alignItems={"center"} paddingBottom>
+        //     <Container w={300}>
+        //       <Button
+        //         testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+        //         icon={
+        //           this.state.userCreatingidentity && (
+        //             <ActivityIndicator
+        //               color={"white"}
+        //               style={{ marginRight: 10 }}
+        //             />
+        //           )
+        //         }
+        //         fullWidth
+        //         disabled={
+        //           !this.isValid() ||
+        //           this.state.userCreatingidentity ||
+        //           this.state.identityCreationSuccess
+        //         }
+        //         buttonText={
+        //           this.state.userCreatingidentity
+        //             ? "Generating keys...."
+        //             : "Create Identity"
+        //         }
+        //         type={Button.Types.Primary}
+        //         block={Button.Block.Filled}
+        //         onPress={() => this.createIdentity()}
+        //       />
+        //     </Container>
+        //   </Container>
+        // }
       >
         {this.renderUserAddingInfo()}
       </Screen>
@@ -269,6 +277,7 @@ class CreateIdentity extends React.Component<
               testID={TESTID.ONBOARDING_PHONE_NUMBER}
               placeholder={"Enter Phone Number"}
               textType={Text.Types.H4}
+              type={"text"}
               value={this.state.phoneNumber}
               onChangeText={this.onChangePhoneNumber}
               valid={!!this.state.phoneNumber}
@@ -299,8 +308,45 @@ class CreateIdentity extends React.Component<
               You can always change this information later
             </Text>
           </Container>
+          <Container flexDirection={"row"} padding justifyContent={"flex-end"}>
+            {/* <Button
+              fullWidth
+              block={Button.Block.Filled}
+              type={Button.Types.Primary}
+              buttonText={"Create Identity"}
+              onPress={() => console.log("primary button Create Identity")}
+            /> */}
+            <Button
+              testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+              icon={
+                this.state.userCreatingidentity && (
+                  <ActivityIndicator
+                    color={"white"}
+                    style={{ marginRight: 10 }}
+                  />
+                )
+              }
+              fullWidth
+              disabled={
+                !this.isValid() ||
+                this.state.userCreatingidentity ||
+                this.state.identityCreationSuccess
+              }
+              buttonText={
+                this.state.userCreatingidentity
+                  ? "Generating keys...."
+                  : "Create Identity"
+              }
+              type={Button.Types.Primary}
+              block={Button.Block.Filled}
+              onPress={
+                // () => console.log("primary button Create Identity 1")
+                () => this.createIdentity()
+              }
+            />
+          </Container>
         </Container>
-        <Container>
+        {/* <Container>
           <Section>
             <ListItem
               accessible={false}
@@ -348,7 +394,7 @@ class CreateIdentity extends React.Component<
               Accept privacy policy
             </ListItem>
           </Section>
-        </Container>
+        </Container> */}
       </Container>
     );
   }
