@@ -11,6 +11,7 @@ export const Images = {
     logoWhite: require("xdemic/assets/images/uport-white.png")
   },
   backgrounds: {
+    fingerprint: require("xdemic/assets/images/fingerprint.png"),
     purpleGradientURI: "xdemic/assets/images/background-purple-gradient.png",
     purpleGradient: require("xdemic/assets/images/background-purple-gradient.png"),
     purpleGradientWithPattern: require("xdemic/assets/images/background-purple-gradient-pattern.png"),
