@@ -1,586 +1,268 @@
-import React from "react";
+/***
+ *  Copyright (C) 2019 Hoola Inc
+ *
+ *  This file is part of xDemic Mobile App
+ *  xDemic Mobile App is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+
+ *  xDemic Mobile App is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  ERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ * 
+ *  You should have received a copy of the GNU General Public License
+ *  along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ ***/
+
+import * as React from "react";
 import { connect } from "react-redux";
-import { TouchableOpacity, Share, Alert, Clipboard } from "react-native";
+import { Item, Input as InputNative } from "native-base";
+import { ActivityIndicator, StyleSheet, Alert } from "react-native";
 import {
   Screen,
+  ListItem,
+  Theme,
+  Section,
   Container,
   Text,
-  Section,
-  ListItem,
-  Button,
-  Theme,
-  Icon
+  Icon,
+  Colors,
+  SignPost,
+  SignPostCardType,
+  Images,
+  Button
 } from "@kancha";
-import Avatar from "xdemic/lib/components/shared/Avatar";
-
 import { Navigation } from "react-native-navigation";
-import { wei2eth } from "xdemic/lib/helpers/conversions";
+import SCREENS from "../screens/Screens";
+import { hdRootAddress } from "xdemic/lib/selectors/hdWallet";
+import Mori from "mori";
+import {
+  AvatarNameWithSubHeader,
+  BaseAddSchoolButton
+} from "xdemic/lib/components/shared";
 import {
   currentAddress,
   ownClaims,
   myAccounts,
   allIdentities
 } from "xdemic/lib/selectors/identities";
-import { externalProfile } from "xdemic/lib/selectors/requests";
-import { editMyInfo, updateShareToken } from "xdemic/lib/actions/myInfoActions";
-import {
-  addClaims,
-  addImage,
-  switchIdentity,
-  refreshBalance
-} from "xdemic/lib/actions/uportActions";
-import { onlyLatestAttestationsWithIssuer } from "xdemic/lib/selectors/attestations";
-import SCREENS from "../screens/Screens";
-import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
-import Mori from "mori";
-
-/**
- * User data fields (Self attested claims)
- */
-const USER_FIELDS = ["name", "email", "country", "phone", "avatar", "dob"];
-
-interface EthereumAccountListItem {
-  name: string;
-  network: string;
-  balance: string;
-  address: string;
-  hexaddress: string;
-  accountProfile: any;
-  isLast: boolean;
-}
-
-interface Identity {
-  name: string;
-  address: string;
-  network: string;
-  isCurrent: boolean;
-}
-
-interface SelfClaim {
-  type: string;
-  name: string;
-  value: string | undefined;
-}
+import BaseCard from "xdemic/lib/components/shared/BaseCard";
+import { font } from "xdemic/lib/styles/globalStyles";
 
 interface UserShareProps {
-  [index: string]: any;
+  componentId: string;
+
   avatar: any;
   name: string;
-  email: string;
-  country: string;
-  phone: string;
-  userData: any;
-  dob: string;
-  address: string;
-  shareToken: string;
-  verifications: any;
-  allIdentities: any[];
-  accounts: any;
-
-  /**
-   * Redux actions
-   */
-  updateShareToken: (address: string) => any;
-  accountProfileLookup: (clientId: string) => any;
-  storeOwnClaim: (address: string, claims: any) => void;
-  editMyInfo: (change: any) => void;
-  addImage: (address: string, claimType: string, image: any) => void;
-  switchIdentity: (address: string) => void;
-  refreshBalance: (address: string) => void;
 }
 
 interface UserShareState {
-  editMode: boolean;
+  devMode: boolean;
+  count: number;
+  schools: any[];
 }
 
 export class UserShare extends React.Component<UserShareProps, UserShareState> {
   constructor(props: UserShareProps) {
     super(props);
 
+    /**
+     * Enable devmode in simulator by default
+     */
     this.state = {
-      editMode: false
+      devMode: __DEV__ ? true : false,
+      count: 0,
+      schools: []
     };
 
-    Navigation.events().bindComponent(this);
-    this.photoSelection = this.photoSelection.bind(this);
+    this.fetchSchools = this.fetchSchools.bind(this);
+  }
+  componentDidMount() {
+    this.fetchSchools();
   }
 
-  /** Method from Navigator */
-  navigationButtonPressed({ buttonId }: { buttonId: string }) {
-    switch (buttonId) {
-      case "edit":
-        this.setState({ editMode: true });
-        this.setEditModeButtons();
-        return;
-      case "save":
-        this.handleSubmit();
-        this.setState({ editMode: false });
-        this.setDefaultButtons();
-        return;
-      case "cancel":
-        this.setState({ editMode: false });
-        this.setDefaultButtons();
-        this.handleCancel();
-        return;
+  fetchSchools = async () => {
+    const response = await fetch("https://xdemic-api.herokuapp.com/schools");
+    const json = await response.json();
+    if (!json.status) {
+      Alert.alert(
+        "Schools",
+        "Schools not found!",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      this.setState({
+        schools: json.data
+      });
     }
+  };
+  goToScreen(screenID: string) {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: screenID,
+        options: {
+          topBar: {
+            largeTitle: {
+              visible: false
+            }
+          }
+        }
+      }
+    });
+  }
+
+  incrementDeveloperModeCount() {
+    this.setState(state => {
+      return {
+        count: state.count + 1,
+        devMode: state.count >= 10
+      };
+    });
+  }
+
+  /**
+   * UI Render states
+   */
+  renderUserAddingInfo() {
+    console.log("renderUserAddingInfo is: ", this.state.schools);
+    return (
+      <Container
+      // disabled={
+      //   this.state.userCreatingidentity || this.state.identityCreationSuccess
+      // }
+      >
+        <Container
+          flex={1}
+          justifyContent={"center"}
+          paddingLeft={Theme.spacing.default16}
+          paddingRight={Theme.spacing.default16}
+        >
+          <Container paddingTop={Theme.spacing.default16}>
+            <Text
+              type={Text.Types.H2}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              // paddingTop={29}
+              paddingBottom={Theme.spacing.default}
+            >
+              Recipients
+            </Text>
+            <Item style={Styles.input}>
+              <Icon
+                name={"search"}
+                font={"materialicons"}
+                color={Colors.LIGHT_GREY}
+                size={20}
+              />
+              <InputNative
+                style={{
+                  // ...textStyles.h3,
+                  fontFamily: font,
+                  paddingTop: Theme.spacing.default16,
+                  paddingLeft: Theme.spacing.default16,
+                  textAlign: "left",
+                  fontSize: Theme.text.sizes.h6,
+                  color: Colors.DARK_GREY
+                }}
+                placeholder="Search..."
+              />
+            </Item>
+          </Container>
+          <Container>
+            <Text
+              type={Text.Types.H2}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={Theme.spacing.default32}
+              paddingBottom={Theme.spacing.default}
+            >
+              Search Result
+            </Text>
+            {this.state.schools.length !== 0 &&
+              this.state.schools.map((data: any, i: any) => {
+                return (
+                  <BaseCard
+                    {...this.props}
+                    data={{
+                      schoolAddress: data.address,
+                      schoolName: data.name,
+                      schoolPosition: data.address,
+                      expandable: false
+                    }}
+                    key={i}
+                  />
+                );
+              })}
+          </Container>
+        </Container>
+        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
+          <Container>
+            <Text
+              type={Text.Types.H2}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={Theme.spacing.default32}
+              paddingBottom={Theme.spacing.default}
+            >
+              Favorites
+            </Text>
+            {this.state.schools.length !== 0 &&
+              this.state.schools.map((data: any, i: any) => {
+                return (
+                  <BaseCard
+                    {...this.props}
+                    data={{
+                      schoolAddress: data.address,
+                      schoolName: data.name,
+                      schoolPosition: data.address,
+                      expandable: false
+                    }}
+                    key={i}
+                  />
+                );
+              })}
+          </Container>
+        </Container>
+      </Container>
+    );
   }
 
   render() {
+    const { name, avatar } = this.props;
     return (
-      <Screen
-        config={Screen.Config.Scroll}
-        headerBackgroundColor={Theme.colors.primary.brand}
-        // expandingHeaderContent={this.renderHeader()}
-      >
-        <Container paddingBottom>
-          {/* {this.renderInfoBar()}
-          {this.renderIdentitySwitcher()}
-          {this.renderPersonalInformation()}
-          {this.renderEthereumAccounts()} */}
+      <Screen type={Screen.Types.Secondary} config={Screen.Config.SafeScroll}>
+        <Container>
+          <AvatarNameWithSubHeader
+            avatar={avatar}
+            avatarSize={Theme.avatarSize.default}
+            name={name || "Bilal Javed Awan"}
+            address={"School Name"}
+            type={"personInformation"}
+            detailed={false}
+          />
         </Container>
+        {this.renderUserAddingInfo()}
+        <Container paddingBottom />
       </Screen>
     );
-  }
-
-  renderHeader() {
-    return (
-      <Container justifyContent={"center"} alignItems={"center"} paddingTop>
-        {this.state.editMode && (
-          <TouchableOpacity
-            onPress={this.photoSelection}
-            style={{
-              position: "absolute",
-              top: 20,
-              backgroundColor: "rgba(0,0,0,0.8)",
-              zIndex: 1,
-              borderRadius: 8,
-              padding: 5
-            }}
-          >
-            <Text textColor={Theme.colors.inverted.text}>Update avatar</Text>
-          </TouchableOpacity>
-        )}
-        <Avatar
-          source={this.props.avatar}
-          size={150}
-          style={{
-            borderWidth: 2,
-            borderColor: Theme.colors.inverted.accessories
-          }}
-        />
-        <Container padding flexDirection={"row"} alignItems={"center"}>
-          <Text
-            bold
-            type={Text.Types.H2}
-            textColor={Theme.colors.inverted.text}
-          >
-            {this.props.name}
-          </Text>
-        </Container>
-      </Container>
-    );
-  }
-
-  renderInfoBar() {
-    return (
-      <Container
-        padding
-        flexDirection={"row"}
-        alignItems={"center"}
-        flex={1}
-        backgroundColor={Theme.colors.primary.background}
-        dividerBottom
-      >
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon name={"success"} color={Theme.colors.primary.accessories} />
-            }
-            onPress={() =>
-              Navigation.mergeOptions(this.props.componentId, {
-                bottomTabs: {
-                  currentTabIndex: 0
-                }
-              })
-            }
-          />
-          <Container>
-            <Text type={Text.Types.ListItemNote}>
-              {Mori.count(this.props.verifications)} Credentials
-            </Text>
-          </Container>
-        </Container>
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon
-                name={"qrcode"}
-                font={"fontawesome"}
-                color={Theme.colors.primary.accessories}
-              />
-            }
-            onPress={() => this.showQRCode()}
-          />
-          <Text type={Text.Types.ListItemNote}>QR Code</Text>
-        </Container>
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon name={"share"} color={Theme.colors.primary.accessories} />
-            }
-            onPress={() => this.showQShareDialog()}
-          />
-          <Text type={Text.Types.ListItemNote}>Share</Text>
-        </Container>
-      </Container>
-    );
-  }
-
-  renderIdentitySwitcher() {
-    return (
-      this.props.allIdentities.length > 1 && (
-        <Section
-          title={"Identities"}
-          sectionTitleType={Text.Types.SectionHeader}
-        >
-          {this.formattedIdentityList().map(
-            (
-              { name, address, network, isCurrent }: Identity,
-              index: number
-            ) => {
-              return (
-                <ListItem
-                  disabled={this.state.editMode}
-                  hideForwardArrow
-                  selected={isCurrent}
-                  title={network}
-                  contentRight={address}
-                  key={address}
-                  onPress={() => this.switchIdentity(address)}
-                  last={index === 1}
-                >
-                  {name}
-                </ListItem>
-              );
-            }
-          )}
-        </Section>
-      )
-    );
-  }
-
-  renderPersonalInformation() {
-    return (
-      <Section title={"Personal"} sectionTitleType={Text.Types.SectionHeader}>
-        {this.selfAttestedClaims().map((item: SelfClaim, index: number) => {
-          return (
-            item.type !== "avatar" && (
-              <ListItem
-                title={item.name}
-                last={true} /** Remove divider */
-                key={item.type}
-                editMode={this.state.editMode}
-                updateItem={(value: string) =>
-                  this.handleChange({ [item.type]: value })
-                }
-              >
-                {item.value}
-              </ListItem>
-            )
-          );
-        })}
-      </Section>
-    );
-  }
-
-  showAlert(account: EthereumAccountListItem) {
-    const title =
-      account.network.toLowerCase() === "mainnet"
-        ? "Mainnet Ethereum Account"
-        : "Testnet Ethereum Account";
-    const message =
-      account.network.toLowerCase() === "mainnet"
-        ? `Copy your Mainnet ethereum adddress to your clipboard ${
-            account.hexaddress
-          }`
-        : `Warning! This is a testnet account (${
-            account.network
-          }). Do not send real ETH to this account or you will lose it. ${
-            account.hexaddress
-          }.`;
-
-    Alert.alert(
-      title,
-      message,
-      [
-        { text: "Cancel" },
-        { text: "Copy", onPress: () => Clipboard.setString(account.hexaddress) }
-      ],
-      {
-        cancelable: true
-      }
-    );
-  }
-  renderEthereumAccounts() {
-    return (
-      this.props.accounts.length > 0 && (
-        <Section
-          title={"Ethereum Accounts for signing"}
-          sectionTitleType={Text.Types.SectionHeader}
-        >
-          {this.formattedAccountList().map(
-            (account: EthereumAccountListItem, index: number) => {
-              return (
-                <ListItem
-                  avatarComponent={
-                    <TouchableOpacity
-                      onPress={() => this.props.refreshBalance(account.address)}
-                    >
-                      <Icon
-                        name={"sync"}
-                        color={Theme.colors.primary.accessories}
-                      />
-                    </TouchableOpacity>
-                  }
-                  title={account.name + " - " + account.network}
-                  key={account.address}
-                  accessoryRight={account.balance}
-                  last={account.isLast}
-                  hideForwardArrow
-                  onPress={() => this.showAlert(account)}
-                >
-                  {account.hexaddress.slice(0, 15) + "..."}
-                </ListItem>
-              );
-            }
-          )}
-        </Section>
-      )
-    );
-  }
-
-  /**
-   * Check if identity matches /did:ethr/ (mainnet)
-   */
-  isMainIdentity(address: string) {
-    return address.match(/did:ethr/);
-  }
-
-  /**
-   * Update UI when user switches awy from a mainnet identity
-   */
-  switchIdentity(address: string) {
-    if (!this.isMainIdentity(address)) {
-      this.setLegacyModeButtons();
-    } else {
-      this.setDefaultButtons();
-    }
-
-    this.props.switchIdentity(address);
-  }
-
-  /**
-   * Show QRCode of users profile for sharing
-   */
-  showQRCode() {
-    const url = `https://id.uport.me/req/${this.props.shareToken}`;
-
-    Navigation.showModal({
-      component: {
-        name: SCREENS.ProfileQRCode,
-        passProps: {
-          url,
-          title: this.props.name,
-          onClose: Navigation.dismissModal,
-          componentId: this.props.componentId
-        },
-        options: {
-          topBar: {
-            visible: false
-          }
-        }
-      }
-    });
-  }
-
-  /**
-   * Show share dialog
-   */
-  showQShareDialog() {
-    this.props.updateShareToken(this.props.address);
-    const url = `https://id.uport.me/req/${this.props.shareToken}`;
-
-    Share.share(
-      {
-        url,
-        title: `Share contact`,
-        message: `${this.props.name} would like you to add them as a contact`
-      },
-      {
-        dialogTitle: `Share contact`
-      }
-    );
-  }
-
-  /**
-   * Formatting account list
-   */
-  formattedAccountList(): EthereumAccountListItem[] {
-    return this.props.accounts.map(
-      (account: any, index: number): EthereumAccountListItem => {
-        const accountProfile = account.clientId
-          ? this.props.accountProfileLookup(account.clientId)
-          : null;
-        const networkName =
-          account.network.charAt(0).toUpperCase() +
-          account.network.slice(1).toLowerCase();
-        return {
-          name: accountProfile ? accountProfile.name : "Ethereum Account",
-          network: networkName,
-          balance:
-            account.balance && account.balance.ethBalance
-              ? `${wei2eth(account.balance.ethBalance)} ETH`
-              : `${0} ETH`,
-          address: account.address,
-          hexaddress: account.hexaddress,
-          accountProfile,
-          isLast: this.props.accounts.length === index + 1
-        };
-      }
-    );
-  }
-
-  /**
-   * Formatting list of identities
-   */
-  formattedIdentityList(): Identity[] {
-    return this.props.allIdentities
-      .map(
-        ({ address, network }): Identity => {
-          return {
-            name: `${address.match(/did:ethr:/) ? "Primary" : "Legacy"}`,
-            address,
-            network: `${network.charAt(0).toUpperCase() + network.slice(1)}`,
-            isCurrent: address === this.props.address
-          };
-        }
-      )
-      .reverse();
-  }
-
-  /**
-   * Formatting personal info
-   */
-  selfAttestedClaims(): SelfClaim[] {
-    return USER_FIELDS.map(
-      (item: string): SelfClaim => {
-        return {
-          type: item,
-          name: item.charAt(0).toUpperCase() + item.slice(1),
-          value: this.props[item]
-        };
-      }
-    );
-  }
-
-  /**
-   * Update share token
-   */
-  componentDidMount() {
-    this.setDefaultButtons();
-    this.props.updateShareToken(this.props.address);
-  }
-
-  /**
-   * Setttig the edit buttons
-   */
-  setEditModeButtons() {
-    Navigation.mergeOptions(this.props.componentId, {
-      topBar: {
-        rightButtons: [
-          {
-            id: "cancel",
-            text: "Cancel"
-          },
-          {
-            id: "save",
-            text: "Save"
-          }
-        ]
-      }
-    });
-  }
-
-  setDefaultButtons() {
-    Navigation.mergeOptions(this.props.componentId, {
-      topBar: {
-        rightButtons: [
-          {
-            id: "edit",
-            text: "Edit"
-          }
-        ]
-      }
-    });
-  }
-
-  setLegacyModeButtons() {
-    Navigation.mergeOptions(this.props.componentId, {
-      topBar: {
-        rightButtons: []
-      }
-    });
-  }
-
-  /**
-   * Using the old methods here. These will be cleaned up next
-   */
-  photoSelection() {
-    photoSelectionHandler({
-      cameraStatus: null,
-      photoStatus: null,
-      segmentId: null,
-      addFn: this.props.editMyInfo
-    });
-  }
-
-  handleChange(change: any) {
-    this.props.editMyInfo(change);
-  }
-
-  handleCancel() {
-    const change: { [index: string]: any } = {};
-    USER_FIELDS.map(attr => {
-      change[attr] = this.props.userData[attr];
-    });
-    this.props.editMyInfo(change);
-    this.setState({ editMode: false });
-  }
-
-  changed() {
-    const change: { [index: string]: any } = {};
-    USER_FIELDS.map(attr => {
-      if (this.props[attr] !== this.props.userData[attr]) {
-        change[attr] = this.props[attr];
-      }
-    });
-    return change;
-  }
-
-  handleSubmit() {
-    const change = this.changed();
-    // tslint:disable-next-line:no-string-literal
-    delete change["avatar"];
-    if (Object.keys(change).length > 0) {
-      this.props.storeOwnClaim(this.props.address, change);
-    }
-    if (this.props.avatar && this.props.avatar.data) {
-      this.props.addImage(this.props.address, "avatar", this.props.avatar);
-    }
-    this.props.updateShareToken(this.props.address);
   }
 }
 
@@ -595,55 +277,29 @@ const mapStateToProps = (state: any, ownProps: any) => {
     name:
       typeof state.myInfo.changed.name !== "undefined"
         ? state.myInfo.changed.name
-        : userData.name,
-    email:
-      typeof state.myInfo.changed.email !== "undefined"
-        ? state.myInfo.changed.email
-        : userData.email,
-    country:
-      typeof state.myInfo.changed.country !== "undefined"
-        ? state.myInfo.changed.country
-        : userData.country,
-    phone:
-      typeof state.myInfo.changed.phone !== "undefined"
-        ? state.myInfo.changed.phone
-        : userData.phone,
-    dob:
-      typeof state.myInfo.changed.dob !== "undefined"
-        ? state.myInfo.changed.dob
-        : userData.dob,
-    userData,
-    address: currentAddress(state),
-    shareToken: state.myInfo.shareToken,
-    verifications: onlyLatestAttestationsWithIssuer(state),
-    allIdentities: Mori.toJs(allIdentities(state)),
-    accounts: myAccounts(state),
-    accountProfileLookup: (clientId: string) =>
-      Mori.toJs(externalProfile(state, clientId))
-  };
-};
-export const mapDispatchToProps = (dispatch: any) => {
-  return {
-    storeOwnClaim: (address: string, claims: any) => {
-      dispatch(addClaims(address, claims));
-    },
-    editMyInfo: (change: any) => {
-      dispatch(editMyInfo(change));
-    },
-    addImage: (address: string, claimType: string, image: any) => {
-      dispatch(addImage(address, claimType, image));
-    },
-    updateShareToken: (address: string) => {
-      dispatch(updateShareToken(address));
-    },
-    switchIdentity: (address: string) => {
-      dispatch(switchIdentity(address));
-    },
-    refreshBalance: (address: string) => dispatch(refreshBalance(address))
+        : userData.name
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserShare);
+export default connect(mapStateToProps)(UserShare);
+
+const Styles = StyleSheet.create({
+  input: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    shadowOffset: { width: 0, height: 1 },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 2,
+
+    shadowColor: "#4f4f4f",
+    shadowRadius: 4,
+    shadowOpacity: 0.2,
+    elevation: 3,
+
+    // fontSize: Theme.text.sizes.h6,
+    color: Colors.DARK_GREY,
+
+    paddingLeft: Theme.spacing.default16,
+    height: 40
+  }
+});
