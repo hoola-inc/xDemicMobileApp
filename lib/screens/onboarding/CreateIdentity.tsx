@@ -231,12 +231,18 @@ class CreateIdentity extends React.Component<
             {this.renderIdentityCreationSuccess()}
           </Modal>
 
-          <Container alignItems={"center"} paddingBottom paddingTop>
-            <Text type={Text.Types.H2} bold>
+          <Container
+            // flexDirection={"row"}
+            w={280}
+            alignItems={"flex-start"}
+            paddingBottom
+            paddingTop
+          >
+            {/* <Text type={Text.Types.H2} bold>
               Personalize xDemic
-            </Text>
-            <Container paddingTop={5} paddingBottom>
-              <Text type={Text.Types.SubTitle}>
+            </Text> */}
+            <Container paddingTop={Theme.spacing.default32} paddingBottom>
+              <Text type={Text.Types.H3}>
                 Submit your information to confirm your identity
               </Text>
             </Container>
@@ -246,7 +252,7 @@ class CreateIdentity extends React.Component<
               </Text>
             </Container>
           </Container>
-          <Container
+          {/* <Container
             justifyContent={"center"}
             alignItems={"center"}
             paddingBottom
@@ -261,16 +267,20 @@ class CreateIdentity extends React.Component<
               type={Button.Types.Primary}
               onPress={this.chooseProfileImage}
             />
-          </Container>
+          </Container> */}
           <Container flexDirection={"row"} w={280} paddingBottom>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              Enter name or username
+            <Text
+              type={Text.Types.SubTitle}
+              textAlign={"center"}
+              transform={"uppercase"}
+            >
+              Name or username
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"Enter name or username"}
+              placeholder={"name or username"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.name}
@@ -279,14 +289,18 @@ class CreateIdentity extends React.Component<
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              Enter Phone Number
+            <Text
+              type={Text.Types.SubTitle}
+              textAlign={"center"}
+              transform={"uppercase"}
+            >
+              Phone Number
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_PHONE_NUMBER}
-              placeholder={"Enter Phone Number"}
+              placeholder={"Phone Number"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.phoneNumber}
@@ -295,14 +309,18 @@ class CreateIdentity extends React.Component<
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              Enter Identity Number
+            <Text
+              transform={"uppercase"}
+              type={Text.Types.SubTitle}
+              textAlign={"center"}
+            >
+              Identity Number
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_IDENTITY_NUMBER}
-              placeholder={"Enter Identity Number"}
+              placeholder={"Identity Number"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.identityNumber}
@@ -311,14 +329,18 @@ class CreateIdentity extends React.Component<
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              Enter Date of Birth
+            <Text
+              transform={"uppercase"}
+              type={Text.Types.SubTitle}
+              textAlign={"center"}
+            >
+              Date of Birth
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_DATE_OF_BIRTH}
-              placeholder={"Enter Date of Birth"}
+              placeholder={"Date of Birth"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.dob}
