@@ -11,6 +11,7 @@ import {
   OnboardingSwiperSlide,
   Button,
   Container,
+  Colors,
   Icon
 } from "@kancha";
 import { OnboardingContent } from "xdemic/lib/content/onboardingSlideContent";
@@ -75,14 +76,19 @@ const Learn: React.FC<LearnProps> = props => {
                     name: SCREENS.CreateIdentity,
                     options: {
                       topBar: {
-                        elevation: 0,
                         drawBehind: false,
+                        // background: {
+                        //   color: Colors.DARK_GREY
+                        // },
+                        elevation: 0,
+
                         // rightButtons: [rightButtonsCredentialScreen],
                         title: {
                           text: "Confirm Details",
                           alignment: "center",
                           fontFamily: "bold"
                         },
+
                         backButton: {
                           visible: true
                         }

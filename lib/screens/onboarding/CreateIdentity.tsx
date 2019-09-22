@@ -11,6 +11,7 @@ import {
   Theme,
   Icon,
   Images,
+  Colors,
   Checkbox,
   Section,
   ListItem
@@ -242,7 +243,7 @@ class CreateIdentity extends React.Component<
               Personalize xDemic
             </Text> */}
             <Container paddingTop={Theme.spacing.default32} paddingBottom>
-              <Text type={Text.Types.H3}>
+              <Text type={Text.Types.H3} bold textColor={Colors.DARK_GREY}>
                 Submit your information to confirm your identity
               </Text>
             </Container>
