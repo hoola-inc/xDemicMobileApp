@@ -135,7 +135,7 @@ class Welcome extends React.Component<WelcomeProps> {
           >
             <Image
               source={Images.branding.xDemicLogo}
-              style={{ height: 100 }}
+              style={{ height: 500 }}
               resizeMode={"contain"}
             />
             {/* <Text
@@ -154,11 +154,11 @@ class Welcome extends React.Component<WelcomeProps> {
             padding={Theme.spacing.default32}
             paddingLeft={Theme.spacing.default16}
           >
-            <Image
+            {/* <Image
               source={Images.branding.brandLogo}
               style={{ height: 100 }}
               resizeMode={"contain"}
-            />
+            /> */}
             <Text
               type={Text.Types.HERO}
               textColor={"white"}
