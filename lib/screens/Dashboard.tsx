@@ -64,6 +64,14 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.fetchCourses = this.fetchCourses.bind(this);
     this.renderInfoBar = this.renderInfoBar.bind(this);
   }
+  componentDidMount() {
+    console.log("working");
+    this.fetchCourses();
+    this.fetchHttpCourses();
+    // this.props.getSchools();
+    // this.props.updateShareToken(this.props.address);
+  }
+
   fetchCourses = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/courses");
     const json = await response.json();
@@ -128,14 +136,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     }
     // updatecoursesList(json)
   };
-
-  componentDidMount() {
-    console.log("working");
-    this.fetchCourses();
-    this.fetchHttpCourses();
-    // this.props.getSchools();
-    // this.props.updateShareToken(this.props.address);
-  }
 
   renderInfoBar() {
     return (
