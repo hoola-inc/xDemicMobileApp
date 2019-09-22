@@ -85,7 +85,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       h6: 14,
       caption1: 12,
       caption2: 12,
-      subTitle: 14,
+      subTitle: 12,
       listItem: 18,
       listItemRight: 18,
       listItemNote: 15,

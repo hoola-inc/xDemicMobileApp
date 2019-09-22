@@ -132,6 +132,18 @@ export interface ContainerProps {
   /** Enable border for debugging layouts */
   borderWidth?: number;
 
+  /** Enable/disbale border in layouts */
+  borderLeftWidth?: number;
+
+  borderTopWidth?: number;
+
+  borderRightWidth?: number;
+
+  borderBottomWidth?: number;
+
+  /** Enable/disbale border color in layouts */
+  borderBottomColor?: string;
+
   /** Change debug border color */
   debugBorderColor?: string | undefined;
 
@@ -189,6 +201,20 @@ const Container: React.FunctionComponent<ContainerProps> = props => {
     ...(props.dividerRight ? DividerRigthStyles : {}),
     ...(props.borderColor ? { borderColor: props.borderColor } : {}),
     ...(props.borderWidth ? { borderWidth: props.borderWidth } : {}),
+    ...(props.borderLeftWidth
+      ? { borderLeftWidth: props.borderLeftWidth }
+      : {}),
+    ...(props.borderTopWidth ? { borderTopWidth: props.borderTopWidth } : {}),
+    ...(props.borderRightWidth
+      ? { borderRightWidth: props.borderRightWidth }
+      : {}),
+    ...(props.borderBottomWidth
+      ? { borderBottomWidth: props.borderBottomWidth }
+      : {}),
+    ...(props.borderBottomColor
+      ? { borderBottomColor: props.borderBottomColor }
+      : {}),
+
     ...(props.backgroundColor
       ? { backgroundColor: props.backgroundColor }
       : {}),

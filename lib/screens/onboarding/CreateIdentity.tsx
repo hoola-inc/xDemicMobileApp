@@ -263,41 +263,64 @@ class CreateIdentity extends React.Component<
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
+            <Text type={Text.Types.SubTitle} textAlign={"center"}>
+              Enter name or username
+            </Text>
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
               placeholder={"Enter name or username"}
-              textType={Text.Types.H4}
+              textType={Text.Types.H2}
+              inputType={"filled"}
               value={this.state.name}
               onChangeText={this.onChangeText}
               valid={!!this.state.name}
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
+            <Text type={Text.Types.SubTitle} textAlign={"center"}>
+              Enter Phone Number
+            </Text>
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_PHONE_NUMBER}
               placeholder={"Enter Phone Number"}
-              textType={Text.Types.H4}
-              type={"text"}
+              textType={Text.Types.H2}
+              inputType={"filled"}
               value={this.state.phoneNumber}
               onChangeText={this.onChangePhoneNumber}
               valid={!!this.state.phoneNumber}
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
+            <Text type={Text.Types.SubTitle} textAlign={"center"}>
+              Enter Identity Number
+            </Text>
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_IDENTITY_NUMBER}
               placeholder={"Enter Identity Number"}
-              textType={Text.Types.H4}
+              textType={Text.Types.H2}
+              inputType={"filled"}
               value={this.state.identityNumber}
               onChangeText={this.onChangeIdentityNumber}
               valid={!!this.state.identityNumber}
             />
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
+            <Text type={Text.Types.SubTitle} textAlign={"center"}>
+              Enter Date of Birth
+            </Text>
+          </Container>
+          <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_DATE_OF_BIRTH}
               placeholder={"Enter Date of Birth"}
-              textType={Text.Types.H4}
+              textType={Text.Types.H2}
+              inputType={"filled"}
               value={this.state.dob}
               onChangeText={this.onChangeDob}
               valid={!!this.state.dob}

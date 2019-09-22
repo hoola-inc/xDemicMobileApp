@@ -1,18 +1,32 @@
 import * as React from "react";
 import { TextInput, ViewStyle } from "react-native";
-import { Theme, TextThemeMap, Container, Icon } from "@kancha";
+import { Theme, TextThemeMap, Container, Icon, Colors } from "@kancha";
 
 const InputTypes = {
   Text: "text",
+  Regular: "regular",
+  Solo: "solo",
+  Filled: "filled",
+  Outlined: "outlined",
   Radio: "radio",
   Checkbox: "checkbox"
 };
 
+interface InputTypesInterFace {
+  Text: "text";
+  Regular: "regular";
+  Solo: "solo";
+  Filled: "filled";
+  Outlined: "outlined";
+  Radio: "radio";
+  Checkbox: "checkbox";
+}
 interface InputProps {
   type?: "text" | "radio" | "checkbox";
   value?: string | undefined;
   autoFocus?: boolean;
   textType?: string;
+  inputType?: "regular" | "solo" | "filled" | "outlined";
   placeholder?: string;
   onChangeText?: (text: string) => void;
   valid?: boolean;
@@ -85,7 +99,7 @@ class Input extends React.Component<InputProps, InputState> {
     );
   }
 
-  renderFlatTextInput() {
+  renderFilledTextInput() {
     const focusedColor = this.props.valid
       ? Theme.colors.primary.brand
       : Theme.colors.warning.accessories;
@@ -104,18 +118,17 @@ class Input extends React.Component<InputProps, InputState> {
         flexDirection={"row"}
         alignItems={"center"}
         flex={1}
-        // br={Theme.roundedCorners.textInputs}
+        backgroundColor={Colors.WHITE}
+        borderBottomColor={Colors.DARK_GREY}
+        borderBottomWidth={1}
         borderColor={focusedColor}
-        // borderWidth={0}
-        // borderBottomWidth={0}
-        borderLeftWidth={0}
-        borderTopWidth={0}
-        borderRightWidth={0}
+        borderWidth={0}
         paddingRight={5}
       >
         <TextInput
           testID={this.props.testID}
           underlineColorAndroid={"rgba(0,0,0,0)"}
+          placeholderTextColor={Colors.DARK_GREY}
           placeholder={this.props.placeholder}
           autoFocus={this.props.autoFocus}
           autoCapitalize={"none"}
@@ -138,8 +151,8 @@ class Input extends React.Component<InputProps, InputState> {
   }
 
   render() {
-    return this.props.type === "text"
-      ? this.renderFlatTextInput()
+    return this.props.inputType === InputTypes.Filled
+      ? this.renderFilledTextInput()
       : this.renderTextInput();
   }
 }
