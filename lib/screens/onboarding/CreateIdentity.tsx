@@ -161,8 +161,9 @@ class CreateIdentity extends React.Component<
       termsAccepted,
       privacyAccepted
     } = this.state;
-    return name && dob && phoneNumber && identityNumber;
-    //&& termsAccepted && privacyAccepted;
+    return name && dob && phoneNumber;
+    // && identityNumber;
+    // && termsAccepted && privacyAccepted;
   }
 
   /**
@@ -309,7 +310,7 @@ class CreateIdentity extends React.Component<
               valid={!!this.state.phoneNumber}
             />
           </Container>
-          <Container flexDirection={"row"} w={280} paddingBottom>
+          {/* <Container flexDirection={"row"} w={280} paddingBottom>
             <Text
               transform={"uppercase"}
               type={Text.Types.SubTitle}
@@ -328,7 +329,7 @@ class CreateIdentity extends React.Component<
               onChangeText={this.onChangeIdentityNumber}
               valid={!!this.state.identityNumber}
             />
-          </Container>
+          </Container> */}
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Text
               transform={"uppercase"}
@@ -545,8 +546,8 @@ class CreateIdentity extends React.Component<
             this.props.storeOwnClaim(this.props.address, {
               name: this.state.name,
               dob: this.state.dob,
-              phone: this.state.phoneNumber,
-              country: this.state.identityNumber
+              phone: this.state.phoneNumber
+              // country: this.state.identityNumber
             });
         }
 
