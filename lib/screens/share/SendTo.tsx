@@ -147,6 +147,10 @@ export class UserSendTo extends React.Component<
         ],
         { cancelable: true }
       );
+      this.setState({
+        name: "",
+        phoneNumber: ""
+      });
     }
   };
   goToScreen(screenID: string) {
