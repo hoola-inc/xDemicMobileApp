@@ -326,7 +326,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                   options: {
                     topBar: {
                       title: {
-                        text: "Add School",
+                        text: "Send To",
                         alignment: "center",
                         fontFamily: "bold",
                         color: Colors.WHITE
