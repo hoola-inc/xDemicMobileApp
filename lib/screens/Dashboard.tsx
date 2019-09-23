@@ -29,6 +29,7 @@ import {
   Button
 } from "@kancha";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
+import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import {
   AvatarNameWithSubHeader,
   BaseAddSchoolButton
@@ -243,12 +244,31 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             >
               My Schools
             </Text>
-            <Container>
-              <BaseAddSchoolButton
-                {...this.props}
-                iconSize={23}
-                name={"Add Schools"}
-              />
+            <Container flexDirection={"row"}>
+              <Container padding>
+                <BaseAddSchoolButton
+                  {...this.props}
+                  iconSize={23}
+                  name={"Add Schools"}
+                />
+              </Container>
+              <Container padding w={250}>
+                {/* <BaseAddSchoolButton
+                  {...this.props}
+                  iconSize={23}
+                  name={"Add Schools"}
+                /> */}
+                <BaseCard
+                  {...this.props}
+                  data={{
+                    schoolAddress: "schoolAddress",
+                    schoolName: "schoolName",
+                    schoolPosition: "schoolPosition",
+                    expandable: false
+                  }}
+                  key={"schoolPosition"}
+                />
+              </Container>
               {/* {this.state.coursesList.length > 0 &&
                 this.state.coursesList.map((data: any) => (
                   <BaseAddSchoolButton
