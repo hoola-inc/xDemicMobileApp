@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Mori from "mori";
-import { StyleSheet, Alert } from "react-native";
+import { Alert } from "react-native";
 
 import { ownClaims } from "xdemic/lib/selectors/identities";
 
