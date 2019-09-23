@@ -51,6 +51,7 @@ import {
 } from "xdemic/lib/selectors/identities";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import { font } from "xdemic/lib/styles/globalStyles";
+import TESTID from "xdemic/lib/e2e/testIDs";
 
 interface UserShareProps {
   componentId: string;
@@ -289,6 +290,60 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                 );
               })}
           </Container>
+        </Container>
+        <Container padding justifyContent={"center"} alignItems={"flex-end"}>
+          <Button
+            testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+            rounded
+            icon={
+              // <ActivityIndicator
+              //   color={"white"}
+              //   style={{ marginRight: 10 }}
+              // />
+              <Icon
+                name={"plus"}
+                font={"materialcommunityicons"}
+                color={Colors.WHITE}
+              />
+            }
+            // fullWidth
+            // disabled={
+            //   !this.isValid() ||
+            //   this.state.userCreatingidentity ||
+            //   this.state.identityCreationSuccess
+            // }
+            // buttonText={
+            //   // this.state.userCreatingidentity
+            //   // ? "Generating keys...."
+            //   //:
+            //   "Send"
+            // }
+            type={Button.Types.Primary}
+            block={Button.Block.Filled}
+            onPress={() =>
+              Navigation.push(this.props.componentId, {
+                component: {
+                  name: SCREENS.SendTo,
+                  options: {
+                    topBar: {
+                      title: {
+                        text: "Add School",
+                        alignment: "center",
+                        fontFamily: "bold",
+                        color: Colors.WHITE
+                      },
+                      elevation: 0,
+                      backButton: {
+                        title: "Back",
+                        color: Theme.colors.primary.brand,
+                        visible: true
+                      }
+                    }
+                  }
+                }
+              })
+            }
+          />
         </Container>
       </Container>
     );

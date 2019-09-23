@@ -483,7 +483,7 @@ export async function startMain() {
                             },
                             fab: {
                               id: "androidScan",
-                              visible: true,
+                              visible: false,
                               backgroundColor: Theme.colors.primary.brand,
                               clickColor: "#FFF",
                               rippleColor: "#ddd",
