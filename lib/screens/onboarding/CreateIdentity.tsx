@@ -363,7 +363,7 @@ class CreateIdentity extends React.Component<
             paddingBottom
             paddingRight
           >
-            <Container padding={Theme.spacing.default16}>
+            <Container padding={Theme.spacing.default16} w={280}>
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
                 icon={
