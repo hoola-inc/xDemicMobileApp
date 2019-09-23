@@ -85,7 +85,7 @@ export const AcceptCredential: React.FC<AcceptCredentialProps> = props => {
             requestor={props.title}
             subTitle={`Issued by ` + props.issuer.name}
             avatar={
-              (props.issuer.avatar && props.issuer.avatar) ||
+              // (props.issuer.avatar && props.issuer.avatar) ||
               Images.profile.avatar
             }
             httpsResolveStatus={"OKAY"}
