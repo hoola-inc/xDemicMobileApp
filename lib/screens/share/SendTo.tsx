@@ -19,40 +19,22 @@
 
 import * as React from "react";
 import { connect } from "react-redux";
-import { Item, Input as InputNative, Row } from "native-base";
-import { ActivityIndicator, StyleSheet, Alert } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import {
   Screen,
-  ListItem,
   Theme,
-  Section,
   Container,
   Text,
   Input,
   Icon,
   Colors,
-  SignPost,
-  SignPostCardType,
-  Images,
   Button
 } from "@kancha";
 import TESTID from "xdemic/lib/e2e/testIDs";
 import { Navigation } from "react-native-navigation";
-import SCREENS from "../Screens";
-import { hdRootAddress } from "xdemic/lib/selectors/hdWallet";
 import Mori from "mori";
-import {
-  AvatarNameWithSubHeader,
-  BaseAddSchoolButton
-} from "xdemic/lib/components/shared";
-import {
-  currentAddress,
-  ownClaims,
-  myAccounts,
-  allIdentities
-} from "xdemic/lib/selectors/identities";
+import { ownClaims } from "xdemic/lib/selectors/identities";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
-import { font } from "xdemic/lib/styles/globalStyles";
 import axios from "axios";
 
 interface UserSendToProps {
@@ -204,7 +186,7 @@ export class UserSendTo extends React.Component<
         <Container flex={1} justifyContent={"center"} alignItems={"center"}>
           <Container
             // flexDirection={"row"}
-            w={280}
+            w={290}
             alignItems={"flex-start"}
             paddingBottom
             paddingTop
@@ -239,7 +221,7 @@ export class UserSendTo extends React.Component<
               onPress={this.chooseProfileImage}
             />
           </Container> */}
-          <Container flexDirection={"row"} w={280} paddingBottom>
+          <Container flexDirection={"row"} w={290} paddingBottom>
             <Text
               type={Text.Types.SubTitle}
               textAlign={"center"}
@@ -248,7 +230,7 @@ export class UserSendTo extends React.Component<
               Name
             </Text>
           </Container>
-          <Container flexDirection={"row"} w={280} paddingBottom>
+          <Container flexDirection={"row"} w={290} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
               placeholder={"Name"}
@@ -259,7 +241,7 @@ export class UserSendTo extends React.Component<
               valid={!!this.state.name}
             />
           </Container>
-          <Container flexDirection={"row"} w={280} paddingBottom>
+          <Container flexDirection={"row"} w={290} paddingBottom>
             <Text
               type={Text.Types.SubTitle}
               textAlign={"center"}
@@ -268,7 +250,7 @@ export class UserSendTo extends React.Component<
               Email
             </Text>
           </Container>
-          <Container flexDirection={"row"} w={280} paddingBottom>
+          <Container flexDirection={"row"} w={290} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_PHONE_NUMBER}
               placeholder={"Email"}
