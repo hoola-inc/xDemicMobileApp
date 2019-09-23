@@ -193,6 +193,33 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               paddingTop={Theme.spacing.default32}
               paddingBottom={Theme.spacing.default}
             >
+              Recent
+            </Text>
+            {this.state.schools.length !== 0 &&
+              this.state.schools.map((data: any, i: any) => {
+                return (
+                  <BaseCard
+                    {...this.props}
+                    data={{
+                      schoolAddress: data.address,
+                      schoolName: data.name,
+                      schoolPosition: data.address,
+                      expandable: false
+                    }}
+                    key={i}
+                  />
+                );
+              })}
+          </Container>
+          <Container>
+            <Text
+              type={Text.Types.H2}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={Theme.spacing.default32}
+              paddingBottom={Theme.spacing.default}
+            >
               Search Result
             </Text>
             {this.state.schools.length !== 0 &&
