@@ -221,7 +221,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.BRAND,
         outlined: COLORS.WHITE,
-        clear: COLORS.WHITE
+        clear: COLORS.BRAND
       }
     }
   },

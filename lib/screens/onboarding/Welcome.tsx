@@ -22,7 +22,7 @@ class Welcome extends React.Component<WelcomeProps> {
   render() {
     return (
       <Screen
-        backgroundImage={Images.backgrounds.purpleGradientWithPattern}
+        backgroundImage={Images.backgrounds.fingerprintWhite}
         type={Screen.Types.Custom}
         config={Screen.Config.SafeNoScroll}
         statusBarHidden
@@ -62,7 +62,7 @@ class Welcome extends React.Component<WelcomeProps> {
             /> */}
             <Text
               type={Text.Types.HERO}
-              textColor={"white"}
+              textColor={Theme.colors.primary.brand}
               bold
               // textAlign={"center"}
             >

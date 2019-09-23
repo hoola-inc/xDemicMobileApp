@@ -116,7 +116,9 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   };
 
   fetchSchools = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/schools");
+    const response = await fetch(
+      "https://xdemic-api.herokuapp.com/schoolwithstudentenroll"
+    );
     const json = await response.json();
     if (!json.status) {
       Alert.alert(
@@ -246,15 +248,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               My Schools
             </Text>
             <Container flexDirection={"row"} padding={0} marginLeft={0}>
-              {this.state.schools.length === 0 && (
-                <Container>
-                  <BaseAddSchoolButton
-                    {...this.props}
-                    iconSize={23}
-                    name={"Add Schools"}
-                  />
-                </Container>
-              )}
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
                   <Container w={202} key={data.address}>
@@ -270,6 +263,15 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     />
                   </Container>
                 ))}
+              <Container paddingLeft={Theme.spacing.default} 
+              //w={200} 
+              h={92}>
+                <BaseAddSchoolButton
+                  {...this.props}
+                  iconSize={23}
+                  name={"Add Schools"}
+                />
+              </Container>
             </Container>
           </Container>
 

@@ -356,7 +356,7 @@ class CreateIdentity extends React.Component<
             </Text>
           </Container>
         </Container>
-        <Container alignItems={"flex-end"}>
+        <Container alignItems={"center"}>
           <Container
             // flexDirection={"row"}
             // alignItems={"flex-end"}
