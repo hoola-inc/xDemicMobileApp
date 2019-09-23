@@ -15,20 +15,31 @@
 // You should have received a copy of the GNU General Public License
 // along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
 //
-import * as React from 'react'
-import { connect } from 'react-redux'
+import * as React from "react";
+import { connect } from "react-redux";
 
-import { Container, CredentialExplorer, Screen, Banner, Card, Text, Section, Theme, Button } from '@kancha'
+import {
+  Container,
+  CredentialExplorer,
+  Screen,
+  Banner,
+  Card,
+  Text,
+  Section,
+  Images,
+  Theme,
+  Button
+} from "@kancha";
 
 interface AcceptCredentialProps {
-  verification: any
-  address: string
-  title: string
-  issuer: any
-  request: any
+  verification: any;
+  address: string;
+  title: string;
+  issuer: any;
+  request: any;
 
-  authorizeRequest: (request: any, iss: string) => void
-  cancelRequest: (request: any) => void
+  authorizeRequest: (request: any, iss: string) => void;
+  cancelRequest: (request: any) => void;
 }
 
 export const AcceptCredential: React.FC<AcceptCredentialProps> = props => {
@@ -39,15 +50,15 @@ export const AcceptCredential: React.FC<AcceptCredentialProps> = props => {
       footerNavComponent={
         <Container backgroundColor={Theme.colors.primary.background}>
           <Container paddingHorizontal>
-            <Text textAlign={'center'} type={Text.Types.SectionHeader}>
-              {'You have received a credential'}
+            <Text textAlign={"center"} type={Text.Types.SectionHeader}>
+              {"You have received a credential"}
             </Text>
           </Container>
-          <Container flexDirection={'row'} padding>
+          <Container flexDirection={"row"} padding>
             <Container flex={1} paddingRight>
               <Button
                 depth={1}
-                buttonText={'Decline'}
+                buttonText={"Decline"}
                 block={Button.Block.Clear}
                 type={Button.Types.Warning}
                 onPress={() => props.cancelRequest(props.request)}
@@ -55,24 +66,32 @@ export const AcceptCredential: React.FC<AcceptCredentialProps> = props => {
             </Container>
             <Container flex={2}>
               <Button
-                buttonText={'Accept'}
+                buttonText={"Accept"}
                 block={Button.Block.Filled}
                 type={Button.Types.Primary}
-                onPress={() => props.authorizeRequest(props.request, props.verification.iss)}
+                onPress={() =>
+                  props.authorizeRequest(props.request, props.verification.iss)
+                }
               />
             </Container>
           </Container>
         </Container>
-      }>
+      }
+    >
       <Container paddingLeft paddingRight paddingTop={80}>
         <Card>
           <Banner
             size="small"
             requestor={props.title}
             subTitle={`Issued by ` + props.issuer.name}
-            avatar={props.issuer.avatar && props.issuer.avatar}
-            httpsResolveStatus={'OKAY'}
-            backgroundImage={props.issuer.bannerImage && props.issuer.bannerImage}
+            avatar={
+              (props.issuer.avatar && props.issuer.avatar) ||
+              Images.profile.avatar
+            }
+            httpsResolveStatus={"OKAY"}
+            backgroundImage={
+              props.issuer.bannerImage && props.issuer.bannerImage
+            }
           />
           <Section noTopBorder noTopMargin>
             <CredentialExplorer claim={props.verification.claim} />
@@ -80,7 +99,7 @@ export const AcceptCredential: React.FC<AcceptCredentialProps> = props => {
         </Card>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default AcceptCredential
+export default AcceptCredential;
