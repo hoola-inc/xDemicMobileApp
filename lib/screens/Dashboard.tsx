@@ -385,15 +385,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Dashboard);
-
-const Styles = StyleSheet.create({
-  input: {
-    backgroundColor: "white",
-    borderRadius: 8,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    paddingLeft: 20,
-    height: 40
-  }
-});
