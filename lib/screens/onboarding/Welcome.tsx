@@ -135,7 +135,7 @@ class Welcome extends React.Component<WelcomeProps> {
           >
             <Image
               source={Images.branding.xDemicLogo}
-              style={{ height: 500 }}
+              style={{ height: 800 }}
               resizeMode={"contain"}
             />
             {/* <Text
