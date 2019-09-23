@@ -66,6 +66,7 @@ declare namespace Kancha {
     Outlined: "outlined";
     Filled: "filled";
     Clear: "clear";
+    Rounded: "rounded";
   }
 
   export interface ThemeStatic {
@@ -120,6 +121,9 @@ declare namespace Kancha {
       default: number;
       default16: number;
       default32: number;
+      default40: number;
+      default48: number;
+      default56: number;
       default64: number;
       section: number;
     };

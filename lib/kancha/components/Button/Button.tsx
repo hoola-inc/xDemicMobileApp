@@ -14,7 +14,8 @@ import { Text, Theme, Container, Device } from "@kancha";
 const ButtonBlocks: Kancha.BlocksStatic = {
   Outlined: "outlined",
   Filled: "filled",
-  Clear: "clear"
+  Clear: "clear",
+  Rounded: "rounded"
 };
 
 const ButtonBrandOptions: Kancha.BrandTypeStatic = {
@@ -109,6 +110,9 @@ interface ButtonProps {
    * Shadow depth
    */
   iconButton?: boolean;
+
+  // Enable/Disable rounded
+  rounded?: boolean;
 }
 
 const Button: React.FC<ButtonProps> & {
@@ -131,7 +135,8 @@ const Button: React.FC<ButtonProps> & {
   testID,
   children,
   depth,
-  iconButton
+  iconButton,
+  rounded
 }) => {
   const style: ViewStyle = {
     ...(block && block === "filled"
@@ -154,7 +159,7 @@ const Button: React.FC<ButtonProps> & {
     ...(marginTop || marginTop ? {} : { marginTop: marginTop }),
     alignItems: "center",
     ...(fullWidth ? {} : { maxWidth: 300 }),
-    borderRadius: Theme.roundedCorners.buttons,
+    borderRadius: rounded ? 100 : Theme.roundedCorners.buttons,
     ...(centered ? { alignSelf: "center" } : {}),
     ...(disabled ? { opacity: 0.2 } : {})
   };

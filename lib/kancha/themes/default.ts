@@ -230,6 +230,9 @@ const DefaultTheme: Kancha.ThemeStatic = {
     default: 8,
     default16: 16,
     default32: 32,
+    default40: 40,
+    default48: 48,
+    default56: 56,
     default64: 64,
     section: 20
   },

@@ -19,7 +19,7 @@
 
 import * as React from "react";
 import { connect } from "react-redux";
-import { Item, Input as InputNative } from "native-base";
+import { Item, Input as InputNative, Row } from "native-base";
 import { ActivityIndicator, StyleSheet, Alert } from "react-native";
 import {
   Screen,
@@ -224,6 +224,57 @@ export class UserSendTo extends React.Component<
           >
             Credential to Send
           </Text>
+        </Container>
+
+        <Container
+          // padding
+          paddingLeft={Theme.spacing.default56}
+          flexDirection={"row"}
+        >
+          <Container padding w={250}>
+            <BaseCard
+              {...this.props}
+              data={{
+                schoolAddress: "School of Education",
+                schoolName: "Transcript",
+                schoolPosition: "School Position",
+                expandable: false
+              }}
+              key={"schoolAddress"}
+            />
+          </Container>
+          <Container padding justifyContent={"center"} alignItems={"center"}>
+            <Button
+              testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+              rounded
+              icon={
+                // <ActivityIndicator
+                //   color={"white"}
+                //   style={{ marginRight: 10 }}
+                // />
+                <Icon
+                  name={"plus"}
+                  font={"materialcommunityicons"}
+                  color={Colors.WHITE}
+                />
+              }
+              // fullWidth
+              // disabled={
+              //   !this.isValid() ||
+              //   this.state.userCreatingidentity ||
+              //   this.state.identityCreationSuccess
+              // }
+              // buttonText={
+              //   // this.state.userCreatingidentity
+              //   // ? "Generating keys...."
+              //   //:
+              //   "Send"
+              // }
+              type={Button.Types.Primary}
+              block={Button.Block.Filled}
+              onPress={() => console.log("Send to working!")}
+            />
+          </Container>
         </Container>
 
         <Container alignItems={"flex-end"}>
