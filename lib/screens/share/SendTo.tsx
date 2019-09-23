@@ -1,130 +1,116 @@
+/***
+ *  Copyright (C) 2019 Hoola Inc
+ *
+ *  This file is part of xDemic Mobile App
+ *  xDemic Mobile App is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+
+ *  xDemic Mobile App is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  ERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ * 
+ *  You should have received a copy of the GNU General Public License
+ *  along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ ***/
+
 import * as React from "react";
-import { Image, Modal } from "react-native";
-import { ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
+import { Item, Input as InputNative } from "native-base";
+import { ActivityIndicator, StyleSheet, Alert } from "react-native";
 import {
   Screen,
-  Container,
-  Input,
-  Text,
-  Button,
+  ListItem,
   Theme,
-  Icon,
-  Images,
-  Colors,
-  Checkbox,
   Section,
-  ListItem
+  Container,
+  Text,
+  Input,
+  Icon,
+  Colors,
+  SignPost,
+  SignPostCardType,
+  Images,
+  Button
 } from "@kancha";
+import TESTID from "xdemic/lib/e2e/testIDs";
 import { Navigation } from "react-native-navigation";
 import SCREENS from "../Screens";
-import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
-import { currentAddress } from "../../selectors/identities";
-import { activationEvent } from "xdemic/lib/actions/userActivationActions";
-import { track } from "xdemic/lib/actions/metricActions";
-import { startMain } from "xdemic/lib/navigators/navigation";
+import { hdRootAddress } from "xdemic/lib/selectors/hdWallet";
+import Mori from "mori";
 import {
-  createIdentity,
-  addClaims,
-  addImage
-} from "xdemic/lib/actions/uportActions";
-import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
+  AvatarNameWithSubHeader,
+  BaseAddSchoolButton
+} from "xdemic/lib/components/shared";
+import {
+  currentAddress,
+  ownClaims,
+  myAccounts,
+  allIdentities
+} from "xdemic/lib/selectors/identities";
+import BaseCard from "xdemic/lib/components/shared/BaseCard";
+import { font } from "xdemic/lib/styles/globalStyles";
 
-import TESTID from "xdemic/lib/e2e/testIDs";
-
-interface ImageObj {
-  fileSize: number;
-  uri: string;
-}
-
-interface CreateIdentityProps {
+interface UserSendToProps {
   componentId: string;
-  navigator: Navigator;
-  address: string;
 
-  //**Redux Actions */
-  createIdentity: () => void;
-  finishOnboarding: () => void;
-  addImage: (address: string, claimType: string, image: ImageObj) => void;
-  storeOwnClaim: (address: string, claims: any) => void;
-  trackSegment: (event: any) => any;
-  registerDeviceForNotifications: () => void;
+  avatar: any;
+  name: string;
 }
 
-interface CreateIdentityState {
-  valid: boolean;
+interface UserSendToState {
+  devMode: boolean;
+  count: number;
+  schools: any[];
   name: string;
   phoneNumber: string;
-  identityNumber: string;
-  dob: string;
-  termsAccepted: boolean;
-  privacyAccepted: boolean;
-  userAddingInfo: boolean;
-  userCreatingidentity: boolean;
-  identityCreationSuccess: boolean;
-  image: ImageObj | undefined;
 }
 
-/**
- * This will be extracted to a new Avatar component
- */
-interface AvatarProps {
-  image: string | undefined;
-  text: string;
-}
-
-const navOptions = {
-  topBar: {
-    background: {
-      color: Theme.colors.primary.background
-    },
-    backButton: { color: Theme.colors.primary.brand }
-  }
-};
-
-const Avatar: React.FC<AvatarProps> = ({ image, text }) => {
-  const avatar = image ? { uri: image } : Images.profile.avatar;
-  return (
-    <Image
-      source={avatar}
-      style={{ width: 150, height: 150, borderRadius: 75 }}
-      resizeMode={"cover"}
-    />
-  );
-};
-
-class CreateIdentity extends React.Component<
-  CreateIdentityProps,
-  CreateIdentityState
+export class UserSendTo extends React.Component<
+  UserSendToProps,
+  UserSendToState
 > {
-  static options(passProps: any) {
-    return {
-      ...navOptions
-    };
-  }
-
-  constructor(props: CreateIdentityProps) {
+  constructor(props: UserSendToProps) {
     super(props);
 
+    /**
+     * Enable devmode in simulator by default
+     */
     this.state = {
-      valid: false,
+      devMode: __DEV__ ? true : false,
+      count: 0,
+      schools: [],
       name: "",
-      termsAccepted: false,
-      privacyAccepted: false,
-      image: undefined,
-      userAddingInfo: true,
-      userCreatingidentity: false,
-      identityCreationSuccess: false,
-      phoneNumber: "",
-      identityNumber: "",
-      dob: ""
+      phoneNumber: ""
     };
+  }
+  componentDidMount() {}
 
-    this.addImage = this.addImage.bind(this);
+  goToScreen(screenID: string) {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: screenID,
+        options: {
+          topBar: {
+            largeTitle: {
+              visible: false
+            }
+          }
+        }
+      }
+    });
   }
 
-  componentDidMount() {
-    this.props.trackSegment("Open");
+  incrementDeveloperModeCount() {
+    this.setState(state => {
+      return {
+        count: state.count + 1,
+        devMode: state.count >= 10
+      };
+    });
   }
 
   onChangeText = (text: string) => {
@@ -133,85 +119,13 @@ class CreateIdentity extends React.Component<
       name: text
     });
   };
+
   onChangePhoneNumber = (text: string) => {
     this.setState({
       ...this.state,
       phoneNumber: text
     });
   };
-  onChangeIdentityNumber = (text: string) => {
-    this.setState({
-      ...this.state,
-      identityNumber: text
-    });
-  };
-  onChangeDob = (text: string) => {
-    this.setState({
-      ...this.state,
-      dob: text
-    });
-  };
-
-  isValid() {
-    const {
-      name,
-      dob,
-      phoneNumber,
-      identityNumber,
-      termsAccepted,
-      privacyAccepted
-    } = this.state;
-    return name && dob && phoneNumber;
-    // && identityNumber;
-    // && termsAccepted && privacyAccepted;
-  }
-
-  /**
-   * UI Render main Screen
-   */
-  render() {
-    return (
-      <Screen
-        type={Screen.Types.Secondary}
-        config={Screen.Config.SafeScroll}
-        statusBarHidden
-        // footerNavDivider
-        // footerNavComponent={
-        //   <Container alignItems={"flex-end"} paddingBottom paddingRight>
-        //     <Container padding={0}>
-        //       <Button
-        //         testID={TESTID.ONBOARDING_CREATE_IDENTITY}
-        //         icon={
-        //           this.state.userCreatingidentity && (
-        //             <ActivityIndicator
-        //               color={"white"}
-        //               style={{ marginRight: 10 }}
-        //             />
-        //           )
-        //         }
-        //         fullWidth
-        //         disabled={
-        //           !this.isValid() ||
-        //           this.state.userCreatingidentity ||
-        //           this.state.identityCreationSuccess
-        //         }
-        //         buttonText={
-        //           this.state.userCreatingidentity
-        //             ? "Generating keys...."
-        //             : "Create Identity"
-        //         }
-        //         type={Button.Types.Primary}
-        //         block={Button.Block.Filled}
-        //         onPress={() => this.createIdentity()}
-        //       />
-        //     </Container>
-        //   </Container>
-        // }
-      >
-        {this.renderUserAddingInfo()}
-      </Screen>
-    );
-  }
 
   /**
    * UI Render states
@@ -219,20 +133,11 @@ class CreateIdentity extends React.Component<
   renderUserAddingInfo() {
     return (
       <Container
-        disabled={
-          this.state.userCreatingidentity || this.state.identityCreationSuccess
-        }
+      // disabled={
+      //   this.state.userCreatingidentity || this.state.identityCreationSuccess
+      // }
       >
         <Container flex={1} justifyContent={"center"} alignItems={"center"}>
-          <Modal
-            onRequestClose={() => ""}
-            animationType={"slide"}
-            transparent={true}
-            visible={this.state.identityCreationSuccess}
-          >
-            {this.renderIdentityCreationSuccess()}
-          </Modal>
-
           <Container
             // flexDirection={"row"}
             w={280}
@@ -276,13 +181,13 @@ class CreateIdentity extends React.Component<
               textAlign={"center"}
               transform={"uppercase"}
             >
-              Name or username
+              Name
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
-              placeholder={"Name or username"}
+              placeholder={"Name"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.name}
@@ -296,13 +201,13 @@ class CreateIdentity extends React.Component<
               textAlign={"center"}
               transform={"uppercase"}
             >
-              Phone Number
+              Email/Phone Number
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_PHONE_NUMBER}
-              placeholder={"Phone Number"}
+              placeholder={"Email/Phone Number"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.phoneNumber}
@@ -310,52 +215,17 @@ class CreateIdentity extends React.Component<
               valid={!!this.state.phoneNumber}
             />
           </Container>
-          {/* <Container flexDirection={"row"} w={280} paddingBottom>
-            <Text
-              transform={"uppercase"}
-              type={Text.Types.SubTitle}
-              textAlign={"center"}
-            >
-              Identity Number
-            </Text>
-          </Container>
-          <Container flexDirection={"row"} w={280} paddingBottom>
-            <Input
-              testID={TESTID.ONBOARDING_IDENTITY_NUMBER}
-              placeholder={"Identity Number"}
-              textType={Text.Types.H2}
-              inputType={"filled"}
-              value={this.state.identityNumber}
-              onChangeText={this.onChangeIdentityNumber}
-              valid={!!this.state.identityNumber}
-            />
-          </Container> */}
-          <Container flexDirection={"row"} w={280} paddingBottom>
-            <Text
-              transform={"uppercase"}
-              type={Text.Types.SubTitle}
-              textAlign={"center"}
-            >
-              Date of Birth
-            </Text>
-          </Container>
-          <Container flexDirection={"row"} w={280} paddingBottom>
-            <Input
-              testID={TESTID.ONBOARDING_DATE_OF_BIRTH}
-              placeholder={"Date of Birth"}
-              textType={Text.Types.H2}
-              inputType={"filled"}
-              value={this.state.dob}
-              onChangeText={this.onChangeDob}
-              valid={!!this.state.dob}
-            />
-          </Container>
-          <Container padding>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              You can always change this information later
-            </Text>
-          </Container>
         </Container>
+        <Container padding paddingLeft={Theme.spacing.default64}>
+          <Text
+            type={Text.Types.H2}
+            //textAlign={"center"}
+            bold
+          >
+            Credential to Send
+          </Text>
+        </Container>
+
         <Container alignItems={"flex-end"}>
           <Container
             // flexDirection={"row"}
@@ -363,31 +233,32 @@ class CreateIdentity extends React.Component<
             paddingBottom
             paddingRight
           >
-            <Container padding={Theme.spacing.default16}>
+            <Container padding={Theme.spacing.default} w={150}>
               <Button
                 testID={TESTID.ONBOARDING_CREATE_IDENTITY}
-                icon={
-                  this.state.userCreatingidentity && (
-                    <ActivityIndicator
-                      color={"white"}
-                      style={{ marginRight: 10 }}
-                    />
-                  )
-                }
-                fullWidth
-                disabled={
-                  !this.isValid() ||
-                  this.state.userCreatingidentity ||
-                  this.state.identityCreationSuccess
-                }
+                // icon={
+                //   this.state.userCreatingidentity && (
+                //     <ActivityIndicator
+                //       color={"white"}
+                //       style={{ marginRight: 10 }}
+                //     />
+                //   )
+                // }
+                // fullWidth
+                // disabled={
+                //   !this.isValid() ||
+                //   this.state.userCreatingidentity ||
+                //   this.state.identityCreationSuccess
+                // }
                 buttonText={
-                  this.state.userCreatingidentity
-                    ? "Generating keys...."
-                    : "Create Identity"
+                  // this.state.userCreatingidentity
+                  // ? "Generating keys...."
+                  //:
+                  "Send"
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
-                onPress={() => this.createIdentity()}
+                onPress={() => console.log("Send to working!")}
               />
             </Container>
           </Container>
@@ -445,202 +316,61 @@ class CreateIdentity extends React.Component<
     );
   }
 
-  /**
-   * Todo - Create Modal component used below...
-   */
-  renderIdentityCreationSuccess() {
-    console.log("this.state of on createIdentity is: ", this.state);
-    console.log("this.props of on createIdentity is: ", this.props);
+  render() {
+    const { name, avatar } = this.props;
     return (
-      <Container
-        flex={1}
-        justifyContent={"center"}
-        alignItems={"center"}
-        testID={TESTID.ONBOARDING_SUCCESS_MODAL}
-      >
-        <Container
-          padding
-          marginLeft
-          marginRight
-          background={"primary"}
-          viewStyle={{
-            shadowRadius: 30,
-            elevation: 4,
-            shadowColor: "black",
-            shadowOpacity: 0.2,
-            borderRadius: 5
-          }}
-        >
-          <Container alignItems={"center"} paddingBottom paddingTop>
-            <Text type={Text.Types.H2} bold>
-              You are all set!
-            </Text>
-            <Container paddingTop={5}>
-              <Text type={Text.Types.SubTitle}>Identity created</Text>
-            </Container>
-          </Container>
-          <Container justifyContent={"center"} alignItems={"center"}>
-            <Icon
-              name={"rocket"}
-              size={150}
-              color={Theme.colors.confirm.accessories}
-            />
-          </Container>
-          <Container flexDirection={"row"} justifyContent={"center"}>
-            <ActivityIndicator style={{ marginRight: 10 }} />
-            <Text type={Text.Types.ListItem}>Preparing dashboard...</Text>
-          </Container>
-
-          <Container padding>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              You have successfully created a xDemic DID identity. Your private
-              keys have been saved securely to your device
-            </Text>
-          </Container>
-        </Container>
-      </Container>
+      <Screen type={Screen.Types.Secondary} config={Screen.Config.SafeScroll}>
+        {/* <Container>
+          <AvatarNameWithSubHeader
+            avatar={avatar}
+            avatarSize={Theme.avatarSize.default}
+            name={name || "Bilal Javed Awan"}
+            address={"School Name"}
+            type={"personInformation"}
+            detailed={false}
+          />
+        </Container> */}
+        {/* <Container paddingBottom /> */}
+        {this.renderUserAddingInfo()}
+      </Screen>
     );
-  }
-
-  /**
-   * Class methods
-   */
-  addImage(response: any) {
-    this.setState({
-      image: response.avatar
-    });
-  }
-
-  chooseProfileImage = () => {
-    photoSelectionHandler({
-      cameraStatus: "",
-      photoStatus: "",
-      segmentId: "",
-      addFn: this.addImage
-    });
-  };
-
-  createIdentity() {
-    this.setState({
-      ...this.state,
-      userAddingInfo: false,
-      userCreatingidentity: true
-    });
-
-    /**
-     * Create identity
-     */
-    this.props.createIdentity();
-
-    setTimeout(() => {
-      this.showIdentityCreationStatus(this.props.address);
-
-      setTimeout(() => {
-        /**
-         * Update the user profile with onboarding user data
-         */
-        if (this.props.address) {
-          this.state.image &&
-            this.props.addImage(this.props.address, "avatar", this.state.image);
-          this.state.name &&
-            this.props.storeOwnClaim(this.props.address, {
-              name: this.state.name,
-              dob: this.state.dob,
-              phone: this.state.phoneNumber
-              // country: this.state.identityNumber
-            });
-        }
-
-        /**
-         * Fire get started event
-         */
-        this.props.trackSegment("Get Started");
-
-        /**
-         * Onboarding complete
-         */
-        // this.props.finishOnboarding();
-        // if you want to goo on add school then use this below code
-        // otherwise uncommit "this.props.finishOnboarding()" & comment below code
-        setTimeout(() => {
-          this.setState({ ...this.state, identityCreationSuccess: false });
-          Navigation.push(this.props.componentId, {
-            component: {
-              name: SCREENS.AddSchool,
-              options: {
-                topBar: {
-                  elevation: 0,
-                  drawBehind: false,
-                  // rightButtons: [rightButtonsCredentialScreen],
-                  title: {
-                    text: "Add School",
-                    alignment: "center",
-                    fontFamily: "bold"
-                  },
-                  backButton: {
-                    visible: false
-                  }
-                }
-                // fab: {
-                //   id: "androidScan",
-                //   visible: true,
-                //   backgroundColor: Theme.colors.primary.brand,
-                //   clickColor: "#FFF",
-                //   rippleColor: "#ddd",
-                //   icon: scanIcon,
-                //   iconColor: "#FFF"
-                // }
-              }
-            }
-          });
-        }, 2000);
-      }, 2000);
-    }, 2600);
-  }
-
-  showIdentityCreationStatus(address: string) {
-    this.setState({
-      ...this.state,
-      userCreatingidentity: false,
-      identityCreationSuccess: true
-    });
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any, ownProps: any) => {
+  const userData = Mori.toJs(ownClaims(state)) || {};
   return {
-    address: currentAddress(state)
+    ...ownProps,
+    avatar:
+      typeof state.myInfo.changed.avatar !== "undefined"
+        ? state.myInfo.changed.avatar
+        : userData.avatar,
+    name:
+      typeof state.myInfo.changed.name !== "undefined"
+        ? state.myInfo.changed.name
+        : userData.name
   };
 };
 
-export const mapDispatchToProps = (dispatch: any) => {
-  return {
-    createIdentity: () => {
-      dispatch(createIdentity());
-      dispatch(activationEvent("ONBOARDED"));
-      dispatch(track("Onboarding Complete Finished"));
-    },
-    finishOnboarding: () => {
-      // dispatch(activationEvent("ONBOARDED"));
-      // dispatch(track("Onboarding Complete Finished"));
-      //**Start app after tracking events fire */
-      startMain();
-    },
-    trackSegment: (event: any) => {
-      dispatch(track(`Onboarding Complete ${event}`));
-    },
-    addImage: (address: string, claimType: string, image: any) => {
-      dispatch(addImage(address, claimType, image));
-    },
-    storeOwnClaim: (address: string, claims: any) => {
-      dispatch(addClaims(address, claims));
-    },
-    registerDeviceForNotifications: () => {
-      dispatch(registerDeviceForNotifications());
-    }
-  };
-};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateIdentity);
+export default connect(mapStateToProps)(UserSendTo);
+
+const Styles = StyleSheet.create({
+  input: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    shadowOffset: { width: 0, height: 1 },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 2,
+
+    shadowColor: "#4f4f4f",
+    shadowRadius: 4,
+    shadowOpacity: 0.2,
+    elevation: 3,
+
+    // fontSize: Theme.text.sizes.h6,
+    color: Colors.DARK_GREY,
+
+    paddingLeft: Theme.spacing.default16,
+    height: 40
+  }
+});
