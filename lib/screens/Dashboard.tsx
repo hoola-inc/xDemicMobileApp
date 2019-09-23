@@ -1,34 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Mori from "mori";
-import { View, StyleSheet, Alert } from "react-native";
-import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
+import { StyleSheet, Alert } from "react-native";
 
-import { schools } from "xdemic/lib/selectors/school";
+import { ownClaims } from "xdemic/lib/selectors/identities";
 
-import { getSchool } from "xdemic/lib/actions/schoolActions";
-
-import {
-  currentAddress,
-  ownClaims,
-  myAccounts,
-  allIdentities
-} from "xdemic/lib/selectors/identities";
-
-import {
-  Screen,
-  Container,
-  Text,
-  Theme,
-  Icon,
-  Colors,
-  SignPost,
-  SignPostCardType,
-  Section,
-  Images,
-  Button,
-  Card
-} from "@kancha";
+import { Screen, Container, Text, Theme, Icon, Colors, Button } from "@kancha";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
