@@ -51,6 +51,7 @@ interface DashboardProps {
 interface DashboardState {
   coursesList: any;
   httpcoursesList: any;
+  schools: any;
 }
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
@@ -58,15 +59,18 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     this.state = {
       coursesList: [],
-      httpcoursesList: []
+      httpcoursesList: [],
+      schools: []
     };
 
     // Navigation.events().bindComponent(this);
     this.fetchCourses = this.fetchCourses.bind(this);
     this.renderInfoBar = this.renderInfoBar.bind(this);
+    this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
     console.log("working");
+    this.fetchSchools();
     this.fetchCourses();
     this.fetchHttpCourses();
     // this.props.getSchools();
@@ -136,6 +140,34 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       console.log("json after state save is: ", json);
     }
     // updatecoursesList(json)
+  };
+
+  fetchSchools = async () => {
+    const response = await fetch("https://xdemic-api.herokuapp.com/schools");
+    const json = await response.json();
+    if (!json.status) {
+      Alert.alert(
+        "Schools",
+        "Schools not found!",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      this.setState({
+        schools: json.data
+      });
+    }
   };
 
   renderInfoBar() {
@@ -211,14 +243,26 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     );
   }
 
+  renderSchools(data: any) {
+    return (
+      <Container padding w={202}>
+        <BaseCard
+          {...this.props}
+          data={{
+            schoolAddress: "schoolAddress",
+            schoolName: "schoolName",
+            schoolPosition: "schoolPosition",
+            expandable: false
+          }}
+          key={"schoolPosition"}
+        />
+      </Container>
+    );
+  }
   render() {
-    console.log("school props from map state is: ", this.state.coursesList);
-    console.log("rizwan is: ", this.props.name);
     const { name, avatar } = this.props;
     return (
       <Screen type={Screen.Types.Secondary}>
-        {/* {showSearchResult}
-      {showNearToYou} */}
         <Container>
           <AvatarNameWithSubHeader
             avatar={avatar}
@@ -245,30 +289,31 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               My Schools
             </Text>
             <Container flexDirection={"row"}>
-              <Container padding>
-                <BaseAddSchoolButton
-                  {...this.props}
-                  iconSize={23}
-                  name={"Add Schools"}
-                />
-              </Container>
-              <Container padding w={250}>
-                {/* <BaseAddSchoolButton
-                  {...this.props}
-                  iconSize={23}
-                  name={"Add Schools"}
-                /> */}
-                <BaseCard
-                  {...this.props}
-                  data={{
-                    schoolAddress: "schoolAddress",
-                    schoolName: "schoolName",
-                    schoolPosition: "schoolPosition",
-                    expandable: false
-                  }}
-                  key={"schoolPosition"}
-                />
-              </Container>
+              {this.state.schools.length === "undefined" && (
+                <Container padding>
+                  <BaseAddSchoolButton
+                    {...this.props}
+                    iconSize={23}
+                    name={"Add Schools"}
+                  />
+                </Container>
+              )}
+              {this.state.schools.length !== 0 &&
+                this.state.schools.map((data: any, i: any) => (
+                  <Container padding w={202}>
+                    <BaseCard
+                      {...this.props}
+                      data={{
+                        schoolAddress: data.address,
+                        schoolName: data.name,
+                        schoolPosition: data.offer,
+                        expandable: false
+                      }}
+                      key={"schoolPosition"}
+                    />
+                  </Container>
+                ))}
+
               {/* {this.state.coursesList.length > 0 &&
                 this.state.coursesList.map((data: any) => (
                   <BaseAddSchoolButton
