@@ -31,6 +31,7 @@ import {
 } from "@kancha";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
+import BaseChip from "xdemic/lib/components/shared/BaseChip";
 import {
   AvatarNameWithSubHeader,
   BaseAddSchoolButton
@@ -299,27 +300,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     />
                   </Container>
                 ))}
-
-              {/* {this.state.coursesList.length > 0 &&
-                this.state.coursesList.map((data: any) => (
-                  <BaseAddSchoolButton
-                    {...this.props}
-                    iconSize={23}
-                    name={"Add Schools"}
-                    key={data.name}
-                  />
-                ))} */}
             </Container>
-
-            {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
-            return (
-              <BaseCard
-                {...props}
-                data={{ ...data, expandable: false }}
-                key={i}
-              />
-            );
-          })} */}
           </Container>
 
           <Container paddingTop={Theme.spacing.default}>
@@ -332,35 +313,15 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               Records
             </Text>
           </Container>
-          <Container
-            // paddingLeft={0}
-            flexDirection={"row"}
-            // justifyContent={"flex-start"}
-            // alignItems={"flex-start"}
-          >
-            {CHIP_DATA.map(data => (
-              <Container
-                w={129}
-                paddingRight={Theme.spacing.default}
-                key={data}
-              >
-                <Card
-                  onPress={() => console.log("Pressed is working from chip")}
-                >
-                  <Text
-                    type={Text.Types.CAPTION1}
-                    textAlign={"center"}
-                    transform={"capitalize"}
-                    textColor={Colors.DARK_GREY}
-                    padding={Theme.spacing.default}
-                    semiBold
-                  >
-                    {data}, 19
-                  </Text>
-                </Card>
-              </Container>
-            ))}
-          </Container>
+
+          {/* Rendering the Chip According to semester */}
+          {this.state.coursesList.length > 0 && (
+            <Container flexDirection={"row"}>
+              {CHIP_DATA.map(data => (
+                <BaseChip title={data} key={data} />
+              ))}
+            </Container>
+          )}
 
           {this.state.coursesList.length > 0 &&
             this.state.coursesList.map((data: any, i: any) => (
