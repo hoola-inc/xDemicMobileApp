@@ -72,7 +72,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
-    console.log("working");
     this.fetchSchools();
     this.fetchCourses();
     this.fetchHttpCourses();
@@ -83,8 +82,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   fetchCourses = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/courses");
     const json = await response.json();
-
-    console.log("json before state save is: ", json);
 
     if (!json.status) {
       Alert.alert(
@@ -108,15 +105,12 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       this.setState({
         coursesList: json.data
       });
-      console.log("json after state save is: ", json);
     }
     // updatecoursesList(json)
   };
   fetchHttpCourses = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
     const json = await response.json();
-
-    console.log("json before state save is: ", json);
 
     if (!json.status) {
       Alert.alert(
@@ -140,7 +134,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       this.setState({
         httpcoursesList: json.data.graph
       });
-      console.log("json after state save is: ", json);
     }
     // updatecoursesList(json)
   };

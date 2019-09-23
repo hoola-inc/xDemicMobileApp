@@ -140,7 +140,6 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
    * UI Render states
    */
   renderUserAddingInfo() {
-    console.log("renderUserAddingInfo is: ", this.state.schools);
     return (
       <Container
       // disabled={

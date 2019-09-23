@@ -164,7 +164,6 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
    * UI Render states
    */
   renderUserAddingInfo() {
-    console.log("renderUserAddingInfo is: ", this.state.schools);
     return (
       <Container
         disabled={

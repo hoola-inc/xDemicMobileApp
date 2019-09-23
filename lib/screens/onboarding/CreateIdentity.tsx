@@ -449,8 +449,6 @@ class CreateIdentity extends React.Component<
    * Todo - Create Modal component used below...
    */
   renderIdentityCreationSuccess() {
-    console.log("this.state of on createIdentity is: ", this.state);
-    console.log("this.props of on createIdentity is: ", this.props);
     return (
       <Container
         flex={1}

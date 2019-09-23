@@ -95,14 +95,12 @@ export class UserSendTo extends React.Component<
   componentDidMount() {}
 
   sendTranscript = async () => {
-    console.log("sendTranscript is calling!");
     const data = { email: this.state.phoneNumber };
     const res = await axios.post(
       "https://xdemic-api.herokuapp.com/transscipt",
       { email: this.state.phoneNumber }
     );
 
-    console.log("share to res is: ", res);
     if (!res.status) {
       Alert.alert(
         `Transcript`,
@@ -149,7 +147,6 @@ export class UserSendTo extends React.Component<
         ],
         { cancelable: true }
       );
-      console.log("json after state save is: ", res);
     }
   };
   goToScreen(screenID: string) {
