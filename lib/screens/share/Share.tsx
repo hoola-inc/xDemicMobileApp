@@ -159,21 +159,55 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               textColor={Colors.BLACK}
               bold
             >
+              Recipients
+            </Text>
+            <Item style={Styles.input}>
+              <Icon
+                name={"search"}
+                font={"materialicons"}
+                color={Colors.LIGHT_GREY}
+                size={20}
+              />
+              <InputNative
+                style={{
+                  // ...textStyles.h3,
+                  fontFamily: font,
+                  paddingTop: 15,
+                  paddingLeft: 15,
+                  textAlign: "left",
+                  fontSize: Theme.text.sizes.h6,
+                  color: Colors.DARK_GREY
+                }}
+                placeholder="Search..."
+              />
+            </Item>
+          </Container>
+
+          <Container>
+            <Text
+              type={Text.Types.H2}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              bold
+              paddingTop={Theme.spacing.default32}
+              paddingBottom={Theme.spacing.default}
+            >
               Recent
             </Text>
+
             <Container flexDirection={"row"}>
-              {/* {this.state.schools.length === "undefined" && (
-                <Container padding>
+              {this.state.schools.length === 0 && (
+                <Container>
                   <BaseAddSchoolButton
                     {...this.props}
                     iconSize={23}
                     name={"Add Schools"}
                   />
                 </Container>
-              )} */}
+              )}
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
-                  <Container padding w={202}>
+                  <Container w={202}>
                     <BaseCard
                       {...this.props}
                       data={{
@@ -197,45 +231,8 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                   />
                 ))} */}
             </Container>
-
-            {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
-            return (
-              <BaseCard
-                {...props}
-                data={{ ...data, expandable: false }}
-                key={i}
-              />
-            );
-          })} */}
           </Container>
 
-          <Container>
-            <Text
-              type={Text.Types.H2}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-              paddingTop={Theme.spacing.default32}
-              paddingBottom={Theme.spacing.default}
-            >
-              Recent
-            </Text>
-            {this.state.schools.length !== 0 &&
-              this.state.schools.map((data: any, i: any) => {
-                return (
-                  <BaseCard
-                    {...this.props}
-                    data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.address,
-                      expandable: false
-                    }}
-                    key={i}
-                  />
-                );
-              })}
-          </Container>
           <Container>
             <Text
               type={Text.Types.H2}
