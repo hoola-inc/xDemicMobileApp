@@ -152,38 +152,63 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
           paddingLeft={Theme.spacing.default16}
           paddingRight={Theme.spacing.default16}
         >
-          <Container paddingTop={Theme.spacing.default16}>
+          <Container>
             <Text
-              type={Text.Types.H2}
+              type={Text.Types.H1}
               textAlign={"left"}
               textColor={Colors.BLACK}
               bold
-              // paddingTop={29}
-              paddingBottom={Theme.spacing.default}
             >
-              Recipients
+              Recent
             </Text>
-            <Item style={Styles.input}>
-              <Icon
-                name={"search"}
-                font={"materialicons"}
-                color={Colors.LIGHT_GREY}
-                size={20}
+            <Container flexDirection={"row"}>
+              {/* {this.state.schools.length === "undefined" && (
+                <Container padding>
+                  <BaseAddSchoolButton
+                    {...this.props}
+                    iconSize={23}
+                    name={"Add Schools"}
+                  />
+                </Container>
+              )} */}
+              {this.state.schools.length !== 0 &&
+                this.state.schools.map((data: any, i: any) => (
+                  <Container padding w={202}>
+                    <BaseCard
+                      {...this.props}
+                      data={{
+                        schoolAddress: data.address,
+                        schoolName: data.name,
+                        schoolPosition: data.offer,
+                        expandable: false
+                      }}
+                      key={"schoolPosition"}
+                    />
+                  </Container>
+                ))}
+
+              {/* {this.state.coursesList.length > 0 &&
+                this.state.coursesList.map((data: any) => (
+                  <BaseAddSchoolButton
+                    {...this.props}
+                    iconSize={23}
+                    name={"Add Schools"}
+                    key={data.name}
+                  />
+                ))} */}
+            </Container>
+
+            {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
+            return (
+              <BaseCard
+                {...props}
+                data={{ ...data, expandable: false }}
+                key={i}
               />
-              <InputNative
-                style={{
-                  // ...textStyles.h3,
-                  fontFamily: font,
-                  paddingTop: Theme.spacing.default16,
-                  paddingLeft: Theme.spacing.default16,
-                  textAlign: "left",
-                  fontSize: Theme.text.sizes.h6,
-                  color: Colors.DARK_GREY
-                }}
-                placeholder="Search..."
-              />
-            </Item>
+            );
+          })} */}
           </Container>
+
           <Container>
             <Text
               type={Text.Types.H2}
