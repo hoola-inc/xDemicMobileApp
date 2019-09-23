@@ -272,9 +272,9 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             >
               My Schools
             </Text>
-            <Container flexDirection={"row"}>
-              {this.state.schools.length === "undefined" && (
-                <Container padding>
+            <Container flexDirection={"row"} padding={0} marginLeft={0}>
+              {this.state.schools.length === 0 && (
+                <Container>
                   <BaseAddSchoolButton
                     {...this.props}
                     iconSize={23}
@@ -284,7 +284,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               )}
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
-                  <Container padding w={202}>
+                  <Container w={202}>
                     <BaseCard
                       {...this.props}
                       data={{
