@@ -1,18 +1,13 @@
 import * as React from "react";
 import { Image } from "react-native";
 import { connect } from "react-redux";
-import didJWT from "did-jwt";
 import { Screen, Container, Button, Text, Images, Theme } from "@kancha";
 import SCREENS from "../Screens";
 import { Navigation } from "react-native-navigation";
-import { RNUportHDSigner, getSignerForHDPath } from "react-native-uport-signer";
-import { Credentials } from "uport-credentials";
-import base64 from "base-64";
 import { track } from "xdemic/lib/actions/metricActions";
 import { segmentId } from "xdemic/lib/selectors/identities";
 
 import TESTID from "xdemic/lib/e2e/testIDs";
-import axios from "axios";
 
 interface WelcomeProps {
   trackSegment: (event: any) => any;
