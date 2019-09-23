@@ -26,7 +26,8 @@ import {
   SignPostCardType,
   Section,
   Images,
-  Button
+  Button,
+  Card
 } from "@kancha";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
@@ -35,6 +36,7 @@ import {
   BaseAddSchoolButton
 } from "xdemic/lib/components/shared";
 
+const CHIP_DATA = ["Spring", "Summer", "Fall"];
 interface DashboardProps {
   credentials: any[];
   componentId: string;
@@ -320,7 +322,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
           })} */}
           </Container>
 
-          <Container paddingTop={Theme.spacing.default16}>
+          <Container paddingTop={Theme.spacing.default}>
             <Text
               type={Text.Types.H1}
               textAlign={"left"}
@@ -329,6 +331,35 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             >
               Records
             </Text>
+          </Container>
+          <Container
+            // paddingLeft={0}
+            flexDirection={"row"}
+            // justifyContent={"flex-start"}
+            // alignItems={"flex-start"}
+          >
+            {CHIP_DATA.map(data => (
+              <Container
+                w={129}
+                paddingRight={Theme.spacing.default}
+                key={data}
+              >
+                <Card
+                  onPress={() => console.log("Pressed is working from chip")}
+                >
+                  <Text
+                    type={Text.Types.CAPTION1}
+                    textAlign={"center"}
+                    transform={"capitalize"}
+                    textColor={Colors.DARK_GREY}
+                    padding={Theme.spacing.default}
+                    semiBold
+                  >
+                    {data}, 19
+                  </Text>
+                </Card>
+              </Container>
+            ))}
           </Container>
 
           {this.state.coursesList.length > 0 &&
