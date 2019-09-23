@@ -243,22 +243,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     );
   }
 
-  renderSchools(data: any) {
-    return (
-      <Container padding w={202}>
-        <BaseCard
-          {...this.props}
-          data={{
-            schoolAddress: "schoolAddress",
-            schoolName: "schoolName",
-            schoolPosition: "schoolPosition",
-            expandable: false
-          }}
-          key={"schoolPosition"}
-        />
-      </Container>
-    );
-  }
   render() {
     const { name, avatar } = this.props;
     return (
