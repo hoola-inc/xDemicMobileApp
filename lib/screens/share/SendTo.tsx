@@ -263,55 +263,6 @@ export class UserSendTo extends React.Component<
             </Container>
           </Container>
         </Container>
-        {/* <Container>
-          <Section>
-            <ListItem
-              accessible={false}
-              avatarComponent={
-                <Checkbox
-                  testID={TESTID.ONBOARDING_TERMS_RADIO}
-                  selected={this.state.termsAccepted}
-                  toggleSelect={checked =>
-                    this.setState({ termsAccepted: checked })
-                  }
-                />
-              }
-              onPress={() =>
-                Navigation.push(this.props.componentId, {
-                  component: {
-                    name: SCREENS.Terms,
-                    options: navOptions
-                  }
-                })
-              }
-            >
-              Accept terms and conditions
-            </ListItem>
-            <ListItem
-              accessible={false}
-              last
-              avatarComponent={
-                <Checkbox
-                  testID={TESTID.ONBOARDING_PRIVACY_RADIO}
-                  selected={this.state.privacyAccepted}
-                  toggleSelect={checked =>
-                    this.setState({ privacyAccepted: checked })
-                  }
-                />
-              }
-              onPress={() =>
-                Navigation.push(this.props.componentId, {
-                  component: {
-                    name: SCREENS.Privacy,
-                    options: navOptions
-                  }
-                })
-              }
-            >
-              Accept privacy policy
-            </ListItem>
-          </Section>
-        </Container> */}
       </Container>
     );
   }
@@ -320,17 +271,6 @@ export class UserSendTo extends React.Component<
     const { name, avatar } = this.props;
     return (
       <Screen type={Screen.Types.Secondary} config={Screen.Config.SafeScroll}>
-        {/* <Container>
-          <AvatarNameWithSubHeader
-            avatar={avatar}
-            avatarSize={Theme.avatarSize.default}
-            name={name || "Bilal Javed Awan"}
-            address={"School Name"}
-            type={"personInformation"}
-            detailed={false}
-          />
-        </Container> */}
-        {/* <Container paddingBottom /> */}
         {this.renderUserAddingInfo()}
       </Screen>
     );
