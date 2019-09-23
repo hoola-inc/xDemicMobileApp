@@ -36,7 +36,7 @@ import {
   Button
 } from "@kancha";
 import { Navigation } from "react-native-navigation";
-import SCREENS from "../screens/Screens";
+import SCREENS from "../Screens";
 import { hdRootAddress } from "xdemic/lib/selectors/hdWallet";
 import Mori from "mori";
 import {

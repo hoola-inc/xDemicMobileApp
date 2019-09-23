@@ -13,6 +13,7 @@ export default {
   Notifications: "Notifications",
   Settings: "Settings",
   Share: "Share",
+  SendTo: "SendTo",
   Profile: "Profile",
   DesignSystem: "DesignSystem",
   Scanner: "Scanner",
