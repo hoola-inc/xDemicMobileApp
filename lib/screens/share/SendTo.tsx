@@ -53,12 +53,15 @@ import {
 } from "xdemic/lib/selectors/identities";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import { font } from "xdemic/lib/styles/globalStyles";
+import axios from "axios";
 
 interface UserSendToProps {
   componentId: string;
 
   avatar: any;
   name: string;
+
+  sendTranscript: any;
 }
 
 interface UserSendToState {
@@ -86,9 +89,69 @@ export class UserSendTo extends React.Component<
       name: "",
       phoneNumber: ""
     };
+
+    this.sendTranscript = this.sendTranscript.bind(this);
   }
   componentDidMount() {}
 
+  sendTranscript = async () => {
+    console.log("sendTranscript is calling!");
+    const data = { email: this.state.phoneNumber };
+    const res = await axios.post(
+      "https://xdemic-api.herokuapp.com/transscipt",
+      { email: this.state.phoneNumber }
+    );
+
+    console.log("share to res is: ", res);
+    if (!res.status) {
+      Alert.alert(
+        `Transcript`,
+        `Transcript not send!`,
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          {
+            text: "Ok",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+    } else {
+      Alert.alert(
+        `Transcript`,
+        `Transcript send Successfully!`,
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          {
+            text: "Ok",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+          // {
+          //   text: " Event ClearQueue",
+          //   style: "destructive",
+          //   onPress: () => console.log("on Pressed")
+          // }
+        ],
+        { cancelable: true }
+      );
+      console.log("json after state save is: ", res);
+    }
+  };
   goToScreen(screenID: string) {
     Navigation.push(this.props.componentId, {
       component: {
@@ -201,13 +264,13 @@ export class UserSendTo extends React.Component<
               textAlign={"center"}
               transform={"uppercase"}
             >
-              Email/Phone Number
+              Email
             </Text>
           </Container>
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_PHONE_NUMBER}
-              placeholder={"Email/Phone Number"}
+              placeholder={"Email"}
               textType={Text.Types.H2}
               inputType={"filled"}
               value={this.state.phoneNumber}
@@ -272,7 +335,7 @@ export class UserSendTo extends React.Component<
               // }
               type={Button.Types.Primary}
               block={Button.Block.Filled}
-              onPress={() => console.log("Send to working!")}
+              onPress={() => console.log("this.sendTranscript is not calling")}
             />
           </Container>
         </Container>
@@ -309,7 +372,7 @@ export class UserSendTo extends React.Component<
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
-                onPress={() => console.log("Send to working!")}
+                onPress={this.sendTranscript}
               />
             </Container>
           </Container>

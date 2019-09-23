@@ -208,7 +208,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               )}
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
-                  <Container w={202}>
+                  <Container w={202} key={data.address}>
                     <BaseCard
                       {...this.props}
                       data={{
