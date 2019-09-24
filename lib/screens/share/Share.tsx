@@ -196,15 +196,6 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             </Text>
 
             <Container flexDirection={"row"}>
-              {this.state.schools.length === 0 && (
-                <Container>
-                  <BaseAddSchoolButton
-                    {...this.props}
-                    iconSize={23}
-                    name={"Add Schools"}
-                  />
-                </Container>
-              )}
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
                   <Container w={202} key={data.address}>
@@ -230,6 +221,13 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     key={data.name}
                   />
                 ))} */}
+              <Container paddingLeft={Theme.spacing.default} h={93}>
+                <BaseAddSchoolButton
+                  {...this.props}
+                  iconSize={23}
+                  name={"Add Schools"}
+                />
+              </Container>
             </Container>
           </Container>
 
