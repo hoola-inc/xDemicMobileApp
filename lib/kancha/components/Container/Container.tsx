@@ -93,6 +93,9 @@ export interface ContainerProps {
   /** set the right divider */
   dividerRight?: boolean;
 
+  /** Set the margin */
+  margin?: number | boolean | undefined;
+
   /** Set the bottom margin */
   marginBottom?: number | boolean | undefined;
 
@@ -238,6 +241,8 @@ const Container: React.FunctionComponent<ContainerProps> = props => {
       : {}),
 
     /** Margins */
+    margin:
+      typeof props.margin === "boolean" ? Theme.spacing.default : props.margin,
     marginBottom:
       typeof props.marginBottom === "boolean"
         ? Theme.spacing.default
