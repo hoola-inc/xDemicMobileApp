@@ -56,9 +56,7 @@ const Card: React.FC<Card> = props => {
           borderTopWidth: 0,
           borderBottomWidth: 0,
 
-          borderLeftWidth: props.borderLeft
-            ? Theme.card.borderSize
-            : Theme.card.borderSize,
+          borderLeftWidth: props.borderLeft ? Theme.card.borderSize : 0,
           borderWidth: Theme.card.borderSize,
 
           borderTopLeftRadius: Theme.card.borderSize,
