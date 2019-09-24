@@ -52,6 +52,7 @@ import {
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import { font } from "xdemic/lib/styles/globalStyles";
 import TESTID from "xdemic/lib/e2e/testIDs";
+import { TileButton } from "xdemic/lib/components/shared/Button";
 
 interface UserShareProps {
   componentId: string;
@@ -221,13 +222,30 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     key={data.name}
                   />
                 ))} */}
-              <Container paddingLeft={Theme.spacing.default} h={93}>
-                <BaseAddSchoolButton
-                  {...this.props}
-                  iconSize={23}
-                  name={"Add Schools"}
-                />
-              </Container>
+              <TileButton
+                marginLeft
+                onPress={() =>
+                  Navigation.push(this.props.componentId, {
+                    component: {
+                      name: SCREENS.AddSchool,
+                      options: {
+                        topBar: {
+                          elevation: 0,
+                          drawBehind: false,
+                          title: {
+                            text: "Add School",
+                            alignment: "center",
+                            fontFamily: "bold"
+                          },
+                          backButton: {
+                            visible: true
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
+              />
             </Container>
           </Container>
 

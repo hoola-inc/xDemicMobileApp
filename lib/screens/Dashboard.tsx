@@ -5,7 +5,16 @@ import { Alert } from "react-native";
 
 import { ownClaims } from "xdemic/lib/selectors/identities";
 
-import { Screen, Container, Text, Theme, Icon, Colors, Button } from "@kancha";
+import {
+  Screen,
+  Container,
+  Text,
+  Theme,
+  Icon,
+  Colors,
+  Button,
+  Card
+} from "@kancha";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
@@ -13,6 +22,9 @@ import {
   AvatarNameWithSubHeader,
   BaseAddSchoolButton
 } from "xdemic/lib/components/shared";
+import SCREENS from "xdemic/lib/screens/Screens";
+import { TileButton } from "xdemic/lib/components/shared/Button";
+import { Navigation } from "react-native-navigation";
 
 const CHIP_DATA = ["Spring", "Summer", "Fall"];
 interface DashboardProps {
@@ -22,7 +34,7 @@ interface DashboardProps {
   schoolsState: any[];
   name: string;
   avatar: string;
-
+  timer: any;
   /**
    * Redux actions
    */
@@ -33,6 +45,7 @@ interface DashboardState {
   httpcoursesList: any;
   schools: any;
 }
+let timer: any = null;
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
     super(props);
@@ -41,19 +54,25 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       coursesList: [],
       httpcoursesList: [],
       schools: []
+      // timer: null
     };
-
     // Navigation.events().bindComponent(this);
     this.fetchCourses = this.fetchCourses.bind(this);
     this.renderInfoBar = this.renderInfoBar.bind(this);
     this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
-    this.fetchSchools();
-    this.fetchCourses();
-    this.fetchHttpCourses();
+    setTimeout(() => {
+      this.fetchSchools();
+      this.fetchCourses();
+      this.fetchHttpCourses();
+    }, 3000);
+
     // this.props.getSchools();
     // this.props.updateShareToken(this.props.address);
+  }
+  componentWillUnmount() {
+    // clearTimeout(timer);
   }
 
   fetchCourses = async () => {
@@ -235,6 +254,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         {/* {this.renderInfoBar()} */}
         <Container
           padding={Theme.spacing.default16}
+          paddingTop={0}
           flex={1}
           flexDirection={"column"}
         >
@@ -247,10 +267,14 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             >
               My Schools
             </Text>
-            <Container flexDirection={"row"} padding={0} marginLeft={0}>
+            <Container flexDirection={"row"}>
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
-                  <Container w={202} key={data.address}>
+                  <Container
+                    w={202}
+                    key={data.address}
+                    //h={93}
+                  >
                     <BaseCard
                       {...this.props}
                       data={{
@@ -263,15 +287,31 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     />
                   </Container>
                 ))}
-              <Container paddingLeft={Theme.spacing.default} 
-              //w={200} 
-              h={92}>
-                <BaseAddSchoolButton
-                  {...this.props}
-                  iconSize={23}
-                  name={"Add Schools"}
-                />
-              </Container>
+
+              <TileButton
+                marginLeft={this.state.schools.length !== 0 ? true : 0}
+                onPress={() =>
+                  Navigation.push(this.props.componentId, {
+                    component: {
+                      name: SCREENS.AddSchool,
+                      options: {
+                        topBar: {
+                          elevation: 0,
+                          drawBehind: false,
+                          title: {
+                            text: "Add School",
+                            alignment: "center",
+                            fontFamily: "bold"
+                          },
+                          backButton: {
+                            visible: true
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
+              />
             </Container>
           </Container>
 
