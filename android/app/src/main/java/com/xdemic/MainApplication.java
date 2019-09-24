@@ -53,6 +53,7 @@ import com.reactnativenavigation.react.ReactGateway;
 
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
+import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 
 public class MainApplication extends NavigationApplication implements ShareApplication {
 
@@ -101,7 +102,7 @@ public class MainApplication extends NavigationApplication implements ShareAppli
                 new VectorIconsPackage(), new RNCameraPackage(), new RandomBytesPackage(), new ImagePickerPackage(),
                 new AuthenticationScreenPackage(), new MySNSPackage(), new IntentLauncherPackage(),
                 new RNUportSignerPackage(), new RNFirebaseAnalyticsPackage(), new AsyncStoragePackage(),
-                new MapsPackage(), new NetInfoPackage());
+                new MapsPackage(), new NetInfoPackage(), new RNDateTimePickerPackage());
     }
 
 }

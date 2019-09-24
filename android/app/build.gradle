@@ -284,6 +284,7 @@ dependencies {
     implementation project(':react-native-passcode-android')
     implementation project(':react-native-randombytes')
     implementation project(':react-native-image-picker')
+    implementation project(':react-native-datetimepicker')
     implementation(project(':react-native-camera')) {
         exclude group: "com.google.android.gms"
         exclude group: "com.facebook.infer.annotation"
