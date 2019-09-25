@@ -20,38 +20,15 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
-import { ActivityIndicator, StyleSheet, Alert } from "react-native";
-import {
-  Screen,
-  ListItem,
-  Theme,
-  Section,
-  Container,
-  Text,
-  Icon,
-  Colors,
-  SignPost,
-  SignPostCardType,
-  Images,
-  Button
-} from "@kancha";
+import { StyleSheet, Alert } from "react-native";
+import { Screen, Theme, Container, Text, Icon, Colors } from "@kancha";
 import { Navigation } from "react-native-navigation";
 import SCREENS from "../Screens";
-import { hdRootAddress } from "xdemic/lib/selectors/hdWallet";
 import Mori from "mori";
-import {
-  AvatarNameWithSubHeader,
-  BaseAddSchoolButton
-} from "xdemic/lib/components/shared";
-import {
-  currentAddress,
-  ownClaims,
-  myAccounts,
-  allIdentities
-} from "xdemic/lib/selectors/identities";
+import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
+import { ownClaims } from "xdemic/lib/selectors/identities";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import { font } from "xdemic/lib/styles/globalStyles";
-import TESTID from "xdemic/lib/e2e/testIDs";
 import { TileButton } from "xdemic/lib/components/shared/Button";
 
 interface UserShareProps {
@@ -59,6 +36,7 @@ interface UserShareProps {
 
   avatar: any;
   name: string;
+  phone: string;
 }
 
 interface UserShareState {
@@ -99,11 +77,6 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             onPress: () => console.log("Cancel Pressed"),
             style: "cancel"
           }
-          // {
-          //   text: " Event ClearQueue",
-          //   style: "destructive",
-          //   onPress: () => console.log("on Pressed")
-          // }
         ],
         { cancelable: true }
       );
@@ -212,16 +185,6 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     />
                   </Container>
                 ))}
-
-              {/* {this.state.coursesList.length > 0 &&
-                this.state.coursesList.map((data: any) => (
-                  <BaseAddSchoolButton
-                    {...this.props}
-                    iconSize={23}
-                    name={"Add Schools"}
-                    key={data.name}
-                  />
-                ))} */}
               <TileButton
                 marginLeft
                 onPress={() =>
@@ -365,7 +328,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
   }
 
   render() {
-    const { name, avatar } = this.props;
+    const { name, avatar, phone } = this.props;
     return (
       <Screen type={Screen.Types.Secondary} config={Screen.Config.SafeScroll}>
         <Container>
@@ -373,7 +336,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             avatar={avatar}
             avatarSize={Theme.avatarSize.default}
             name={name || "Bilal Javed Awan"}
-            address={"School Name"}
+            address={phone || "School Name"}
             type={"personInformation"}
             detailed={false}
           />
@@ -396,7 +359,11 @@ const mapStateToProps = (state: any, ownProps: any) => {
     name:
       typeof state.myInfo.changed.name !== "undefined"
         ? state.myInfo.changed.name
-        : userData.name
+        : userData.name,
+    phone:
+      typeof state.myInfo.changed.phone !== "undefined"
+        ? state.myInfo.changed.phone
+        : userData.phone
   };
 };
 
