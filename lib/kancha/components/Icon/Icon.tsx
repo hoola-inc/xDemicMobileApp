@@ -75,6 +75,7 @@ interface IconsStatic {
   more: string;
   checkmark: string;
   scan: string;
+  qrcodeScan: string;
   qrcode: string;
   add: string;
   remove: string;
@@ -107,6 +108,7 @@ const Icons: IconsStatic = {
   rocket: Device.isIOS ? "ios-rocket" : "md-rocket",
   share: Device.isIOS ? "ios-share" : "md-share",
   scan: Device.isIOS ? "ios-qr-scanner" : "md-qr-scanner",
+  qrcodeScan: "qrcode-scan",
   close: Device.isIOS ? "close" : "close",
   checkmark: Device.isIOS ? "ios-checkmark" : "md-checkmark",
   edit: Device.isIOS ? "edit" : "edit",

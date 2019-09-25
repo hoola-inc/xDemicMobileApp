@@ -306,7 +306,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               })}
           </Container>
         </Container>
-        <Container padding justifyContent={"center"} alignItems={"flex-end"}>
+        {/* <Container padding justifyContent={"center"} alignItems={"flex-end"}>
           <Button
             testID={TESTID.ONBOARDING_CREATE_IDENTITY}
             rounded
@@ -359,7 +359,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               })
             }
           />
-        </Container>
+        </Container> */}
       </Container>
     );
   }
