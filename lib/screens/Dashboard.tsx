@@ -1,28 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Screen, Container, Text, Theme, Icon, Colors, Button } from "@kancha";
+import SCREENS from "xdemic/lib/screens/Screens";
 import Mori from "mori";
 import { Alert } from "react-native";
-
-import { ownClaims } from "xdemic/lib/selectors/identities";
-
-import {
-  Screen,
-  Container,
-  Text,
-  Theme,
-  Icon,
-  Colors,
-  Button,
-  Card
-} from "@kancha";
+import { ownClaims, currentAddress } from "xdemic/lib/selectors/identities";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
-import {
-  AvatarNameWithSubHeader,
-  BaseAddSchoolButton
-} from "xdemic/lib/components/shared";
-import SCREENS from "xdemic/lib/screens/Screens";
+import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
 import { TileButton } from "xdemic/lib/components/shared/Button";
 import { Navigation } from "react-native-navigation";
 
@@ -34,7 +20,8 @@ interface DashboardProps {
   schoolsState: any[];
   name: string;
   avatar: string;
-  timer: any;
+  phone: string;
+  did: any;
   /**
    * Redux actions
    */
@@ -45,7 +32,6 @@ interface DashboardState {
   httpcoursesList: any;
   schools: any;
 }
-let timer: any = null;
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
     super(props);
@@ -54,7 +40,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       coursesList: [],
       httpcoursesList: [],
       schools: []
-      // timer: null
     };
     // Navigation.events().bindComponent(this);
     this.fetchCourses = this.fetchCourses.bind(this);
@@ -62,21 +47,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
-    setTimeout(() => {
-      this.fetchSchools();
-      this.fetchCourses();
-      this.fetchHttpCourses();
-    }, 3000);
+    this.fetchSchools();
+    this.fetchCourses();
 
     // this.props.getSchools();
-    // this.props.updateShareToken(this.props.address);
-  }
-  componentWillUnmount() {
-    // clearTimeout(timer);
   }
 
   fetchCourses = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/courses");
+    const response = await fetch(
+      `https://xdemic-api.herokuapp.com/courses/${this.props.did}`
+    );
     const json = await response.json();
 
     if (!json.status) {
@@ -104,39 +84,42 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     }
     // updatecoursesList(json)
   };
-  fetchHttpCourses = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
-    const json = await response.json();
 
-    if (!json.status) {
-      Alert.alert(
-        "Http Courses",
-        "Http Courses not found!",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel"
-          }
-          // {
-          //   text: " Event ClearQueue",
-          //   style: "destructive",
-          //   onPress: () => console.log("on Pressed")
-          // }
-        ],
-        { cancelable: true }
-      );
-    } else {
-      this.setState({
-        httpcoursesList: json.data.graph
-      });
-    }
-    // updatecoursesList(json)
-  };
+  // fetchHttpCourses = async () => {
+  //   const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
+  //   const json = await response.json();
+
+  //   if (!json.status) {
+  //     Alert.alert(
+  //       "Http Courses",
+  //       "Http Courses not found!",
+  //       [
+  //         {
+  //           text: "Cancel",
+  //           onPress: () => console.log("Cancel Pressed"),
+  //           style: "cancel"
+  //         }
+  //         // {
+  //         //   text: " Event ClearQueue",
+  //         //   style: "destructive",
+  //         //   onPress: () => console.log("on Pressed")
+  //         // }
+  //       ],
+  //       { cancelable: true }
+  //     );
+  //   } else {
+  //     this.setState({
+  //       httpcoursesList: json.data.graph
+  //     });
+  //   }
+  //   // updatecoursesList(json)
+  // };
 
   fetchSchools = async () => {
     const response = await fetch(
-      "https://xdemic-api.herokuapp.com/schoolwithstudentenroll"
+      `https://xdemic-api.herokuapp.com/schoolwithstudentenroll/${
+        this.props.did
+      }`
     );
     const json = await response.json();
     if (!json.status) {
@@ -238,7 +221,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   }
 
   render() {
-    const { name, avatar } = this.props;
+    const { name, avatar, phone, did } = this.props;
     return (
       <Screen type={Screen.Types.Secondary}>
         <Container>
@@ -246,7 +229,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             avatar={avatar}
             avatarSize={Theme.avatarSize.default}
             name={name || "Bilal Javed Awan"}
-            address={"N/A"}
+            address={phone || "N/A"}
             type={"personInformation"}
             detailed={false}
           />
@@ -369,29 +352,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 </Container>
               );
             })} */}
-
-          {/* <Section title={"My Schools"}>
-            <Container marginBottom>
-              <Credential
-                claimType={"Standard Credential"}
-                issuer={{
-                  name: "xDemic Apps Team",
-                  avatar: {
-                    uri:
-                      "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
-                  }
-                }}
-              />
-            </Container>
-            <Container marginBottom>
-              <Credential
-                claimType={"Missing Credential"}
-                issuer={{ name: "xDemic Apps Team" }}
-                missing
-                spec={{}}
-              />
-            </Container>
-          </Section> */}
         </Container>
       </Screen>
     );
@@ -400,8 +360,12 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
 const mapStateToProps = (state: any, ownProps: any) => {
   const userData = Mori.toJs(ownClaims(state)) || {};
+  const address = currentAddress(state);
+  const didParts = address && address.match(/^did:ethr:(0x[0-9a-fA-F]{40})/);
+  const did = didParts ? address : `did:uport:${address}`;
   return {
     ...ownProps,
+    did,
     avatar:
       typeof state.myInfo.changed.avatar !== "undefined"
         ? state.myInfo.changed.avatar
@@ -409,7 +373,11 @@ const mapStateToProps = (state: any, ownProps: any) => {
     name:
       typeof state.myInfo.changed.name !== "undefined"
         ? state.myInfo.changed.name
-        : userData.name
+        : userData.name,
+    phone:
+      typeof state.myInfo.changed.phone !== "undefined"
+        ? state.myInfo.changed.phone
+        : userData.phone
     // schoolsState: schools(state)
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
