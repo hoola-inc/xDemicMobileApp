@@ -1,127 +1,28 @@
 import * as React from "react";
 import { Image } from "react-native";
 import { connect } from "react-redux";
-import didJWT from "did-jwt";
 import { Screen, Container, Button, Text, Images, Theme } from "@kancha";
 import SCREENS from "../Screens";
 import { Navigation } from "react-native-navigation";
-import { RNUportHDSigner, getSignerForHDPath } from "react-native-uport-signer";
-import { Credentials } from "uport-credentials";
-import base64 from "base-64";
 import { track } from "xdemic/lib/actions/metricActions";
 import { segmentId } from "xdemic/lib/selectors/identities";
 
 import TESTID from "xdemic/lib/e2e/testIDs";
-import axios from "axios";
 
 interface WelcomeProps {
   trackSegment: (event: any) => any;
   componentId: string;
 }
-var seedAlias = "";
-const base64EncodedJwt =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1NjM1MjI4MzAsImF1ZCI6ImRpZDpldGhyOjB4M2ZkNTU0NWQwNDk5ZjJlMTI4ZGY2NjMyYzViOGI5YWQ5MmZmYTZiOSIsImV4cCI6MTk1NzQ2MzQyMSwibmFtZSI6IlJpendhbiBEZXZlbG9wZXIiLCJpc3MiOiJkaWQ6ZXRocjoweDNmZDU1NDVkMDQ5OWYyZTEyOGRmNjYzMmM1YjhiOWFkOTJmZmE2YjkifQ.-Xw5C7h-lW-mmsvXxi0zlfKpinpIGxtRCslJO3DbTfx9_jCjqm5h8RwyJ94wWanYSsOq0oi7OT2dcrSVfDvo9w";
 
-// const myClaim = {
-//   "@context": "https://w3id.org/openbadges/v2",
-//   id: "https://example.org/assertions/123",
-//   type: "Assertion",
-//   recipient: {
-//     type: "email",
-//     identity: "alice@example.org"
-//   },
-//   issuedOn: "2016-12-31T23:59:59+00:00",
-//   verification: {
-//     type: "hosted"
-//   },
-//   badge: {
-//     type: "BadgeClass",
-//     id: "https://example.org/badges/5",
-//     name: "3-D Printmaster",
-//     description:
-//       "This badge is awarded for passing the 3-D printing knowledge and safety test.",
-//     image: "https://example.org/badges/5/image",
-//     criteria: {
-//       narrative:
-//         "Students are tested on knowledge and safety, both through a paper test and a supervised performance evaluation on live equipment"
-//     },
-//     issuer: {
-//       id: "https://example.org/issuer",
-//       type: "Profile",
-//       name: "Example Maker Society",
-//       url: "https://example.org",
-//       email: "contact@example.org",
-//       verification: {
-//         allowedOrigins: "example.org"
-//       }
-//     }
-//   }
-// };
-
-const myClaim = {
-  type: "BadgeClass",
-  id: "https://example.org/badges/5",
-  name: "Hamza Developer"
-};
 class Welcome extends React.Component<WelcomeProps> {
   componentDidMount() {
     this.props.trackSegment("Start");
   }
-  // this function use for the RNUportHDSigner signjwt verification
-  async callAPI() {
-    RNUportHDSigner.createSeed("prompt").then((addressOj: any) => {
-      //keep a record of it to reference the seed when signing
-      console.warn("addressOj.addressOj is: ", addressOj.address);
-      seedAlias = addressOj.address;
-      const encodedbase64 = base64.encode(addressOj.address);
-      console.warn("encodedbase64 is: ", encodedbase64);
-      RNUportHDSigner.addressForPath(
-        seedAlias,
-        `m/7696500'/0'/0'/0'`,
-        addressOj.address
-      )
-        .then((addressObj: any) => {
-          console.warn("addressObj is: ", addressObj);
-          // Signing a JWT
-          RNUportHDSigner.signJwt(
-            seedAlias,
-            "m/7696500/0/0/0",
-            encodedbase64,
-            `sign a claim ${myClaim}`
-          )
-            .then((jwtSig: any) => {
-              console.warn("jwtSig is: ", jwtSig);
-              axios
-                .post("https://xdemic-api.herokuapp.com/school", {
-                  schema: jwtSig
-                })
-                .then(res => {
-                  console.warn("1");
-                  // const json = await data.json();
-                  // updateSignPosts(dataJson);
-                  console.warn("json is: ", res);
-                  console.warn("decodet jwt is: ", res);
-                })
-                .catch(e => {
-                  console.warn("2");
-                  console.warn("error # 3 in catch ", e);
-                });
-            })
-            .catch((e: any) => {
-              console.warn("jwtSig 8");
-              console.warn("jwtSig error # 9 in catch ", e);
-            });
-        })
-        .catch((e: any) => {
-          console.warn("7");
-          console.warn("error # 7 in catch ", e);
-        });
-    });
-  }
+
   render() {
     return (
       <Screen
-        backgroundImage={Images.backgrounds.purpleGradientWithPattern}
+        backgroundImage={Images.backgrounds.fingerprintWhite}
         type={Screen.Types.Custom}
         config={Screen.Config.SafeNoScroll}
         statusBarHidden
@@ -131,29 +32,51 @@ class Welcome extends React.Component<WelcomeProps> {
             flex={1}
             justifyContent={"space-around"}
             alignItems={"center"}
-            paddingTop={50}
+            // paddingTop={50}
           >
-            {/* <Image
-              source={Images.branding.logoWhite}
-              style={{ height: 100 }}
+            <Image
+              source={Images.branding.xDemicLogo}
+              style={{ height: 800 }}
               resizeMode={"contain"}
-            /> */}
-            <Text
+            />
+            {/* <Text
               type={Text.Types.H3}
               textColor={"white"}
               // bold
               textAlign={"center"}
             >
               Get started by creating a new identity.
+            </Text> */}
+          </Container>
+          <Container
+            flex={1}
+            justifyContent={"space-around"}
+            alignItems={"flex-start"}
+            padding={Theme.spacing.default32}
+            paddingLeft={Theme.spacing.default16}
+          >
+            {/* <Image
+              source={Images.branding.brandLogo}
+              style={{ height: 100 }}
+              resizeMode={"contain"}
+            /> */}
+            <Text
+              type={Text.Types.HERO}
+              textColor={Theme.colors.primary.brand}
+              bold
+              // textAlign={"center"}
+            >
+              All your academic credentials. In one place.
             </Text>
           </Container>
           <Container flex={1} paddingTop alignItems={"center"}>
-            <Container w={300}>
+            <Container w={350}>
               <Button
                 testID={TESTID.ONBOARDING_GET_STARTED}
                 bold
                 fullWidth
-                buttonText={"Get Started"}
+                marginTop={Theme.spacing.default16}
+                buttonText={"Create New Identity"}
                 onPress={() =>
                   Navigation.push(this.props.componentId, {
                     component: {
@@ -166,10 +89,35 @@ class Welcome extends React.Component<WelcomeProps> {
                     }
                   })
                 }
-                type={Button.Types.Custom}
+                type={Button.Types.Primary}
                 block={Button.Block.Filled}
               />
               <Button
+                testID={TESTID.ONBOARDING_RECOVER}
+                marginTop={Theme.spacing.default16}
+                bold
+                fullWidth
+                buttonText={"Sign In"}
+                onPress={() =>
+                  Navigation.push(this.props.componentId, {
+                    component: {
+                      name: SCREENS.RECOVERY.RestoreSeedInstructions,
+                      options: {
+                        topBar: {
+                          backButton: {
+                            title: "Back",
+                            color: Theme.colors.primary.brand,
+                            visible: true
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
+                type={Button.Types.Custom}
+                block={Button.Block.Clear}
+              />
+              {/* <Button
                 testID={TESTID.ONBOARDING_RECOVER}
                 bold
                 fullWidth
@@ -192,7 +140,7 @@ class Welcome extends React.Component<WelcomeProps> {
                 }
                 type={Button.Types.Custom}
                 block={Button.Block.Clear}
-              />
+              /> */}
             </Container>
           </Container>
         </Container>

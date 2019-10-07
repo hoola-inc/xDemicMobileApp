@@ -20,7 +20,11 @@
 import * as React from "react";
 import { Text, TextStyle } from "react-native";
 import { TextThemeMap, Theme } from "@kancha";
-import { fontBold, fontExtraBold } from "xdemic/lib/styles/globalStyles";
+import {
+  fontBold,
+  fontSemiBold,
+  fontExtraBold
+} from "xdemic/lib/styles/globalStyles";
 
 /**
  *  Implemenation details: Will move static types to theor own file or namespace later
@@ -81,6 +85,8 @@ interface KanchaTextProps {
    */
   bold?: boolean;
 
+  semiBold?: boolean;
+
   /**
    * The padding around the text
    */
@@ -122,7 +128,7 @@ interface KanchaTextProps {
   /**
    * Transform the text
    */
-  transform?: "uppercase" | "lowercase" | undefined;
+  transform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
 
   /**
    * Transform the text
@@ -137,6 +143,7 @@ const KanchaText: React.FC<KanchaTextProps> & {
     ...(props.type ? { ...TextThemeMap[props.type] } : {}),
     ...(props.textColor ? { color: props.textColor } : {}),
     ...(props.bold ? { fontFamily: fontBold } : {}),
+    ...(props.semiBold ? { fontFamily: fontSemiBold } : {}),
     ...(props.warn ? { color: Theme.colors.warning.text } : {}),
     ...(props.textAlign ? { textAlign: props.textAlign } : {}),
     ...(props.buttonTextColor
@@ -146,6 +153,7 @@ const KanchaText: React.FC<KanchaTextProps> & {
             : Theme.colors[props.buttonTextColor].buttonText.filled
         }
       : {}),
+    ...(props.padding ? { padding: props.padding } : {}),
     ...(props.paddingBottom ? { paddingBottom: props.paddingBottom } : {}),
     ...(props.paddingTop ? { paddingTop: props.paddingTop } : {}),
     ...(props.paddingBottom && typeof props.paddingBottom === "boolean"

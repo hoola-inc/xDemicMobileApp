@@ -1,44 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { View, StyleSheet, Alert } from "react-native";
-import { colors, heightRatio } from "xdemic/lib/styles/globalStyles";
-
-import { schools } from "xdemic/lib/selectors/school";
-
-import { getSchool } from "xdemic/lib/actions/schoolActions";
-
-import {
-  Screen,
-  Container,
-  Text,
-  Theme,
-  Icon,
-  Colors,
-  SignPost,
-  SignPostCardType,
-  Section,
-  Images,
-  Button
-} from "@kancha";
+import { Screen, Container, Text, Theme, Icon, Colors, Button } from "@kancha";
+import SCREENS from "xdemic/lib/screens/Screens";
+import Mori from "mori";
+import { Alert } from "react-native";
+import { ownClaims, currentAddress } from "xdemic/lib/selectors/identities";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
-import {
-  AvatarNameWithSubHeader,
-  BaseAddSchoolButton
-} from "xdemic/lib/components/shared";
+import BaseCard from "xdemic/lib/components/shared/BaseCard";
+import BaseChip from "xdemic/lib/components/shared/BaseChip";
+import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
+import { TileButton } from "xdemic/lib/components/shared/Button";
+import { Navigation } from "react-native-navigation";
 
-const SELECTORS = [
-  { title: "T&C", value: 0 },
-  { title: "Privacy Policy", value: 1 },
-  { title: "Return Policy", value: 2 },
-  { title: "Reset all" }
-];
-
+const CHIP_DATA = ["Spring", "Summer", "Fall"];
 interface DashboardProps {
   credentials: any[];
   componentId: string;
   // coursesList: any[];
   schoolsState: any[];
-
+  name: string;
+  avatar: string;
+  phone: string;
+  did: any;
   /**
    * Redux actions
    */
@@ -47,6 +30,7 @@ interface DashboardProps {
 interface DashboardState {
   coursesList: any;
   httpcoursesList: any;
+  schools: any;
 }
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
@@ -54,18 +38,26 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     this.state = {
       coursesList: [],
-      httpcoursesList: []
+      httpcoursesList: [],
+      schools: []
     };
-
     // Navigation.events().bindComponent(this);
     this.fetchCourses = this.fetchCourses.bind(this);
     this.renderInfoBar = this.renderInfoBar.bind(this);
+    this.fetchSchools = this.fetchSchools.bind(this);
   }
-  fetchCourses = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/courses");
-    const json = await response.json();
+  componentDidMount() {
+    this.fetchSchools();
+    this.fetchCourses();
 
-    console.log("json before state save is: ", json);
+    // this.props.getSchools();
+  }
+
+  fetchCourses = async () => {
+    const response = await fetch(
+      `https://xdemic-api.herokuapp.com/courses/${this.props.did}`
+    );
+    const json = await response.json();
 
     if (!json.status) {
       Alert.alert(
@@ -89,20 +81,51 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       this.setState({
         coursesList: json.data
       });
-      console.log("json after state save is: ", json);
     }
     // updatecoursesList(json)
   };
-  fetchHttpCourses = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
+
+  // fetchHttpCourses = async () => {
+  //   const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
+  //   const json = await response.json();
+
+  //   if (!json.status) {
+  //     Alert.alert(
+  //       "Http Courses",
+  //       "Http Courses not found!",
+  //       [
+  //         {
+  //           text: "Cancel",
+  //           onPress: () => console.log("Cancel Pressed"),
+  //           style: "cancel"
+  //         }
+  //         // {
+  //         //   text: " Event ClearQueue",
+  //         //   style: "destructive",
+  //         //   onPress: () => console.log("on Pressed")
+  //         // }
+  //       ],
+  //       { cancelable: true }
+  //     );
+  //   } else {
+  //     this.setState({
+  //       httpcoursesList: json.data.graph
+  //     });
+  //   }
+  //   // updatecoursesList(json)
+  // };
+
+  fetchSchools = async () => {
+    const response = await fetch(
+      `https://xdemic-api.herokuapp.com/schoolwithstudentenroll/${
+        this.props.did
+      }`
+    );
     const json = await response.json();
-
-    console.log("json before state save is: ", json);
-
     if (!json.status) {
       Alert.alert(
-        "Http Courses",
-        "Http Courses not found!",
+        "Schools",
+        "Schools not found!",
         [
           {
             text: "Cancel",
@@ -119,20 +142,10 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       );
     } else {
       this.setState({
-        httpcoursesList: json.data.graph
+        schools: json.data
       });
-      console.log("json after state save is: ", json);
     }
-    // updatecoursesList(json)
   };
-
-  componentDidMount() {
-    console.log("working");
-    this.fetchCourses();
-    this.fetchHttpCourses();
-    // this.props.getSchools();
-    // this.props.updateShareToken(this.props.address);
-  }
 
   renderInfoBar() {
     return (
@@ -208,17 +221,15 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   }
 
   render() {
-    console.log("school props from map state is: ", this.state.coursesList);
+    const { name, avatar, phone, did } = this.props;
     return (
-      <Screen type={"primary"}>
-        {/* {showSearchResult}
-      {showNearToYou} */}
+      <Screen type={Screen.Types.Primary}>
         <Container>
           <AvatarNameWithSubHeader
-            avatar={Images.branding.avatar}
+            avatar={avatar}
             avatarSize={Theme.avatarSize.default}
-            name={"Bilal Javed Awan"}
-            address={"N/A"}
+            name={name || "Bilal Javed Awan"}
+            address={phone || "N/A"}
             type={"personInformation"}
             detailed={false}
           />
@@ -226,6 +237,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         {/* {this.renderInfoBar()} */}
         <Container
           padding={Theme.spacing.default16}
+          paddingTop={0}
           flex={1}
           flexDirection={"column"}
         >
@@ -238,35 +250,55 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             >
               My Schools
             </Text>
-            <Container>
-              <BaseAddSchoolButton
-                {...this.props}
-                iconSize={23}
-                name={"Add Schools"}
-              />
-              {/* {this.state.coursesList.length > 0 &&
-                this.state.coursesList.map((data: any) => (
-                  <BaseAddSchoolButton
-                    {...this.props}
-                    iconSize={23}
-                    name={"Add Schools"}
-                    key={data.name}
-                  />
-                ))} */}
-            </Container>
+            <Container flexDirection={"row"}>
+              {this.state.schools.length !== 0 &&
+                this.state.schools.map((data: any, i: any) => (
+                  <Container
+                    w={202}
+                    key={data.address}
+                    //h={93}
+                  >
+                    <BaseCard
+                      {...this.props}
+                      data={{
+                        schoolAddress: data.address,
+                        schoolName: data.name,
+                        schoolPosition: data.offer,
+                        expandable: false
+                      }}
+                      key={"schoolPosition"}
+                    />
+                  </Container>
+                ))}
 
-            {/*   {config.dummyData.BaseCardData.map((data: any, i: any) => {
-            return (
-              <BaseCard
-                {...props}
-                data={{ ...data, expandable: false }}
-                key={i}
+              <TileButton
+                marginLeft={this.state.schools.length !== 0 ? true : 0}
+                onPress={() =>
+                  Navigation.push(this.props.componentId, {
+                    component: {
+                      name: SCREENS.AddSchool,
+                      options: {
+                        topBar: {
+                          elevation: 0,
+                          drawBehind: false,
+                          title: {
+                            text: "Add School",
+                            alignment: "center",
+                            fontFamily: "bold"
+                          },
+                          backButton: {
+                            visible: true
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
               />
-            );
-          })} */}
+            </Container>
           </Container>
 
-          <Container paddingTop={Theme.spacing.default16}>
+          <Container paddingTop={Theme.spacing.default}>
             <Text
               type={Text.Types.H1}
               textAlign={"left"}
@@ -276,13 +308,25 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               Records
             </Text>
           </Container>
+
+          {/* Rendering the Chip According to semester */}
+          {this.state.coursesList.length > 0 && (
+            <Container flexDirection={"row"}>
+              {CHIP_DATA.map(data => (
+                <BaseChip title={data} key={data} />
+              ))}
+            </Container>
+          )}
+
           {this.state.coursesList.length > 0 &&
             this.state.coursesList.map((data: any, i: any) => (
               <Container paddingTop={Theme.spacing.default} key={i}>
                 <BaseCollapsible {...this.props} data={data} />
               </Container>
             ))}
-          {this.state.httpcoursesList.length > 0 &&
+
+          {/* this data show in inforation dialog box */}
+          {/* {this.state.httpcoursesList.length > 0 &&
             this.state.httpcoursesList.map((data: any, i: any) => {
               console.log(
                 'data["ceterms:name"].value is: ',
@@ -307,38 +351,33 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                   />
                 </Container>
               );
-            })}
-
-          {/* <Section title={"My Schools"}>
-            <Container marginBottom>
-              <Credential
-                claimType={"Standard Credential"}
-                issuer={{
-                  name: "xDemic Apps Team",
-                  avatar: {
-                    uri:
-                      "https://cloudflare-ipfs.com/ipfs/QmdxTrTSiQGY8GzY2wLJzWcuRcV3jKfLjFGWnc3fsUk1bK"
-                  }
-                }}
-              />
-            </Container>
-            <Container marginBottom>
-              <Credential
-                claimType={"Missing Credential"}
-                issuer={{ name: "xDemic Apps Team" }}
-                missing
-                spec={{}}
-              />
-            </Container>
-          </Section> */}
+            })} */}
         </Container>
       </Screen>
     );
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any, ownProps: any) => {
+  const userData = Mori.toJs(ownClaims(state)) || {};
+  const address = currentAddress(state);
+  const didParts = address && address.match(/^did:ethr:(0x[0-9a-fA-F]{40})/);
+  const did = didParts ? address : `did:uport:${address}`;
   return {
+    ...ownProps,
+    did,
+    avatar:
+      typeof state.myInfo.changed.avatar !== "undefined"
+        ? state.myInfo.changed.avatar
+        : userData.avatar,
+    name:
+      typeof state.myInfo.changed.name !== "undefined"
+        ? state.myInfo.changed.name
+        : userData.name,
+    phone:
+      typeof state.myInfo.changed.phone !== "undefined"
+        ? state.myInfo.changed.phone
+        : userData.phone
     // schoolsState: schools(state)
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
@@ -356,15 +395,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Dashboard);
-
-const Styles = StyleSheet.create({
-  input: {
-    backgroundColor: "white",
-    borderRadius: 8,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    paddingLeft: 20,
-    height: 40
-  }
-});

@@ -19,6 +19,8 @@ export function registerScreens(redux: any) {
   registerComponentWithRedux(redux)(SCREENS.Contact, require('./Contact').default)
   registerComponentWithRedux(redux)(SCREENS.Notifications, require('./Notifications').default)
   registerComponentWithRedux(redux)(SCREENS.Settings, require('./Settings').default)
+  registerComponentWithRedux(redux)(SCREENS.Share, require('./share/Share').default)
+  registerComponentWithRedux(redux)(SCREENS.SendTo, require('./share/SendTo').default)
   registerComponentWithRedux(redux)(SCREENS.Profile, require('./Profile').default)
   registerComponentWithRedux(redux)(SCREENS.DesignSystem, require('./DesignSystem').default)
   registerComponentWithRedux(redux)(SCREENS.Scanner, require('./Scanner').default)

@@ -75,6 +75,7 @@ interface IconsStatic {
   more: string;
   checkmark: string;
   scan: string;
+  qrcodeScan: string;
   qrcode: string;
   add: string;
   remove: string;
@@ -83,8 +84,13 @@ interface IconsStatic {
   addBox: string;
   menuDown: string;
   menuUp: string;
+  plus: string;
   plusSquare: string;
   informationOutline: string;
+  shareIcon: string;
+  homeOutLine: string;
+  bellOutline: string;
+  tooltipAccount: string;
 }
 
 const Icons: IconsStatic = {
@@ -102,6 +108,7 @@ const Icons: IconsStatic = {
   rocket: Device.isIOS ? "ios-rocket" : "md-rocket",
   share: Device.isIOS ? "ios-share" : "md-share",
   scan: Device.isIOS ? "ios-qr-scanner" : "md-qr-scanner",
+  qrcodeScan: "qrcode-scan",
   close: Device.isIOS ? "close" : "close",
   checkmark: Device.isIOS ? "ios-checkmark" : "md-checkmark",
   edit: Device.isIOS ? "edit" : "edit",
@@ -110,13 +117,18 @@ const Icons: IconsStatic = {
   add: "ios-add-circle-outline",
   remove: "ios-remove-circle",
   bell: "bell",
+  bellOutline: "bell-outline",
   search: "search",
   heart: "heart",
   addBox: "plus-box-outline",
   menuDown: "menu-down",
   menuUp: "menu-up",
-  plusSquare: "far fa-plus-square",
-  informationOutline: "information-outline"
+  plusSquare: "plus-square",
+  plus: "plus",
+  informationOutline: "information-outline",
+  shareIcon: "share",
+  homeOutLine: "home-outline",
+  tooltipAccount: "tooltip-account"
 };
 
 const IconImageSource = (font: string, icon: string, size: number) => {

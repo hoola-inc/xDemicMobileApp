@@ -163,9 +163,6 @@ class AddSchoolInformation extends React.Component<
     );
     // const json = await res.json();
 
-    console.log("new data is: ", data);
-    console.log("res is: ", res);
-
     if (!res.status) {
       Alert.alert(
         `${this.props.data.schoolName}`,
@@ -202,7 +199,6 @@ class AddSchoolInformation extends React.Component<
         ],
         { cancelable: true }
       );
-      console.log("json after state save is: ", res);
     }
     // updatecoursesList(json)
   };
@@ -211,7 +207,6 @@ class AddSchoolInformation extends React.Component<
    * UI Render main Screen
    */
   render() {
-    console.log("AddSchoolInformation props is: ", this.props.data);
     return (
       <Screen
         type={Screen.Types.Primary}
@@ -287,7 +282,6 @@ class AddSchoolInformation extends React.Component<
               cancelText={"Contact"}
               onAccept={() => {
                 this.studentAddSchool();
-                console.log("on accept buttonText state is: ", this.state);
               }}
               onCancel={() => {
                 // this.studentAddSchool();

@@ -1,104 +1,123 @@
-import * as React from 'react'
-import { TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, ViewStyle } from 'react-native'
-import { Text, Theme, Container, Device } from '@kancha'
+import * as React from "react";
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  ViewStyle
+} from "react-native";
+import { Text, Theme, Container, Device } from "@kancha";
 
 /**
  *  Implemenation details: Will move static types to theor own file or namespace later
  */
 
 const ButtonBlocks: Kancha.BlocksStatic = {
-  Outlined: 'outlined',
-  Filled: 'filled',
-  Clear: 'clear',
-}
+  Outlined: "outlined",
+  Filled: "filled",
+  Clear: "clear",
+  Rounded: "rounded"
+};
 
 const ButtonBrandOptions: Kancha.BrandTypeStatic = {
-  Primary: 'primary',
-  Secondary: 'secondary',
-  Tertiary: 'tertiary',
-  Accent: 'accent',
-  Warning: 'warning',
-  Confirm: 'confirm',
-  Custom: 'custom',
-}
+  Primary: "primary",
+  Secondary: "secondary",
+  Tertiary: "tertiary",
+  Accent: "accent",
+  Warning: "warning",
+  Confirm: "confirm",
+  Custom: "custom"
+};
 
 interface ButtonProps {
   /**
    * The button type. This sets the theme color
    */
-  type?: Kancha.BrandPropOptions
+  type?: Kancha.BrandPropOptions;
   /**
    * The block appearance of the button
    */
-  block?: Kancha.BlockPropsOptions
+  block?: Kancha.BlockPropsOptions;
   /**
    * The text to be displayed
    */
-  buttonText?: string
+  buttonText?: string;
 
   /**
    * The text to be displayed
    */
-  bold?: boolean
+  bold?: boolean;
 
   /**
    * Remove width limitations
    */
-  fullWidth?: boolean
+  fullWidth?: boolean;
   /**
    * The button type. This sets the theme color
    */
-  onPress: () => void
+  onPress: () => void;
 
   /**
    * Center the button horizontally on screen
    */
-  centered?: boolean
+  centered?: boolean;
 
   /**
    * Disbable the button
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * The button is a navigation button
    */
-  navButton?: boolean
+  navButton?: boolean;
 
   /**
    * Provide an icon component
    */
-  icon?: React.ReactNode
+  icon?: React.ReactNode;
 
   /**
    * Remove button padding for icon buttons
    */
-  noPadding?: boolean
+  noPadding?: boolean;
+
+  /**
+   * Adding button margin
+   */
+  marginTop?: number;
 
   /**
    * Text decoration
    */
-  textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through' | undefined
+  textDecorationLine?:
+    | "none"
+    | "underline"
+    | "line-through"
+    | "underline line-through"
+    | undefined;
 
   /**
    * Provide a testID for e2e tests
    */
-  testID?: string
+  testID?: string;
 
   /**
    * Shadow depth
    */
-  depth?: number
+  depth?: number;
 
   /**
    * Shadow depth
    */
-  iconButton?: boolean
+  iconButton?: boolean;
+
+  // Enable/Disable rounded
+  rounded?: boolean;
 }
 
 const Button: React.FC<ButtonProps> & {
-  Types: Kancha.BrandTypeStatic
-  Block: Kancha.BlocksStatic
+  Types: Kancha.BrandTypeStatic;
+  Block: Kancha.BlocksStatic;
 } = ({
   type,
   block,
@@ -111,38 +130,54 @@ const Button: React.FC<ButtonProps> & {
   navButton,
   icon,
   noPadding,
+  marginTop,
   textDecorationLine,
   testID,
   children,
   depth,
   iconButton,
+  rounded
 }) => {
   const style: ViewStyle = {
-    ...(block && block === 'filled'
-      ? { backgroundColor: type ? Theme.colors[type].button : Theme.colors.primary.button }
+    ...(block && block === "filled"
+      ? {
+          backgroundColor: type
+            ? Theme.colors[type].button
+            : Theme.colors.primary.button
+        }
       : {}),
-    ...(block && block === 'outlined'
+    ...(block && block === "outlined"
       ? {
           backgroundColor: Theme.colors.primary.background,
           borderWidth: 2,
-          borderColor: type ? Theme.colors[type].button : Theme.colors.primary.button,
+          borderColor: type
+            ? Theme.colors[type].button
+            : Theme.colors.primary.button
         }
       : {}),
     ...(noPadding || iconButton ? {} : { padding: Theme.spacing.default }),
-    alignItems: 'center',
+    ...(marginTop || marginTop ? {} : { marginTop: marginTop }),
+    alignItems: "center",
     ...(fullWidth ? {} : { maxWidth: 300 }),
-    borderRadius: Theme.roundedCorners.buttons,
-    ...(centered ? { alignSelf: 'center' } : {}),
-    ...(disabled ? { opacity: 0.2 } : {}),
-  }
+    borderRadius: rounded ? 100 : Theme.roundedCorners.buttons,
+    ...(centered ? { alignSelf: "center" } : {}),
+    ...(disabled ? { opacity: 0.2 } : {})
+  };
 
   return navButton ? (
-    <TouchableOpacity style={style} onPress={onPress} disabled={disabled} testID={testID} accessibilityLabel={testID}>
+    <TouchableOpacity
+      style={style}
+      onPress={onPress}
+      disabled={disabled}
+      testID={testID}
+      accessibilityLabel={testID}
+    >
       <Text
         textDecorationLine={textDecorationLine}
         type={Text.Types.NavButton}
-        buttonTextColor={disabled ? 'secondary' : type}
-        block={block}>
+        buttonTextColor={disabled ? "secondary" : type}
+        block={block}
+      >
         {buttonText}
       </Text>
     </TouchableOpacity>
@@ -153,23 +188,29 @@ const Button: React.FC<ButtonProps> & {
       disabled={disabled}
       onPress={onPress}
       style={style}
-      underlayColor={block === ButtonBlocks.Clear || iconButton ? 'transparent' : type && Theme.colors[type].underlay}>
-      <Container flexDirection={'row'}>
+      underlayColor={
+        block === ButtonBlocks.Clear || iconButton
+          ? "transparent"
+          : type && Theme.colors[type].underlay
+      }
+    >
+      <Container flexDirection={"row"}>
         {icon && icon}
         <Text
           textDecorationLine={textDecorationLine}
           type={Text.Types.Button}
-          buttonTextColor={disabled ? 'secondary' : type}
+          buttonTextColor={disabled ? "secondary" : type}
           block={block}
-          bold={bold}>
+          bold={bold}
+        >
           {buttonText}
         </Text>
       </Container>
     </TouchableHighlight>
-  )
-}
+  );
+};
 
-Button.Types = ButtonBrandOptions
-Button.Block = ButtonBlocks
+Button.Types = ButtonBrandOptions;
+Button.Block = ButtonBlocks;
 
-export default Button
+export default Button;

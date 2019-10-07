@@ -39,6 +39,8 @@ import Mori from "mori";
  */
 const USER_FIELDS = ["name", "email", "country", "phone", "avatar", "dob"];
 
+// const USER_FIELDS = ['name', 'email', 'country', 'phone', 'avatar']
+
 interface EthereumAccountListItem {
   name: string;
   network: string;
@@ -298,7 +300,7 @@ export class UserProfile extends React.Component<
       </Section>
     );
   }
-  
+
   showAlert(account: EthereumAccountListItem) {
     const title =
       account.network.toLowerCase() === "mainnet"

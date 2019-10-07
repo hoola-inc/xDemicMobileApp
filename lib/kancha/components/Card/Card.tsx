@@ -41,7 +41,9 @@ const Card: React.FC<Card> = props => {
           shadowOpacity: 0.2,
           elevation: 3,
 
-          borderColor: Theme.colors.primary.brand,
+          borderColor: props.borderLeft
+            ? Theme.colors.primary.brand
+            : Colors.WHITE,
 
           // borderBottomColor: "white",
           // borderRightColor: "white",

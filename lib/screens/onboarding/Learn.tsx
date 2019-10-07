@@ -11,6 +11,7 @@ import {
   OnboardingSwiperSlide,
   Button,
   Container,
+  Colors,
   Icon
 } from "@kancha";
 import { OnboardingContent } from "xdemic/lib/content/onboardingSlideContent";
@@ -41,32 +42,57 @@ const Learn: React.FC<LearnProps> = props => {
               type={Button.Types.Primary}
               block={Button.Block.Filled}
               onPress={() =>
+                // Navigation.push(props.componentId, {
+                //   component: {
+                //     name: SCREENS.CreateIdentity,
+                //     options: {
+                //        topBar: {
+                //          elevation: 0,
+                //          drawBehind: false,
+                //          // rightButtons: [rightButtonsCredentialScreen],
+                //          title: {
+                //            text: "Add School",
+                //            alignment: "center",
+                //            fontFamily: "bold"
+                //          },
+                //          backButton: {
+                //            visible: false
+                //          }
+                //        }
+                //       // fab: {
+                //       //   id: "androidScan",
+                //       //   visible: true,
+                //       //   backgroundColor: Theme.colors.primary.brand,
+                //       //   clickColor: "#FFF",
+                //       //   rippleColor: "#ddd",
+                //       //   icon: scanIcon,
+                //       //   iconColor: "#FFF"
+                //       // }
+                //     }
+                //   }
+                // })
                 Navigation.push(props.componentId, {
                   component: {
-                    name: SCREENS.AddSchool,
+                    name: SCREENS.CreateIdentity,
                     options: {
                       topBar: {
-                        elevation: 0,
                         drawBehind: false,
+                        // background: {
+                        //   color: Colors.DARK_GREY
+                        // },
+                        elevation: 0,
+
                         // rightButtons: [rightButtonsCredentialScreen],
                         title: {
-                          text: "Add School",
+                          text: "Confirm Details",
                           alignment: "center",
                           fontFamily: "bold"
                         },
+
                         backButton: {
-                          visible: false
+                          visible: true
                         }
                       }
-                      // fab: {
-                      //   id: "androidScan",
-                      //   visible: true,
-                      //   backgroundColor: Theme.colors.primary.brand,
-                      //   clickColor: "#FFF",
-                      //   rippleColor: "#ddd",
-                      //   icon: scanIcon,
-                      //   iconColor: "#FFF"
-                      // }
                     }
                   }
                 })

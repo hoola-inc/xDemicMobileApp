@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 import { Navigation } from "react-native-navigation";
-import { Theme, Icon, Device } from "../kancha";
+import { Theme, Icon, Device, Colors } from "../kancha";
 import SCREENS from "../screens/Screens";
 import { RNUportSigner } from "react-native-uport-signer";
 import store from "../store/store";
@@ -24,7 +24,7 @@ export function startApp(root: string) {
  */
 const listenForAndroidFabButtonEvent = () => {
   Navigation.events().registerNavigationButtonPressedListener(
-    ({ buttonId }) => {
+    ({ buttonId, componentId }) => {
       if (buttonId === "androidScan") {
         Navigation.showModal({
           component: {
@@ -37,6 +37,33 @@ const listenForAndroidFabButtonEvent = () => {
               },
               topBar: {
                 visible: false
+              }
+            }
+          }
+        });
+      } else if (buttonId === "plusIcon") {
+        Navigation.push(componentId, {
+          component: {
+            name: SCREENS.SendTo,
+            options: {
+              topBar: {
+                title: {
+                  text: "Send To",
+                  alignment: "center",
+                  fontFamily: "bold",
+                  color: Colors.WHITE
+                },
+                elevation: 0,
+                backButton: {
+                  title: "Back",
+                  color: Colors.WHITE,
+                  visible: true
+                }
+              },
+              animations: {
+                showModal: {
+                  enabled: false
+                }
               }
             }
           }
@@ -141,16 +168,40 @@ export async function startMain() {
   /**
    * After icon design cleanup sort these out.
    */
+  const homeOutLine = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.homeOutLine,
+    26
+  );
   const credentialsIcon = await Icon.getImageSource(
     "feather",
     "check-circle",
     26
   );
-  const profileIcon = await Icon.getImageSource("feather", "user", 26);
+  const profileIcon = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.tooltipAccount,
+    26
+  );
   const contactsIcon = await Icon.getImageSource("feather", "users", 26);
-  const notificationsIcon = await Icon.getImageSource("feather", "bell", 26);
+  const notificationsIcon = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.bellOutline,
+    26
+  );
   const settingsIcon = await Icon.getImageSource("feather", "settings", 26);
-  const scanIcon = await Icon.getImageSource("ionicons", Icon.Names.scan, 30);
+  const shareIcon = await Icon.getImageSource("materialicons", "share", 26);
+  const scanIcon = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.qrcodeScan,
+    30
+  );
+  const plus = await Icon.getImageSource(
+    "materialcommunityicons",
+    Icon.Names.plus,
+    30
+  );
+
   const rightButtonsCredentialScreen = Device.isIOS
     ? {
         id: "scanButton",
@@ -270,7 +321,7 @@ export async function startMain() {
                               }
                             },
                             bottomTab: {
-                              icon: credentialsIcon,
+                              icon: homeOutLine,
                               iconColor: Theme.colors.primary.accessories,
                               selectedIconColor: Theme.colors.primary.brand,
                               iconInsets: {
@@ -434,6 +485,40 @@ export async function startMain() {
                               clickColor: "#FFF",
                               rippleColor: "#ddd",
                               icon: scanIcon,
+                              iconColor: "#FFF"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  stack: {
+                    children: [
+                      {
+                        component: {
+                          name: SCREENS.Share,
+                          options: {
+                            topBar: navBarText("Share", true),
+                            bottomTab: {
+                              icon: shareIcon,
+                              iconColor: Theme.colors.primary.accessories,
+                              selectedIconColor: Theme.colors.primary.brand,
+                              iconInsets: {
+                                top: 0,
+                                left: 0,
+                                bottom: -8,
+                                right: 0
+                              }
+                            },
+                            fab: {
+                              id: "plusIcon",
+                              visible: true,
+                              backgroundColor: Theme.colors.primary.brand,
+                              clickColor: "#FFF",
+                              rippleColor: "#ddd",
+                              icon: plus,
                               iconColor: "#FFF"
                             }
                           }

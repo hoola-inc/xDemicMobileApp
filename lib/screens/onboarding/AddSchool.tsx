@@ -1,54 +1,31 @@
 import * as React from "react";
-import { ActivityIndicator, Image, StyleSheet, Alert } from "react-native";
+import { ActivityIndicator, Modal, StyleSheet, Alert } from "react-native";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
-import {
-  Screen,
-  Container,
-  Text,
-  Button,
-  Theme,
-  Icon,
-  Images,
-  Colors
-} from "@kancha";
-import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
+import { Screen, Container, Text, Button, Theme, Icon, Colors } from "@kancha";
+
 import { currentAddress } from "../../selectors/identities";
-import { activationEvent } from "xdemic/lib/actions/userActivationActions";
+
 import { track } from "xdemic/lib/actions/metricActions";
 import { startMain } from "xdemic/lib/navigators/navigation";
-import {
-  createIdentity,
-  addClaims,
-  addImage
-} from "xdemic/lib/actions/uportActions";
-import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
+
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
-import config from "xdemic/lib/config";
-import { textStyles, font } from "xdemic/lib/styles/globalStyles";
+
+import { font } from "xdemic/lib/styles/globalStyles";
 
 import TESTID from "xdemic/lib/e2e/testIDs";
 
-interface ImageObj {
-  fileSize: number;
-  uri: string;
-}
-
-interface CreateIdentityProps {
+interface AddSchoolProps {
   componentId: string;
   navigator: Navigator;
   address: string;
 
   //**Redux Actions */
-  createIdentity: () => void;
+
   finishOnboarding: () => void;
-  addImage: (address: string, claimType: string, image: ImageObj) => void;
-  storeOwnClaim: (address: string, claims: any) => void;
-  trackSegment: (event: any) => any;
-  registerDeviceForNotifications: () => void;
 }
 
-interface CreateIdentityState {
+interface AddSchoolState {
   valid: boolean;
   name: string;
   search: string;
@@ -57,7 +34,6 @@ interface CreateIdentityState {
   userAddingInfo: boolean;
   userCreatingidentity: boolean;
   identityCreationSuccess: boolean;
-  image: ImageObj | undefined;
 
   schools: any[];
 }
@@ -65,10 +41,6 @@ interface CreateIdentityState {
 /**
  * This will be extracted to a new Avatar component
  */
-interface AvatarProps {
-  image: string | undefined;
-  text: string;
-}
 
 const navOptions = {
   topBar: {
@@ -78,29 +50,14 @@ const navOptions = {
     backButton: { color: Theme.colors.primary.brand }
   }
 };
-
-const Avatar: React.FC<AvatarProps> = ({ image, text }) => {
-  const avatar = image ? { uri: image } : Images.profile.avatar;
-  return (
-    <Image
-      source={avatar}
-      style={{ width: 150, height: 150, borderRadius: 75 }}
-      resizeMode={"cover"}
-    />
-  );
-};
-
-class AddSchool extends React.Component<
-  CreateIdentityProps,
-  CreateIdentityState
-> {
+class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
   static options(passProps: any) {
     return {
       ...navOptions
     };
   }
 
-  constructor(props: CreateIdentityProps) {
+  constructor(props: AddSchoolProps) {
     super(props);
 
     this.state = {
@@ -109,28 +66,19 @@ class AddSchool extends React.Component<
       search: "",
       termsAccepted: false,
       privacyAccepted: false,
-      image: undefined,
       userAddingInfo: true,
       userCreatingidentity: false,
       identityCreationSuccess: false,
       schools: []
     };
 
-    this.addImage = this.addImage.bind(this);
     this.fetchSchools = this.fetchSchools.bind(this);
   }
 
   componentDidMount() {
-    this.props.trackSegment("Open");
     this.fetchSchools();
   }
 
-  onChangeText = (text: string) => {
-    this.setState({
-      ...this.state,
-      name: text
-    });
-  };
   fetchSchools = async () => {
     const response = await fetch("https://xdemic-api.herokuapp.com/schools");
     const json = await response.json();
@@ -201,7 +149,7 @@ class AddSchool extends React.Component<
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
-                onPress={() => this.createIdentity()}
+                onPress={() => this.props.finishOnboarding()}
               />
             </Container>
           </Container>
@@ -216,7 +164,6 @@ class AddSchool extends React.Component<
    * UI Render states
    */
   renderUserAddingInfo() {
-    console.log("renderUserAddingInfo is: ", this.state.schools);
     return (
       <Container
         disabled={
@@ -229,6 +176,14 @@ class AddSchool extends React.Component<
           paddingLeft={16}
           paddingRight={16}
         >
+          <Modal
+            onRequestClose={() => ""}
+            animationType={"slide"}
+            transparent={true}
+            visible={this.state.identityCreationSuccess}
+          >
+            {this.renderIdentityCreationSuccess()}
+          </Modal>
           <Container paddingTop={20}>
             <Item style={Styles.input}>
               <Icon
@@ -346,7 +301,7 @@ class AddSchool extends React.Component<
           </Container>
           <Container justifyContent={"center"} alignItems={"center"}>
             <Icon
-              name={"search"}
+              name={"rocket"}
               size={150}
               color={Theme.colors.confirm.accessories}
             />
@@ -370,69 +325,6 @@ class AddSchool extends React.Component<
   /**
    * Class methods
    */
-  addImage(response: any) {
-    this.setState({
-      image: response.avatar
-    });
-  }
-
-  chooseProfileImage = () => {
-    photoSelectionHandler({
-      cameraStatus: "",
-      photoStatus: "",
-      segmentId: "",
-      addFn: this.addImage
-    });
-  };
-
-  createIdentity() {
-    this.setState({
-      ...this.state,
-      userAddingInfo: false,
-      userCreatingidentity: true
-    });
-
-    /**
-     * Create identity
-     */
-    this.props.createIdentity();
-
-    setTimeout(() => {
-      this.showIdentityCreationStatus(this.props.address);
-
-      setTimeout(() => {
-        /**
-         * Update the user profile with onboarding user data
-         */
-        if (this.props.address) {
-          this.state.image &&
-            this.props.addImage(this.props.address, "avatar", this.state.image);
-          this.state.name &&
-            this.props.storeOwnClaim(this.props.address, {
-              name: this.state.name
-            });
-        }
-
-        /**
-         * Fire get started event
-         */
-        this.props.trackSegment("Get Started");
-
-        /**
-         * Onboarding complete
-         */
-        this.props.finishOnboarding();
-      }, 2000);
-    }, 2600);
-  }
-
-  showIdentityCreationStatus(address: string) {
-    this.setState({
-      ...this.state,
-      userCreatingidentity: false,
-      identityCreationSuccess: true
-    });
-  }
 }
 
 const mapStateToProps = (state: any) => {
@@ -443,24 +335,10 @@ const mapStateToProps = (state: any) => {
 
 export const mapDispatchToProps = (dispatch: any) => {
   return {
-    createIdentity: () => dispatch(createIdentity()),
     finishOnboarding: () => {
-      dispatch(activationEvent("ONBOARDED"));
       dispatch(track("Onboarding Complete Finished"));
       //**Start app after tracking events fire */
       startMain();
-    },
-    trackSegment: (event: any) => {
-      dispatch(track(`Onboarding Complete ${event}`));
-    },
-    addImage: (address: string, claimType: string, image: any) => {
-      dispatch(addImage(address, claimType, image));
-    },
-    storeOwnClaim: (address: string, claims: any) => {
-      dispatch(addClaims(address, claims));
-    },
-    registerDeviceForNotifications: () => {
-      dispatch(registerDeviceForNotifications());
     }
   };
 };

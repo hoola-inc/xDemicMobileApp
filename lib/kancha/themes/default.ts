@@ -85,7 +85,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       h6: 14,
       caption1: 12,
       caption2: 12,
-      subTitle: 14,
+      subTitle: 12,
       listItem: 18,
       listItemRight: 18,
       listItemNote: 15,
@@ -221,7 +221,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       buttonText: {
         filled: COLORS.BRAND,
         outlined: COLORS.WHITE,
-        clear: COLORS.WHITE
+        clear: COLORS.BRAND
       }
     }
   },
@@ -230,6 +230,9 @@ const DefaultTheme: Kancha.ThemeStatic = {
     default: 8,
     default16: 16,
     default32: 32,
+    default40: 40,
+    default48: 48,
+    default56: 56,
     default64: 64,
     section: 20
   },
@@ -298,6 +301,11 @@ const TextTypes: Kancha.TextTypesStatic = {
  */
 
 const TextThemeMap: TextDefaultThemeMapTypes = {
+  hero: {
+    fontSize: DefaultTheme.text.sizes.hero,
+    fontFamily: font,
+    color: DefaultTheme.colors.primary.text
+  },
   h1: {
     fontSize: DefaultTheme.text.sizes.h1,
     fontFamily: font,
