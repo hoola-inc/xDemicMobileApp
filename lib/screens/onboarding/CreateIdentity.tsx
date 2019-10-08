@@ -244,7 +244,7 @@ class CreateIdentity extends React.Component<
               Personalize xDemic
             </Text> */}
             <Container paddingTop={Theme.spacing.default32} paddingBottom>
-              <Text type={Text.Types.H3} bold textColor={Colors.DARK_GREY}>
+              <Text type={Text.Types.H3} textColor={Colors.BLACK}>
                 Submit your information to confirm your identity
               </Text>
             </Container>

@@ -23,7 +23,8 @@ import { TextThemeMap, Theme } from "@kancha";
 import {
   fontBold,
   fontSemiBold,
-  fontExtraBold
+  fontExtraBold,
+  fontMedium
 } from "xdemic/lib/styles/globalStyles";
 
 /**
@@ -142,7 +143,7 @@ const KanchaText: React.FC<KanchaTextProps> & {
   const styles: TextStyle = {
     ...(props.type ? { ...TextThemeMap[props.type] } : {}),
     ...(props.textColor ? { color: props.textColor } : {}),
-    ...(props.bold ? { fontFamily: fontBold } : {}),
+    ...(props.bold ? { fontFamily: fontBold } : { fontFamily: fontMedium }),
     ...(props.semiBold ? { fontFamily: fontSemiBold } : {}),
     ...(props.warn ? { color: Theme.colors.warning.text } : {}),
     ...(props.textAlign ? { textAlign: props.textAlign } : {}),
