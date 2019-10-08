@@ -282,6 +282,7 @@ class CreateIdentity extends React.Component<
           <Container flexDirection={"row"} w={280} paddingBottom>
             <Input
               testID={TESTID.ONBOARDING_NAME_INPUT}
+              autoFocus
               placeholder={"Name or username"}
               textType={Text.Types.H2}
               inputType={"filled"}
@@ -383,7 +384,7 @@ class CreateIdentity extends React.Component<
                 buttonText={
                   this.state.userCreatingidentity
                     ? "Generating keys...."
-                    : "Create Identity"
+                    : "Create new Identity"
                 }
                 type={Button.Types.Primary}
                 block={Button.Block.Filled}
