@@ -119,10 +119,14 @@ class Input extends React.Component<InputProps, InputState> {
         alignItems={"center"}
         flex={1}
         backgroundColor={Colors.WHITE}
-        borderBottomColor={Colors.DARK_GREY}
-        borderBottomWidth={1}
         borderColor={focusedColor}
+        borderBottomColor={
+          this.props.valid || this.state.focused
+            ? Colors.BRAND
+            : Colors.DARK_GREY
+        }
         borderWidth={0}
+        borderBottomWidth={4}
         paddingRight={5}
       >
         <TextInput
