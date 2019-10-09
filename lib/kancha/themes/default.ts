@@ -94,6 +94,10 @@ const DefaultTheme: Kancha.ThemeStatic = {
       body: 16,
       button: 18,
       navButton: 20
+    },
+    border: {
+      default: 2,
+      active: 4
     }
   },
   colors: {

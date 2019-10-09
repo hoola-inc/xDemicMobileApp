@@ -133,7 +133,11 @@ class Input extends React.Component<InputProps, InputState> {
             : Colors.DARK_GREY
         }
         borderWidth={0}
-        borderBottomWidth={4}
+        borderBottomWidth={
+          this.props.valid || this.state.focused
+            ? Theme.text.border.active
+            : Theme.text.border.default
+        }
         paddingRight={5}
         viewStyle={{
           shadowColor: Colors.BLACK,

@@ -99,6 +99,10 @@ declare namespace Kancha {
         button: number;
         navButton: number;
       };
+      border: {
+        default: number;
+        active: number;
+      };
     };
     colors: {
       [index: string]: {
