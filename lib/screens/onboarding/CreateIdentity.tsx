@@ -219,9 +219,9 @@ class CreateIdentity extends React.Component<
   renderUserAddingInfo() {
     return (
       <Container
-        disabled={
-          this.state.userCreatingidentity || this.state.identityCreationSuccess
-        }
+      // disabled={
+      //   this.state.userCreatingidentity || this.state.identityCreationSuccess
+      // }
       >
         <Container flex={1} justifyContent={"center"} alignItems={"center"}>
           <Modal
@@ -357,39 +357,32 @@ class CreateIdentity extends React.Component<
           </Container>
         </Container>
         <Container alignItems={"center"}>
-          <Container
-            // flexDirection={"row"}
-            // alignItems={"flex-end"}
-            paddingBottom
-            paddingRight
-          >
-            <Container padding={Theme.spacing.default16} w={280}>
-              <Button
-                testID={TESTID.ONBOARDING_CREATE_IDENTITY}
-                icon={
-                  this.state.userCreatingidentity && (
-                    <ActivityIndicator
-                      color={"white"}
-                      style={{ marginRight: 10 }}
-                    />
-                  )
-                }
-                fullWidth
-                disabled={
-                  !this.isValid() ||
-                  this.state.userCreatingidentity ||
-                  this.state.identityCreationSuccess
-                }
-                buttonText={
-                  this.state.userCreatingidentity
-                    ? "Generating keys...."
-                    : "Create new Identity"
-                }
-                type={Button.Types.Primary}
-                block={Button.Block.Filled}
-                onPress={() => this.createIdentity()}
-              />
-            </Container>
+          <Container padding={Theme.spacing.default16} w={280}>
+            <Button
+              testID={TESTID.ONBOARDING_CREATE_IDENTITY}
+              icon={
+                this.state.userCreatingidentity && (
+                  <ActivityIndicator
+                    color={"white"}
+                    style={{ marginRight: 10 }}
+                  />
+                )
+              }
+              fullWidth
+              disabled={
+                !this.isValid() ||
+                this.state.userCreatingidentity ||
+                this.state.identityCreationSuccess
+              }
+              buttonText={
+                this.state.userCreatingidentity
+                  ? "Generating keys...."
+                  : "Create new Identity"
+              }
+              type={Button.Types.Primary}
+              block={Button.Block.Filled}
+              onPress={() => this.createIdentity()}
+            />
           </Container>
         </Container>
         {/* <Container>
