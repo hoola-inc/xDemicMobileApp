@@ -74,6 +74,13 @@ class Input extends React.Component<InputProps, InputState> {
         borderColor={focusedColor}
         borderWidth={2}
         paddingRight={5}
+        viewStyle={{
+          shadowColor: Colors.BLACK,
+          shadowOffset: { width: 4, height: 2 },
+          shadowOpacity: 0.08,
+          shadowRadius: 8,
+          elevation: 6
+        }}
       >
         <TextInput
           testID={this.props.testID}
@@ -128,6 +135,13 @@ class Input extends React.Component<InputProps, InputState> {
         borderWidth={0}
         borderBottomWidth={4}
         paddingRight={5}
+        viewStyle={{
+          shadowColor: Colors.BLACK,
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.08,
+          shadowRadius: 8,
+          elevation: 8
+        }}
       >
         <TextInput
           testID={this.props.testID}
