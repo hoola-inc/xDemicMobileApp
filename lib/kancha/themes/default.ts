@@ -1,4 +1,4 @@
-import { font } from "xdemic/lib/styles/globalStyles";
+import { font, colors } from "xdemic/lib/styles/globalStyles";
 interface IndexSignature {
   [index: string]: any;
 }
@@ -246,7 +246,26 @@ const DefaultTheme: Kancha.ThemeStatic = {
     textInputs: 8
   },
   card: {
-    borderSize: 8
+    borderSize: 8,
+    defaultBorderColor: COLORS.WHITE,
+    defaultShadowColor: COLORS.BLACK,
+    defaultShadowRadius: 8,
+    defaultShadowOpacity: 0.25,
+    defaultElevation: 8,
+    defaultShadowOffset: {
+      w: 1,
+      h: 4
+    },
+
+    selectedBorderColor: COLORS.BRAND,
+    selectedShadowColor: COLORS.BLACK,
+    selectedShadowRadius: 8,
+    selectedShadowOpacity: 0.08,
+    selectedElevation: 8,
+    selectedShadowOffset: {
+      w: 4,
+      h: 8
+    }
   },
   navigation: {},
   avatarSize: {

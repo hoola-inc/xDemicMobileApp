@@ -138,6 +138,24 @@ declare namespace Kancha {
     };
     card: {
       borderSize: number;
+      defaultBorderColor: string;
+      defaultShadowColor: string;
+      defaultShadowRadius: number;
+      defaultShadowOpacity: number;
+      defaultElevation: number;
+      defaultShadowOffset: {
+        w: number;
+        h: number;
+      };
+      selectedBorderColor: string;
+      selectedShadowColor: string;
+      selectedShadowRadius: number;
+      selectedShadowOpacity: number;
+      selectedElevation: number;
+      selectedShadowOffset: {
+        w: number;
+        h: number;
+      };
     };
     navigation: any;
     avatarSize: {

@@ -12,6 +12,19 @@ interface Card extends ContainerProps {
  * is provided then it becomes a button
  */
 const Card: React.FC<Card> = props => {
+  console.log("props.borderLeft is: ", props.borderLeft);
+  const {
+    defaultShadowColor,
+    borderSize,
+    defaultBorderColor,
+    defaultShadowRadius,
+    defaultShadowOpacity,
+    defaultShadowOffset,
+    defaultElevation,
+    selectedBorderColor,
+    selectedShadowOpacity,
+    selectedShadowOffset
+  } = Theme.card;
   const br = 5;
   return (
     <TouchableHighlight
@@ -25,42 +38,46 @@ const Card: React.FC<Card> = props => {
     >
       <Container
         flexDirection={"row"}
-        backgroundColor={"#FFFFFF"}
+        backgroundColor={Theme.colors.primary.background}
         br={br}
         viewStyle={{
-          // shadowColor: "#000000",
-          // shadowRadius: 8,
-          // shadowOpacity: 0.2,
-          // elevation: 3,
-          // shadowRadius: 10,
-          // elevation: 10,
-          shadowColor: "#4f4f4f",
-          // shadowOpacity: 0.8,
-          borderRadius: 5,
-          shadowRadius: 4,
-          shadowOpacity: 0.2,
-          elevation: 3,
+          borderRadius: borderSize,
+          shadowColor: defaultShadowColor,
+          shadowRadius: defaultShadowRadius,
+          shadowOpacity: props.borderLeft
+            ? selectedShadowOpacity
+            : defaultShadowOpacity,
+          shadowOffset: props.borderLeft
+            ? {
+                width: selectedShadowOffset.w,
+                height: selectedShadowOffset.h
+              }
+            : {
+                width: defaultShadowOffset.w,
+                height: defaultShadowOffset.h
+              },
+          elevation: defaultElevation,
 
           borderColor: props.borderLeft
-            ? Theme.colors.primary.brand
-            : Colors.WHITE,
+            ? selectedBorderColor
+            : defaultBorderColor,
 
-          // borderBottomColor: "white",
-          // borderRightColor: "white",
-          // borderTopColor: "white",
-
-          borderBottomLeftRadius: Theme.card.borderSize,
-          borderBottomRightRadius: Theme.card.borderSize,
+          // borderBottomColor: "blue",
+          // borderRightColor: "blue",
+          // borderTopColor: "blue",
 
           borderRightWidth: 0,
           borderTopWidth: 0,
           borderBottomWidth: 0,
 
-          borderLeftWidth: props.borderLeft ? Theme.card.borderSize : 0,
-          borderWidth: Theme.card.borderSize,
+          borderLeftWidth: props.borderLeft ? borderSize : 0,
+          borderWidth: borderSize,
 
-          borderTopLeftRadius: Theme.card.borderSize,
-          borderTopRightRadius: Theme.card.borderSize
+          borderBottomLeftRadius: borderSize,
+          borderBottomRightRadius: borderSize,
+
+          borderTopLeftRadius: borderSize,
+          borderTopRightRadius: borderSize
         }}
         {...props}
       >
