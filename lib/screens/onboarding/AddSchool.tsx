@@ -211,7 +211,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
               type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
               paddingTop={29}
               paddingBottom={13}
             >
@@ -240,7 +240,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
               type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
               paddingTop={29}
               paddingBottom={13}
             >

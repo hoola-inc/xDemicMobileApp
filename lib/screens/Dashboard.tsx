@@ -253,25 +253,23 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             <Container flexDirection={"row"}>
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
-                  <Container
+                  <BaseCard
+                    {...this.props}
                     w={202}
-                    key={data.address}
-                    //h={93}
-                  >
-                    <BaseCard
-                      {...this.props}
-                      data={{
-                        schoolAddress: data.address,
-                        schoolName: data.name,
-                        schoolPosition: data.offer,
-                        expandable: false
-                      }}
-                      key={"schoolPosition"}
-                    />
-                  </Container>
+                    h={84}
+                    data={{
+                      schoolAddress: data.address,
+                      schoolName: data.name,
+                      schoolPosition: data.offer,
+                      expandable: false
+                    }}
+                    key={"schoolPosition"}
+                  />
                 ))}
 
               <TileButton
+                w={80}
+                h={84}
                 marginLeft={this.state.schools.length !== 0 ? true : 0}
                 onPress={() =>
                   Navigation.push(this.props.componentId, {
@@ -298,16 +296,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             </Container>
           </Container>
 
-          <Container paddingTop={Theme.spacing.default}>
-            <Text
-              type={Text.Types.H1}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              bold
-            >
-              Records
-            </Text>
-          </Container>
+          {/* <Container> */}
+          <Text
+            type={Text.Types.H1}
+            textAlign={"left"}
+            textColor={Colors.BLACK}
+            bold
+          >
+            Records
+          </Text>
+          {/* </Container> */}
 
           {/* Rendering the Chip According to semester */}
           {this.state.coursesList.length > 0 && (
