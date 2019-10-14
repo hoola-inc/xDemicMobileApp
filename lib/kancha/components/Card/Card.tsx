@@ -70,7 +70,7 @@ const Card: React.FC<Card> = props => {
           borderTopWidth: 0,
           borderBottomWidth: 0,
 
-          borderLeftWidth: props.borderLeft ? borderSize : 0,
+          borderLeftWidth: props.borderLeft ? borderSize : borderSize,
           borderWidth: borderSize,
 
           borderBottomLeftRadius: borderSize,
