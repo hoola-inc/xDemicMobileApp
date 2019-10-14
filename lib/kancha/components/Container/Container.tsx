@@ -165,20 +165,20 @@ export interface ContainerProps {
 
 const Container: React.FunctionComponent<ContainerProps> = props => {
   const DividerBottomStyles: ViewStyle = {
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: 1,
     borderBottomColor: Theme.colors.primary.divider
   };
 
   const DividerTopStyles: ViewStyle = {
-    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: 1,
     borderTopColor: Theme.colors.primary.divider
   };
   const DividerRigthStyles: ViewStyle = {
-    borderRightWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: 1,
     borderRightColor: Theme.colors.primary.divider
   };
   const DividerLetfStyles: ViewStyle = {
-    borderLeftWidth: StyleSheet.hairlineWidth,
+    borderLeftWidth: 1,
     borderLeftColor: Theme.colors.primary.divider
   };
 
