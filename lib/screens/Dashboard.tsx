@@ -257,6 +257,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     {...this.props}
                     w={202}
                     h={84}
+                    paddingTop
                     data={{
                       schoolAddress: data.address,
                       schoolName: data.name,
