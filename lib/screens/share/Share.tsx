@@ -174,6 +174,9 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                 this.state.schools.map((data: any, i: any) => (
                   <Container w={202} key={data.address}>
                     <BaseCard
+                      w={202}
+                      h={84}
+                      paddingTop
                       {...this.props}
                       data={{
                         schoolAddress: data.address,
@@ -330,7 +333,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
   render() {
     const { name, avatar, phone } = this.props;
     return (
-      <Screen type={Screen.Types.Secondary} config={Screen.Config.SafeScroll}>
+      <Screen type={Screen.Types.Primary} config={Screen.Config.SafeScroll}>
         <Container>
           <AvatarNameWithSubHeader
             avatar={avatar}

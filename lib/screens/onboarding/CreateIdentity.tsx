@@ -585,8 +585,8 @@ class CreateIdentity extends React.Component<
             }
           });
         }, 2000);
-      }, 2000);
-    }, 2600);
+      }, 1000);
+    }, 1000);
   }
 
   showIdentityCreationStatus(address: string) {
