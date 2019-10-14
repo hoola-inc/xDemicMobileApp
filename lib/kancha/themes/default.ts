@@ -108,7 +108,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       COLORS.BRAND,
       COLORS.CHARCOAL,
       COLORS.WHITE,
-      COLORS.MEDIUM_GREY,
+      COLORS.DARK_GREY,
       COLORS.LIGHT_GREY,
       COLORS.MEDIUM_GREY,
       COLORS.BRAND,
@@ -373,6 +373,16 @@ const TextThemeMap: TextDefaultThemeMapTypes = {
   },
   h5: {
     fontSize: DefaultTheme.text.sizes.h5,
+    fontFamily: font,
+    color: DefaultTheme.colors.primary.text
+  },
+  caption1: {
+    fontSize: DefaultTheme.text.sizes.caption1,
+    fontFamily: font,
+    color: DefaultTheme.colors.primary.text
+  },
+  caption2: {
+    fontSize: DefaultTheme.text.sizes.caption2,
     fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },
