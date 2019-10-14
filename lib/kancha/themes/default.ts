@@ -267,6 +267,28 @@ const DefaultTheme: Kancha.ThemeStatic = {
       h: 8
     }
   },
+  button: {
+    borderSize: 8,
+    defaultBorderColor: COLORS.WHITE,
+    defaultShadowColor: COLORS.BLACK,
+    defaultShadowRadius: 8,
+    defaultShadowOpacity: 0.25,
+    defaultElevation: 8,
+    defaultShadowOffset: {
+      w: 1,
+      h: 4
+    },
+
+    selectedBorderColor: COLORS.BRAND,
+    selectedShadowColor: COLORS.BLACK,
+    selectedShadowRadius: 8,
+    selectedShadowOpacity: 0.08,
+    selectedElevation: 8,
+    selectedShadowOffset: {
+      w: 4,
+      h: 8
+    }
+  },
   navigation: {},
   avatarSize: {
     default: 40,
