@@ -5,6 +5,7 @@ import { TouchableHighlight } from "react-native";
 interface Card extends ContainerProps {
   onPress?: () => void;
   borderLeft?: any;
+  typeButton?: any;
 }
 
 /**
