@@ -258,6 +258,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                     w={202}
                     h={84}
                     paddingTop
+                    marginRight
                     data={{
                       schoolAddress: data.address,
                       schoolName: data.name,
@@ -269,9 +270,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 ))}
 
               <TileButton
-                w={80}
-                h={84}
-                marginLeft={this.state.schools.length !== 0 ? true : 0}
                 onPress={() =>
                   Navigation.push(this.props.componentId, {
                     component: {
