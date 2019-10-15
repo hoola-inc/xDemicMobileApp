@@ -131,7 +131,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               type={Text.Types.H1}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
             >
               Recipients
             </Text>
@@ -162,7 +162,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
               paddingTop={Theme.spacing.default32}
               paddingBottom={Theme.spacing.default}
             >
@@ -219,7 +219,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
               paddingTop={Theme.spacing.default32}
               paddingBottom={Theme.spacing.default}
             >
@@ -248,7 +248,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               type={Text.Types.H2}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
               paddingTop={Theme.spacing.default32}
               paddingBottom={Theme.spacing.default}
             >

@@ -246,7 +246,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               type={Text.Types.H1}
               textAlign={"left"}
               textColor={Colors.BLACK}
-              bold
+              semiBold
             >
               My Schools
             </Text>
@@ -295,16 +295,16 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             </Container>
           </Container>
 
-          {/* <Container> */}
-          <Text
-            type={Text.Types.H1}
-            textAlign={"left"}
-            textColor={Colors.BLACK}
-            bold
-          >
-            Records
-          </Text>
-          {/* </Container> */}
+          <Container marginTop={Theme.spacing.default16}>
+            <Text
+              type={Text.Types.H1}
+              textAlign={"left"}
+              textColor={Colors.BLACK}
+              semiBold
+            >
+              Records
+            </Text>
+          </Container>
 
           {/* Rendering the Chip According to semester */}
           {this.state.coursesList.length > 0 && (
