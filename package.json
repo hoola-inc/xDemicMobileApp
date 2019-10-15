@@ -19,7 +19,9 @@
     "android-release": "cd android && ./gradlew assembleRelease && cd ..",
     "package-android": "mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res",
     "package-android-release": "cd android && ./gradlew clean && cd - && mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT",
-    "package-android-dummy": "cd android && ./gradlew clean && cd - && yarn package-android && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT=true -PIGNORE_REPOSITORY_STATE=true"
+    "package-android-dummy": "cd android && ./gradlew clean && cd - && yarn package-android && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT=true -PIGNORE_REPOSITORY_STATE=true",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "jest": {
     "preset": "react-native",
@@ -118,24 +120,24 @@
     "js-sha256": "^0.9.0",
     "js-sha3": "^0.5.5",
     "jsc-android": "^236355.1.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.12",
     "metro-minify-terser": "0.53.0",
     "mnid": "^0.1.1",
     "moment": "^2.17.1",
     "mori": "file:./locals/mori",
     "nacl-did": "^0.4.0",
-    "native-base": "^2.12.1",
+    "native-base": "^2.13.6",
     "node-libs-browser": "^2.1.0",
     "number-to-bn": "^1.7.0",
     "prop-types": "^15.6.0",
     "qs": "^6.1.0",
     "react": "16.8.3",
-    "react-native": "^0.59.8",
+    "react-native": "^0.60.0",
     "react-native-animatable": "^1.2.4",
     "react-native-cache": "^1.0.3",
     "react-native-camera": "^2.6.0",
     "react-native-device-info": "^0.13.0",
-    "react-native-easy-grid": "^0.2.1",
+    "react-native-easy-grid": "^0.2.2",
     "react-native-firebase": "^5.2.5",
     "react-native-fs": "^2.13.3",
     "react-native-image-picker": "uport-project/react-native-image-picker#develop",
@@ -169,7 +171,8 @@
     "url-parse": "^1.1.7",
     "web3": "^0.19.1",
     "whatwg-fetch": "^2.0.1",
-    "world-countries": "^1.8.1"
+    "world-countries": "^1.8.1",
+    "snyk": "^1.235.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -253,5 +256,6 @@
       "afterAll",
       "afterEach"
     ]
-  }
+  },
+  "snyk": true
 }
