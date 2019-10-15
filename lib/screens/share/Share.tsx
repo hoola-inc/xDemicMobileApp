@@ -172,24 +172,23 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             <Container flexDirection={"row"}>
               {this.state.schools.length !== 0 &&
                 this.state.schools.map((data: any, i: any) => (
-                  <Container w={202} key={data.address}>
-                    <BaseCard
-                      w={202}
-                      h={84}
-                      paddingTop
-                      {...this.props}
-                      data={{
-                        schoolAddress: data.address,
-                        schoolName: data.name,
-                        schoolPosition: data.offer,
-                        expandable: false
-                      }}
-                      key={"schoolPosition"}
-                    />
-                  </Container>
+                  <BaseCard
+                    {...this.props}
+                    w={202}
+                    h={84}
+                    paddingTop
+                    marginRight
+                    data={{
+                      schoolAddress: data.address,
+                      schoolName: data.name,
+                      schoolPosition: data.offer,
+                      expandable: false
+                    }}
+                    key={"schoolPosition"}
+                  />
                 ))}
+
               <TileButton
-                marginLeft
                 onPress={() =>
                   Navigation.push(this.props.componentId, {
                     component: {
