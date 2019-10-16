@@ -21,6 +21,7 @@ import * as React from "react";
 import { Text, TextStyle } from "react-native";
 import { TextThemeMap, Theme } from "@kancha";
 import {
+  font,
   fontBold,
   fontSemiBold,
   fontExtraBold,
@@ -41,6 +42,7 @@ const TextTypes: Kancha.TextTypesStatic = {
   H6: "h6",
   CAPTION1: "caption1",
   CAPTION2: "caption2",
+  PARAGRAPH: "paragraph",
   ListItem: "listItem",
   ListItemRight: "listItemRight",
   ListItemNote: "listItemNote",
@@ -81,9 +83,13 @@ interface KanchaTextProps {
    */
   block?: Kancha.BlockPropsOptions;
 
+  // make text regular
+  regular?: boolean;
+
   /**
    * Make the text bold
    */
+
   bold?: boolean;
 
   semiBold?: boolean;
@@ -144,6 +150,7 @@ const KanchaText: React.FC<KanchaTextProps> & {
     ...(props.type ? { ...TextThemeMap[props.type] } : {}),
     ...(props.textColor ? { color: props.textColor } : {}),
     ...(props.bold ? { fontFamily: fontBold } : { fontFamily: fontMedium }),
+    ...(props.regular ? { fontFamily: font } : {}),
     ...(props.semiBold ? { fontFamily: fontSemiBold } : {}),
     ...(props.warn ? { color: Theme.colors.warning.text } : {}),
     ...(props.textAlign ? { textAlign: props.textAlign } : {}),

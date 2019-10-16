@@ -85,6 +85,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
       h6: 14,
       caption1: 12,
       caption2: 12,
+      paragraph: 12,
       subTitle: 12,
       listItem: 18,
       listItemRight: 18,
@@ -328,6 +329,7 @@ const TextTypes: Kancha.TextTypesStatic = {
   H6: "h6",
   CAPTION1: "caption1",
   CAPTION2: "caption2",
+  PARAGRAPH: "paragraph",
   ListItem: "listItem",
   ListItemRight: "listItemRight",
   ListItemNote: "listItemNote",
@@ -383,6 +385,11 @@ const TextThemeMap: TextDefaultThemeMapTypes = {
   },
   caption2: {
     fontSize: DefaultTheme.text.sizes.caption2,
+    fontFamily: font,
+    color: DefaultTheme.colors.primary.text
+  },
+  paragraph: {
+    fontSize: DefaultTheme.text.sizes.paragraph,
     fontFamily: font,
     color: DefaultTheme.colors.primary.text
   },

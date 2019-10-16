@@ -22,6 +22,7 @@ declare namespace Kancha {
     H6: "h6";
     CAPTION1: "caption1";
     CAPTION2: "caption2";
+    PARAGRAPH: "paragraph";
     ListItem: "listItem";
     ListItemRight: "listItemRight";
     ListItemNote: "listItemNote";
@@ -87,6 +88,7 @@ declare namespace Kancha {
         h4: number;
         h5: number;
         h6: number;
+        paragraph: number;
         caption1: number;
         caption2: number;
         subTitle: number;
