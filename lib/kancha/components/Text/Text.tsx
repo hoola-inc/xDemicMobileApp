@@ -149,8 +149,8 @@ const KanchaText: React.FC<KanchaTextProps> & {
   const styles: TextStyle = {
     ...(props.type ? { ...TextThemeMap[props.type] } : {}),
     ...(props.textColor ? { color: props.textColor } : {}),
-    ...(props.bold ? { fontFamily: fontBold } : { fontFamily: fontMedium }),
     ...(props.regular ? { fontFamily: font } : {}),
+    ...(props.bold ? { fontFamily: fontBold } : { fontFamily: fontMedium }),
     ...(props.semiBold ? { fontFamily: fontSemiBold } : {}),
     ...(props.warn ? { color: Theme.colors.warning.text } : {}),
     ...(props.textAlign ? { textAlign: props.textAlign } : {}),
