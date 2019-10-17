@@ -273,10 +273,10 @@ const DefaultTheme: Kancha.ThemeStatic = {
     defaultBorderColor: COLORS.WHITE,
     defaultShadowColor: COLORS.BLACK,
     defaultShadowRadius: 8,
-    defaultShadowOpacity: 0.25,
+    defaultShadowOpacity: 0.08,
     defaultElevation: 8,
     defaultShadowOffset: {
-      w: 1,
+      w: 0,
       h: 4
     },
 

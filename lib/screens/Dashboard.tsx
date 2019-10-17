@@ -3,16 +3,23 @@ import { connect } from "react-redux";
 import { Screen, Container, Text, Theme, Icon, Colors, Button } from "@kancha";
 import SCREENS from "xdemic/lib/screens/Screens";
 import Mori from "mori";
-import { Alert } from "react-native";
+import { Alert, ScrollView } from "react-native";
 import { ownClaims, currentAddress } from "xdemic/lib/selectors/identities";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
 import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
-import { TileButton } from "xdemic/lib/components/shared/Button";
+import { TileButton, PrimaryButton } from "xdemic/lib/components/shared/Button";
 import { Navigation } from "react-native-navigation";
 
-const CHIP_DATA = ["Spring", "Summer", "Fall"];
+const CHIP_DATA = [
+  "Spring",
+  "Summer",
+  "Fall",
+  "Spring 1",
+  "Summer 1",
+  "Fall 1"
+];
 interface DashboardProps {
   credentials: any[];
   componentId: string;
@@ -306,49 +313,19 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             </Text>
           </Container>
 
-          {/* Rendering the Chip According to semester */}
-          {this.state.coursesList.length > 0 && (
-            <Container flexDirection={"row"}>
-              {CHIP_DATA.map(data => (
-                <BaseChip title={data} key={data} />
+          <Container flexDirection={"row"}>
+            {/* Rendering the Chip According to semester */}
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {this.state.coursesList.length > 0 &&
+                CHIP_DATA.map(data => <BaseChip title={data} key={data} />)}
+            </ScrollView>
+          </Container>
+          <Container padding={0}>
+            {this.state.coursesList.length > 0 &&
+              this.state.coursesList.map((data: any, i: any) => (
+                <BaseCollapsible {...this.props} data={data} key={i} />
               ))}
-            </Container>
-          )}
-
-          {this.state.coursesList.length > 0 &&
-            this.state.coursesList.map((data: any, i: any) => (
-              <Container paddingTop={Theme.spacing.default} key={i}>
-                <BaseCollapsible {...this.props} data={data} />
-              </Container>
-            ))}
-
-          {/* this data show in inforation dialog box */}
-          {/* {this.state.httpcoursesList.length > 0 &&
-            this.state.httpcoursesList.map((data: any, i: any) => {
-              console.log(
-                'data["ceterms:name"].value is: ',
-                data["ceterms:name"].value
-              );
-              return (
-                <Container paddingTop={Theme.spacing.default} key={i}>
-                  <BaseCollapsible
-                    {...this.props}
-                    data={{
-                      name: data["ceterms:name"].value,
-                      courseCode: data["ceterms:prerequisite"],
-                      DateTime: data.id,
-                      courseName: data["ceterms:name"].value,
-                      schoolName: data["ceterms:name"].value,
-                      courseGPA: i + 1,
-                      coursePercentage: i + 1 * 13,
-                      courseGrade: i + 1,
-                      schoolPosition: data.id,
-                      schoolAddress: data["ceterms:ctid"]
-                    }}
-                  />
-                </Container>
-              );
-            })} */}
+          </Container>
         </Container>
       </Screen>
     );
