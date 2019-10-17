@@ -320,7 +320,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                 CHIP_DATA.map(data => <BaseChip title={data} key={data} />)}
             </ScrollView>
           </Container>
-          <Container padding={0}>
+          <Container>
             {this.state.coursesList.length > 0 &&
               this.state.coursesList.map((data: any, i: any) => (
                 <BaseCollapsible {...this.props} data={data} key={i} />
