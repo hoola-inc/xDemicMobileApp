@@ -13,7 +13,6 @@ interface Card extends ContainerProps {
  * is provided then it becomes a button
  */
 const Card: React.FC<Card> = props => {
-  console.log("props.borderLeft is: ", props.borderLeft);
   const {
     defaultShadowColor,
     borderSize,
@@ -36,6 +35,7 @@ const Card: React.FC<Card> = props => {
         borderRadius: 8,
         padding: 0
       }}
+      underlayColor="#fff"
     >
       <Container
         flexDirection={"row"}

@@ -50,7 +50,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     };
     // Navigation.events().bindComponent(this);
     this.fetchCourses = this.fetchCourses.bind(this);
-    this.renderInfoBar = this.renderInfoBar.bind(this);
+
     this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
@@ -154,79 +154,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     }
   };
 
-  renderInfoBar() {
-    return (
-      <Container
-        padding
-        flexDirection={"row"}
-        alignItems={"center"}
-        flex={1}
-        backgroundColor={Theme.colors.primary.background}
-        dividerBottom
-        w={1000}
-      >
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon
-                name={"addBox"}
-                font={"materialcommunityicons"}
-                color={Theme.colors.primary.accessories}
-              />
-            }
-            onPress={() => console.log("etisfdsn")}
-          />
-          <Container>
-            <Text type={Text.Types.ListItemNote}>Credentials</Text>
-          </Container>
-        </Container>
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon
-                name={"addBox"}
-                font={"materialcommunityicons"}
-                color={Theme.colors.primary.accessories}
-              />
-            }
-            onPress={() => console.log("dsfsdfs")}
-          />
-          <Text type={Text.Types.ListItemNote}>QR Code</Text>
-        </Container>
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon
-                name={"addBox"}
-                font={"materialcommunityicons"}
-                color={Theme.colors.primary.accessories}
-              />
-            }
-            onPress={() => console.log("etin")}
-          />
-          <Text type={Text.Types.ListItemNote}>Share</Text>
-        </Container>
-        <Container flex={3} alignItems={"center"}>
-          <Button
-            block={Button.Block.Clear}
-            icon={
-              <Icon
-                name={"addBox"}
-                font={"materialcommunityicons"}
-                color={Theme.colors.primary.accessories}
-              />
-            }
-            onPress={() => console.log("etin")}
-          />
-          <Text type={Text.Types.ListItemNote}>Share</Text>
-        </Container>
-      </Container>
-    );
-  }
-
   render() {
     const { name, avatar, phone, did } = this.props;
     return (
@@ -241,14 +168,9 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             detailed={false}
           />
         </Container>
-        {/* {this.renderInfoBar()} */}
-        <Container
-          padding={Theme.spacing.default16}
-          paddingTop={0}
-          flex={1}
-          flexDirection={"column"}
-        >
-          <Container>
+
+        <Container paddingTop={0} flex={1} flexDirection={"column"}>
+          <Container paddingLeft={Theme.spacing.default16}>
             <Text
               type={Text.Types.H1}
               textAlign={"left"}
@@ -257,52 +179,69 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             >
               My Schools
             </Text>
-            <Container flexDirection={"row"}>
-              {this.state.schools.length !== 0 &&
-                this.state.schools.map((data: any, i: any) => (
-                  <BaseCard
-                    {...this.props}
-                    w={202}
-                    h={84}
-                    paddingTop
-                    marginRight
-                    data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.offer,
-                      expandable: false
-                    }}
-                    key={"schoolPosition"}
-                  />
-                ))}
-
-              <TileButton
-                onPress={() =>
-                  Navigation.push(this.props.componentId, {
-                    component: {
-                      name: SCREENS.AddSchool,
-                      options: {
-                        topBar: {
-                          elevation: 0,
-                          drawBehind: false,
-                          title: {
-                            text: "Add School",
-                            alignment: "center",
-                            fontFamily: "bold"
-                          },
-                          backButton: {
-                            visible: true
+          </Container>
+          <Container paddingLeft={Theme.spacing.default}>
+            <ScrollView
+              style={{
+                width: 836,
+                height: 106
+                // padding: 0,
+                // margin: 0
+              }}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            >
+              <Container flexDirection={"row"}>
+                {this.state.schools.length !== 0 &&
+                  this.state.schools.map((data: any, i: any) => (
+                    <BaseCard
+                      {...this.props}
+                      w={202}
+                      h={84}
+                      paddingTop
+                      marginRight
+                      data={{
+                        schoolAddress: data.address,
+                        schoolName: data.name,
+                        schoolPosition: data.offer,
+                        expandable: false
+                      }}
+                      key={"schoolPosition"}
+                    />
+                  ))}
+                <Container margin={Theme.spacing.default}>
+                  <TileButton
+                    onPress={() =>
+                      Navigation.push(this.props.componentId, {
+                        component: {
+                          name: SCREENS.AddSchool,
+                          options: {
+                            topBar: {
+                              elevation: 0,
+                              drawBehind: false,
+                              title: {
+                                text: "Add School",
+                                alignment: "center",
+                                fontFamily: "bold"
+                              },
+                              backButton: {
+                                visible: true
+                              }
+                            }
                           }
                         }
-                      }
+                      })
                     }
-                  })
-                }
-              />
-            </Container>
+                  />
+                </Container>
+              </Container>
+            </ScrollView>
           </Container>
 
-          <Container marginTop={Theme.spacing.default16}>
+          <Container
+            marginTop={Theme.spacing.default}
+            marginLeft={Theme.spacing.default16}
+          >
             <Text
               type={Text.Types.H1}
               textAlign={"left"}
@@ -313,14 +252,17 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             </Text>
           </Container>
 
-          <Container flexDirection={"row"}>
+          <Container flexDirection={"row"} marginLeft={Theme.spacing.default12}>
             {/* Rendering the Chip According to semester */}
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {this.state.coursesList.length > 0 &&
                 CHIP_DATA.map(data => <BaseChip title={data} key={data} />)}
             </ScrollView>
           </Container>
-          <Container>
+          <Container
+            margin={Theme.spacing.default16}
+            marginTop={Theme.spacing.default4}
+          >
             {this.state.coursesList.length > 0 &&
               this.state.coursesList.map((data: any, i: any) => (
                 <BaseCollapsible {...this.props} data={data} key={i} />

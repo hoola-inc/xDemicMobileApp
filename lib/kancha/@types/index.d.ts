@@ -125,6 +125,7 @@ declare namespace Kancha {
     spacing: {
       default4: number;
       default: number;
+      default12: number;
       default16: number;
       default32: number;
       default40: number;

@@ -233,6 +233,7 @@ const DefaultTheme: Kancha.ThemeStatic = {
   spacing: {
     default4: 4,
     default: 8,
+    default12: 12,
     default16: 16,
     default32: 32,
     default40: 40,
