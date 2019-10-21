@@ -20,7 +20,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
-import { StyleSheet, Alert } from "react-native";
+import { StyleSheet, Alert, ScrollView } from "react-native";
 import { Screen, Theme, Container, Text, Icon, Colors } from "@kancha";
 import { Navigation } from "react-native-navigation";
 import SCREENS from "../Screens";
@@ -120,13 +120,11 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
       //   this.state.userCreatingidentity || this.state.identityCreationSuccess
       // }
       >
-        <Container
-          flex={1}
-          justifyContent={"center"}
-          paddingLeft={Theme.spacing.default16}
-          paddingRight={Theme.spacing.default16}
-        >
-          <Container>
+        <Container flex={1} justifyContent={"center"}>
+          <Container
+            marginRight={Theme.spacing.default16}
+            marginLeft={Theme.spacing.default16}
+          >
             <Text
               type={Text.Types.H1}
               textAlign={"left"}
@@ -158,63 +156,81 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
           </Container>
 
           <Container>
-            <Text
-              type={Text.Types.H2}
-              textAlign={"left"}
-              textColor={Colors.BLACK}
-              semiBold
-              paddingTop={Theme.spacing.default32}
-              paddingBottom={Theme.spacing.default}
-            >
-              Recent
-            </Text>
-
-            <Container flexDirection={"row"}>
-              {this.state.schools.length !== 0 &&
-                this.state.schools.map((data: any, i: any) => (
-                  <BaseCard
-                    {...this.props}
-                    w={202}
-                    h={84}
-                    paddingTop
-                    marginRight
-                    data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.offer,
-                      expandable: false
-                    }}
-                    key={"schoolPosition"}
-                  />
-                ))}
-
-              <TileButton
-                onPress={() =>
-                  Navigation.push(this.props.componentId, {
-                    component: {
-                      name: SCREENS.AddSchool,
-                      options: {
-                        topBar: {
-                          elevation: 0,
-                          drawBehind: false,
-                          title: {
-                            text: "Add School",
-                            alignment: "center",
-                            fontFamily: "bold"
-                          },
-                          backButton: {
-                            visible: true
+            <Container paddingLeft={Theme.spacing.default16}>
+              <Text
+                type={Text.Types.H2}
+                textAlign={"left"}
+                textColor={Colors.BLACK}
+                semiBold
+                paddingTop={Theme.spacing.default32}
+                paddingBottom={Theme.spacing.default}
+              >
+                Recent
+              </Text>
+            </Container>
+            <Container paddingLeft={Theme.spacing.default}>
+              <ScrollView
+                style={{
+                  width: 836,
+                  height: 106
+                  // padding: 0,
+                  // margin: 0
+                }}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+              >
+                <Container flexDirection={"row"}>
+                  {this.state.schools.length !== 0 &&
+                    this.state.schools.map((data: any, i: any) => (
+                      <BaseCard
+                        {...this.props}
+                        w={202}
+                        h={84}
+                        paddingTop
+                        marginRight
+                        data={{
+                          schoolAddress: data.address,
+                          schoolName: data.name,
+                          schoolPosition: data.offer,
+                          expandable: false
+                        }}
+                        key={"schoolPosition"}
+                      />
+                    ))}
+                  <Container margin={Theme.spacing.default}>
+                    <TileButton
+                      onPress={() =>
+                        Navigation.push(this.props.componentId, {
+                          component: {
+                            name: SCREENS.AddSchool,
+                            options: {
+                              topBar: {
+                                elevation: 0,
+                                drawBehind: false,
+                                title: {
+                                  text: "Add School",
+                                  alignment: "center",
+                                  fontFamily: "bold"
+                                },
+                                backButton: {
+                                  visible: true
+                                }
+                              }
+                            }
                           }
-                        }
+                        })
                       }
-                    }
-                  })
-                }
-              />
+                    />
+                  </Container>
+                </Container>
+              </ScrollView>
             </Container>
           </Container>
 
-          <Container>
+          <Container
+            marginRight={Theme.spacing.default16}
+            marginLeft={Theme.spacing.default16}
+          >
             <Text
               type={Text.Types.H2}
               textAlign={"left"}
@@ -242,7 +258,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               })}
           </Container>
         </Container>
-        <Container flexDirection={"column"} paddingLeft={16} paddingRight={16}>
+        <Container flexDirection={"column"} marginLeft={16} marginRight={16}>
           <Container>
             <Text
               type={Text.Types.H2}
