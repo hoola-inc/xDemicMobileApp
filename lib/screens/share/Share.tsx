@@ -156,19 +156,21 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
           </Container>
 
           <Container>
-            <Container paddingLeft={Theme.spacing.default16}>
+            <Container
+              marginLeft={Theme.spacing.default16}
+              marginTop={Theme.spacing.default16}
+              marginBottom={Theme.spacing.default}
+            >
               <Text
                 type={Text.Types.H2}
                 textAlign={"left"}
                 textColor={Colors.BLACK}
                 semiBold
-                paddingTop={Theme.spacing.default32}
-                paddingBottom={Theme.spacing.default}
               >
                 Recent
               </Text>
             </Container>
-            <Container paddingLeft={Theme.spacing.default}>
+            <Container margin={Theme.spacing.default}>
               <ScrollView
                 style={{
                   width: 836,
@@ -258,7 +260,11 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
               })}
           </Container>
         </Container>
-        <Container flexDirection={"column"} marginLeft={16} marginRight={16}>
+        <Container
+          flexDirection={"column"}
+          marginRight={Theme.spacing.default16}
+          marginLeft={Theme.spacing.default16}
+        >
           <Container>
             <Text
               type={Text.Types.H2}
