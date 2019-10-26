@@ -8,6 +8,7 @@ import {
   Alert
 } from "react-native";
 import { connect } from "react-redux";
+import { populateSchools, addSchool } from "xdemic/lib/actions/schoolActions";
 import { Item, Input as InputNative } from "native-base";
 import {
   Screen,
@@ -64,6 +65,8 @@ interface CreateIdentityProps {
   addImage: (address: string, claimType: string, image: ImageObj) => void;
   storeOwnClaim: (address: string, claims: any) => void;
   trackSegment: (event: any) => any;
+  addSchool: (data: any) => any;
+  addingSchool: (data: any) => any;
   registerDeviceForNotifications: () => void;
 }
 
@@ -199,6 +202,7 @@ class AddSchoolInformation extends React.Component<
         ],
         { cancelable: true }
       );
+      this.props.addingSchool(this.props.data);
     }
     // updatecoursesList(json)
   };
@@ -474,6 +478,9 @@ export const mapDispatchToProps = (dispatch: any) => {
     },
     registerDeviceForNotifications: () => {
       dispatch(registerDeviceForNotifications());
+    },
+    addingSchool: (data: any) => {
+      dispatch(addSchool(data));
     }
   };
 };

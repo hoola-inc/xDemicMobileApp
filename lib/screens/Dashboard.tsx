@@ -11,6 +11,11 @@ import BaseChip from "xdemic/lib/components/shared/BaseChip";
 import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
 import { TileButton, PrimaryButton } from "xdemic/lib/components/shared/Button";
 import { Navigation } from "react-native-navigation";
+import {
+  getSchool,
+  populateSchools,
+  addSchool
+} from "xdemic/lib/actions/schoolActions";
 
 const CHIP_DATA = [
   "Spring",
@@ -29,9 +34,12 @@ interface DashboardProps {
   avatar: string;
   phone: string;
   did: any;
+  schoolsList: any;
   /**
    * Redux actions
    */
+  populateSchools: () => any;
+  addingSchool: (data: any) => any;
   getSchools: () => any;
 }
 interface DashboardState {
@@ -54,9 +62,25 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
+    console.log(
+      "schoolsList in componentDidMount before is: ",
+      this.props.schoolsList
+    );
     this.fetchSchools();
     this.fetchCourses();
+    // this.props.populateSchools();
 
+    // setTimeout(() => {
+    //   console.log(
+    //     "componentDidMount this.props.getSchools() is calling!",
+    //     this.props.getSchools()
+    //   );
+    //   // this.props.getSchools();
+    // }, 1000);
+    console.log(
+      "schoolsList in componentDidMount after is: ",
+      this.props.schoolsList
+    );
     // this.props.getSchools();
   }
 
@@ -155,7 +179,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   };
 
   render() {
-    const { name, avatar, phone, did } = this.props;
+    const { name, avatar, phone, did, schoolsList } = this.props;
+    console.log("schoolsList in render is: ", schoolsList);
     return (
       <Screen type={Screen.Types.Primary}>
         <Container>
@@ -168,6 +193,33 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             detailed={false}
           />
         </Container>
+
+        <Button
+          fullWidth
+          block={Button.Block.Filled}
+          type={Button.Types.Primary}
+          buttonText={"Primary Button"}
+          onPress={() => {
+            console.log("this.props.addingSchool() press is calling!");
+            const data = {
+              name: "on press Rizwan",
+              subjectWebpage: "adfa",
+              address: "dfs",
+              offers: "sdfa",
+              agentSectorType: "eewer",
+              agentType: "asdf",
+              DID: "adf",
+              email: "dsf",
+              telephone: "sdf"
+            };
+            this.props.addingSchool(data);
+            // setTimeout(() => {
+            //   console.log("this.props.getSchools() is calling!");
+            //   const newData = this.props.getSchools();
+            //   console.log("new data is: ", newData);
+            // }, 1000);
+          }}
+        />
 
         <Container paddingTop={0} flex={1} flexDirection={"column"}>
           <Container paddingLeft={Theme.spacing.default16}>
@@ -192,8 +244,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               showsHorizontalScrollIndicator={false}
             >
               <Container flexDirection={"row"}>
-                {this.state.schools.length !== 0 &&
-                  this.state.schools.map((data: any, i: any) => (
+                {this.props.schoolsList.length !== 0 &&
+                  this.props.schoolsList.map((data: any, i: any) => (
                     <BaseCard
                       {...this.props}
                       w={202}
@@ -206,7 +258,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                         schoolPosition: data.offer,
                         expandable: false
                       }}
-                      key={"schoolPosition"}
+                      key={`schoolPosition ${i}`}
                     />
                   ))}
                 <Container margin={Theme.spacing.default}>
@@ -293,7 +345,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
     phone:
       typeof state.myInfo.changed.phone !== "undefined"
         ? state.myInfo.changed.phone
-        : userData.phone
+        : userData.phone,
+    schoolsList: state.school
     // schoolsState: schools(state)
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
@@ -303,7 +356,13 @@ export const mapDispatchToProps = (dispatch: any) => {
   return {
     // getSchools: () => {
     //   dispatch(getSchool());
-    // }
+    // },
+    populateSchools: () => {
+      dispatch(populateSchools());
+    },
+    addingSchool: (data: any) => {
+      dispatch(addSchool(data));
+    }
   };
 };
 
