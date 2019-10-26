@@ -109,6 +109,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         { cancelable: true }
       );
     } else {
+      // this.props.addingSchool(json.data);
       this.setState({
         coursesList: json.data
       });
@@ -172,6 +173,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
         { cancelable: true }
       );
     } else {
+      this.props.addingSchool(json.data);
       this.setState({
         schools: json.data
       });
@@ -193,7 +195,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             detailed={false}
           />
         </Container>
-
+        {/* 
         <Button
           fullWidth
           block={Button.Block.Filled}
@@ -219,7 +221,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             //   console.log("new data is: ", newData);
             // }, 1000);
           }}
-        />
+        /> */}
 
         <Container paddingTop={0} flex={1} flexDirection={"column"}>
           <Container paddingLeft={Theme.spacing.default16}>

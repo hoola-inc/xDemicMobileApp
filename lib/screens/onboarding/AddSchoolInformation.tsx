@@ -202,7 +202,11 @@ class AddSchoolInformation extends React.Component<
         ],
         { cancelable: true }
       );
-      this.props.addingSchool(this.props.data);
+      this.props.addingSchool({
+        address: data.schoolAddress,
+        name: data.schoolName,
+        offer: data.schoolPosition
+      });
     }
     // updatecoursesList(json)
   };
