@@ -27,6 +27,7 @@ class RequestScreen extends React.Component<
   }
 
   render() {
+    console.log("request props is: ", this.props);
     return (
       <Screen
         footerNavComponent={

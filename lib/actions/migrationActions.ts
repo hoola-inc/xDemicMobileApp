@@ -15,45 +15,55 @@
 // along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-import { ADD_MIGRATION_TARGET, STARTED_MIGRATION_STEP, COMPLETED_MIGRATION_STEP, FAILED_MIGRATION_STEP, RUN_MIGRATIONS, MigrationStep, MigrationTarget, TargetAction, StepAction } from 'xdemic/lib/constants/MigrationActionTypes'
+import {
+  ADD_MIGRATION_TARGET,
+  STARTED_MIGRATION_STEP,
+  COMPLETED_MIGRATION_STEP,
+  FAILED_MIGRATION_STEP,
+  RUN_MIGRATIONS,
+  MigrationStep,
+  MigrationTarget,
+  TargetAction,
+  StepAction
+} from "xdemic/lib/constants/MigrationActionTypes";
 
-const _backup = true
+const _backup = true;
 
-export function addMigrationTarget(target: MigrationTarget) : TargetAction {
+export function addMigrationTarget(target: MigrationTarget): TargetAction {
   return {
     type: ADD_MIGRATION_TARGET,
     target,
     _backup
-  }
+  };
 }
 
-export function runMigrations(target: MigrationTarget) : TargetAction {
+export function runMigrations(target: MigrationTarget): TargetAction {
   return {
     type: RUN_MIGRATIONS,
     target
-  }
+  };
 }
 
-export function startedMigrationStep(step: MigrationStep) : StepAction {
+export function startedMigrationStep(step: MigrationStep): StepAction {
   return {
     type: STARTED_MIGRATION_STEP,
     step,
     _backup
-  }
+  };
 }
 
-export function completedMigrationStep(step: MigrationStep) : StepAction {
+export function completedMigrationStep(step: MigrationStep): StepAction {
   return {
     type: COMPLETED_MIGRATION_STEP,
     step,
     _backup
-  }
+  };
 }
 
-export function failedMigrationStep(step: MigrationStep) : StepAction {
+export function failedMigrationStep(step: MigrationStep): StepAction {
   return {
     type: FAILED_MIGRATION_STEP,
     step,
     _backup
-  }
+  };
 }

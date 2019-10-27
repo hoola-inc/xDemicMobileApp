@@ -43,6 +43,7 @@ interface AcceptCredentialProps {
 }
 
 export const AcceptCredential: React.FC<AcceptCredentialProps> = props => {
+  console.log("AcceptCredential props is: ", props);
   return (
     <Screen
       statusBarHidden

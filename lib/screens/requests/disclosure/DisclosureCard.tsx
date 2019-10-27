@@ -42,6 +42,7 @@ import SCREENS from "xdemic/lib/screens/Screens";
 export const DisclosureCard: React.FC<
   DisclosureRequestModelType
 > = requestModel => {
+  console.log("requestModel props is: ", requestModel);
   return (
     <Screen
       config={Screen.Config.Scroll}

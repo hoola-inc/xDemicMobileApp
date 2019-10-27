@@ -15,68 +15,91 @@
 // You should have received a copy of the GNU General Public License
 // along with xDemic Mobile App.  If not, see <http://www.gnu.org/licenses/>.
 //
-import { 
-  ADD_MIGRATION_TARGET, 
-  STARTED_MIGRATION_STEP, 
+import {
+  ADD_MIGRATION_TARGET,
+  STARTED_MIGRATION_STEP,
   COMPLETED_MIGRATION_STEP,
   FAILED_MIGRATION_STEP,
   TargetAction,
   StepAction,
-  MigrationStep, 
-  MigrationTarget, 
-  MigrationStatus } from '../constants/MigrationActionTypes'
-import { RESET_DEVICE } from '../constants/GlobalActionTypes'
-  // Need to Define the initialState.
+  MigrationStep,
+  MigrationTarget,
+  MigrationStatus
+} from "../constants/MigrationActionTypes";
+import { RESET_DEVICE } from "../constants/GlobalActionTypes";
+// Need to Define the initialState.
 
 interface MigrationStepState {
-  [index: string]: MigrationStatus
+  [index: string]: MigrationStatus;
 }
 
 export interface MigrationState {
-  targets: MigrationTarget[],
-  steps: MigrationStepState
+  targets: MigrationTarget[];
+  steps: MigrationStepState;
 }
 
-const initialState : MigrationState = {
+const initialState: MigrationState = {
   targets: [],
   steps: {}
-}
+};
 
 interface GenericAction {
-  type: string
+  type: string;
 }
 
-type Action = GenericAction | TargetAction | StepAction
+type Action = GenericAction | TargetAction | StepAction;
 
-function reduceTarget(state: MigrationState, action: TargetAction) : MigrationState {
+function reduceTarget(
+  state: MigrationState,
+  action: TargetAction
+): MigrationState {
   if (state.targets.includes(action.target)) {
-    return state
+    return state;
   } else {
-    return {...state, targets: [action.target, ...state.targets]}
+    return { ...state, targets: [action.target, ...state.targets] };
   }
 }
 
-function reduceSetMigrationStep(state: MigrationState, step: MigrationStep, status: MigrationStatus) : MigrationState {
-  const steps = {...state.steps}
-  steps[step] = status
-  return {...state, steps}
+function reduceSetMigrationStep(
+  state: MigrationState,
+  step: MigrationStep,
+  status: MigrationStatus
+): MigrationState {
+  const steps = { ...state.steps };
+  steps[step] = status;
+  return { ...state, steps };
 }
 
-function migrationsReducer (state = initialState, action: Action) : MigrationState {
+function migrationsReducer(
+  state = initialState,
+  action: Action
+): MigrationState {
   switch (action.type) {
     case ADD_MIGRATION_TARGET:
-    return reduceTarget(state, <TargetAction>action)
+      return reduceTarget(state, <TargetAction>action);
     case STARTED_MIGRATION_STEP:
-    return reduceSetMigrationStep(state, (<StepAction>action).step, MigrationStatus.Started)
+      return reduceSetMigrationStep(
+        state,
+        (<StepAction>action).step,
+        MigrationStatus.Started
+      );
     case COMPLETED_MIGRATION_STEP:
-    return reduceSetMigrationStep(state, (<StepAction>action).step, MigrationStatus.Completed)
+      return reduceSetMigrationStep(
+        state,
+        (<StepAction>action).step,
+        MigrationStatus.Completed
+      );
     case FAILED_MIGRATION_STEP:
-    return reduceSetMigrationStep(state, (<StepAction>action).step, MigrationStatus.Error)
+      return reduceSetMigrationStep(
+        state,
+        (<StepAction>action).step,
+        MigrationStatus.Error
+      );
     case RESET_DEVICE:
-    return { ...initialState }
+      return { ...initialState };
     default:
-    return state
+      return state;
   }
 }
 
-export default migrationsReducer
+export default migrationsReducer;

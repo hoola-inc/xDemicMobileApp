@@ -40,7 +40,7 @@ interface DashboardProps {
    */
   populateSchools: () => any;
   addingSchool: (data: any) => any;
-  getSchools: () => any;
+  getSchools: (schoolDid: number) => any;
 }
 interface DashboardState {
   coursesList: any;
@@ -62,26 +62,9 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
-    console.log(
-      "schoolsList in componentDidMount before is: ",
-      this.props.schoolsList
-    );
     this.fetchSchools();
     this.fetchCourses();
-    // this.props.populateSchools();
-
-    // setTimeout(() => {
-    //   console.log(
-    //     "componentDidMount this.props.getSchools() is calling!",
-    //     this.props.getSchools()
-    //   );
-    //   // this.props.getSchools();
-    // }, 1000);
-    console.log(
-      "schoolsList in componentDidMount after is: ",
-      this.props.schoolsList
-    );
-    // this.props.getSchools();
+    this.props.getSchools(this.props.did);
   }
 
   fetchCourses = async () => {
@@ -195,7 +178,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             detailed={false}
           />
         </Container>
-        {/* 
+
         <Button
           fullWidth
           block={Button.Block.Filled}
@@ -216,12 +199,14 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             };
             this.props.addingSchool(data);
             // setTimeout(() => {
-            //   console.log("this.props.getSchools() is calling!");
+            console.log("before this.props.getSchools() is calling!");
+            this.props.getSchools(this.props.did);
+            console.log("after this.props.getSchools() is calling!");
             //   const newData = this.props.getSchools();
             //   console.log("new data is: ", newData);
             // }, 1000);
           }}
-        /> */}
+        />
 
         <Container paddingTop={0} flex={1} flexDirection={"column"}>
           <Container paddingLeft={Theme.spacing.default16}>
@@ -356,9 +341,9 @@ const mapStateToProps = (state: any, ownProps: any) => {
 
 export const mapDispatchToProps = (dispatch: any) => {
   return {
-    // getSchools: () => {
-    //   dispatch(getSchool());
-    // },
+    getSchools: (schoolDid: number) => {
+      dispatch(getSchool(schoolDid));
+    },
     populateSchools: () => {
       dispatch(populateSchools());
     },
