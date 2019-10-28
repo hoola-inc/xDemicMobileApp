@@ -179,7 +179,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
           />
         </Container>
 
-        <Button
+        {/* <Button
           fullWidth
           block={Button.Block.Filled}
           type={Button.Types.Primary}
@@ -206,7 +206,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             //   console.log("new data is: ", newData);
             // }, 1000);
           }}
-        />
+        /> */}
 
         <Container paddingTop={0} flex={1} flexDirection={"column"}>
           <Container paddingLeft={Theme.spacing.default16}>
