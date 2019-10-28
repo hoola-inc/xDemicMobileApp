@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Screen, Container, Text, Theme, Icon, Colors, Button } from "@kancha";
+import { Screen, Container, Text, Theme, Colors, Button } from "@kancha";
 import SCREENS from "xdemic/lib/screens/Screens";
 import Mori from "mori";
-import { Alert, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import { ownClaims, currentAddress } from "xdemic/lib/selectors/identities";
 import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
@@ -67,36 +67,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     this.props.getSchools(this.props.did);
     this.props.getCourses(this.props.did);
   }
-
-  // fetchHttpCourses = async () => {
-  //   const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
-  //   const json = await response.json();
-
-  //   if (!json.status) {
-  //     Alert.alert(
-  //       "Http Courses",
-  //       "Http Courses not found!",
-  //       [
-  //         {
-  //           text: "Cancel",
-  //           onPress: () => console.log("Cancel Pressed"),
-  //           style: "cancel"
-  //         }
-  //         // {
-  //         //   text: " Event ClearQueue",
-  //         //   style: "destructive",
-  //         //   onPress: () => console.log("on Pressed")
-  //         // }
-  //       ],
-  //       { cancelable: true }
-  //     );
-  //   } else {
-  //     this.setState({
-  //       httpcoursesList: json.data.graph
-  //     });
-  //   }
-  //   // updatecoursesList(json)
-  // };
 
   render() {
     const { name, avatar, phone, did, schoolsList, coursesList } = this.props;
