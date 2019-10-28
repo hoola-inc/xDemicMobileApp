@@ -100,8 +100,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
   render() {
     const { name, avatar, phone, did, schoolsList, coursesList } = this.props;
-    console.log("schoolsList in render is: ", schoolsList);
-    console.log("coursesList in render is: ", coursesList);
     return (
       <Screen type={Screen.Types.Primary}>
         <Container>
