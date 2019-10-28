@@ -45,7 +45,6 @@ interface DashboardProps {
 interface DashboardState {
   coursesList: any;
   httpcoursesList: any;
-  schools: any;
 }
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   constructor(props: DashboardProps) {
@@ -53,16 +52,12 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
     this.state = {
       coursesList: [],
-      httpcoursesList: [],
-      schools: []
+      httpcoursesList: []
     };
     // Navigation.events().bindComponent(this);
     this.fetchCourses = this.fetchCourses.bind(this);
-
-    // this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
-    // this.fetchSchools();
     this.fetchCourses();
     this.props.getSchools(this.props.did);
   }
@@ -128,39 +123,6 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   //     });
   //   }
   //   // updatecoursesList(json)
-  // };
-
-  // fetchSchools = async () => {
-  //   const response = await fetch(
-  //     `https://xdemic-api.herokuapp.com/schoolwithstudentenroll/${
-  //       this.props.did
-  //     }`
-  //   );
-  //   const json = await response.json();
-  //   if (!json.status) {
-  //     Alert.alert(
-  //       "Schools",
-  //       "Schools not found!",
-  //       [
-  //         {
-  //           text: "Cancel",
-  //           onPress: () => console.log("Cancel Pressed"),
-  //           style: "cancel"
-  //         }
-  //         // {
-  //         //   text: " Event ClearQueue",
-  //         //   style: "destructive",
-  //         //   onPress: () => console.log("on Pressed")
-  //         // }
-  //       ],
-  //       { cancelable: true }
-  //     );
-  //   } else {
-  //     this.props.addingSchool(json.data);
-  //     this.setState({
-  //       schools: json.data
-  //     });
-  //   }
   // };
 
   render() {
