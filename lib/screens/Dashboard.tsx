@@ -9,13 +9,18 @@ import BaseCollapsible from "xdemic/lib/components/shared/BaseCollapsible";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import BaseChip from "xdemic/lib/components/shared/BaseChip";
 import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
-import { TileButton, PrimaryButton } from "xdemic/lib/components/shared/Button";
+import { TileButton } from "xdemic/lib/components/shared/Button";
 import { Navigation } from "react-native-navigation";
 import {
   getSchool,
   populateSchools,
   addSchool
 } from "xdemic/lib/actions/schoolActions";
+import {
+  getCourse,
+  addCourse,
+  populateCourse
+} from "xdemic/lib/actions/courseActions";
 
 const CHIP_DATA = [
   "Spring",
@@ -28,22 +33,25 @@ const CHIP_DATA = [
 interface DashboardProps {
   credentials: any[];
   componentId: string;
-  // coursesList: any[];
-  schoolsState: any[];
+
   name: string;
   avatar: string;
   phone: string;
   did: any;
-  schoolsList: any;
+  schoolsList: any[];
+  coursesList: any[];
   /**
    * Redux actions
    */
   populateSchools: () => any;
   addingSchool: (data: any) => any;
   getSchools: (schoolDid: number) => any;
+
+  populateCourses: () => any;
+  addingCourse: (data: any) => any;
+  getCourses: (schoolDid: number) => any;
 }
 interface DashboardState {
-  coursesList: any;
   httpcoursesList: any;
 }
 export class Dashboard extends React.Component<DashboardProps, DashboardState> {
@@ -51,49 +59,14 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
     super(props);
 
     this.state = {
-      coursesList: [],
       httpcoursesList: []
     };
     // Navigation.events().bindComponent(this);
-    this.fetchCourses = this.fetchCourses.bind(this);
   }
   componentDidMount() {
-    this.fetchCourses();
     this.props.getSchools(this.props.did);
+    this.props.getCourses(this.props.did);
   }
-
-  fetchCourses = async () => {
-    const response = await fetch(
-      `https://xdemic-api.herokuapp.com/courses/${this.props.did}`
-    );
-    const json = await response.json();
-
-    if (!json.status) {
-      Alert.alert(
-        "Courses",
-        "Courses not found!",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel"
-          }
-          // {
-          //   text: " Event ClearQueue",
-          //   style: "destructive",
-          //   onPress: () => console.log("on Pressed")
-          // }
-        ],
-        { cancelable: true }
-      );
-    } else {
-      // this.props.addingSchool(json.data);
-      this.setState({
-        coursesList: json.data
-      });
-    }
-    // updatecoursesList(json)
-  };
 
   // fetchHttpCourses = async () => {
   //   const response = await fetch("https://xdemic-api.herokuapp.com/httpcourse");
@@ -126,8 +99,9 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   // };
 
   render() {
-    const { name, avatar, phone, did, schoolsList } = this.props;
+    const { name, avatar, phone, did, schoolsList, coursesList } = this.props;
     console.log("schoolsList in render is: ", schoolsList);
+    console.log("coursesList in render is: ", coursesList);
     return (
       <Screen type={Screen.Types.Primary}>
         <Container>
@@ -193,8 +167,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
               showsHorizontalScrollIndicator={false}
             >
               <Container flexDirection={"row"}>
-                {this.props.schoolsList.length !== 0 &&
-                  this.props.schoolsList.map((data: any, i: any) => (
+                {schoolsList.length !== 0 &&
+                  schoolsList.map((data: any, i: any) => (
                     <BaseCard
                       {...this.props}
                       w={202}
@@ -256,7 +230,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
           <Container flexDirection={"row"} marginLeft={Theme.spacing.default12}>
             {/* Rendering the Chip According to semester */}
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {this.state.coursesList.length > 0 &&
+              {coursesList.length > 0 &&
                 CHIP_DATA.map(data => <BaseChip title={data} key={data} />)}
             </ScrollView>
           </Container>
@@ -264,8 +238,8 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             margin={Theme.spacing.default16}
             marginTop={Theme.spacing.default4}
           >
-            {this.state.coursesList.length > 0 &&
-              this.state.coursesList.map((data: any, i: any) => (
+            {coursesList.length > 0 &&
+              coursesList.map((data: any, i: any) => (
                 <BaseCollapsible {...this.props} data={data} key={i} />
               ))}
           </Container>
@@ -295,8 +269,8 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.phone !== "undefined"
         ? state.myInfo.changed.phone
         : userData.phone,
-    schoolsList: state.school
-    // schoolsState: schools(state)
+    schoolsList: state.school,
+    coursesList: state.course
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
 };
@@ -311,6 +285,15 @@ export const mapDispatchToProps = (dispatch: any) => {
     },
     addingSchool: (data: any) => {
       dispatch(addSchool(data));
+    },
+    populateCourses: () => {
+      dispatch(populateCourse());
+    },
+    addingCourse: (data: any) => {
+      dispatch(addCourse(data));
+    },
+    getCourses: (courseDid: number) => {
+      dispatch(getCourse(courseDid));
     }
   };
 };
