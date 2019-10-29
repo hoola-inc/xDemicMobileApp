@@ -219,7 +219,7 @@ class AddSchoolInformation extends React.Component<
       <Screen
         type={Screen.Types.Primary}
         config={Screen.Config.SafeScroll}
-        statusBarHidden
+        // statusBarHidden
         // footerNavDivider
         footerNavComponent={
           <Container
