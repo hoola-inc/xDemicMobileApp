@@ -4,6 +4,7 @@ import { TouchableHighlight } from "react-native";
 
 interface Card extends ContainerProps {
   onPress?: () => void;
+  onLongPress?: () => void;
   borderLeft?: any;
   typeButton?: any;
 }
@@ -30,12 +31,15 @@ const Card: React.FC<Card> = props => {
     <TouchableHighlight
       disabled={!props.onPress}
       onPress={props.onPress}
+      onLongPress={props.onLongPress}
       style={{
         backgroundColor: "transparent",
         borderRadius: 8,
         padding: 0
       }}
       underlayColor="#fff"
+      // activeOpacity={0.6}
+      // delayLongPress={1}
     >
       <Container
         flexDirection={"row"}
