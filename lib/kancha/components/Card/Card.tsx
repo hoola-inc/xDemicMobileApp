@@ -39,7 +39,7 @@ const Card: React.FC<Card> = props => {
       }}
       underlayColor="#fff"
       // activeOpacity={0.6}
-      // delayLongPress={1}
+      delayLongPress={100}
     >
       <Container
         flexDirection={"row"}

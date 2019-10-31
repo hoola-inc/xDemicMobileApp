@@ -3,6 +3,7 @@
  */
 export default {
   Dashboard: "Dashboard",
+  SendTranscript: "SendTranscript",
   Credentials: "Credentials",
   Credential: "Credential",
   Contacts: "Contacts",
