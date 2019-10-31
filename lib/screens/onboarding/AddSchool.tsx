@@ -15,14 +15,25 @@ import { font } from "xdemic/lib/styles/globalStyles";
 
 import TESTID from "xdemic/lib/e2e/testIDs";
 
+import {
+  getSchool,
+  populateSchools,
+  addSchool
+} from "xdemic/lib/actions/schoolActions";
+
 interface AddSchoolProps {
   componentId: string;
   navigator: Navigator;
   address: string;
+  schoolsList: any[];
+  coursesList: any[];
 
   //**Redux Actions */
 
   finishOnboarding: () => void;
+  populateSchools: () => any;
+  addingSchool: (data: any) => any;
+  getSchools: (schoolDid: any) => any;
 }
 
 interface AddSchoolState {
@@ -76,11 +87,15 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
   }
 
   componentDidMount() {
+    console.log("adds school componentDidMount");
+    this.props.getSchools(null);
     this.fetchSchools();
   }
 
   fetchSchools = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/schools");
+    const response = await fetch(
+      "https://xdemic-fronend-testing.herokuapp.com/schools"
+    );
     const json = await response.json();
     if (!json.status) {
       Alert.alert(
@@ -217,8 +232,8 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
             >
               Search Result
             </Text>
-            {this.state.schools.length !== 0 &&
-              this.state.schools.map((data: any, i: any) => {
+            {this.props.schoolsList.length !== 0 &&
+              this.props.schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
@@ -329,7 +344,8 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
 
 const mapStateToProps = (state: any) => {
   return {
-    address: currentAddress(state)
+    address: currentAddress(state),
+    schoolsList: state.school
   };
 };
 
@@ -339,6 +355,9 @@ export const mapDispatchToProps = (dispatch: any) => {
       dispatch(track("Onboarding Complete Finished"));
       //**Start app after tracking events fire */
       startMain();
+    },
+    getSchools: (schoolDid: number) => {
+      dispatch(getSchool(schoolDid));
     }
   };
 };

@@ -30,19 +30,29 @@ import { ownClaims } from "xdemic/lib/selectors/identities";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import { font } from "xdemic/lib/styles/globalStyles";
 import { TileButton } from "xdemic/lib/components/shared/Button";
+import {
+  getGlobalSchools,
+  populateSchools,
+  addSchool
+} from "xdemic/lib/actions/schoolActions";
 
 interface UserShareProps {
   componentId: string;
-
   avatar: any;
   name: string;
   phone: string;
+
+  schoolsList: any[];
+
+  //**Redux Actions */
+  populateSchools: () => any;
+  addingSchool: (data: any) => any;
+  getSchools: () => any;
 }
 
 interface UserShareState {
   devMode: boolean;
   count: number;
-  schools: any[];
 }
 
 export class UserShare extends React.Component<UserShareProps, UserShareState> {
@@ -54,38 +64,13 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
      */
     this.state = {
       devMode: __DEV__ ? true : false,
-      count: 0,
-      schools: []
+      count: 0
     };
-
-    this.fetchSchools = this.fetchSchools.bind(this);
   }
   componentDidMount() {
-    this.fetchSchools();
+    this.props.getSchools();
   }
 
-  fetchSchools = async () => {
-    const response = await fetch("https://xdemic-api.herokuapp.com/schools");
-    const json = await response.json();
-    if (!json.status) {
-      Alert.alert(
-        "Schools",
-        "Schools not found!",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel"
-          }
-        ],
-        { cancelable: true }
-      );
-    } else {
-      this.setState({
-        schools: json.data
-      });
-    }
-  };
   goToScreen(screenID: string) {
     Navigation.push(this.props.componentId, {
       component: {
@@ -114,6 +99,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
    * UI Render states
    */
   renderUserAddingInfo() {
+    const { schoolsList, componentId } = this.props;
     return (
       <Container
       // disabled={
@@ -182,8 +168,8 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                 showsHorizontalScrollIndicator={false}
               >
                 <Container flexDirection={"row"}>
-                  {this.state.schools.length !== 0 &&
-                    this.state.schools.map((data: any, i: any) => (
+                  {schoolsList.length !== 0 &&
+                    schoolsList.map((data: any, i: any) => (
                       <BaseCard
                         {...this.props}
                         w={202}
@@ -202,7 +188,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                   <Container margin={Theme.spacing.default}>
                     <TileButton
                       onPress={() =>
-                        Navigation.push(this.props.componentId, {
+                        Navigation.push(componentId, {
                           component: {
                             name: SCREENS.AddSchool,
                             options: {
@@ -243,8 +229,8 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             >
               Search Result
             </Text>
-            {this.state.schools.length !== 0 &&
-              this.state.schools.map((data: any, i: any) => {
+            {schoolsList.length !== 0 &&
+              schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
@@ -276,8 +262,8 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             >
               Favorites
             </Text>
-            {this.state.schools.length !== 0 &&
-              this.state.schools.map((data: any, i: any) => {
+            {schoolsList.length !== 0 &&
+              schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
@@ -376,6 +362,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
   const userData = Mori.toJs(ownClaims(state)) || {};
   return {
     ...ownProps,
+    schoolsList: state.school.globalSchools,
     avatar:
       typeof state.myInfo.changed.avatar !== "undefined"
         ? state.myInfo.changed.avatar
@@ -391,7 +378,18 @@ const mapStateToProps = (state: any, ownProps: any) => {
   };
 };
 
-export default connect(mapStateToProps)(UserShare);
+export const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getSchools: () => {
+      dispatch(getGlobalSchools());
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserShare);
 
 const Styles = StyleSheet.create({
   input: {

@@ -12,7 +12,7 @@ import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
 import { TileButton } from "xdemic/lib/components/shared/Button";
 import { Navigation } from "react-native-navigation";
 import {
-  getSchool,
+  getPrivateSchools,
   populateSchools,
   addSchool
 } from "xdemic/lib/actions/schoolActions";
@@ -237,7 +237,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.phone !== "undefined"
         ? state.myInfo.changed.phone
         : userData.phone,
-    schoolsList: state.school,
+    schoolsList: state.school.privateSchools,
     coursesList: state.course
     // credentials: onlyLatestAttestationsWithIssuer(state)
   };
@@ -246,7 +246,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
 export const mapDispatchToProps = (dispatch: any) => {
   return {
     getSchools: (schoolDid: number) => {
-      dispatch(getSchool(schoolDid));
+      dispatch(getPrivateSchools(schoolDid));
     },
     populateSchools: () => {
       dispatch(populateSchools());
