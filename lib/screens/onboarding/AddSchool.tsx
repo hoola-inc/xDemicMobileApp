@@ -16,7 +16,7 @@ import { font } from "xdemic/lib/styles/globalStyles";
 import TESTID from "xdemic/lib/e2e/testIDs";
 
 import {
-  getSchool,
+  getGlobalSchools,
   populateSchools,
   addSchool
 } from "xdemic/lib/actions/schoolActions";
@@ -33,7 +33,7 @@ interface AddSchoolProps {
   finishOnboarding: () => void;
   populateSchools: () => any;
   addingSchool: (data: any) => any;
-  getSchools: (schoolDid: any) => any;
+  getSchools: () => any;
 }
 
 interface AddSchoolState {
@@ -88,7 +88,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
 
   componentDidMount() {
     console.log("adds school componentDidMount");
-    this.props.getSchools(null);
+    this.props.getSchools();
     this.fetchSchools();
   }
 
@@ -345,7 +345,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
 const mapStateToProps = (state: any) => {
   return {
     address: currentAddress(state),
-    schoolsList: state.school
+    schoolsList: state.school.globalSchools
   };
 };
 
@@ -356,8 +356,8 @@ export const mapDispatchToProps = (dispatch: any) => {
       //**Start app after tracking events fire */
       startMain();
     },
-    getSchools: (schoolDid: number) => {
-      dispatch(getSchool(schoolDid));
+    getSchools: () => {
+      dispatch(getGlobalSchools());
     }
   };
 };
