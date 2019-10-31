@@ -1,32 +1,9 @@
 import * as React from "react";
 import axios from "axios";
-import {
-  ActivityIndicator,
-  Image,
-  Modal,
-  StyleSheet,
-  Alert
-} from "react-native";
+import { ActivityIndicator, Image, StyleSheet, Alert } from "react-native";
 import { connect } from "react-redux";
-import { populateSchools, addSchool } from "xdemic/lib/actions/schoolActions";
-import { Item, Input as InputNative } from "native-base";
-import {
-  Screen,
-  Container,
-  Input,
-  Text,
-  Button,
-  Theme,
-  Icon,
-  Images,
-  Checkbox,
-  Colors,
-  Section,
-  Card,
-  ListItem
-} from "@kancha";
-import { Navigation } from "react-native-navigation";
-import SCREENS from "../Screens";
+import { addSchool } from "xdemic/lib/actions/schoolActions";
+import { Screen, Container, Text, Theme, Icon, Images } from "@kancha";
 import { AddSchoolCancelGroup } from "xdemic/lib/components/shared/Button";
 import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
 import { currentAddress } from "../../selectors/identities";
@@ -40,7 +17,6 @@ import {
 } from "xdemic/lib/actions/uportActions";
 import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
-import config from "xdemic/lib/config";
 import TESTID from "xdemic/lib/e2e/testIDs";
 
 interface ImageObj {
@@ -215,6 +191,7 @@ class SendTranscript extends React.Component<
    * UI Render main Screen
    */
   render() {
+    console.log("This.props is: ", this.props);
     return (
       <Screen
         type={Screen.Types.Primary}
@@ -286,7 +263,7 @@ class SendTranscript extends React.Component<
                 onPress={() => this.createIdentity()}
               /> */}
             <AddSchoolCancelGroup
-              acceptText={"Add School"}
+              acceptText={"Send"}
               cancelText={"Contact"}
               onAccept={() => {
                 this.studentAddSchool();
