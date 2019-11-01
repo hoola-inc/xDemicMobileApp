@@ -10,6 +10,8 @@ import { currentAddress } from "../../selectors/identities";
 import { activationEvent } from "xdemic/lib/actions/userActivationActions";
 import { track } from "xdemic/lib/actions/metricActions";
 import { startMain } from "xdemic/lib/navigators/navigation";
+import { Navigation } from "react-native-navigation";
+import SCREENS from "xdemic/lib/screens/Screens";
 import {
   createIdentity,
   addClaims,
@@ -302,6 +304,37 @@ class SendTranscript extends React.Component<
             <BaseCard
               {...this.props}
               data={{ ...this.props.data, expandable: true }}
+              onPress={() =>
+                Navigation.push(this.props.componentId, {
+                  component: {
+                    name: SCREENS.SendTranscript,
+                    options: {
+                      topBar: {
+                        elevation: 0,
+                        drawBehind: false,
+                        // rightButtons: [rightButtonsCredentialScreen],
+                        title: {
+                          text: "Send Transcript",
+                          alignment: "center",
+                          fontFamily: "bold"
+                        },
+                        backButton: {
+                          visible: true
+                        }
+                      }
+                    },
+                    passProps: {
+                      ...this.props,
+                      data: {
+                        schoolAddress: this.props.data.address,
+                        schoolName: this.props.data.name,
+                        schoolPosition: this.props.data.address,
+                        expandable: true
+                      }
+                    }
+                  }
+                })
+              }
               key={"keys"}
             />
           </Container>

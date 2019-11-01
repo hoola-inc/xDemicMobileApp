@@ -325,6 +325,37 @@ class AddSchoolInformation extends React.Component<
             <BaseCard
               {...this.props}
               data={{ ...this.props.data, expandable: true }}
+              onPress={() =>
+                Navigation.push(this.props.componentId, {
+                  component: {
+                    name: SCREENS.SendTranscript,
+                    options: {
+                      topBar: {
+                        elevation: 0,
+                        drawBehind: false,
+                        // rightButtons: [rightButtonsCredentialScreen],
+                        title: {
+                          text: "Send Transcript",
+                          alignment: "center",
+                          fontFamily: "bold"
+                        },
+                        backButton: {
+                          visible: true
+                        }
+                      }
+                    },
+                    passProps: {
+                      ...this.props,
+                      data: {
+                        schoolAddress: this.props.data.address,
+                        schoolName: this.props.data.name,
+                        schoolPosition: this.props.data.address,
+                        expandable: true
+                      }
+                    }
+                  }
+                })
+              }
               key={"keys"}
             />
           </Container>

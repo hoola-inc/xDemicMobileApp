@@ -31,6 +31,7 @@ import {
   Button
 } from "@kancha";
 import TESTID from "xdemic/lib/e2e/testIDs";
+import SCREENS from "xdemic/lib/screens/Screens";
 import { Navigation } from "react-native-navigation";
 import Mori from "mori";
 import { ownClaims } from "xdemic/lib/selectors/identities";
@@ -41,6 +42,7 @@ interface UserSendToProps {
   componentId: string;
 
   avatar: any;
+  data: any;
   name: string;
 
   sendTranscript: any;
@@ -287,6 +289,37 @@ export class UserSendTo extends React.Component<
                 expandable: false
               }}
               key={"schoolAddress"}
+              onPress={() =>
+                Navigation.push(this.props.componentId, {
+                  component: {
+                    name: SCREENS.SendTranscript,
+                    options: {
+                      topBar: {
+                        elevation: 0,
+                        drawBehind: false,
+                        // rightButtons: [rightButtonsCredentialScreen],
+                        title: {
+                          text: "Send Transcript",
+                          alignment: "center",
+                          fontFamily: "bold"
+                        },
+                        backButton: {
+                          visible: true
+                        }
+                      }
+                    },
+                    passProps: {
+                      ...this.props,
+                      data: {
+                        schoolAddress: this.props.data.address,
+                        schoolName: this.props.data.name,
+                        schoolPosition: this.props.data.address,
+                        expandable: true
+                      }
+                    }
+                  }
+                })
+              }
             />
           </Container>
           <Container padding justifyContent={"center"} alignItems={"center"}>

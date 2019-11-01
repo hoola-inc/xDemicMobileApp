@@ -1,8 +1,10 @@
 import * as React from "react";
 import { ActivityIndicator, Modal, StyleSheet, Alert } from "react-native";
+import { Navigation } from "react-native-navigation";
 import { connect } from "react-redux";
 import { Item, Input as InputNative } from "native-base";
 import { Screen, Container, Text, Button, Theme, Icon, Colors } from "@kancha";
+import SCREENS from "xdemic/lib/screens/Screens";
 
 import { currentAddress } from "../../selectors/identities";
 
@@ -244,6 +246,37 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                       expandable: false
                     }}
                     key={i}
+                    onPress={() =>
+                      Navigation.push(this.props.componentId, {
+                        component: {
+                          name: SCREENS.AddSchoolInformation,
+                          options: {
+                            topBar: {
+                              elevation: 0,
+                              drawBehind: false,
+                              // rightButtons: [rightButtonsCredentialScreen],
+                              title: {
+                                text: "Add School",
+                                alignment: "center",
+                                fontFamily: "bold"
+                              },
+                              backButton: {
+                                visible: true
+                              }
+                            }
+                          },
+                          passProps: {
+                            ...this.props,
+                            data: {
+                              schoolAddress: data.address,
+                              schoolName: data.name,
+                              schoolPosition: data.address,
+                              expandable: true
+                            }
+                          }
+                        }
+                      })
+                    }
                   />
                 );
               })}
@@ -272,6 +305,37 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                       schoolPosition: data.address,
                       expandable: false
                     }}
+                    onPress={() =>
+                      Navigation.push(this.props.componentId, {
+                        component: {
+                          name: SCREENS.AddSchoolInformation,
+                          options: {
+                            topBar: {
+                              elevation: 0,
+                              drawBehind: false,
+                              // rightButtons: [rightButtonsCredentialScreen],
+                              title: {
+                                text: "Add School",
+                                alignment: "center",
+                                fontFamily: "bold"
+                              },
+                              backButton: {
+                                visible: true
+                              }
+                            }
+                          },
+                          passProps: {
+                            ...this.props,
+                            data: {
+                              schoolAddress: data.address,
+                              schoolName: data.name,
+                              schoolPosition: data.address,
+                              expandable: true
+                            }
+                          }
+                        }
+                      })
+                    }
                     key={i}
                   />
                 );

@@ -69,7 +69,15 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
   }
 
   render() {
-    const { name, avatar, phone, did, schoolsList, coursesList } = this.props;
+    const {
+      name,
+      avatar,
+      phone,
+      did,
+      schoolsList,
+      coursesList,
+      componentId
+    } = this.props;
     return (
       <Screen type={Screen.Types.Primary}>
         <Container>
@@ -150,6 +158,37 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                         expandable: false
                       }}
                       key={`schoolPosition ${i}`}
+                      onPress={() =>
+                        Navigation.push(componentId, {
+                          component: {
+                            name: SCREENS.AddSchoolInformation,
+                            options: {
+                              topBar: {
+                                elevation: 0,
+                                drawBehind: false,
+                                // rightButtons: [rightButtonsCredentialScreen],
+                                title: {
+                                  text: "Add School",
+                                  alignment: "center",
+                                  fontFamily: "bold"
+                                },
+                                backButton: {
+                                  visible: true
+                                }
+                              }
+                            },
+                            passProps: {
+                              ...this.props,
+                              data: {
+                                schoolAddress: data.address,
+                                schoolName: data.name,
+                                schoolPosition: data.address,
+                                expandable: true
+                              }
+                            }
+                          }
+                        })
+                      }
                     />
                   ))}
                 <Container margin={Theme.spacing.default}>
