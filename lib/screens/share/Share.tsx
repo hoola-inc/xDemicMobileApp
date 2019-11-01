@@ -23,7 +23,8 @@ import { Item, Input as InputNative } from "native-base";
 import { StyleSheet, Alert, ScrollView } from "react-native";
 import { Screen, Theme, Container, Text, Icon, Colors } from "@kancha";
 import { Navigation } from "react-native-navigation";
-import SCREENS from "../Screens";
+// import SCREENS from "../Screens";
+import SCREENS from "xdemic/lib/screens/Screens";
 import Mori from "mori";
 import { AvatarNameWithSubHeader } from "xdemic/lib/components/shared";
 import { ownClaims } from "xdemic/lib/selectors/identities";
@@ -182,6 +183,38 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                           schoolPosition: data.offer,
                           expandable: false
                         }}
+                        onPress={() =>
+                          Navigation.push(componentId, {
+                            component: {
+                              name: SCREENS.AddSchoolInformation,
+                              options: {
+                                topBar: {
+                                  elevation: 0,
+                                  drawBehind: false,
+                                  // rightButtons: [rightButtonsCredentialScreen],
+                                  title: {
+                                    text: "Add School",
+                                    alignment: "center",
+                                    fontFamily: "bold"
+                                  },
+                                  backButton: {
+                                    visible: true
+                                  }
+                                }
+                              },
+                              passProps: {
+                                ...this.props,
+                                data: {
+                                  schoolAddress: data.address,
+                                  schoolName: data.name,
+                                  schoolPosition: data.address,
+                                  //expandable: false,
+                                  expandable: true
+                                }
+                              }
+                            }
+                          })
+                        }
                         key={"schoolPosition"}
                       />
                     ))}
@@ -240,6 +273,38 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                       schoolPosition: data.address,
                       expandable: false
                     }}
+                    onPress={() =>
+                      Navigation.push(componentId, {
+                        component: {
+                          name: SCREENS.SendTranscript,
+                          options: {
+                            topBar: {
+                              elevation: 0,
+                              drawBehind: false,
+                              // rightButtons: [rightButtonsCredentialScreen],
+                              title: {
+                                text: "Send Transcript",
+                                alignment: "center",
+                                fontFamily: "bold"
+                              },
+                              backButton: {
+                                visible: true
+                              }
+                            }
+                          },
+                          passProps: {
+                            ...this.props,
+                            data: {
+                              schoolAddress: data.address,
+                              schoolName: data.name,
+                              schoolPosition: data.address,
+                              //expandable: false,
+                              expandable: true
+                            }
+                          }
+                        }
+                      })
+                    }
                     key={i}
                   />
                 );
@@ -273,6 +338,37 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                       schoolPosition: data.address,
                       expandable: false
                     }}
+                    onPress={() =>
+                      Navigation.push(componentId, {
+                        component: {
+                          name: SCREENS.SendTranscript,
+                          options: {
+                            topBar: {
+                              elevation: 0,
+                              drawBehind: false,
+                              // rightButtons: [rightButtonsCredentialScreen],
+                              title: {
+                                text: "Send Transcript",
+                                alignment: "center",
+                                fontFamily: "bold"
+                              },
+                              backButton: {
+                                visible: true
+                              }
+                            }
+                          },
+                          passProps: {
+                            ...this.props,
+                            data: {
+                              schoolAddress: data.address,
+                              schoolName: data.name,
+                              schoolPosition: data.address,
+                              expandable: true
+                            }
+                          }
+                        }
+                      })
+                    }
                     key={i}
                   />
                 );

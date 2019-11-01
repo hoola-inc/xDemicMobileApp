@@ -50,7 +50,7 @@ const listenForAndroidFabButtonEvent = () => {
                 title: {
                   text: "Send To",
                   alignment: "center",
-                  fontFamily: "bold",
+                  // fontFamily: "bold",
                   color: Colors.WHITE
                 },
                 elevation: 0,
