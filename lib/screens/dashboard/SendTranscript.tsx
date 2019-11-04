@@ -5,18 +5,14 @@ import { connect } from "react-redux";
 import { addSchool } from "xdemic/lib/actions/schoolActions";
 import { Screen, Container, Text, Theme, Icon, Images } from "@kancha";
 import { AddSchoolCancelGroup } from "xdemic/lib/components/shared/Button";
-import photoSelectionHandler from "xdemic/lib/utilities/photoSelection";
+
 import { currentAddress } from "../../selectors/identities";
-import { activationEvent } from "xdemic/lib/actions/userActivationActions";
+
 import { track } from "xdemic/lib/actions/metricActions";
-import { startMain } from "xdemic/lib/navigators/navigation";
+
 import { Navigation } from "react-native-navigation";
 import SCREENS from "xdemic/lib/screens/Screens";
-import {
-  createIdentity,
-  addClaims,
-  addImage
-} from "xdemic/lib/actions/uportActions";
+import { addClaims } from "xdemic/lib/actions/uportActions";
 import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import TESTID from "xdemic/lib/e2e/testIDs";
@@ -26,7 +22,7 @@ interface ImageObj {
   uri: string;
 }
 
-interface CreateIdentityProps {
+interface SendTranscriptProps {
   componentId: string;
   navigator: Navigator;
   address: string;
@@ -38,9 +34,7 @@ interface CreateIdentityProps {
   studentName: string;
 
   //**Redux Actions */
-  createIdentity: () => void;
-  finishOnboarding: () => void;
-  addImage: (address: string, claimType: string, image: ImageObj) => void;
+
   storeOwnClaim: (address: string, claims: any) => void;
   trackSegment: (event: any) => any;
   addSchool: (data: any) => any;
@@ -48,7 +42,7 @@ interface CreateIdentityProps {
   registerDeviceForNotifications: () => void;
 }
 
-interface CreateIdentityState {
+interface SendTranscriptState {
   valid: boolean;
   name: string;
   search: string;
@@ -60,14 +54,6 @@ interface CreateIdentityState {
   image: ImageObj | undefined;
 }
 
-/**
- * This will be extracted to a new Avatar component
- */
-interface AvatarProps {
-  image: string | undefined;
-  text: string;
-}
-
 const navOptions = {
   topBar: {
     background: {
@@ -77,20 +63,9 @@ const navOptions = {
   }
 };
 
-const Avatar: React.FC<AvatarProps> = ({ image, text }) => {
-  const avatar = image ? { uri: image } : Images.profile.avatar;
-  return (
-    <Image
-      source={avatar}
-      style={{ width: 150, height: 150, borderRadius: 75 }}
-      resizeMode={"cover"}
-    />
-  );
-};
-
 class SendTranscript extends React.Component<
-  CreateIdentityProps,
-  CreateIdentityState
+  SendTranscriptProps,
+  SendTranscriptState
 > {
   static options(passProps: any) {
     return {
@@ -98,7 +73,7 @@ class SendTranscript extends React.Component<
     };
   }
 
-  constructor(props: CreateIdentityProps) {
+  constructor(props: SendTranscriptProps) {
     super(props);
 
     this.state = {
@@ -113,7 +88,6 @@ class SendTranscript extends React.Component<
       identityCreationSuccess: false
     };
 
-    this.addImage = this.addImage.bind(this);
     this.submitTranscript = this.submitTranscript.bind(this);
   }
 
@@ -121,17 +95,6 @@ class SendTranscript extends React.Component<
     this.props.trackSegment("Open");
   }
 
-  onChangeText = (text: string) => {
-    this.setState({
-      ...this.state,
-      name: text
-    });
-  };
-
-  isValid() {
-    const { name, termsAccepted, privacyAccepted } = this.state;
-    return name && termsAccepted && privacyAccepted;
-  }
   /**
    * Api Funnctions for right now
    * after that we will need to change this
@@ -279,7 +242,7 @@ class SendTranscript extends React.Component<
           </Container>
         }
       >
-        {this.renderUserAddingInfo()}
+        {this.renderSendTranscriptScreenUI()}
       </Screen>
     );
   }
@@ -287,7 +250,7 @@ class SendTranscript extends React.Component<
   /**
    * UI Render states
    */
-  renderUserAddingInfo() {
+  renderSendTranscriptScreenUI() {
     return (
       <Container
         disabled={
@@ -344,126 +307,8 @@ class SendTranscript extends React.Component<
   }
 
   /**
-   * Todo - Create Modal component used below...
-   */
-  renderIdentityCreationSuccess() {
-    return (
-      <Container
-        flex={1}
-        justifyContent={"center"}
-        alignItems={"center"}
-        testID={TESTID.ONBOARDING_SUCCESS_MODAL}
-      >
-        <Container
-          padding
-          marginLeft
-          marginRight
-          background={"primary"}
-          viewStyle={{
-            shadowRadius: 30,
-            elevation: 4,
-            shadowColor: "black",
-            shadowOpacity: 0.2,
-            borderRadius: 5
-          }}
-        >
-          <Container alignItems={"center"} paddingBottom paddingTop>
-            <Text type={Text.Types.H2} bold>
-              You are all set!
-            </Text>
-            <Container paddingTop={5}>
-              <Text type={Text.Types.SubTitle}>Identity created</Text>
-            </Container>
-          </Container>
-          <Container justifyContent={"center"} alignItems={"center"}>
-            <Icon
-              name={"search"}
-              size={150}
-              color={Theme.colors.confirm.accessories}
-            />
-          </Container>
-          <Container flexDirection={"row"} justifyContent={"center"}>
-            <ActivityIndicator style={{ marginRight: 10 }} />
-            <Text type={Text.Types.ListItem}>Preparing dashboard...</Text>
-          </Container>
-
-          <Container padding>
-            <Text type={Text.Types.SubTitle} textAlign={"center"}>
-              You have successfully created a xDemic DID identity. Your private
-              keys have been saved securely to your device
-            </Text>
-          </Container>
-        </Container>
-      </Container>
-    );
-  }
-
-  /**
    * Class methods
    */
-  addImage(response: any) {
-    this.setState({
-      image: response.avatar
-    });
-  }
-
-  chooseProfileImage = () => {
-    photoSelectionHandler({
-      cameraStatus: "",
-      photoStatus: "",
-      segmentId: "",
-      addFn: this.addImage
-    });
-  };
-
-  createIdentity() {
-    this.setState({
-      ...this.state,
-      userAddingInfo: false,
-      userCreatingidentity: true
-    });
-
-    /**
-     * Create identity
-     */
-    this.props.createIdentity();
-
-    setTimeout(() => {
-      this.showIdentityCreationStatus(this.props.address);
-
-      setTimeout(() => {
-        /**
-         * Update the user profile with onboarding user data
-         */
-        if (this.props.address) {
-          this.state.image &&
-            this.props.addImage(this.props.address, "avatar", this.state.image);
-          this.state.name &&
-            this.props.storeOwnClaim(this.props.address, {
-              name: this.state.name
-            });
-        }
-
-        /**
-         * Fire get started event
-         */
-        this.props.trackSegment("Get Started");
-
-        /**
-         * Onboarding complete
-         */
-        this.props.finishOnboarding();
-      }, 2000);
-    }, 2600);
-  }
-
-  showIdentityCreationStatus(address: string) {
-    this.setState({
-      ...this.state,
-      userCreatingidentity: false,
-      identityCreationSuccess: true
-    });
-  }
 }
 
 const mapStateToProps = (state: any) => {
@@ -474,19 +319,10 @@ const mapStateToProps = (state: any) => {
 
 export const mapDispatchToProps = (dispatch: any) => {
   return {
-    createIdentity: () => dispatch(createIdentity()),
-    finishOnboarding: () => {
-      dispatch(activationEvent("ONBOARDED"));
-      dispatch(track("Onboarding Complete Finished"));
-      //**Start app after tracking events fire */
-      startMain();
-    },
     trackSegment: (event: any) => {
       dispatch(track(`Onboarding Complete ${event}`));
     },
-    addImage: (address: string, claimType: string, image: any) => {
-      dispatch(addImage(address, claimType, image));
-    },
+
     storeOwnClaim: (address: string, claims: any) => {
       dispatch(addClaims(address, claims));
     },
