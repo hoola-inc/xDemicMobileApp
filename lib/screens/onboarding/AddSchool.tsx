@@ -47,8 +47,6 @@ interface AddSchoolState {
   userAddingInfo: boolean;
   userCreatingidentity: boolean;
   identityCreationSuccess: boolean;
-
-  schools: any[];
 }
 
 /**
@@ -81,48 +79,14 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
       privacyAccepted: false,
       userAddingInfo: true,
       userCreatingidentity: false,
-      identityCreationSuccess: false,
-      schools: []
+      identityCreationSuccess: false
     };
-
-    this.fetchSchools = this.fetchSchools.bind(this);
   }
 
   componentDidMount() {
     console.log("adds school componentDidMount");
     this.props.getSchools();
-    this.fetchSchools();
   }
-
-  fetchSchools = async () => {
-    const response = await fetch(
-      "https://xdemic-fronend-testing.herokuapp.com/schools"
-    );
-    const json = await response.json();
-    if (!json.status) {
-      Alert.alert(
-        "Schools",
-        "Schools not found!",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel"
-          }
-          // {
-          //   text: " Event ClearQueue",
-          //   style: "destructive",
-          //   onPress: () => console.log("on Pressed")
-          // }
-        ],
-        { cancelable: true }
-      );
-    } else {
-      this.setState({
-        schools: json.data
-      });
-    }
-  };
 
   isValid() {
     const { name, termsAccepted, privacyAccepted } = this.state;
@@ -181,6 +145,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
    * UI Render states
    */
   renderUserAddingInfo() {
+    const { schoolsList, componentId } = this.props;
     return (
       <Container
         disabled={
@@ -234,8 +199,8 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
             >
               Search Result
             </Text>
-            {this.props.schoolsList.length !== 0 &&
-              this.props.schoolsList.map((data: any, i: any) => {
+            {schoolsList.length !== 0 &&
+              schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
@@ -245,9 +210,9 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                       schoolPosition: data.address,
                       expandable: false
                     }}
-                    key={i}
+                    key={i + "sdf"}
                     onPress={() =>
-                      Navigation.push(this.props.componentId, {
+                      Navigation.push(componentId, {
                         component: {
                           name: SCREENS.AddSchoolInformation,
                           options: {
@@ -294,8 +259,8 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
             >
               Near You
             </Text>
-            {this.state.schools.length !== 0 &&
-              this.state.schools.map((data: any, i: any) => {
+            {schoolsList.length !== 0 &&
+              schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
@@ -306,7 +271,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                       expandable: false
                     }}
                     onPress={() =>
-                      Navigation.push(this.props.componentId, {
+                      Navigation.push(componentId, {
                         component: {
                           name: SCREENS.AddSchoolInformation,
                           options: {
@@ -336,7 +301,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                         }
                       })
                     }
-                    key={i}
+                    key={i + "dfe"}
                   />
                 );
               })}
