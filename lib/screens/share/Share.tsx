@@ -53,7 +53,6 @@ interface UserShareProps {
 
 interface UserShareState {
   devMode: boolean;
-  count: number;
 }
 
 export class UserShare extends React.Component<UserShareProps, UserShareState> {
@@ -64,8 +63,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
      * Enable devmode in simulator by default
      */
     this.state = {
-      devMode: __DEV__ ? true : false,
-      count: 0
+      devMode: __DEV__ ? true : false
     };
   }
   componentDidMount() {
@@ -115,15 +113,6 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
           }
         }
       }
-    });
-  }
-
-  incrementDeveloperModeCount() {
-    this.setState(state => {
-      return {
-        count: state.count + 1,
-        devMode: state.count >= 10
-      };
     });
   }
 
