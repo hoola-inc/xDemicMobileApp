@@ -114,7 +114,7 @@ class SendTranscript extends React.Component<
     };
 
     this.addImage = this.addImage.bind(this);
-    this.studentAddSchool = this.studentAddSchool.bind(this);
+    this.submitTranscript = this.submitTranscript.bind(this);
   }
 
   componentDidMount() {
@@ -136,7 +136,7 @@ class SendTranscript extends React.Component<
    * Api Funnctions for right now
    * after that we will need to change this
    */
-  studentAddSchool = async () => {
+  submitTranscript = async () => {
     const data = { ...this.props.data, studentName: "Rizwan" };
     const res = await axios.post(
       "https://xdemic-api.herokuapp.com/studentmobile",
@@ -268,10 +268,10 @@ class SendTranscript extends React.Component<
               acceptText={"Send"}
               cancelText={"Contact"}
               onAccept={() => {
-                this.studentAddSchool();
+                this.submitTranscript();
               }}
               onCancel={() => {
-                // this.studentAddSchool();
+                // this.submitTranscript();
                 console.log("on cancel buttonText props is: ", this.props.data);
               }}
             />
