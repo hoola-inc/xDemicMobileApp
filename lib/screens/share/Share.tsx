@@ -72,15 +72,46 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
     this.props.getSchools();
   }
 
-  goToScreen(screenID: string) {
+  goToScreen(screenID: string, title: string, data?: any) {
+    // Navigation.push(this.props.componentId, {
+    //   component: {
+    //     name: screenID,
+    //     options: {
+    //       topBar: {
+    //         largeTitle: {
+    //           visible: false
+    //         }
+    //       }
+    //     }
+    //   }
+
+    /////////////////
     Navigation.push(this.props.componentId, {
       component: {
         name: screenID,
         options: {
           topBar: {
-            largeTitle: {
-              visible: false
+            elevation: 0,
+            drawBehind: false,
+            // rightButtons: [rightButtonsCredentialScreen],
+            title: {
+              text: title,
+              alignment: "center",
+              fontFamily: "bold"
+            },
+            backButton: {
+              visible: true
             }
+          }
+        },
+        passProps: {
+          ...this.props,
+          data: {
+            schoolAddress: data.address,
+            schoolName: data.name,
+            schoolPosition: data.address,
+            //expandable: false,
+            expandable: true
           }
         }
       }
@@ -99,7 +130,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
   /**
    * UI Render states
    */
-  renderUserAddingInfo() {
+  renderScreenUI() {
     const { schoolsList, componentId } = this.props;
     return (
       <Container
@@ -184,36 +215,11 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                           expandable: false
                         }}
                         onPress={() =>
-                          Navigation.push(componentId, {
-                            component: {
-                              name: SCREENS.AddSchoolInformation,
-                              options: {
-                                topBar: {
-                                  elevation: 0,
-                                  drawBehind: false,
-                                  // rightButtons: [rightButtonsCredentialScreen],
-                                  title: {
-                                    text: "Add School",
-                                    alignment: "center",
-                                    fontFamily: "bold"
-                                  },
-                                  backButton: {
-                                    visible: true
-                                  }
-                                }
-                              },
-                              passProps: {
-                                ...this.props,
-                                data: {
-                                  schoolAddress: data.address,
-                                  schoolName: data.name,
-                                  schoolPosition: data.address,
-                                  //expandable: false,
-                                  expandable: true
-                                }
-                              }
-                            }
-                          })
+                          this.goToScreen(
+                            SCREENS.AddSchoolInformation,
+                            "Add School",
+                            data
+                          )
                         }
                         key={"schoolPosition"}
                       />
@@ -274,36 +280,11 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                       expandable: false
                     }}
                     onPress={() =>
-                      Navigation.push(componentId, {
-                        component: {
-                          name: SCREENS.SendTranscript,
-                          options: {
-                            topBar: {
-                              elevation: 0,
-                              drawBehind: false,
-                              // rightButtons: [rightButtonsCredentialScreen],
-                              title: {
-                                text: "Send Transcript",
-                                alignment: "center",
-                                fontFamily: "bold"
-                              },
-                              backButton: {
-                                visible: true
-                              }
-                            }
-                          },
-                          passProps: {
-                            ...this.props,
-                            data: {
-                              schoolAddress: data.address,
-                              schoolName: data.name,
-                              schoolPosition: data.address,
-                              //expandable: false,
-                              expandable: true
-                            }
-                          }
-                        }
-                      })
+                      this.goToScreen(
+                        SCREENS.SendTranscript,
+                        "Send Transcript",
+                        data
+                      )
                     }
                     key={i}
                   />
@@ -339,35 +320,11 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                       expandable: false
                     }}
                     onPress={() =>
-                      Navigation.push(componentId, {
-                        component: {
-                          name: SCREENS.SendTranscript,
-                          options: {
-                            topBar: {
-                              elevation: 0,
-                              drawBehind: false,
-                              // rightButtons: [rightButtonsCredentialScreen],
-                              title: {
-                                text: "Send Transcript",
-                                alignment: "center",
-                                fontFamily: "bold"
-                              },
-                              backButton: {
-                                visible: true
-                              }
-                            }
-                          },
-                          passProps: {
-                            ...this.props,
-                            data: {
-                              schoolAddress: data.address,
-                              schoolName: data.name,
-                              schoolPosition: data.address,
-                              expandable: true
-                            }
-                          }
-                        }
-                      })
+                      this.goToScreen(
+                        SCREENS.SendTranscript,
+                        "Send Transcript",
+                        data
+                      )
                     }
                     key={i}
                   />
@@ -447,7 +404,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             detailed={false}
           />
         </Container>
-        {this.renderUserAddingInfo()}
+        {this.renderScreenUI()}
         <Container paddingBottom />
       </Screen>
     );
