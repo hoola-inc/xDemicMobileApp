@@ -230,6 +230,7 @@ class SendTranscript extends React.Component<
             <AddSchoolCancelGroup
               acceptText={"Send"}
               cancelText={"Contact"}
+              disabled
               onAccept={() => {
                 this.submitTranscript();
               }}
