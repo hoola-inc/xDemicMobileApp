@@ -13,7 +13,7 @@ import { track } from "xdemic/lib/actions/metricActions";
 import { Navigation } from "react-native-navigation";
 import SCREENS from "xdemic/lib/screens/Screens";
 import { addClaims } from "xdemic/lib/actions/uportActions";
-import { registerDeviceForNotifications } from "xdemic/lib/actions/snsRegistrationActions";
+
 import BaseCard from "xdemic/lib/components/shared/BaseCard";
 import TESTID from "xdemic/lib/e2e/testIDs";
 
@@ -34,12 +34,9 @@ interface SendTranscriptProps {
   studentName: string;
 
   //**Redux Actions */
-
-  storeOwnClaim: (address: string, claims: any) => void;
   trackSegment: (event: any) => any;
   addSchool: (data: any) => any;
   addingSchool: (data: any) => any;
-  registerDeviceForNotifications: () => void;
 }
 
 interface SendTranscriptState {
@@ -322,13 +319,6 @@ export const mapDispatchToProps = (dispatch: any) => {
   return {
     trackSegment: (event: any) => {
       dispatch(track(`Onboarding Complete ${event}`));
-    },
-
-    storeOwnClaim: (address: string, claims: any) => {
-      dispatch(addClaims(address, claims));
-    },
-    registerDeviceForNotifications: () => {
-      dispatch(registerDeviceForNotifications());
     },
     addingSchool: (data: any) => {
       dispatch(addSchool(data));
