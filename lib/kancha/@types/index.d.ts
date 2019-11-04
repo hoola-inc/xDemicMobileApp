@@ -127,10 +127,17 @@ declare namespace Kancha {
       default: number;
       default12: number;
       default16: number;
+      default20: number;
+      default24: number;
+      default28: number;
       default32: number;
+      default36: number;
       default40: number;
+      default44: number;
       default48: number;
+      default52: number;
       default56: number;
+      default60: number;
       default64: number;
       section: number;
     };
