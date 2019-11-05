@@ -96,6 +96,7 @@ class SendTranscript extends React.Component<
    * Api Funnctions for right now
    * after that we will need to change this
    */
+
   submitTranscript = async () => {
     const data = { ...this.props.data, studentName: "Rizwan" };
     const res = await axios.post(
@@ -153,7 +154,6 @@ class SendTranscript extends React.Component<
    * UI Render main Screen
    */
   render() {
-    console.log("This.props is: ", this.props);
     return (
       <Screen
         type={Screen.Types.Primary}
