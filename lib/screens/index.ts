@@ -28,7 +28,7 @@ export function registerScreens(redux: any) {
    * Helper screens
    */
   registerComponentWithRedux(redux)(SCREENS.SendTo, require('./share/SendTo').default)
-  registerComponentWithRedux(redux)(SCREENS.SendTranscript, require('./dashboard/SendTranscript').default)
+  registerComponentWithRedux(redux)(SCREENS.SendTranscript, require('./share/SendTranscript').default)
 
 
   /**
