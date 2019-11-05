@@ -3,7 +3,6 @@
  */
 export default {
   Dashboard: "Dashboard",
-  SendTranscript: "SendTranscript",
   Credentials: "Credentials",
   Credential: "Credential",
   Contacts: "Contacts",
@@ -15,6 +14,7 @@ export default {
   Settings: "Settings",
   Share: "Share",
   SendTo: "SendTo",
+  SendTranscript: "SendTranscript",
   Profile: "Profile",
   DesignSystem: "DesignSystem",
   Scanner: "Scanner",
