@@ -78,6 +78,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
       coursesList,
       componentId
     } = this.props;
+    console.log(`name: ${name}, phone: ${phone}, avatar: ${avatar}`);
     return (
       <Screen type={Screen.Types.Primary}>
         <Container>
@@ -152,12 +153,11 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                       paddingTop
                       marginRight
                       data={{
-                        schoolAddress: data.address,
-                        schoolName: data.name,
-                        schoolPosition: data.offer,
+                        ...data,
                         expandable: false
                       }}
-                      key={`schoolPosition ${i}`}
+                      // key={`schoolPosition ${i}`}
+                      key={data._id}
                       onPress={() =>
                         Navigation.push(componentId, {
                           component: {
@@ -180,9 +180,10 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
                             passProps: {
                               ...this.props,
                               data: {
-                                schoolAddress: data.address,
-                                schoolName: data.name,
-                                schoolPosition: data.address,
+                                ...data,
+                                // schoolAddress: data.address,
+                                // schoolName: data.name,
+                                // schoolPosition: data.address,
                                 expandable: true
                               }
                             }
@@ -245,10 +246,10 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             margin={Theme.spacing.default16}
             marginTop={Theme.spacing.default4}
           >
-            {coursesList.length > 0 &&
+            {/* {coursesList.length > 0 &&
               coursesList.map((data: any, i: any) => (
                 <BaseCollapsible {...this.props} data={data} key={i} />
-              ))}
+              ))} */}
           </Container>
         </Container>
       </Screen>

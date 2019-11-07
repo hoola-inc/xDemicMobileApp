@@ -198,9 +198,10 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                         paddingTop
                         marginRight
                         data={{
-                          schoolAddress: data.address,
-                          schoolName: data.name,
-                          schoolPosition: data.offer,
+                          ...data,
+                          // schoolAddress: data.address,
+                          // schoolName: data.name,
+                          // schoolPosition: data.offer,
                           expandable: false
                         }}
                         onPress={() =>
@@ -210,7 +211,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                             data
                           )
                         }
-                        key={"schoolPosition"}
+                        key={data._id}
                       />
                     ))}
                   <Container margin={Theme.spacing.default}>
@@ -257,7 +258,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             >
               Search Result
             </Text>
-            {schoolsList.length !== 0 &&
+            {/* {schoolsList.length !== 0 &&
               schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
@@ -278,7 +279,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     key={i}
                   />
                 );
-              })}
+              })} */}
           </Container>
         </Container>
         <Container
@@ -297,7 +298,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             >
               Favorites
             </Text>
-            {schoolsList.length !== 0 &&
+            {/* {schoolsList.length !== 0 &&
               schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
@@ -318,7 +319,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     key={i}
                   />
                 );
-              })}
+              })} */}
           </Container>
         </Container>
         {/* <Container padding justifyContent={"center"} alignItems={"flex-end"}>
