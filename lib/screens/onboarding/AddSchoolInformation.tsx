@@ -347,9 +347,10 @@ class AddSchoolInformation extends React.Component<
                     passProps: {
                       ...this.props,
                       data: {
-                        schoolAddress: this.props.data.address,
-                        schoolName: this.props.data.name,
-                        schoolPosition: this.props.data.address,
+                        ...this.props.data,
+                        // schoolAddress: data.address,
+                        // schoolName: data.name,
+                        // schoolPosition: data.address,
                         expandable: true
                       }
                     }

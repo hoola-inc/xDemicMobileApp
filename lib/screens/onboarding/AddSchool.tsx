@@ -205,9 +205,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                   <BaseCard
                     {...this.props}
                     data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.address,
+                      ...data,
                       expandable: false
                     }}
                     key={i + "sdf"}
@@ -219,7 +217,6 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                             topBar: {
                               elevation: 0,
                               drawBehind: false,
-                              // rightButtons: [rightButtonsCredentialScreen],
                               title: {
                                 text: "Add School",
                                 alignment: "center",
@@ -233,9 +230,10 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                           passProps: {
                             ...this.props,
                             data: {
-                              schoolAddress: data.address,
-                              schoolName: data.name,
-                              schoolPosition: data.address,
+                              ...data,
+                              // schoolAddress: data.address,
+                              // schoolName: data.name,
+                              // schoolPosition: data.address,
                               expandable: true
                             }
                           }
@@ -265,9 +263,7 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                   <BaseCard
                     {...this.props}
                     data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.address,
+                      ...data,
                       expandable: false
                     }}
                     onPress={() =>
@@ -292,9 +288,10 @@ class AddSchool extends React.Component<AddSchoolProps, AddSchoolState> {
                           passProps: {
                             ...this.props,
                             data: {
-                              schoolAddress: data.address,
-                              schoolName: data.name,
-                              schoolPosition: data.address,
+                              ...data,
+                              // schoolAddress: data.address,
+                              // schoolName: data.name,
+                              // schoolPosition: data.address,
                               expandable: true
                             }
                           }
