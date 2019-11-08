@@ -105,9 +105,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
         passProps: {
           ...this.props,
           data: {
-            schoolAddress: data.address,
-            schoolName: data.name,
-            schoolPosition: data.address,
+            ...data,
             //expandable: false,
             expandable: true
           }
@@ -258,15 +256,16 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             >
               Search Result
             </Text>
-            {/* {schoolsList.length !== 0 &&
+            {schoolsList.length !== 0 &&
               schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
                     data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.address,
+                      ...data,
+                      // schoolAddress: data.address,
+                      // schoolName: data.name,
+                      // schoolPosition: data.address,
                       expandable: false
                     }}
                     onPress={() =>
@@ -279,7 +278,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     key={i}
                   />
                 );
-              })} */}
+              })}
           </Container>
         </Container>
         <Container
@@ -298,15 +297,16 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
             >
               Favorites
             </Text>
-            {/* {schoolsList.length !== 0 &&
+            {schoolsList.length !== 0 &&
               schoolsList.map((data: any, i: any) => {
                 return (
                   <BaseCard
                     {...this.props}
                     data={{
-                      schoolAddress: data.address,
-                      schoolName: data.name,
-                      schoolPosition: data.address,
+                      // schoolAddress: data.address,
+                      // schoolName: data.name,
+                      // schoolPosition: data.address,
+                      ...data,
                       expandable: false
                     }}
                     onPress={() =>
@@ -319,7 +319,7 @@ export class UserShare extends React.Component<UserShareProps, UserShareState> {
                     key={i}
                   />
                 );
-              })} */}
+              })}
           </Container>
         </Container>
         {/* <Container padding justifyContent={"center"} alignItems={"flex-end"}>

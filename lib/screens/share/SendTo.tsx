@@ -283,9 +283,9 @@ export class UserSendTo extends React.Component<
             <BaseCard
               {...this.props}
               data={{
-                schoolAddress: "School of Education",
-                schoolName: "Transcript",
-                schoolPosition: "School Position",
+                address: { streetAddress: "School of Education" },
+                name: "Transcript",
+                email: "School Position",
                 expandable: false
               }}
               key={"schoolAddress"}
@@ -311,9 +311,7 @@ export class UserSendTo extends React.Component<
                     passProps: {
                       ...this.props,
                       data: {
-                        schoolAddress: this.props.data.address,
-                        schoolName: this.props.data.name,
-                        schoolPosition: this.props.data.address,
+                        ...this.props.data,
                         expandable: true
                       }
                     }
