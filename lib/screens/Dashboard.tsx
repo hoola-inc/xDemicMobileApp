@@ -21,6 +21,7 @@ import {
   addCourse,
   populateCourse
 } from "xdemic/lib/actions/courseActions";
+import { addCourseInTranscript } from "xdemic/lib/actions/transcriptActions";
 
 const CHIP_DATA = [
   "Spring",
@@ -48,6 +49,7 @@ interface DashboardProps {
   getSchools: (schoolDid: number) => any;
 
   populateCourses: () => any;
+  addingCourseInTranscript: () => any;
   addingCourse: (data: any) => any;
   getCourses: (schoolDid: number) => any;
 }
@@ -92,34 +94,34 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
           />
         </Container>
 
-        {/* <Button
+        <Button
           fullWidth
           block={Button.Block.Filled}
           type={Button.Types.Primary}
           buttonText={"Primary Button"}
           onPress={() => {
             console.log("this.props.addingSchool() press is calling!");
-            const data = {
-              name: "on press Rizwan",
-              subjectWebpage: "adfa",
-              address: "dfs",
-              offers: "sdfa",
-              agentSectorType: "eewer",
-              agentType: "asdf",
-              DID: "adf",
-              email: "dsf",
-              telephone: "sdf"
-            };
-            this.props.addingSchool(data);
+            // const data = {
+            //   name: "on press Rizwan",
+            //   subjectWebpage: "adfa",
+            //   address: "dfs",
+            //   offers: "sdfa",
+            //   agentSectorType: "eewer",
+            //   agentType: "asdf",
+            //   DID: "adf",
+            //   email: "dsf",
+            //   telephone: "sdf"
+            // };
+            this.props.addingCourseInTranscript();
             // setTimeout(() => {
-            console.log("before this.props.getSchools() is calling!");
-            this.props.getSchools(this.props.did);
-            console.log("after this.props.getSchools() is calling!");
+            // console.log("before this.props.getSchools() is calling!");
+            // this.props.getSchools(this.props.did);
+            // console.log("after this.props.getSchools() is calling!");
             //   const newData = this.props.getSchools();
             //   console.log("new data is: ", newData);
             // }, 1000);
           }}
-        /> */}
+        />
 
         <Container paddingTop={0} flex={1} flexDirection={"column"}>
           <Container paddingLeft={Theme.spacing.default16}>
@@ -302,6 +304,9 @@ export const mapDispatchToProps = (dispatch: any) => {
     },
     getCourses: (courseDid: number) => {
       dispatch(getCourse(courseDid));
+    },
+    addingCourseInTranscript: () => {
+      dispatch(addCourseInTranscript());
     }
   };
 };
