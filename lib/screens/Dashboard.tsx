@@ -21,7 +21,10 @@ import {
   addCourse,
   populateCourse
 } from "xdemic/lib/actions/courseActions";
-import { addCourseInTranscript } from "xdemic/lib/actions/transcriptActions";
+import {
+  addCourseInTranscript,
+  getCourseFromTranscript
+} from "xdemic/lib/actions/transcriptActions";
 
 const CHIP_DATA = [
   "Spring",
@@ -50,6 +53,7 @@ interface DashboardProps {
 
   populateCourses: () => any;
   addingCourseInTranscript: () => any;
+  getCoursesFromTranscript: () => any;
   addingCourse: (data: any) => any;
   getCourses: (schoolDid: number) => any;
 }
@@ -100,7 +104,10 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
           type={Button.Types.Primary}
           buttonText={"Primary Button"}
           onPress={() => {
-            console.log("this.props.addingSchool() press is calling!");
+            console.log(
+              "this.props.getCoursesFromTranscript()() press is calling! data is: ",
+              this.props.getCoursesFromTranscript()
+            );
             // const data = {
             //   name: "on press Rizwan",
             //   subjectWebpage: "adfa",
@@ -113,6 +120,7 @@ export class Dashboard extends React.Component<DashboardProps, DashboardState> {
             //   telephone: "sdf"
             // };
             this.props.addingCourseInTranscript();
+            // this.props.getCoursesFromTranscript();
             // setTimeout(() => {
             // console.log("before this.props.getSchools() is calling!");
             // this.props.getSchools(this.props.did);
@@ -307,6 +315,9 @@ export const mapDispatchToProps = (dispatch: any) => {
     },
     addingCourseInTranscript: () => {
       dispatch(addCourseInTranscript());
+    },
+    getCoursesFromTranscript: () => {
+      dispatch(getCourseFromTranscript());
     }
   };
 };
