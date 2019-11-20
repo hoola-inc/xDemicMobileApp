@@ -44,6 +44,7 @@ interface DashboardProps {
   did: any;
   schoolsList: any[];
   coursesList: any[];
+
   /**
    * Redux actions
    */
