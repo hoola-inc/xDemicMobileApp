@@ -100,7 +100,7 @@
     "buffer": "^5.1.0",
     "crypto-browserify": "^3.12.0",
     "did-jwt": "^0.2.0",
-    "elliptic": "^6.3.2",
+    "elliptic": "^6.5.2",
     "eth-did-resolver": "^0.1.1",
     "eth-signer": "^0.3.3",
     "ether-pudding": "2.0.9",
