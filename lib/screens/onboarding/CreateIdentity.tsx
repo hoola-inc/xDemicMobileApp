@@ -56,7 +56,7 @@ interface CreateIdentityState {
   name: string;
   phoneNumber: string;
   identityNumber: string;
-  dob: string;
+  birthDate: string;
   termsAccepted: boolean;
   privacyAccepted: boolean;
   userAddingInfo: boolean;
@@ -117,7 +117,7 @@ class CreateIdentity extends React.Component<
       identityCreationSuccess: false,
       phoneNumber: "",
       identityNumber: "",
-      dob: ""
+      birthDate: ""
     };
 
     this.addImage = this.addImage.bind(this);
@@ -145,23 +145,23 @@ class CreateIdentity extends React.Component<
       identityNumber: text
     });
   };
-  onChangeDob = (text: string) => {
+  onChangebirthDate = (text: string) => {
     this.setState({
       ...this.state,
-      dob: text
+      birthDate: text
     });
   };
 
   isValid() {
     const {
       name,
-      dob,
+      birthDate,
       phoneNumber,
       identityNumber,
       termsAccepted,
       privacyAccepted
     } = this.state;
-    return name && dob && phoneNumber;
+    return name && birthDate && phoneNumber;
     // && identityNumber;
     // && termsAccepted && privacyAccepted;
   }
@@ -345,9 +345,9 @@ class CreateIdentity extends React.Component<
               placeholder={"Date of Birth"}
               textType={Text.Types.H2}
               inputType={"filled"}
-              value={this.state.dob}
-              onChangeText={this.onChangeDob}
-              valid={!!this.state.dob}
+              value={this.state.birthDate}
+              onChangeText={this.onChangebirthDate}
+              valid={!!this.state.birthDate}
             />
           </Container>
           <Container padding>
@@ -536,7 +536,7 @@ class CreateIdentity extends React.Component<
           this.state.name &&
             this.props.storeOwnClaim(this.props.address, {
               name: this.state.name,
-              dob: this.state.dob,
+              birthDate: this.state.birthDate,
               phone: this.state.phoneNumber
               // country: this.state.identityNumber
             });

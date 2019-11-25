@@ -37,7 +37,14 @@ import Mori from "mori";
 /**
  * User data fields (Self attested claims)
  */
-const USER_FIELDS = ["name", "email", "country", "phone", "avatar", "dob"];
+const USER_FIELDS = [
+  "name",
+  "email",
+  "country",
+  "phone",
+  "avatar",
+  "birthDate"
+];
 
 // const USER_FIELDS = ['name', 'email', 'country', 'phone', 'avatar']
 
@@ -72,7 +79,7 @@ interface UserProfileProps {
   country: string;
   phone: string;
   userData: any;
-  dob: string;
+  birthDate: string;
   address: string;
   shareToken: string;
   verifications: any;
@@ -613,10 +620,10 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.phone !== "undefined"
         ? state.myInfo.changed.phone
         : userData.phone,
-    dob:
-      typeof state.myInfo.changed.dob !== "undefined"
-        ? state.myInfo.changed.dob
-        : userData.dob,
+    birthDate:
+      typeof state.myInfo.changed.birthDate !== "undefined"
+        ? state.myInfo.changed.birthDate
+        : userData.birthDate,
     userData,
     address: currentAddress(state),
     shareToken: state.myInfo.shareToken,
