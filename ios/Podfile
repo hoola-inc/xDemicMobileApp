@@ -9,6 +9,12 @@ target 'xdemic' do
   # Pods for xdemic
   source 'https://github.com/CocoaPods/Specs.git'
 
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'React', :path => '../node_modules/react-native'
+  
   pod 'AWSCore'
   pod 'AWSSNS'
   pod 'AWSCognito'
@@ -19,6 +25,14 @@ target 'xdemic' do
   pod 'Firebase/RemoteConfig'
   
   pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == "React"
+        target.remove_from_project
+      end
+    end
+  end
 
   target 'xdemicTests' do
     inherit! :search_paths
