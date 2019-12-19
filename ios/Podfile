@@ -20,12 +20,19 @@ target 'xdemic' do
   pod 'AWSCognito'
   pod 'AWSCognito'
   pod 'Valet'
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
+  pod 'Firebase/Core', :modular_headers => true
+  pod 'Firebase/Messaging', :modular_headers => true
   pod 'Firebase/RemoteConfig'
+  pod 'FirebaseAuth', :modular_headers => true
+  # pod 'Firebase/Firestore'
+  # pod 'Firebase/Storage'
+  # pod 'Firebase/Database'
+  # pod 'FBSDKCoreKit', :modular_headers => true
+  # pod 'FBSDKLoginKit', :modular_headers => true
   
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-
+  # pod 'RNFirebase', :path=> '../node_modules/react-native-firebase/ios/RNFirebase.podspec'
+  
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       if target.name == "React"

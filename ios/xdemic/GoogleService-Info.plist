@@ -2,30 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
-	<string>ca-app-pub-3940256099942544/2934735716</string>
-	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
-	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>145443782008-eme0c5nb12mcqt92tio9u66mkuh5079q.apps.googleusercontent.com</string>
+	<string>848518768196-llh6n1mjufoua8gv47r1nf0ffqr92i2g.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.145443782008-eme0c5nb12mcqt92tio9u66mkuh5079q</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>145443782008-ila264rgtsf9395dqljm6ro44307ibvk.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.848518768196-llh6n1mjufoua8gv47r1nf0ffqr92i2g</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCbQ4xTvpZQlInNyv59yWRzC434tePi9Zs</string>
+	<string>AIzaSyAvJrKMvaZBMBFvJzr4ZG3_4ElEhT2SAlg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>145443782008</string>
+	<string>848518768196</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>me.xdemic</string>
+	<string>org.hoolatech.xdemic</string>
 	<key>PROJECT_ID</key>
-	<string>xdemic-157202</string>
+	<string>xdemic-3151b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>xdemic-157202.appspot.com</string>
+	<string>xdemic-3151b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
@@ -35,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:145443782008:ios:12a6d266fe7cc29f</string>
+	<string>1:848518768196:ios:cf1ac1abd949a27c99fe11</string>
 	<key>DATABASE_URL</key>
-	<string>https://uport-157202.firebaseio.com</string>
+	<string>https://xdemic-3151b.firebaseio.com</string>
 </dict>
 </plist>
