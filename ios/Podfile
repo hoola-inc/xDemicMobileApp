@@ -13,7 +13,9 @@ target 'xdemic' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'React', :path => '../node_modules/react-native'
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+        'RCTImage', # <-- Add RCTImage
+    ]
   
   pod 'AWSCore'
   pod 'AWSSNS'
@@ -29,10 +31,12 @@ target 'xdemic' do
   # pod 'Firebase/Database'
   # pod 'FBSDKCoreKit', :modular_headers => true
   # pod 'FBSDKLoginKit', :modular_headers => true
-  
+
   pod 'RNFS', :path => '../node_modules/react-native-fs'
   # pod 'RNFirebase', :path=> '../node_modules/react-native-firebase/ios/RNFirebase.podspec'
   
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       if target.name == "React"

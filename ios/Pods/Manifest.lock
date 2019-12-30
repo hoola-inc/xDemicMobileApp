@@ -115,6 +115,11 @@ PODS:
     - React/Core (= 0.59.8)
   - React/Core (0.59.8):
     - yoga (= 0.59.8.React)
+  - React/RCTImage (0.59.8):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.59.8):
+    - React/Core
   - RNFS (2.13.3):
     - React
   - Valet (3.2.6)
@@ -131,7 +136,7 @@ DEPENDENCIES:
   - FirebaseAuth
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - React (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
   - RNFS (from `../node_modules/react-native-fs`)
   - Valet
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -209,6 +214,6 @@ SPEC CHECKSUMS:
   Valet: dcc4ff74f0d010be665239ab89c7a4a5cd39ee33
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: 342d2f74cbb0ff5eb3241a675bb6f6d964391a30
+PODFILE CHECKSUM: 801428eab11b1d33fc90e744b748367710da6e72
 
 COCOAPODS: 1.8.4
