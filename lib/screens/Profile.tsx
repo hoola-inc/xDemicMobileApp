@@ -43,7 +43,10 @@ const USER_FIELDS = [
   "country",
   "phone",
   "avatar",
-  "birthDate"
+  "birthDate",
+  "id", // did
+  "department", // admin
+  "gender"
 ];
 
 // const USER_FIELDS = ['name', 'email', 'country', 'phone', 'avatar']
@@ -598,6 +601,9 @@ export class UserProfile extends React.Component<
 
 const mapStateToProps = (state: any, ownProps: any) => {
   const userData = Mori.toJs(ownClaims(state)) || {};
+  const address = currentAddress(state);
+  const didParts = address && address.match(/^did:ethr:(0x[0-9a-fA-F]{40})/);
+  const did = didParts ? address : `did:uport:${address}`;
   return {
     ...ownProps,
     avatar:
@@ -624,6 +630,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.birthDate !== "undefined"
         ? state.myInfo.changed.birthDate
         : userData.birthDate,
+
     userData,
     address: currentAddress(state),
     shareToken: state.myInfo.shareToken,
