@@ -80,7 +80,9 @@ interface UserProfileProps {
   name: string;
   email: string;
   country: string;
+  gender: string;
   phone: string;
+  department: string;
   did: string;
   userData: any;
   birthDate: string;
@@ -631,6 +633,14 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.birthDate !== "undefined"
         ? state.myInfo.changed.birthDate
         : userData.birthDate,
+    gender:
+      typeof state.myInfo.changed.gender !== "undefined"
+        ? state.myInfo.changed.gender
+        : userData.gender,
+    department:
+      typeof state.myInfo.changed.department !== "undefined"
+        ? state.myInfo.changed.department
+        : userData.department,
     did,
     userData,
     address: currentAddress(state),
