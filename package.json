@@ -5,7 +5,7 @@
   "scripts": {
     "fxrncamera": "bash ./scripts/fix-rn-camera-search-paths.sh ./node_modules/react-native-camera/ios/RNCamera.xcodeproj/project.pbxproj",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "build": "sudo yarn package-android-release",
+    "build": "yarn package-android-release",
     "build-solidity-coder": "browserify node_modules/web3/lib/solidity/coder.js --s Coder | derequire > lib/browserified/coder.js",
     "build-bip39": "browserify node_modules/bip39/index.js --s BIP39 | derequire > lib/browserified/bip39.js",
     "build-mnid": "browserify node_modules/mnid/lib/index.js --s MNID | derequire > lib/browserified/mnid.js",
@@ -20,7 +20,7 @@
     "package-android": "mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res",
     "package-android-release": "cd android && ./gradlew clean && cd - && mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT",
     "package-android-dummy": "cd android && ./gradlew clean && cd - && yarn package-android && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT=true -PIGNORE_REPOSITORY_STATE=true",
-    "dev": " sudo react-native run-android"
+    "dev": " react-native run-android"
   },
   "jest": {
     "preset": "react-native",
