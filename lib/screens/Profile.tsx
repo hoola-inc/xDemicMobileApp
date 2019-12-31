@@ -44,7 +44,7 @@ const USER_FIELDS = [
   "phone",
   "avatar",
   "birthDate",
-  "id", // did
+  "did", // did
   "department", // admin
   "gender"
 ];
@@ -81,6 +81,7 @@ interface UserProfileProps {
   email: string;
   country: string;
   phone: string;
+  did: string;
   userData: any;
   birthDate: string;
   address: string;
@@ -630,7 +631,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
       typeof state.myInfo.changed.birthDate !== "undefined"
         ? state.myInfo.changed.birthDate
         : userData.birthDate,
-
+    did,
     userData,
     address: currentAddress(state),
     shareToken: state.myInfo.shareToken,
