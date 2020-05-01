@@ -19,7 +19,9 @@
     "android-release": "cd android && ./gradlew assembleRelease && cd ..",
     "package-android": "mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res",
     "package-android-release": "cd android && ./gradlew clean && cd - && mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT",
-    "package-android-dummy": "cd android && ./gradlew clean && cd - && yarn package-android && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT=true -PIGNORE_REPOSITORY_STATE=true"
+    "package-android-dummy": "cd android && ./gradlew clean && cd - && yarn package-android && cd android && ./gradlew deliverArchives -x bundleReleaseJsAndAssets -PIGNORE_VAULT=true -PIGNORE_REPOSITORY_STATE=true",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "jest": {
     "preset": "react-native",
@@ -169,7 +171,8 @@
     "url-parse": "^1.1.7",
     "web3": "^0.19.1",
     "whatwg-fetch": "^2.0.1",
-    "world-countries": "^1.8.1"
+    "world-countries": "^1.8.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -253,5 +256,6 @@
       "afterAll",
       "afterEach"
     ]
-  }
+  },
+  "snyk": true
 }
