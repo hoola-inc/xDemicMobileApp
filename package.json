@@ -111,7 +111,7 @@
     "ethjs-contract": "^0.1.9",
     "ethr-did-resolver": "^0.2.0",
     "events": "^1.1.0",
-    "flag": "^2.0.4",
+    "flag": "^4.0.0",
     "global": "^4.3.2",
     "google-libphonenumber": "^3.0.6",
     "https-did-resolver": "^0.1.0",
