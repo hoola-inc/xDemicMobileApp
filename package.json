@@ -130,7 +130,7 @@
     "prop-types": "^15.6.0",
     "qs": "^6.1.0",
     "react": "16.8.3",
-    "react-native": "^0.59.8",
+    "react-native": "^0.62.3",
     "react-native-animatable": "^1.2.4",
     "react-native-cache": "^1.0.3",
     "react-native-camera": "^2.6.0",
