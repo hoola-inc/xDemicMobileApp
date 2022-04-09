@@ -121,7 +121,7 @@
     "lodash": "^4.17.4",
     "metro-minify-terser": "0.53.0",
     "mnid": "^0.1.1",
-    "moment": "^2.17.1",
+    "moment": "^2.29.2",
     "mori": "file:./locals/mori",
     "nacl-did": "^0.4.0",
     "native-base": "^2.12.1",
