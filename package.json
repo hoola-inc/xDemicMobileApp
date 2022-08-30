@@ -202,7 +202,7 @@
     "metro-core": "^0.54.1",
     "metro-react-native-babel-preset": "^0.54.1",
     "mockdate": "^2.0.2",
-    "moment-timezone": "^0.5.25",
+    "moment-timezone": "^0.5.35",
     "nock": "^9.0.18",
     "prettier": "^1.15.3",
     "react-dom": "^16.8.6",
