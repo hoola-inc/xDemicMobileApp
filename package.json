@@ -128,7 +128,7 @@
     "node-libs-browser": "^2.1.0",
     "number-to-bn": "^1.7.0",
     "prop-types": "^15.6.0",
-    "qs": "^6.1.0",
+    "qs": "^6.7.3",
     "react": "16.8.3",
     "react-native": "^0.59.8",
     "react-native-animatable": "^1.2.4",
